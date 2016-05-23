@@ -1,0 +1,62 @@
+$large: 1300px
+$medium: 1260px
+$tablet: 1000px
+$mobile-large: 760px
+$mobile-medium: 630px
+$mobile-small: 480px
+$mobile-x-small: 320px
+
+//	X LARGE
+// @media screen and (min-width: 1664px)
+// 	.container
+// 		width: 1300px
+
+//	LARGE
+@media screen and (min-width: 1400px)
+	.container
+		width: 1020px
+
+//	MEDIUM
+@media screen and (max-width: 1399px)
+	.container
+		width: 1020px
+
+//	TABLET
+@media screen and (max-width: 1260px)
+	.container
+		width: 600px
+
+//	MOBILE
+@media screen and (max-width: 760px)
+	.container
+		width: 460px
+	body::-webkit-scrollbar
+		width: 0
+		height: 0
+		background-color: #fff
+		border: none
+	
+//	SMALL
+@media screen and (max-width: 480px)
+	.container
+		width: 100%
+		width: calc(100% - 64px)
+
+	.mobile-visible
+		display: inherit !important
+	.mobile-hidden
+		display: none !important
+	.mobile-xs-visible
+		display: inherit
+	.mobile-xs-hidden
+		display: none
+
+
+// --------------------------------------------------
+// GLOBAL-MEDIA
+// -------------------------------------------------- 
+@media screen and (max-width: $mobile-medium)
+	.mobile-visible
+		display: block !important
+
+//	FIXES

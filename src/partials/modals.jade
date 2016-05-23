@@ -1,0 +1,77 @@
+
+.modal-holder#search-modal(data-cross="cross-top")
+	.modal-content
+		.modal-container
+			form(action="#").input-group
+				button(type="submit").search-icon-1
+				input(type="text" placeholder="Search")
+			.result-group
+				.articles-gallery-1
+					.container
+						//- include ./articles.jade
+
+.modal-holder#login-modal(data-cross="cross-top")
+	.modal-content
+		.modal-container
+			.login-methoods-container
+				.logotype-holder.button-group
+					img(src="img/icons/meatstudies-footer.png", alt="MEAT Studies")
+				.button-group.facebook-login-button
+					a(href="index.html") Login with
+						b  Facebook
+				.button-group.email-login-button
+					a(href="signup.html" data-modal="#login-modal-email") Login with
+						b  Email
+				.button-group
+					a(href="signup.html" data-modal="#signup-modal") Sign Up
+
+
+.modal-holder#login-modal-email(data-cross="cross-top")
+	.modal-content
+		a(href="https://www.facebook.com/").socials-login-container Login with
+			b  facebook
+		.modal-back(data-modal="#login-modal")
+		.modal-container
+			form(action="#")
+				.form-group
+					.input-group
+						label(for="popup-login-email") Email
+						input(type="text")#popup-login-email
+				.form-group
+					.input-group
+						label(for="popup-login-password") Password
+						input(type="password")#popup-login-password
+						a(href="password-recovery.html" data-modal="#password-recovery").forgot-password Forgot?
+				.button-group
+					button(type="submit")
+						span Log In
+				.button-group
+					a(href="signup.html" data-modal="#signup-modal") Sign Up
+
+.modal-holder#signup-modal(data-cross="cross-top")
+	.modal-content
+		.modal-container
+			a(href="https://www.facebook.com/").socials-login-container Login with
+				b  facebook
+			.modal-back(data-modal="#login-modal")
+			form(action="#")
+				.form-group
+					.input-group
+						label(for="popup-login-name") Name
+						input(type="text")#popup-login-name
+				.form-group
+					.input-group
+						label(for="popup-login-email") Email
+						input(type="text")#popup-login-email
+				.form-group
+					.input-group
+						label(for="popup-login-password") Password
+						input(type="password")#popup-login-password
+				.button-group
+					button(type="submit")
+						span Sign Up
+
+//- .modal-holder(data-modal-ununique="true")
+	//- .modal-content
+		//- .close-modal(data-close)
+		//- .modal-container

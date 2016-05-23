@@ -1,0 +1,609 @@
+$large: 1300px
+$medium: 1260px
+$tablet: 1000px
+$mobile-large: 760px
+$mobile-medium: 640px
+$mobile-small: 480px
+$mobile-x-small: 320px
+
+// --------------------------------------------------
+// MODALS
+// --------------------------------------------------
+
+.modal-holder
+	a.close-modal, .close-modal
+		background-size: 100%
+		right: 0
+		top: 0
+		margin-top: 30px
+		margin-right: 30px
+		height: 24px
+		width: 24px
+		transition: top .1s
+	&.cross-bottom
+		a.close-modal, .close-modal
+			top: auto
+			bottom: 18px
+			right: 18px
+
+.modal-back
+	cursor: pointer
+	position: absolute
+	top: 18px
+	left: 20px
+	height: 15px
+	width: 22px
+	background: url('../img/icons/modal-back.svg')
+	background-size: 100%
+	opacity: 0.5
+	transition: opacity .3s
+	&:hover
+		opacity: 1
+		transition: opacity .1s
+
+#search-modal
+	.modal-container
+		.input-group
+			margin-left: auto
+			margin-right: auto
+			position: relative
+			padding-top: 64px
+			max-width: 1300px
+			.search-icon-1
+				background-position: 50% 50%
+				background: url(../img/icons/search-icon-1.svg) no-repeat
+				background-size: contain
+				display: block
+				height: 52px
+				position: absolute
+				top: 80px
+				width: 52px
+				float: left
+			input[type="text"], input[type="password"], input[type="email"]
+				border: none
+				outline: none
+				padding-left: 90px
+				padding-right: 90px
+				height: 80px
+				width: 100%
+				color: #35363c
+				font-family: 'Futura New'
+				font-size: 66px
+				font-weight: 300
+				line-height: 80px
+				&::-moz-placeholder, &::-webkit-input-placeholder, &:-ms-input-placeholder
+					font-weight: 300
+			&:after
+				content: ''
+				display: block
+				background: url('../img/bg/bg-line-1.jpg')
+				background-size: cover
+				position: absolute
+				left: 0
+				bottom: -19px
+				height: 3px
+				width: 100%
+		.result-group
+			padding-top: 200px
+@media screen and (max-width: $tablet)
+	#search-modal
+		.modal-container
+			.input-group
+				padding-top: 76px
+				.search-icon-1
+					display: block
+					top: 97px
+					left: 17px
+					height: 38px
+					width: 38px
+				input[type="text"], input[type="password"], input[type="email"]
+					height: 68px
+					padding-left: 62px
+					font-size: 46px
+					font-weight: 500
+					&::-moz-placeholder, &::-webkit-input-placeholder, &:-ms-input-placeholder
+						font-size: 46px
+						font-weight: 500
+			.result-group
+				padding-top: 60px
+@media screen and (max-width: $mobile-medium)
+	#search-modal
+		.modal-container
+			.input-group
+				padding-top: 0
+				.search-icon-1
+					display: block
+					left: 9px
+					top: 26px
+					height: 20px
+					width: 20px
+				input[type="text"], input[type="password"], input[type="email"]
+					padding-left: 39px
+					font-size: 46px
+					font-weight: 500
+					height: 59px
+					line-height: 71px
+					font-size: 22px
+					font-weight: 500
+					&::-moz-placeholder, &::-webkit-input-placeholder, &:-ms-input-placeholder
+						font-size: 22px
+						font-weight: 500
+				&:after
+					bottom: -2px
+					height: 2px
+			.result-group
+				padding-top: 32px
+
+#signup-modal,
+#password-recovery,
+#password-change,
+#login-modal-email,
+#login-modal
+	background: rgba(255, 255, 255, .95)
+	overflow: hidden
+	&.opened
+		.modal-content
+			transform: translate3d(-50%, -50%, 0)
+			// outline-color: #cdd1dc
+	label
+		display: block
+		color: #35363c
+		font-family: 'Futura New'
+		font-size: 16px
+		font-weight: 300
+		line-height: 19px
+		margin-bottom: 10px
+	input[type="text"], input[type="password"], input[type="email"]
+		background-color: white
+		border: 1px solid #636671
+		outline: 2px solid transparent
+		outline-offset: -1px
+		height: 46px
+		width: 320px
+		color: #35363c
+		font-family: 'Futura New'
+		font-size: 18px
+		font-weight: 300
+		line-height: 22px
+		transition: outline .2s
+		&:focus
+			outline: 2px solid #35363c
+			transition: outline .1s
+		&::-moz-placeholder, &::-webkit-input-placeholder, &:-ms-input-placeholder
+	button
+		background: url('../img/bg/log_in.jpg')
+		background-size: cover
+		color: white
+		font-family: 'Futura New'
+		font-size: 20px
+		font-weight: 700
+		line-height: 46px
+		margin-bottom: 20px
+		padding: 0 40px
+		position: relative
+		&:before
+			background: rgba(0,0,0,0.3)
+			content: ''
+			display: block
+			left: 0
+			top: 0
+			height: 100%
+			width: 100%
+			opacity: 0
+			position: absolute
+			z-index: 0
+			transition: opacity .3s
+		&:hover:before
+			opacity: 1
+		span
+			position: relative
+	.button-group
+		text-align: center
+		a
+			color: #636671
+			font-family: 'Futura New'
+			font-size: 16px
+			font-weight: 700
+			line-height: 1em
+			transition: color .3s
+			&:hover
+				color: #35363c
+				transition: color .1s
+	.form-group
+		margin-bottom: 30px
+		.additional
+			color: #636671
+			font-family: 'Futura New'
+			font-size: 12px
+			font-weight: 300
+			line-height: 14px
+			margin-top: 4px
+	.input-group
+		position: relative
+	.close-modal
+		display: none
+		margin-top: 8px
+		margin-right: 8px
+	.forgot-password
+		color: #a6abbb
+		font-family: 'Futura New'
+		font-size: 16px
+		font-weight: 500
+		line-height: 1em
+		position: absolute
+		right: 20px
+		bottom: 14px
+		transition: color .3s
+		&:hover
+			color: #636671
+	.modal-content
+		background: #fff
+		bottom: auto
+		position: absolute
+		padding: 0
+		outline: 1px solid #cdd1dc
+		outline-offset: -1px
+		left: 50%
+		right: auto
+		top: 50%
+		transform: translate3d(-50%, calc(-50% + 40px), 0)
+		width: 560px
+		.socials-login-container
+			background-color: #39579a
+			color: #fff
+			color: white
+			display: block
+			font-family: 'Futura New'
+			font-size: 18px
+			font-weight: 300
+			height: 54px
+			line-height: 53px
+			text-align: center
+			position: relative
+			width: 100%
+			transition: background .3s
+			b
+				font-weight: 700
+				line-height: 53px
+			&:hover
+				background-color: #0b2f7e
+				transition: background .3s
+			& ~ .modal-back
+				top: 72px
+		form
+			padding: 50px 120px 40px
+	.login-methoods-container
+		padding: 68px 0 70px
+		.logotype-holder
+			margin-bottom: 45px
+			img
+				width: 124px
+		.facebook-login-button, .email-login-button
+			background-position: 50% 50%
+			margin: 20px auto 20px
+			width: 320px
+			a
+				color: white
+				display: block
+				font-family: 'Futura New'
+				font-size: 20px
+				font-weight: 300
+				line-height: 24px
+				padding: 14px 73px 18px
+				position: relative
+				z-index: 1
+				b
+					font-weight: 700
+					line-height: 25px
+			&:hover
+				a
+					color: white
+		.facebook-login-button
+			background-color: #39579a
+			transition: background .3s
+			&:hover
+				background-color: #0b2f7e
+		.email-login-button
+			background-image: url('../img/bg/login_width_email.jpg')
+			background-size: cover
+			position: relative
+			margin-bottom: 14px
+			&:after
+				background: rgba(0,0,0,0)
+				content: ''
+				position: absolute
+				left: 0
+				right: 0
+				top: 0
+				bottom: 0
+				z-index: 0
+				transition: background .3s
+			&:hover:after
+				background: rgba(0,0,0,0.3)
+
+.safari
+	#signup-modal,
+	#password-recovery,
+	#password-change,
+	#login-modal-email,
+	#login-modal
+		.forgot-password
+			// TODO test it
+			// right: 40px
+			right: 46px
+
+@media screen and (max-width: 600px), screen and (max-height: 450px)
+	#signup-modal,
+	#password-recovery,
+	#password-change,
+	#login-modal-email,
+	#login-modal
+		background: #fff
+		overflow: auto
+		&.opened
+			.modal-content
+				border: none
+				outline: none
+				transform: translateY(0)
+		.close-modal
+			display: block
+			bottom: auto
+		input[type="text"], input[type="password"], input[type="email"]
+			width: 100%
+		.modal-content
+			outline: none
+			border: none
+			position: static
+			transform: translateY(40px)
+			height: 100%
+			width: 100%
+			.socials-login-container
+				margin-left: 32px
+				margin-right: 32px
+				position: relative
+				bottom: -92px
+				width: 100%
+				width: calc(100% - 64px)
+				font-size: 18px
+				font-weight: 300
+				font-weight: 100
+				b
+					font-weight: 700
+				& ~ .modal-back
+					top: 30px
+					left: 32px
+			form
+				padding: 120px 32px 40px
+
+#signup-modal
+	input[type="text"], input[type="password"], input[type="email"]
+		border: 1px solid #35363c
+	button
+		background: url('../img/bg/log_in.jpg')
+		background-size: cover
+		padding-left: 68px
+		padding-right: 68px
+#password-change,
+#password-recovery
+	.close-modal
+		bottom: auto
+		top: 0
+		display: block
+
+@media screen and (max-width: 600px), screen and (max-height: 450px)
+	#signup-modal
+		button
+			width: 100%
+	#password-change,
+	#password-recovery
+		background: #fff
+		.close-modal
+#about-modal
+	background-color: #fbe67e
+	.container
+		width: 1060px
+	a.close-about
+		background: url('../img/icons/cross-button-3.svg')
+		background-size: cover
+		position: fixed
+		top: 30px
+		right: 30px
+		height: 24px
+		width: 24px
+		path
+			transition: all .2s
+		&:hover path
+			fill: #000000 !important
+			transition: all .1s
+	.modal-content
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
+		background-color: transparent
+		padding-top: 80px
+		.left-side, .right-side
+			display: inline-block
+			vertical-align: top
+		.left-side
+			padding-top: 20px
+			width: 378px
+			img
+				width: 100%
+		.right-side
+			width: calc(100% - 382px)
+			a.write-message
+				background-position: 50% 50%
+				color: #35363c
+				float: right
+				font-family: 'Futura New'
+				font-size: 18px
+				font-weight: 500
+				letter-spacing: 1px
+				line-height: 2.4em
+				margin-top: 105px
+				position: relative
+				text-align: right
+				transition: color .2s
+				b
+					font-weight: 700
+				span
+					display: inline-block
+					vertical-align: middle
+					position: relative
+				span.label
+					font-size: 18px
+					letter-spacing: 1px
+					text-transform: uppercase
+				span.email
+					font-size: 20px
+					letter-spacing: 1.11px
+					white-space: nowrap
+					&:before
+						content: ''
+						display: inline-block
+						background: #35363c
+						height: 1px
+						width: 64px
+						vertical-align: middle
+						margin: 0 15px
+						transition: background .2s
+				&:hover
+					transition: color .1s
+					color: #fff
+					span.email
+						&:before
+							background: #fff
+							transition: background .1s
+			.content-holder
+				padding-left: 55px
+				position: relative
+				*
+					position: relative
+				h1, h2, h3, h4, h5, h6
+					color: #35363c
+					font-family: 'Playfair Display'
+					font-size: 66px
+					font-weight: 600
+					font-style: italic
+					line-height: 88px
+					letter-spacing: 22px
+					margin-bottom: 10px
+				p
+					color: #35363c
+					font-family: 'Futura New'
+					font-size: 19px
+					font-weight: 300
+					// line-height: 34px
+					line-height: 1.45em
+					padding-right: 180px
+				&:before
+					content: ''
+					display: block
+					background: #fff
+					position: absolute
+					left: 144px
+					top: 52px
+					right: 0
+					bottom: -55px
+@media screen and (max-width: $medium)
+	#about-modal
+		.container
+			width: 813px
+		.modal-content
+			// padding-top: 80px
+			.left-side
+				padding-top: 20px
+				width: 301px
+			.right-side
+				width: calc(100% - 307px)
+				a.write-message
+					margin-top: 81px
+				.content-holder
+					padding-left: 50px
+					&:before
+						left: 139px
+						bottom: -42px
+					p
+						padding-right: 50px
+						font-size: 20px
+						font-weight: 300
+						line-height: 30px
+@media screen and (max-width: $tablet)
+	#about-modal
+		.container
+			width: 660px
+		.modal-content
+			padding-top: 70px
+			.left-side
+				padding-top: 20px
+				width: 266px
+			.right-side
+				width: calc(100% - 277px)
+				a.write-message
+					margin-top: 81px
+					span.label
+						display: none
+				.content-holder
+					padding-left: 40px
+					h1, h2, h3, h4, h5, h6
+						font-size: 50px
+						margin-bottom: 8px
+					&:before
+						left: 108px
+						bottom: -42px
+					p
+						font-size: 18px
+						line-height: 28px
+@media screen and (max-width: $mobile-large)
+	#about-modal
+		.container
+			width: 100%
+		.modal-content
+			.left-side
+				display: none
+			.right-side
+				display: block
+				margin-left: auto
+				margin-right: auto
+				margin: 41px auto
+				width: 67%
+				a.write-message
+					margin-top: 63px
+					span.label
+						display: none
+				.content-holder
+					padding-left: 0
+					&:before
+						left: 81px
+@media screen and (max-width: $mobile-medium)
+	#about-modal
+		a.close-about
+			top: 16px
+			right: 16px
+			height: 16px
+			width: 16px
+		.modal-content
+			padding: 25px 32px
+			.right-side
+				margin: 0px auto
+				width: 100%
+				a.write-message
+					display: block
+					width: 100%
+					span.email
+						&:before
+							width: 54px
+							width: 36px
+				.content-holder
+					&:before
+						left: 81px
+						right: -32px
+					p
+						padding-right: 0
+		.fixed-socials-2
+			ul.socials
+				margin-top: 24px
+		.lang-switcher-holder
+			display: none
+

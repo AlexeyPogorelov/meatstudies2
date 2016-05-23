@@ -1,0 +1,641 @@
+$large: 1300px
+$medium: 1260px
+$tablet: 1000px
+$mobile-large: 760px
+$mobile-medium: 640px
+$mobile-small: 480px
+$mobile-x-small: 320px
+
+
+// --------------------------------------------------
+// ARTICLE
+// --------------------------------------------------
+.article-header
+	margin-top: 126px
+	&.vertical
+		float: left
+		.container
+			.image-holder
+				float: left
+				height: 680px
+				width: 492px
+				margin-bottom: 39px
+
+	.container
+		position: relative
+	.image-holder
+		img
+			// TODO remove it
+			max-height: 600px
+@media screen and (max-width: $medium)
+	.article-header
+		margin-top: 66px
+		&.vertical
+			float: none
+			.container
+				text-align: center
+				.image-holder
+					display: inline-block
+					float: none
+					width: 360px
+					height: 498px
+		.container
+			width: 100%
+@media screen and (max-width: $tablet)
+	.article-header
+		margin-top: 54px
+@media screen and (max-width: $mobile-large)
+	.article-header
+		margin-top: 56px
+		.image-holder
+			img
+				max-height: 374px
+		&.vertical
+			.container
+				.image-holder
+					height: 442px
+					width: 320px
+@media screen and (max-width: $mobile-medium)
+	.article-header
+		&.vertical
+			.container
+				.image-holder
+					height: 442px
+					width: 100%
+.article-page
+	background: #fff
+	margin: -104px auto 0
+	min-height: 104px
+	padding: 0 50px
+	position: relative
+	width: 800px
+	z-index: 1
+	.fixed-socials
+		background: #fff
+		left: -60px
+		position: absolute
+	&.vertical
+		float: right
+		margin-top: 0
+		padding: 80px 0 0 70px
+		text-align: left
+		width: 526px
+		.article-name
+			background: #fff
+			margin-left: -168px
+			padding: 22px 30px
+			text-align: left
+			width: 620px
+		.article-date
+			margin-bottom: 20px
+			margin-top: 20px
+			text-align: left
+		p
+			color: #35363c
+			font-family: 'Futura New'
+			font-size: 20px
+			font-weight: 300
+			letter-spacing: 0.1px
+			line-height: 30px
+			margin-bottom: 60px
+.article-page.video
+	background: transparent
+	margin-top: 0
+	.article-name
+		h1, h2, h3, h4, h5, h6
+			margin-top: 18px
+@media screen and (max-width: $medium)
+	.article-page
+		&.vertical
+			background: transparent
+			float: none
+			padding: 0
+			width: 800px
+			.article-name
+				background: transparent
+				margin: 0 auto
+				padding: 0 40px
+				text-align: center
+				width: 700px
+			.article-date
+				text-align: center
+			h1
+				background: transparent
+
+			p
+				font-family: 'Futura New'
+				font-size: 18px
+				font-weight: 300
+				line-height: 28px
+				margin: 0 auto 50px
+				padding-left: 0
+				padding-right: 0
+				width: 520px
+@media screen and (max-width: $tablet)
+	.article-page,
+	.article-page.vertical
+		background: transparent
+		margin: 0 auto
+		width: 700px
+		.article-name
+			width: auto
+			h1, h2, h3, h4, h5, h6
+				margin-top: 14px
+				padding: 0 20px
+	.article-page.video
+		.article-name
+			h1, h2, h3, h4, h5, h6
+				margin-bottom: 31px
+		.article-date
+			font-size: 14px
+			font-weight: 600
+			line-height: 17px
+@media screen and (max-width: $mobile-large)
+	.article-page,
+	.article-page.vertical
+		padding: 0
+		width: auto
+	.article-video-page.video
+		.article-name
+			h1, h2, h3, h4, h5, h6
+				letter-spacing: 2.3px
+				margin-bottom: 35px
+@media screen and (max-width: $mobile-medium)
+	.article-page,
+	.article-page.vertical
+		width: calc(100% - 64px)
+		p
+			font-size: 16px
+			margin-bottom: 30px
+			width: auto
+		.article-name
+			padding: 0
+			h1, h2, h3, h4, h5, h6
+				padding: 0
+	.article-video-page.video
+		.article-name
+			margin-top: 9px
+			h1, h2, h3, h4, h5, h6
+				letter-spacing: 0.9px
+				margin-bottom: 24px
+				margin-top: 2px
+		.article-date
+			font-size: 12px
+			line-height: 14px
+
+.article-name
+	text-align: center
+	h1, h2, h3, h4, h5, h6
+		color: #35363c
+		font-size: 44px
+		margin-bottom: 33px
+		margin-top: 24px
+		font-family: 'Playfair Display'
+		font-weight: 600
+		letter-spacing: 3px
+		line-height: 48px
+@media screen and (max-width: $medium)
+	.article-name
+		h1, h2, h3, h4, h5, h6
+			font-size: 40px
+			letter-spacing: 1.36px
+			line-height: 44px
+			margin-bottom: 37px
+// TODO fix it
+@media screen and (max-width: $mobile-large)
+	.article-name
+		h1, h2, h3, h4, h5, h6
+			font-size: 38px
+			letter-spacing: 1.3px
+			line-height: 42px
+			margin-bottom: 33px
+			margin-top: 21px
+@media screen and (max-width: $mobile-medium)
+	.article-name
+		h1, h2, h3, h4, h5, h6
+			font-size: 28px
+			letter-spacing: 0.95px
+			line-height: 32px
+@media screen and (max-width: $mobile-medium)
+	.article-name
+		margin-bottom: 0
+		margin-top: 16px
+		h1, h2, h3, h4, h5, h6
+			margin-top: 0
+			margin-bottom: 24px
+.article-date
+	color: #a2a3aa
+	font-family: 'Futura New'
+	font-size: 16px
+	font-weight: 500
+	line-height: 19px
+	margin-bottom: 20px
+	text-align: center
+@media screen and (max-width: $mobile-large)
+	.article-date
+		font-size: 14px
+		font-weight: 500
+		line-height: 17px
+@media screen and (max-width: $mobile-medium)
+	.article-date
+		font-size: 12px
+		font-weight: 500
+		line-height: 14px
+		margin-bottom: 15px
+.article-content
+	.fixed-socials-2
+		display: none
+		margin: 0
+		.socials
+			padding: 0 25px
+			white-space: initial
+			text-align: left
+			li a
+				line-height: 2em
+	.article-wysiwyg
+		*, img
+			display: block
+			margin: 0 auto
+			width: 660px
+		img.full
+			width: 100%
+		h1, h2, h3, h4, h5, h6
+			margin-bottom: 20px
+			color: #35363c
+			font-weight: 600
+			font-family: 'Playfair Display'
+			transform: translateZ(0)
+			letter-spacing: 1px
+		h3
+			font-size: 28px
+			line-height: 36px
+		p
+			color: #35363c
+			font-family: 'Futura New'
+			font-size: 20px
+			font-weight: 300
+			letter-spacing: 0.1px
+			line-height: 30px
+			margin-bottom: 60px
+			transform: translateZ(0)
+		img, hr
+			margin-bottom: 60px
+		blockquote
+			color: #35363c
+			font-family: 'Futura New'
+			font-size: 26px
+			font-style: italic
+			font-weight: 500
+			line-height: 36px
+			margin-bottom: 60px
+			min-height: 106px
+			padding-left: 104px
+			padding-top: 4px
+			position: relative
+			.content
+				padding-left: 0
+				width: auto
+			.capital
+				color: transparent
+				top: 40px
+				left: -4px
+				position: absolute
+				font-size: 146px
+				font-weight: 600
+				font-family: 'Playfair Display'
+				span
+					display: inline-block
+					width: auto
+				svg
+					height: 146px
+					left: 0
+					top: -78px
+					line-height: 1em
+					position: absolute
+					z-index: -1
+					text
+						fill: #c86af2
+			img
+				margin-top: 60px
+			&:after
+				content: ''
+				background: url('../img/icons/quotes-2.svg') no-repeat
+				background-size: 38px
+				position: absolute
+				right: -4px
+				top: 8px
+				height: 38px
+				width: 50px
+				z-index: -1
+	.article-description, .comments-holder
+		margin: 0 auto
+		padding: 0 70px
+		width: 800px
+	.article-description
+		// margin-top: 70px
+		*
+			font-family: 'Futura New'
+			font-size: 16px
+			line-height: 28px
+		.label
+			color: #636671
+			font-weight: 600
+		a
+			color: #e81657
+			display: block
+			font-weight: 500
+	.comments-holder
+		.label
+			color: #636671
+			font-family: 'Futura New'
+			font-size: 22px
+			font-weight: 500
+			line-height: 27px
+			margin-top: 60px
+		.comment
+			border: 1px solid #f1f1f1
+			display: block
+			margin: 15px 0 29px
+			position: relative
+			min-height: 110px
+			padding: 40px 30px 42px
+			.comment-image
+				position: absolute
+				left: 26px
+				top: 26px
+				height: 54px
+				width: 54px
+				.image-holder
+					height: 56px
+					width: 56px
+				.img
+					border-radius: 50%
+					height: 55px
+					width: 55px
+			.comment-container
+				display: block
+				padding-left: 65px
+			.comment-remove
+				background: url('../img/icons/remove-icon-1.svg') no-repeat
+				background-size: contain
+				cursor: pointer
+				display: block
+				opacity: 0
+				position: absolute
+				top: 14px
+				right: 15px
+				height: 18px
+				width: 18px
+				transition: opacity .3s
+			&:hover .comment-remove
+				opacity: 1
+				transition: opacity .1s
+			.comment-name
+				color: #636671
+				font-family: 'Futura New'
+				font-size: 18px
+				font-weight: 500
+				line-height: 22px
+			.comment-wysiwyg
+				color: #35363c
+				font-family: 'Futura New'
+				font-size: 20px
+				font-weight: 300
+				line-height: 30px
+				margin: 25px 0 0
+				border-radius: 0
+				outline: none
+				// outline: 2px solid transparent
+				// outline-offset: -2px
+				// transition: outline .3s, outline-offset .3s
+				&:focus, &:active
+					// outline: 2px solid #35363c
+					// outline-offset: 2px
+					// transition: outline .1s, outline-offset .1s
+			.comment-addons
+				margin-top: 40px
+				text-align: right
+				vertical-align: middle
+				> *
+					display: inline-block
+					vertical-align: middle
+				.input-file
+					top: -6px
+					height: 17px
+					margin-right: 21px
+					width: 26px
+				button[type="submit"]
+					color: white
+					background: url('../img/bg/publish.jpg')
+					background-size: cover
+					font-family: 'Futura New'
+					font-size: 20px
+					font-weight: 700
+					line-height: 1em
+					padding: 14px 31px
+					position: relative
+					&:before
+						background: rgba(0,0,0,0.3)
+						content: ''
+						display: block
+						left: 0
+						top: 0
+						height: 100%
+						width: 100%
+						opacity: 0
+						position: absolute
+						z-index: 0
+						transition: opacity .3s
+					&:hover:before
+						opacity: 1
+					span
+						position: relative
+				.images-holder
+					margin-top: -20px
+					text-align: left
+					width: 100%
+					img
+						display: block
+						margin-top: 20px
+						max-height: 357px
+						max-width: 100%
+	&.video
+		.comments-holder
+			.label
+				margin-top: 64px
+			.comment .comment-addons
+				margin-top: 36px
+@media screen and (max-width: $medium)
+	.article-content
+		.comments-holder
+			overflow: hidden
+		.article-wysiwyg
+			*, img
+				width: 520px
+			p
+				font-family: 'Futura New'
+				font-size: 18px
+				font-weight: 300
+				line-height: 28px
+				margin-bottom: 50px
+			img, hr
+				margin-bottom: 50px
+			blockquote
+				font-size: 22px
+				line-height: 32px
+				margin-bottom: 50px
+				padding-left: 93px
+				min-height: 94px
+				img
+					margin-top: 50px
+				.capital
+					font-size: 132px
+		.article-description, .comments-holder
+			padding: 0
+			width: 520px
+		&.video
+			.comments-holder
+				.label
+					margin-top: 54px
+@media screen and (max-width: $mobile-large)
+	.article-content
+		.article-wysiwyg
+			overflow: hidden
+		.article-description
+			// padding-left: 10px
+			*
+				font-size: 16px
+				line-height: 28px
+@media screen and (max-width: $mobile-medium)
+	.article-content
+		.fixed-socials-2
+			display: block
+		.article-wysiwyg
+			*
+				width: 100%
+				padding-left: 32px
+				padding-right: 32px
+			p
+				font-size: 16px
+				font-weight: 300
+				line-height: 26px
+				margin-bottom: 30px
+			hr
+				margin-bottom: 30px
+				width: 100%
+			img
+				margin-bottom: 30px
+				width: 100%
+				padding-left: 0
+				padding-right: 0
+			blockquote
+				margin-bottom: 30px
+				padding-left: 70px
+				padding-top: 0
+				font-size: 20px
+				font-weight: 500
+				line-height: 30px
+				min-height: 40px
+				img
+					margin-top: 30px
+					margin-left: -17px
+					width: 100vw
+				.content
+					padding-right: 0
+					padding-left: 26px
+					width: auto
+				.original
+					padding-right: 0
+					padding-left: 0
+				.capital
+					left: -8px
+					top: 61px
+					font-size: 58px
+					font-weight: 600
+					svg
+						left: 34px
+						padding: 0
+				&:after
+					display: none
+		.article-description, .comments-holder
+			width: 100%
+			padding-left: 32px
+			padding-right: 32px
+		.article-description
+			margin-top: 0
+		.article-description *
+			font-size: 12px
+			line-height: 24px
+		.comments-holder
+			overflow: hidden
+			padding-left: 0
+			padding-right: 0
+			.label
+				margin-top: 27px
+				font-size: 18px
+				font-weight: 500
+				line-height: 24px
+				padding-left: 0
+				padding-right: 0
+				padding-left: 32px
+				padding-right: 32px
+			.comment
+				border: none
+				border-bottom: 1px solid #f1f1f1
+				&:nth-child(1)
+					border-top: 1px solid #f1f1f1
+				.comment-container
+					padding-left: 0
+					.comment-name
+						padding-left: 65px
+						min-height: 22px
+				.comment-image
+					position: absolute
+					left: 26px
+					top: 26px
+					height: 43px
+					width: 43px
+					.image-holder
+						height: 45px
+						width: 45px
+					.img
+						border-radius: 50%
+						height: 44px
+						width: 44px
+		&.video
+			.comments-holder
+				.label
+					margin-top: 0px
+			.comment .comment-addons
+				margin-top: 52px
+
+.article-video-header
+	margin-top: 126px
+	iframe
+		height: 572px
+		// height: calc(100vw / 16 * 9)
+		width: 100%
+@media screen and (max-width: $medium)
+	.article-video-header
+		margin-top: 66px
+		.container
+			width: 100%
+		iframe
+			height: 574px
+			height: calc(100vw / 16 * 9)
+@media screen and (max-width: $tablet)
+	.article-video-header
+		margin-top: 56px
+		iframe
+			height: 448px
+			height: calc(100vw / 16 * 9)
+@media screen and (max-width: $mobile-large)
+	.article-video-header
+		iframe
+			height: 358px
+			height: calc(100vw / 16 * 9)
+@media screen and (max-width: $mobile-medium)
+	.article-video-header
+		iframe
+			height: 179px
+			height: calc(100vw / 16 * 9)

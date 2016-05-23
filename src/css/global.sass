@@ -1,0 +1,664 @@
+$font-stack: 17px/1.42em "Futura New", Arial, sans-serif
+$main-color: #777
+$dark-color: #333
+
+*
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+
+body
+	color: black
+	font: $font-stack
+	font-weight: 400
+	-webkit-font-smoothing: antialiased;
+	-webkit-tap-highlight-color: transparent;
+	&.fixed
+		overflow: hidden
+		&.client-ios
+			position: fixed
+			height: 100%
+			width: 100%
+			// -webkit-overflow-scrolling: touch
+
+// webkit scroll
+// .modal-holder::-webkit-scrollbar-corner
+	// background-color: #ffffff
+
+// .modal-holder::-webkit-scrollbar
+	// width: 6px
+	// height: 0
+	// background-color: transparent
+	// border: none
+	// border: 1px solid #000000
+
+// .modal-holder::-webkit-scrollbar-thumb
+	// background-color: #ffffff
+	// border: 1px solid #000000
+// end webkit scroll
+button, input, optgroup, select, textarea, input[type="button"]
+	font: $font-stack
+	line-height: 1em
+
+section
+	display: block
+	width: 100%
+
+a
+	border: none
+	color: #000
+	outline: none
+	font: $font-stack
+	text-decoration: none
+
+p
+	color: $main-color
+	font-size: 17px
+	font-weight: 400
+	letter-spacing: 0.4px;
+	line-height: 1.5em
+
+img
+	border: none
+	outline: none
+	vertical-align: middle
+
+li
+	list-style: none
+
+h1
+	font-weight: 700
+	line-height: 69px
+	&.big
+		font-size: 2em
+	&.center
+		text-align: center
+		width: 100%
+
+h2
+	color: $main-color
+	font-size: 48px
+	font-weight: 700
+	letter-spacing: -0.1px
+	line-height: 46px
+
+h3
+	font-size: 36px
+	font-weight: 700
+	line-height: 39px
+
+h5
+	color: $main-color
+	font-size: 18px
+	font-weight: 700
+	line-height: 17px
+	letter-spacing: -0.1px
+	margin-top: 16px
+	margin-bottom: 10px
+
+h6
+	color: #aaacb4
+	font-size: 20px
+	font-weight: 500
+	line-height: 19px
+
+h1, h2, h3, h4, h5, h6
+
+hr
+	border: 0
+	display: block
+	// border-top: 1px solid $main-color
+	background: url("../img/bg/bg-line-1.jpg")
+	background-size: cover
+	background-position: 50% 50%
+	height: 2px
+	margin-top: 60px
+	margin-bottom: 60px
+
+	b
+		font-weight: 700
+
+
+//	SELECT
+select
+	background-position: right center
+	background-position-x: calc(100% - 20px)
+	background-repeat: no-repeat
+	border: 1px solid #fff
+	outline-color: #080808
+	height: 48px
+	-webkit-appearance: none
+	-moz-appearance: none
+	-ms-appearance: none
+	appearance: none !important
+	text-indent: 0.01px
+	text-overflow: ''
+	&:-moz-focusring
+		color: transparent
+		text-shadow: 0 0 0 #000
+	option
+		line-height: 31px
+		padding: 1px
+		padding-left: 20px
+		height: 34px
+		vertical-align: middle
+
+textarea
+	resize: none
+	outline: none
+	padding-top: 8px
+	padding-left: 18px
+	padding-right: 18px
+	text-align: left
+	&::-webkit-input-placeholder, &:-moz-placeholder
+		color: #A9A9A9
+		font-size: 18px
+//	END SELECT
+
+// INPUT
+input
+	outline-width: 5px
+	outline-color: transparent
+	padding-left: 16px
+	padding-right: 16px
+	transition: outline-color .4s
+	font-weight: 600
+	&:focus
+		outline: none
+	&::-webkit-input-placeholder, &:-moz-placeholder, &::-moz-placeholder, &:-ms-input-placeholder
+//	END INPUT
+
+// CHECKBOX
+.checkbox input[type="checkbox"]
+	&:not(:checked), &:checked
+		left: -9999px
+		position: absolute
+	&:not(:checked) + label, &:checked + label
+		cursor: pointer
+		position: relative
+		padding-left: 36px
+	&:not(:checked) + label:before, &:checked + label:before
+		background: #eee
+		content: ''
+		border: 1px solid #383838
+		left: 0
+		top: 2px
+		position: absolute
+		width: 17px
+		height: 17px
+	&:not(:checked) + label:after, &:checked + label:after
+		border: 2px solid #000
+		border-left-color: transparent
+		border-top-color: transparent
+		content: ''
+		color: #000
+		position: absolute
+		top: 2px
+		left: 7px
+		font-size: 18px
+		transition: all .2s
+		height: 10px
+		width: 3px
+	&:not(:checked) + label:after
+		opacity: 0
+		transform: rotate(-90deg) scale(0)
+	&:checked + label:after
+		opacity: 1
+		transform: rotate(40deg) scale(1)
+	&:disabled
+		&:not(:checked) + label:before
+			box-shadow: none
+			border-color: #bbb
+			background-color: #ddd
+		&:checked + label
+			&:before
+				box-shadow: none
+				border-color: #bbb
+				background-color: #ddd
+			&:after
+				color: #999
+		+ label
+			color: #aaa
+	&:checked:focus + label:before, &:not(:checked):focus + label:before
+		border: 1px solid #777
+// END CHECKBOX
+
+// RADIO
+.radio input[type="radio"]
+	&:not(:checked), &:checked
+		left: -9999px
+		position: absolute
+	&:not(:checked) + label, &:checked + label
+		cursor: pointer
+		position: relative
+		padding-left: 39px
+	&:not(:checked) + label:before, &:checked + label:before
+		//background: #eee
+		border-radius: 50%
+		border: 2px solid #000
+		content: ''
+		left: 0
+		top: 2px
+		position: absolute
+		width: 18px
+		height: 18px
+	&:not(:checked) + label:after, &:checked + label:after
+		content: ''
+		background-color: #000
+		border-radius: 50%
+		position: absolute
+		top: 7px
+		left: 5px
+		width: 12px
+		height: 12px
+		transition: all .2s
+	&:not(:checked) + label:after
+		opacity: 0
+		transform: scale(0)
+	&:checked + label:after
+		opacity: 1
+		transform: scale(1)
+	&:disabled
+		&:not(:checked) + label:before
+			box-shadow: none
+			border-color: #bbb
+			background-color: #ddd
+		&:checked + label
+			&:before
+				box-shadow: none
+				border-color: #bbb
+				background-color: #ddd
+			&:after
+				color: #999
+		+ label
+			color: #aaa
+	&:checked:focus + label:before, &:not(:checked):focus + label:before
+		//border: 2px solid #777
+	&:checked:focus + label:after, &:not(:checked):focus + label:after
+// END RADIO
+
+//	INPUT FILE
+.input-file
+	cursor: pointer
+	position: relative
+	label
+		cursor: pointer
+		display: block
+		transition: all .4s
+	input
+		cursor: pointer
+		display: inline-block
+		left: 0
+		opacity: 0.01
+		padding: 0
+		pointer-events: none
+		position: absolute
+		top: 0
+		&:hover + label, &:focus + label
+//	END INPUT FILE
+
+//	INPUT NUMBER
+input
+	&::-webkit-outer-spin-button, &::-webkit-inner-spin-button
+		-webkit-appearance: none
+	&[type='number']
+		-moz-appearance: textfield
+//	END INPUT NUMBER
+
+.input-holder
+	&.error
+		.error-label
+			// display: block
+			opacity: 1
+			transition: opacity .3s
+	&.error
+		.input-line
+			background: #f41f52
+			width: 100%
+	.input-holder
+		&:after
+			background: #f41f52
+	.error-label
+		color: #f41f52
+		font-size: 13px
+		font-weight: 400
+		line-height: 19px
+		opacity: 0
+		position: absolute
+		right: 0
+		bottom: -21px
+		transition: opacity .3s
+		// display: none
+
+.active
+	color: $main-color
+
+.hidden, .mobile-visible, .tablet-visible
+	display: none !important
+
+.mobile-xs-visible, .x-mobile-visible, .tablet-visible
+	display: none
+
+// image-holder
+.image-holder
+	overflow: hidden
+	position: relative
+	text-align: center
+	vertical-align: middle
+	img
+		vertical-align: middle
+		width: 100%
+	.fake-img
+		opacity: 0
+		position: relative
+		height: 100%
+		width: 100%
+		z-index: 1
+	.img
+		background-position: 50% 50%
+		background-repeat: no-repeat
+		background-size: cover
+		height: 100%
+		left: 0
+		position: absolute
+		right: 0
+		top: 0
+
+.table-holder
+	max-width: 100%
+	overflow: auto
+
+.button-holder
+	text-align: center
+	&:after, &:before
+		content: ""
+		clear: both
+		display: table
+
+//	LIGHTBOX
+.lightbox-holder
+	// &::-webkit-scrollbar
+		// width: 0
+		// height: 0
+	//opacity: 0
+	background-color: rgba(0, 0, 0, 0.33)
+	overflow: auto
+	position: fixed
+	height: 100%
+	left: 0
+	top: 0
+	width: 100%
+	z-index: 9
+
+.lightbox
+	background-color: white
+	position: absolute
+	height: auto
+	max-width: 80%
+	top: 50%
+	left: 50%
+	overflow: auto
+	box-shadow: 0 0 24px rgba(0, 0, 0, 0.4)
+	transform: translate(-50%, -50%)
+	z-index: 10
+	&::-webkit-scrollbar
+		// height: 0
+		// width: 0
+	img
+		max-width: 100%
+
+
+.client-safari .preloader
+	transform: translateZ(800px)
+	z-index: 999999
+
+.preloader
+	background-color: #fff
+	position: fixed
+	left: 0
+	top: 0
+	height: 100%
+	width: 100%
+	z-index: 9999
+	transform: translateZ(0)
+	> .after
+		background: black
+		content: ""
+		height: 2px
+		left: 0
+		margin-top: -2px
+		position: fixed
+		top: 50%
+		width: 100%
+		width: 10px
+		transition: width .6s
+		animation: fadeIn 1.6s
+		animation-fill-mode: forwards
+	img
+		position: absolute
+		transform: translate3d(-50%, -50%, 0)
+		top: 50%
+		left: 50%
+		animation: fadeIn 1.6s
+		animation-fill-mode: forwards
+	svg
+		position: absolute
+		transform: rotate(51deg) translate(-71%, 11%)
+		top: 50%
+		left: 50%
+		height: 200px
+		width: 200px
+		animation: fadeIn 1.6s
+		animation-fill-mode: forwards
+	span
+		color: #ffffff
+		font-size: 40px
+		position: absolute
+		transform: translate3d(-50%, -50%, 0)
+		top: 50%
+		left: 50%
+		z-index: 1
+		animation: fadeIn 1.6s
+		animation-fill-mode: forwards
+	&.done
+		> .after
+			animation: fadeOut 0.6s
+			opacity: 0
+		img, svg, span
+			animation: fadeOut 0.6s
+			opacity: 0
+
+//	GRID
+.container
+	margin: 0 auto
+
+.text-center
+	text-align: center
+
+.text-right
+	text-align: right
+
+.text-left
+	text-align: left
+
+.block
+	display: block
+
+.nowrap
+	white-space: nowrap
+
+//	TABLE
+.table
+	display: table
+	.cell
+		display: table-cell
+	.row
+		display: table-row
+	.top
+		vertical-align: top
+	.middle
+		vertical-align: middle
+	.bottom
+		vertical-align: bottom
+
+//	vertical
+.full-height
+	height: 100vh
+	min-height: 480px
+
+.full-height
+	position: relative
+	text-align: center
+	.content-holder
+		margin: auto
+		text-align: left
+		width: 100%
+		top: 50%
+		position: relative
+		transform: translateY(-50%)
+
+.vertical-middle
+	position: relative
+	text-align: center
+	.content-holder
+		margin: auto
+		text-align: left
+		width: 100%
+		top: 50%
+		position: relative
+		transform: translateY(-50%)
+
+//	NAVIIGATION
+.navbar-toggle, .dropdown-holder
+	display: none
+
+.dropdown
+	&.opened .dropdown-menu
+		max-height: 599px
+		padding: 14px 30px
+		transition: max-height .5s ease, padding .5s ease
+	.dropdown-menu
+		background-color: rgba(255, 255, 255, 0.8)
+		display: block
+		max-height: 0
+		min-width: 208px
+		overflow: hidden
+		padding: 0 30px
+		position: absolute
+		margin-top: 8px
+		transition: max-height .5s ease, padding .5s ease
+		//transition-delay: 1s
+		z-index: 2
+
+.clearfix, .row, section, .container, .content-holder, .nav, .navbar, .content-row
+	&:before, &:after
+		content: ""
+		display: table
+		clear: both
+
+button, .btn, input[type="button"]
+	border: none
+	cursor: pointer
+	display: inline-block
+	//transition: all .3s ease
+	&.focus, &.active, &:focus, &:hover
+		text-decoration: none
+		//transition: all .1s ease
+
+button.invert, .btn.invert, input[type="button"].invert
+	&.focus, &:focus, &:hover
+		text-decoration: none
+		//transition: all .5s ease
+
+.btn.invert
+	&.focus, &:focus, &:hover
+		text-decoration: none
+		//transition: all .5s ease
+
+button:active, .btn:active, button:focus, .btn:focus
+	outline: none
+
+// TODO realize it
+
+.content-holder > .container
+.slider-viewport
+	overflow: hidden
+	.slider-holder
+		transition: transform .3s ease-out
+		&.touched
+			transition: none
+		.slide
+			float: left
+			.slide-wrapper
+				transform: translateZ(0)
+.paginator-holder
+	.page
+		cursor: pointer
+
+.modal-holder a.close-modal, .modal-holder .close-modal
+	background: url('../img/icons/cross-button-2.svg') no-repeat 50% 50%
+	cursor: pointer
+	display: block
+	opacity: .7
+	position: absolute
+	top: 0
+	right: 0
+	bottom: auto
+	left: auto
+	transition: opacity .1s, background .1s
+
+	background-size: 100%
+	margin-top: 30px
+	margin-right: 30px
+	height: 24px
+	width: 24px
+	&:after
+		display: none
+	&:hover
+		transition: opacity .3s, background .3s
+		opacity: 1
+
+.modal-holder
+	background: #fff
+	opacity: 0
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	visibility: hidden
+	// height: 100%
+	// width: 100%
+	z-index: 11
+	overflow: hidden
+	overflow-x: hidden
+	overflow-y: auto
+	transition: opacity .3s ease-out, transform .2s, visibility .4s
+	.close-modal
+		z-index: 3
+		&:after
+			display: none
+		&:hover
+			opacity: 1
+			transition: opacity .3s
+	.modal-content
+		background: #fff
+		position: relative
+		// top: 32px
+		// bottom: 32px
+		// left: 32px
+		// right: 32px
+		padding: 32px
+		transform: translateY(40px)
+		transition: opacity .3s ease-out, transform .5s, visibility .4s, outline .4s
+	&.opened
+		opacity: 1
+		visibility: visible
+		-webkit-overflow-scrolling: touch
+		.modal-content
+			transform: translateY(0)
+			transition: opacity .3s ease-out, transform .5s, visibility .4s, outline .4s
+	&::-webkit-scrollbar
+		// height: 0
+		// width: 0
+

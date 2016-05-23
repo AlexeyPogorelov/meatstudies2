@@ -1,0 +1,19 @@
+doctype html
+html(lang='en')
+	head
+		title MEAT Studies 2
+
+		include ./partials/head.jade
+
+	body
+
+		.modal-holder#mobile-menu(data-cross="cross-navigation").opened
+			.modal-content
+				.modal-container
+					.popup-navigation
+						ul.navigation-pannel
+							li
+								a(href="index.html")
+									span Главная
+
+	include ./partials/scripts.jade

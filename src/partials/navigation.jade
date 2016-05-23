@@ -1,0 +1,70 @@
+.preloader
+	.after
+
+.main-navigation
+	.block-holder
+		.logotype-holder
+			a(href="test.html")
+				img(src="img/icons/meatstudies.svg", alt="MEATSTUDIES")
+		ul.navigation-pannel
+			li
+				a(href="test.html")
+					span события
+			li
+				a(href="test.html")
+					span курсы
+			li
+				a(href="test.html")
+					span о нас
+			li
+				a(href="test.html")
+					span блог
+			li
+				a(href="test.html")
+					span видео
+		.controls-holder
+			a(href="search.html" data-modal="#search-modal").search-button
+				i.search-icon-1
+				span Пошук
+			a(href="login.html" data-modal="#login-modal").login-button
+				i.login-icon-1
+				span Логін
+			a(href="profile.html").profile-button
+				i.profile-image(style="background-image: url(http://40.media.tumblr.com/355c4c5196bf6c05e1a37093a7682d09/tumblr_o3h2h81gst1slisbmo1_1280.jpg)")
+
+.mobile-navigation
+	.block-holder
+		.gamburger(data-modal="#mobile-menu")
+			a(href="mobile-navigation.html")
+				img(src="img/icons/gamburger.svg", alt="gamburger")
+		.logotype-holder
+			a(href="index.html")
+				img(src="img/icons/meatstudies.svg", alt="MEATSTUDIES")
+		.controls-holder
+			a(href="search.html" data-modal="#search-modal").search-button
+				i.search-icon-1
+			a(href="login.html" data-modal="#login-modal").login-button
+				i.login-icon-1
+			a(href="profile.html" data-modal="#profile-modal").profile-button.hidden
+				i.profile-image(style="background-image: url(http://40.media.tumblr.com/355c4c5196bf6c05e1a37093a7682d09/tumblr_o3h2h81gst1slisbmo1_1280.jpg)")
+
+.modal-holder#mobile-menu(data-cross="cross-navigation")
+	.modal-content
+		.modal-container
+			.popup-navigation
+				ul.navigation-pannel
+					li
+						a(href="test.html")
+							span события
+					li
+						a(href="test.html")
+							span курсы
+					li
+						a(href="test.html")
+							span о нас
+					li
+						a(href="test.html")
+							span блог
+					li
+						a(href="test.html")
+							span видео
