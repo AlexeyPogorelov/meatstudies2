@@ -9,7 +9,53 @@ html(lang='en')
 
 		include ./partials/navigation.jade
 
-		//- code here
+		section.main-video
+			.video-holder
+				img(src="http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg", alt="video")
+			.content-holder
+				.header
+					h2 Курсы, бурсы, тусы ты всегда в плюсе бомбастер
+				.description
+					.when 13:00 / 14 Марта
+					h4 Совсем сошел с ума этот Мак Дак
+					.address <b>Prostir 86 </b>г. Киев, ул. Малевича, 86П
+
+		section.courses
+			.container
+				.courses-row
+					.course
+						.image-holder
+							img(src="img/content/course-1.svg", alt="course")
+						.when 4 МЕСЯЦА
+						.price 3 600 грн / мec
+						a(href="course.html") Записаться на сентябрь
+					.course
+						.image-holder
+							img(src="img/content/course-2.svg", alt="course")
+						.when 2 МЕСЯЦА
+						.price 3 600 грн / мec
+						a(href="course.html") Записаться на июль
+					.course
+						.image-holder
+							img(src="img/content/course-3.svg", alt="course")
+						.when 4 МЕСЯЦА
+						.price 3 600 грн / мec
+						a(href="course.html") Записаться на январь
+					.course
+						.image-holder
+							img(src="img/content/course-4.svg", alt="course")
+						.when 2 МЕСЯЦА
+						.price 3 600 грн / мec
+						a(href="course.html") Записаться на октябрь
+				.see-all
+					a(href="courses.html")
+						span смотреть все курсы
+						i.fa.fa-chevron-right
+
+		section.about
+			.left-side
+				h3 gfdj
+			.right-side
 
 		include ./partials/footer.jade
 

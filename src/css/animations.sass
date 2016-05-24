@@ -84,3 +84,13 @@
 .hue-color-active-slow
 	animation: hue-rotation 2s linear 0ms infinite!important
 	color:#e1a292!important
+
+// mask animation
+		// clip-path: polygon(6% 39%, 9% 15%, 19% -4%, 39% -4%, 50% 14%, 68% 47%, 68% 71%, 45% 87%, 36% 96%, 19% 87%, 14% 73%, 6% 39%)
+@keyframes mask-animation
+	0%
+		clip-path: polygon(13% 39%, 16% 15%, 26% -4%, 65% -4%, 86% 14%, 99% 47%, 110% 71%, 84% 87%, 60% 96%, 42% 87%, 22% 73%, 13% 39%)
+	50%
+		clip-path: polygon(15% 36%, 18% 13%, 24% -1%, 67% -8%, 81% 17%, 102% 45%, 112% 67%, 81% 90%, 62% 93%, 38% 90%, 20% 75%, 15% 36%)
+	100%
+		clip-path: polygon(13% 39%, 16% 15%, 26% -4%, 65% -4%, 86% 14%, 99% 47%, 110% 71%, 84% 87%, 60% 96%, 42% 87%, 22% 73%, 13% 39%)

@@ -1,57 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generator: Avocode 2.5.2 - http://avocode.com -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="29"
-   width="29"
-   viewBox="0 0 29 29"
-   id="svg2"
-   version="1.1"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="cross-button-1.svg">
-  <metadata
-     id="metadata10">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs
-     id="defs8" />
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1360"
-     inkscape:window-height="705"
-     id="namedview6"
-     showgrid="false"
-     inkscape:zoom="2.8771931"
-     inkscape:cx="-44.031723"
-     inkscape:cy="1.4126747"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg2" />
-  <path
-     d="M 17.469848,14.5 28.359293,3.6105556 25.389444,0.64070709 14.5,11.530152 3.6105556,0.64070709 0.64070709,3.6105556 11.530152,14.5 0.64070709,25.389444 3.6105556,28.359293 14.5,17.469848 25.389444,28.359293 28.359293,25.389444 17.469848,14.5 Z m 0,0"
-     id="path4"
-     inkscape:connector-curvature="0"
-     style="fill:#000000;fill-rule:evenodd" />
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.1 (29687) - http://www.bohemiancoding.com/sketch -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="POP-UP-Search-" transform="translate(-1349.000000, -69.000000)" stroke="#9E9E9E" fill="#9E9E9E">
+            <path d="M1364.26972,84.9768297 L1350.85355,71.5606602 L1350.5,71.2071068 L1351.20711,70.5 L1351.56066,70.8535534 L1364.97683,84.2697229 L1378.893,70.3535534 L1379.24655,70 L1379.95366,70.7071068 L1379.60011,71.0606602 L1365.68394,84.9768297 L1380.10011,99.3929993 L1380.45366,99.7465527 L1379.74655,100.453659 L1379.393,100.100106 L1364.97683,85.6839365 L1351.06066,99.600106 L1350.70711,99.9536594 L1350,99.2465527 L1350.35355,98.8929993 L1364.26972,84.9768297 Z" id="Combined-Shape"></path>
+        </g>
+    </g>
 </svg>

@@ -1,5 +1,6 @@
-$font-stack: 17px/1.42em "Gotham Pro", Arial, sans-serif
-$main-color: #777
+$font-stack: 18px/1.66em "Gotham Pro", Arial, sans-serif
+$font-color: #646464
+$main-color: #ffd500
 $dark-color: #333
 
 *
@@ -11,8 +12,9 @@ body
 	color: black
 	font: $font-stack
 	font-weight: 400
-	-webkit-font-smoothing: antialiased;
-	-webkit-tap-highlight-color: transparent;
+	letter-spacing: 1px
+	-webkit-font-smoothing: antialiased
+	-webkit-tap-highlight-color: transparent
 	&.fixed
 		overflow: hidden
 		&.client-ios
@@ -46,17 +48,19 @@ section
 
 a
 	border: none
-	color: #000
 	outline: none
+	color: #9e9e9e
 	font: $font-stack
+	font-weight: 400
+	letter-spacing: 1px
 	text-decoration: none
 
 p
-	color: $main-color
-	font-size: 17px
+	color: #9e9e9e
+	font-size: 18px
 	font-weight: 400
-	letter-spacing: 0.4px;
-	line-height: 1.5em
+	letter-spacing: 1px
+	line-height: 1.66em
 
 img
 	border: none
@@ -76,7 +80,6 @@ h1
 		width: 100%
 
 h2
-	color: $main-color
 	font-size: 48px
 	font-weight: 700
 	letter-spacing: -0.1px
@@ -88,7 +91,6 @@ h3
 	line-height: 39px
 
 h5
-	color: $main-color
 	font-size: 18px
 	font-weight: 700
 	line-height: 17px
@@ -97,7 +99,6 @@ h5
 	margin-bottom: 10px
 
 h6
-	color: #aaacb4
 	font-size: 20px
 	font-weight: 500
 	line-height: 19px
@@ -151,7 +152,6 @@ textarea
 	padding-right: 18px
 	text-align: left
 	&::-webkit-input-placeholder, &:-moz-placeholder
-		color: #A9A9A9
 		font-size: 18px
 //	END SELECT
 
@@ -452,7 +452,6 @@ input
 		animation: fadeIn 1.6s
 		animation-fill-mode: forwards
 	span
-		color: #ffffff
 		font-size: 40px
 		position: absolute
 		transform: translate3d(-50%, -50%, 0)
