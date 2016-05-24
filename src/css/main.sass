@@ -87,7 +87,6 @@ input[type="text"], input[type="password"], input[type="email"]
 	label, .label
 		color: #35363c
 		display: block
-		font-family: 'Futura New'
 		font-size: 16px
 		font-weight: 300
 		line-height: 19px
@@ -98,7 +97,6 @@ input[type="text"], input[type="password"], input[type="email"]
 		border: 1px solid #636671
 		color: #35363c
 		display: block
-		font-family: 'Futura New'
 		font-size: 18px
 		font-weight: 300
 		height: 46px
@@ -115,7 +113,6 @@ input[type="text"], input[type="password"], input[type="email"]
 	.error-label
 		pointer-events: none
 		color: #ff8080
-		font-family: 'Futura New'
 		font-size: 12px
 		font-weight: 200
 		line-height: 14px
@@ -178,7 +175,6 @@ input[type="text"], input[type="password"], input[type="email"]
 	span
 		margin-right: 18px
 		color: #b2b6c2
-		font-family: 'Futura New'
 		font-size: 12px
 		font-weight: 300
 		letter-spacing: 1.05px
@@ -208,9 +204,6 @@ input[type="text"], input[type="password"], input[type="email"]
 			position: absolute
 			top: 24px
 			width: 124px
-			transition: filter .3s
-			&:hover
-				filter: brightness(0.5)
 			a
 				display: block
 				width: 124px
@@ -220,7 +213,9 @@ input[type="text"], input[type="password"], input[type="email"]
 					width: 124px
 		.navigation-pannel
 			padding: 23px 0 19px
-			text-align: center
+			margin: 0 330px 0 150px
+			display: flex
+			justify-content: space-between
 			li
 				display: inline-block
 				margin: 0 10px
@@ -252,12 +247,12 @@ input[type="text"], input[type="password"], input[type="email"]
 				a
 					padding: 4px 10px
 					color: #35363c
-					font-family: 'Futura New'
-					font-size: 18px
-					font-weight: 500
+					font-size: 16px
+					font-weight: 700
 					line-height: 1em
 					span
 						display: inline-block
+						text-transform: uppercase
 					svg
 						display: none
 						position: absolute
@@ -272,6 +267,44 @@ input[type="text"], input[type="password"], input[type="email"]
 						span
 							transform: translate(0, -4px)
 							transition: transform .3s
+	.controls-holder
+		position: absolute
+		top: 14px
+		right: 0
+		a
+			margin-left: 21px
+			color: #35363c
+			font-family: 'Futura New'
+			font-size: 18px
+			font-weight: 500
+			line-height: 22px
+		& > *
+			display: inline-block
+			& > *
+				display: inline-block
+				vertical-align: middle
+			& > span
+				display: none
+				margin-left: 7px
+		i
+			background-position: 50% 50%
+			// margin-right: 0px
+			height: 20px
+			width: 20px
+		.search-button
+			.search-icon-1
+				background: url(../img/icons/search-icon-1.svg) no-repeat
+			// span
+		.login-button
+			.login-icon-1
+				background: url(../img/icons/login-icon-1.svg) no-repeat
+		.profile-button
+			.profile-image
+				background-size: cover
+				background-position: 50% 50%
+				border-radius: 50%
+				height: 34px
+				width: 34px
 
 @media screen and (max-width: $medium)
 	.main-navigation
@@ -397,7 +430,6 @@ input[type="text"], input[type="password"], input[type="email"]
 					a
 						// padding: 4px 10px
 						color: #35363c
-						font-family: 'Futura New'
 						line-height: 1em
 						// padding: 0 20px
 						width: 73px

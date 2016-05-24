@@ -1,0 +1,52 @@
+doctype html
+html(lang='en')
+	head
+		title BLEVOGUE
+
+		include ./partials/head.jade
+
+	body
+		.modal-holder#about-modal.fake(data-cross="cross-top").opened
+			.modal-content
+				a(href="index.html").close-about
+					svg(xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24")
+						path(fill="#fff9dc" fill-rule="evenodd" d="M 24 1.79 L 22.21 0 L 12 10.21 L 1.79 0 L 0 1.79 L 10.21 12 L 0 22.21 L 1.79 24 L 12 13.79 L 22.21 24 L 24 22.21 L 13.79 12 L 24 1.79 Z M 24 1.79")
+				.modal-container
+					.container
+						.left-side
+							img(src="http://pogorelov.cc.ua/blevogue/img/content/rectangle-95.jpg", alt="article")
+							//- .image-holder
+								img.fake-img(src="http://41.media.tumblr.com/dc0eb9a4abc1e019417bf1550f7d86b0/tumblr_nw7eb8lzqI1slisbmo2_1280.jpg", alt="article")
+								.img(style="background-image:url(http://41.media.tumblr.com/dc0eb9a4abc1e019417bf1550f7d86b0/tumblr_nw7eb8lzqI1slisbmo2_1280.jpg)")
+						.right-side
+							.content-holder
+								h2 About
+								p «Мої плаття – ефемерні предмети архітектури, призначені для того, щоб прославляти пропорції жіночого тіла,» – одного разу поспіхом прокоментував Крістіан Діор. Так само швидко ми зуміли забути ці слова. Сьогодні приймаємо як належне речі, які вчора були революційною історію, стержнем, принципом і сенсом життя.
+							a(href="mailto:email@blevogue.com").write-message
+								span.label написати лист
+								span.email email@blevogue.com
+
+			#fixed-socials-2.fixed-socials-2
+				ul.socials
+					li
+						a(href='https://www.facebook.com/sharer.php?src=sp&u=http://makemeat.com/works/lounge_fm&app_id=966242223397117&display=popup&title=Lounge FM&description=Design for iOS Application&picture=http://makemeat.com', target='_blank').facebook Facebook
+					li
+						a(href='https://twitter.com/intent/tweet?text=Perfect project "Lounge FM" by Meat Agency http://makemeat.com/works/lounge_fm', target='_blank').twitter Twitter
+					li
+						a(href='https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=&url=http://makemeat.com/works/lounge_fm&title=Lounge FM&content=http://makemeat.com&caption=Design for iOS Application&posttype=link', target='_blank').tumblr Tumblr
+					li
+						a(href="#" data-pin-do='buttonBookmark', data-pin-title='Lounge FM', data-pin-media='http://makemeat.com', data-pin-custom='true', target='_blank', data-pin-log='button_pinit_bookmarklet', data-pin-href='https://www.pinterest.com/pin/create/button/').pinterest Pinterest
+
+			.to-blog-button
+				a(href="blog.html")
+					span перейти в блог
+
+			.lang-switcher-holder
+				ul
+					li.active
+						a(href="#") Укр
+					li
+						a(href="#") Eng
+
+
+	include ./partials/scripts.jade
