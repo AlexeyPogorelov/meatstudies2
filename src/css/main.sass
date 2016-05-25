@@ -20,6 +20,20 @@ body::-webkit-scrollbar
 label
 	border-radius: 0
 
+.section-label
+	position: absolute
+	text-transform: uppercase
+	left: 40px
+	top: 0
+	span
+		display: inline-block
+		color: black
+		font-size: 30px
+		font-weight: 300
+		line-height: 1em
+		letter-spacing: 3px
+		transform: rotate(-90deg)
+
 .cross-top-fixed, .cross-bottom-fixed
 	cursor: pointer
 	display: block
@@ -68,6 +82,9 @@ label
 // --------------------------------------------------
 .main-video
 	color: #fff
+	position: static
+	height: 773px
+	height: calc(100vw / 16 * 9 - 100px)
 	.video-holder
 		clip-path: polygon(6% 39%, 9% 15%, 19% -4%, 39% -4%, 50% 14%, 68% 47%, 68% 71%, 45% 87%, 36% 96%, 19% 87%, 14% 73%, 6% 39%)
 		animation: mask-animation 4s linear 0ms infinite
@@ -76,8 +93,7 @@ label
 		top: 0
 		left: 0
 		width: 100%
-		height: 773px
-		height: calc(100vw / 16 * 9)
+		height: 100%
 		z-index: -1
 		&:after
 			// TODO test color
@@ -112,13 +128,19 @@ label
 
 .courses
 	.courses-row
+		letter-spacing: 0
+		font-size: 0
 		.course
+			letter-spacing: 1px
 			display: inline-block
-			font-size: 0
-			letter-spacing: 0
 			vertical-align: top
-			width: 24%
+			padding-right: 20px
+			width: 25%
 			.image-holder
+				// TODO remove align left before production
+				text-align: left
+				.temp
+					width: 80%
 			.when, .price
 				color: #141414
 				font-family: 'Gotham Pro'
@@ -135,15 +157,18 @@ label
 					width: 14px
 			.price
 			a
+				border: 3px solid #ffc962
 				display: inline-block
-				background-color: #ffd500
 				color: black
-				font-family: 'Gotham Pro'
 				font-size: 15px
 				font-weight: 500
 				line-height: 1em
 				padding: 15px 18px
+				letter-spacing: 0
+				transition: background .3s
 				&:hover
+					background-color: #ffd500
+					transition: background .1s
 		.course:nth-child(2)
 			margin-top: 200px
 		.course:nth-child(3)
@@ -326,6 +351,7 @@ input[type="text"], input[type="password"], input[type="email"]
 				font-size: 17px
 				font-weight: 700
 				line-height: 16px
+				letter-spacing: 0
 				.label
 					white-space: nowrap
 					.icon, span
@@ -334,14 +360,15 @@ input[type="text"], input[type="password"], input[type="email"]
 						padding-right: 12px
 					.icon
 						background-position: 50% 50%
-						background-size: 16px 16px
+						background-size: 16px 8px
 						background: url('../img/icons/triangle-1.svg') no-repeat
 						top: 5px
+						right: -26px
 						position: absolute
 						pointer-events: none
 						transition: transform .3s
-						transform-origin: 50% 4px
-						height: 16px
+						transform-origin: 50% 50%
+						height: 8px
 						width: 16px
 				li:nth-child(1n+2)
 					opacity: 0
