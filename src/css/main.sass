@@ -18,6 +18,9 @@ body::-webkit-scrollbar
 	height: 0
 	width: 0
 
+*
+	transition: all .3s
+
 label
 	border-radius: 0
 
@@ -86,7 +89,7 @@ label
 // --------------------------------------------------
 .main-video
 	color: #fff
-	position: static
+	position: relative
 	height: 773px
 	height: calc(100vw / 16 * 9 - 100px)
 	.video-holder
@@ -111,7 +114,7 @@ label
 			width: 100%
 	.content-holder
 		max-width: 768px
-		margin: 63px auto 300px
+		margin: 166px auto 300px
 	h2
 		line-height: 1.3em
 		font-size: 50px
@@ -131,6 +134,7 @@ label
 		margin-top: 20px
 
 .courses
+	margin-top: 103px
 	.courses-row
 		letter-spacing: 0
 		font-size: 0
@@ -311,9 +315,10 @@ section.blog
 	h3
 		color: black
 		font-size: 18px
-		font-weight: 500
-		letter-spacing: 1px
-		line-height: 20px
+		font-weight: 700
+		letter-spacing: 0.9px
+		line-height: 30px
+		margin-bottom: 21px
 	p
 		color: #6e6e6e
 		font-size: 15px
@@ -321,6 +326,11 @@ section.blog
 		line-height: 20px
 	article
 		position: relative
+		margin-bottom: 76px
+	.article-link
+		display: block
+	.image-holder
+		max-width: 100%
 	.like
 		cursor: pointer
 		top: 0
@@ -332,16 +342,180 @@ section.blog
 		z-index: 1
 		&:hover
 			background: #FFD500
+	.description
+		margin-top: 30px
+		// TODO discuss it
+		max-width: 78%
+	.read-more
+		border: 3px solid $main-color
+		color: black
+		display: inline-block
+		font-size: 15px
+		font-weight: 700
+		letter-spacing: 0
+		line-height: 1em
+		padding: 14px 103px
+		position: relative
+		text-align: center
+		text-transform: uppercase
+		top: 14px
+		transition: background .3s
+		&:hover
+			background: $main-color
+			transition: background .1s
 	.articles-holder
 		display: inline-block
 		vertical-align: top
 		width: 50%
 		&.left
+			padding-top: 58px
 			.description
 				text-align: left
+			article:nth-child(odd)
+				&:after
+					background-color: $main-color
+					content: ''
+					width: 144px
+					position: absolute
+					top: 260px
+					left: -38px
+					height: 23px
+				.image-holder
+					height: 301px
+					width: 359px
+					width: 70%
+			article:nth-child(even)
+				left: -20px
+				.image-holder
+					height: 361px
+					width: 420px
+				.description
+					padding-left: 60px
+					&:after
+						background-color: $main-color
+						content: ''
+						height: 307px
+						position: absolute
+						left: 20px
+						bottom: 0
+						width: 9px
 		&.right
+			padding-top: 86px
 			.description
 				text-align: right
+			article:nth-child(odd)
+				&:after
+					background-color: $main-color
+					content: ''
+					width: 12px
+					position: absolute
+					top: -12px
+					left: 330px
+					height: 201px
+				.image-holder
+					width: 370px
+					height: 451px
+				.description
+					padding-left: 40px
+					text-align: left
+			article:nth-child(even)
+				text-align: right
+				&:after
+					background-color: $main-color
+					content: ''
+					width: 210px
+					position: absolute
+					top: 24px
+					left: 322px
+					height: 33px
+				.image-holder
+					height: 331px
+					width: 520px
+				.description
+					padding-right: 16px
+
+section.video
+	margin-top: 77px
+	.videos
+		margin-top: 58px
+		margin-left: 260px
+		// overflow: hidden
+		height: 537px
+		a.more
+			border: 3px solid $main-color
+			color: white
+			font-size: 15px
+			font-weight: 800
+			line-height: 20px
+			text-transform: uppercase
+			transition: background .3s
+			padding: 15px 64px
+			&:hover
+				background: $main-color
+		.card
+			background: #fff
+			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3)
+			height: 376px
+			position: absolute
+			top: 80px
+			left: -320px
+			width: 370px
+			z-index: 1
+			.description
+				padding: 240px 60px 50px
+				position: absolute
+				left: 0
+				top: 0
+				height: 100%
+				width: 100%
+
+				color: #141414
+				font-size: 18px
+				font-weight: 400
+				line-height: 30px
+				letter-spacing: 1px
+				.duration
+					position: relative
+					padding-bottom: 13px
+					&:after
+						content: ''
+						position: absolute
+						bottom: 0
+						left: 4px
+						display: block
+						background: #000
+						height: 2px
+						width: 16px
+				.price
+					margin-top: 13px
+		ul
+			height: 100%
+			li
+				position: relative
+				height: 100%
+				.image-holder
+					height: 100%
+				a.more
+					left: 50%
+					position: absolute
+					top: 50%
+					transform: translate(-50%, -50%)
+					z-index: 2
+	.controls
+		float: right
+		text-align: right
+		margin-top: 29px
+		.arrow, .name
+			display: inline-block
+			vertical-align: middle
+		.arrow
+			cursor: pointer
+		.name
+			color: black
+			margin: 0 44px
+			font-size: 15px
+			font-weight: 600
+			line-height: 1em
 
 // --------------------------------------------------
 // INPUT
@@ -470,7 +644,7 @@ input[type="text"], input[type="password"], input[type="email"]
 	// background: #fff
 	left: 0
 	padding: 0 40px
-	// position: fixed
+	position: absolute
 	top: 0
 	width: 100%
 	transform: translateZ(0)

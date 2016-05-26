@@ -1,3 +1,4 @@
+- var mainpage = true
 doctype html
 html(lang='en')
 	head
@@ -92,8 +93,35 @@ html(lang='en')
 				.content-holder
 					include ./partials/blog.jade
 
-		include ./partials/footer.jade
+		section.video
+			.section-label
+					img(src="img/icons/side-labels/video.svg", alt="video")
+			.container
+				.content-holder
+					.videos
+						ul
+							li
+								.card
+									.image-holder
+										img(src="img/content/videocourse-card-1.svg", alt="course")
+									.description
+										.duration 15 уроков по 30 мин.
+										.price 2 000 грн / 80 usd
+								a(href="video.html").more
+									| подробнее о видеокурсе
+								.image-holder
+									img.fake-img(src="http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg", alt="article")
+									.img(style="background-image:url(http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg)")
+						.controls
+							.arrow.left
+								img(src="img/icons/slider-arrow-left-1.svg", alt="arrow")
+							.name
+								| UI+UX
+							.arrow.right
+								img(src="img/icons/slider-arrow-right-1.svg", alt="arrow")
 
+
+		include ./partials/footer.jade
 		include ./partials/modals.jade
 
 	include ./partials/scripts.jade

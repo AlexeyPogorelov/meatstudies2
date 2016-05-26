@@ -42,97 +42,99 @@ $mobile-x-small: 320px
 		transition: opacity .1s
 
 #search-modal
-	.modal-container
-		.input-group
-			margin-left: auto
-			margin-right: auto
-			position: relative
-			padding-top: 64px
-			max-width: 1300px
-			.search-icon-1
-				background-position: 50% 50%
-				background: url(../img/icons/search-icon-1.svg) no-repeat
-				background-size: contain
-				display: block
-				height: 52px
-				position: absolute
-				top: 80px
-				width: 52px
-				float: left
-			input[type="text"], input[type="password"], input[type="email"]
-				border: none
-				outline: none
-				padding-left: 90px
-				padding-right: 90px
-				height: 80px
-				width: 100%
-				color: #35363c
-				font-family: 'Futura New'
-				font-size: 66px
+	.section-label
+		top: 96px
+	.input-group
+		margin-left: auto
+		margin-right: auto
+		position: relative
+		padding-top: 64px
+		max-width: 1300px
+		.search-icon-1
+			background-position: 50% 50%
+			background: url(../img/icons/search-icon-1.svg) no-repeat
+			background-size: contain
+			display: block
+			height: 52px
+			position: absolute
+			top: 80px
+			width: 52px
+			float: left
+		input[type="text"], input[type="password"], input[type="email"]
+			border: none
+			outline: none
+			padding-left: 90px
+			padding-right: 90px
+			height: 50px
+			width: 100%
+			color: #35363c
+			font-family: 'Futura New'
+			font-size: 66px
+			font-weight: 300
+			line-height: 80px
+
+			background-color: #f7f7f7
+			border: 1px solid #e6e6e6
+			&::-moz-placeholder, &::-webkit-input-placeholder, &:-ms-input-placeholder
 				font-weight: 300
-				line-height: 80px
-				&::-moz-placeholder, &::-webkit-input-placeholder, &:-ms-input-placeholder
-					font-weight: 300
-			&:after
-				content: ''
-				display: block
-				background: url('../img/bg/bg-line-1.jpg')
-				background-size: cover
-				position: absolute
-				left: 0
-				bottom: -19px
-				height: 3px
-				width: 100%
-		.result-group
-			padding-top: 200px
+		&:after
+			content: ''
+			display: block
+			background: url('../img/bg/bg-line-1.jpg')
+			background-size: cover
+			position: absolute
+			left: 0
+			bottom: -19px
+			height: 3px
+			width: 100%
+	.result-group
+		padding-top: 200px
 @media screen and (max-width: $tablet)
 	#search-modal
-		.modal-container
-			.input-group
-				padding-top: 76px
-				.search-icon-1
-					display: block
-					top: 97px
-					left: 17px
-					height: 38px
-					width: 38px
-				input[type="text"], input[type="password"], input[type="email"]
-					height: 68px
-					padding-left: 62px
+		.input-group
+			padding-top: 76px
+			.search-icon-1
+				display: block
+				top: 97px
+				left: 17px
+				height: 38px
+				width: 38px
+			input[type="text"], input[type="password"], input[type="email"]
+				height: 68px
+				padding-left: 62px
+				font-size: 46px
+				font-weight: 500
+				&::-moz-placeholder, &::-webkit-input-placeholder, &:-ms-input-placeholder
 					font-size: 46px
 					font-weight: 500
-					&::-moz-placeholder, &::-webkit-input-placeholder, &:-ms-input-placeholder
-						font-size: 46px
-						font-weight: 500
-			.result-group
-				padding-top: 60px
+		.result-group
+			padding-top: 60px
 @media screen and (max-width: $mobile-medium)
 	#search-modal
-		.modal-container
-			.input-group
-				padding-top: 0
-				.search-icon-1
-					display: block
-					left: 9px
-					top: 26px
-					height: 20px
-					width: 20px
-				input[type="text"], input[type="password"], input[type="email"]
-					padding-left: 39px
-					font-size: 46px
-					font-weight: 500
-					height: 59px
-					line-height: 71px
+		.input-group
+			padding-top: 0
+			.search-icon-1
+				display: block
+				left: 9px
+				top: 26px
+				height: 20px
+				width: 20px
+			input[type="text"], input[type="password"], input[type="email"]
+				padding-left: 39px
+				font-size: 46px
+				font-weight: 500
+				height: 59px
+				line-height: 71px
+				font-size: 22px
+				font-weight: 500
+				&::-moz-placeholder, &::-webkit-input-placeholder, &:-ms-input-placeholder
 					font-size: 22px
 					font-weight: 500
-					&::-moz-placeholder, &::-webkit-input-placeholder, &:-ms-input-placeholder
-						font-size: 22px
-						font-weight: 500
-				&:after
-					bottom: -2px
-					height: 2px
-			.result-group
-				padding-top: 32px
+			&:after
+				bottom: -2px
+				height: 2px
+		.result-group
+			padding-top: 32px
 
 #signup-modal,
 #password-recovery,

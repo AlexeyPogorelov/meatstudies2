@@ -7,9 +7,6 @@ var meatstudies = {};
 // WOW classes
 (function () {
 	if ($.browser.mobile) return;
-
-	blevogue.$wowElements = $('.fadeInUp, .fadeInRight, .fadeInLeft').addClass('wow');
-
 })();
 
 var loading = {
