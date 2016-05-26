@@ -533,7 +533,7 @@ input
 		//transition-delay: 1s
 		z-index: 2
 
-.clearfix, .row, section, .container, .content-holder, .nav, .navbar, .content-row
+.clearfix, .row, section, .container, .nav, .navbar, .content-row
 	&:before, &:after
 		content: ""
 		display: table
@@ -561,18 +561,6 @@ button.invert, .btn.invert, input[type="button"].invert
 button:active, .btn:active, button:focus, .btn:focus
 	outline: none
 
-// TODO realize it
-.content-holder > .container
-.slider-viewport
-	overflow: hidden
-	.slider-holder
-		transition: transform .3s ease-out
-		&.touched
-			transition: none
-		.slide
-			float: left
-			.slide-wrapper
-				transform: translateZ(0)
 .paginator-holder
 	.page
 		cursor: pointer

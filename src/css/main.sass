@@ -5,6 +5,7 @@ $mobile-large: 760px
 $mobile-medium: 630px
 $mobile-small: 480px
 $mobile-x-small: 320px
+$main-color: #ffd500
 
 .chromeperfectpixel-initial-block iframe,
 #chromeperfectpixel-supported-by
@@ -23,16 +24,19 @@ label
 .section-label
 	position: absolute
 	text-transform: uppercase
-	left: 40px
-	top: 0
+	left: 71px
+	top: 58px
 	span
 		display: inline-block
+		white-space: nowrap
+		// width: 0
 		color: black
 		font-size: 30px
 		font-weight: 300
 		line-height: 1em
 		letter-spacing: 3px
-		transform: rotate(-90deg)
+		transform: rotate(-90deg) translate(-100%)
+		transform-origin: 0% 0%
 
 .cross-top-fixed, .cross-bottom-fixed
 	cursor: pointer
@@ -140,57 +144,198 @@ label
 				// TODO remove align left before production
 				text-align: left
 				.temp
-					width: 80%
+					width: 73%
 			.when, .price
 				color: #141414
 				font-family: 'Gotham Pro'
 				font-size: 18px
 				font-weight: 400
-				line-height: 30px
+				line-height: 1em
 			.when
-				line-height: 2
+				padding-bottom: 19px
+				margin-top: 18px
+				position: relative
 				&:after
-					display: block
 					content: ''
+					position: absolute
+					bottom: 0
+					left: 0
+					display: block
 					background: #000
 					height: 2px
-					width: 14px
+					width: 16px
 			.price
+				margin-top: 18px
 			a
 				border: 3px solid #ffc962
 				display: inline-block
 				color: black
 				font-size: 15px
-				font-weight: 500
+				font-weight: 700
 				line-height: 1em
-				padding: 15px 18px
+				margin-top: 16px
+				padding: 15px 15px
 				letter-spacing: 0
 				transition: background .3s
+				// TODO discuss it
+				// fix width or stable padding
+				width: 224px
+				text-align: center
+				padding: 15px 0
 				&:hover
 					background-color: #ffd500
 					transition: background .1s
 		.course:nth-child(2)
-			margin-top: 200px
+			margin-top: 307px
+			a
+				border-color: #ffc962
+				&:hover
+					background-color: #ffc962
 		.course:nth-child(3)
-			margin-top: 80px
+			margin-top: 117px
+			a
+				border-color: #fff8bb
+				&:hover
+					background-color: #fff8bb
 		.course:nth-child(4)
-			margin-top: 300px
+			margin-top: 423px
+			a
+				border-color: #fff2a4
+				&:hover
+					background-color: #fff2a4
 	.see-all
+		margin-top: -20px
 		a
 			color: #9e9e9e
-			font-size: 15px
+			font-size: 14px
 			font-weight: 500
 			line-height: 1em
+			letter-spacing: 0.7px
+			text-transform: uppercase
+			i
+				color: #9e9e9e
+				font-size: 12px
+				margin-left: 8px
+				font-weight: 100
+				margin-bottom: -1px
 			& > *
 				display: inline-block
 				vertical-align: middle
 
 section.about
+	margin-top: 110px
+	overflow: hidden
 	h3
 		font-size: 30px
-		font-weight: 500
+		font-weight: 700
 		letter-spacing: 10px
 		line-height: 40px
+		margin-bottom: 24px
+	p
+		color: black
+		font-size: 18px
+		font-weight: 600
+		letter-spacing: 0.8px
+		line-height: 30px
+	.section-label
+		margin-left: -15px
+	.content-holder
+		margin-top: 53px
+		position: relative
+		font-size: 0
+		letter-spacing: 0
+		white-space: nowrap
+		&:before
+			content: ''
+			position: absolute
+			left: 122px
+			top: 0
+			background: $main-color
+			height: 100%
+			width: 100%
+			z-index: 0
+	.left-side, .right-side
+		padding: 91px 0
+		display: inline-block
+		vertical-align: middle
+		position: relative
+		white-space: normal
+	.left-side
+		padding-right: 30px
+		width: 50%
+	.right-side
+		width: 50%
+		width: calc(50% + 8px)
+		ul.list
+			li
+				font-size: 0
+				letter-spacing: 0
+				display: inline-block
+				vertical-align: top
+				width: 33%
+				.image-holder
+					display: inline-block
+					margin-bottom: 70px
+					max-width: 240px
+					position: relative
+					bottom: -10px
+				span
+					color: black
+					font-size: 18px
+					font-weight: 700
+					line-height: 30px
+					letter-spacing: 1px
+			// TODO discuss it
+			// text align algorythm is requ...
+			li:nth-child(3n-2)
+				text-align: left
+				.image-holder
+					margin-left: -10px
+			li:nth-child(3n-1)
+				text-align: center
+				.image-holder
+					margin-left: -5px
+					margin-right: -5px
+			li:nth-child(3n+0)
+				text-align: right
+				.image-holder
+					margin-right: -10px
+
+section.blog
+	margin-top: 156px
+	font-size: 0
+	letter-spacing: 0
+	.section-label
+		// margin-top: 20px
+	h3
+		color: black
+		font-size: 18px
+		font-weight: 500
+		letter-spacing: 1px
+		line-height: 20px
+	p
+		color: #6e6e6e
+		font-size: 15px
+		font-weight: 400
+		line-height: 20px
+	article
+		position: relative
+	.like
+		top: 0
+		left: -59px
+		position: absolute
+		height: 59px
+		width: 59px
+	.articles-holder
+		display: inline-block
+		vertical-align: top
+		width: 50%
+		&.left
+			.description
+				text-align: left
+		&.right
+			.description
+				text-align: right
 
 // --------------------------------------------------
 // INPUT

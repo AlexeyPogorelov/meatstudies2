@@ -22,7 +22,8 @@ html(lang='en')
 
 		section.courses
 			.section-label
-				span courses
+				//- span courses
+				img(src="img/icons/side-labels/courses.svg", alt="courses")
 			.container
 				.courses-row
 					.course
@@ -38,7 +39,7 @@ html(lang='en')
 							img.temp(src="img/content/course-2.svg", alt="course")
 						.when 2 МЕСЯЦА
 						.price 3 600 грн / мec
-						a(href="course.html") Записаться на июль
+						a(href="course.html") Записаться на Июль
 					.course
 						.image-holder
 							//- TODO remove class "temp" on template
@@ -52,7 +53,7 @@ html(lang='en')
 							img.temp(src="img/content/course-4.svg", alt="course")
 						.when 2 МЕСЯЦА
 						.price 3 600 грн / мec
-						a(href="course.html") Записаться на октябрь
+						a(href="course.html") Запись на октябрь
 				.see-all
 					a(href="courses.html")
 						span смотреть все курсы
@@ -60,10 +61,36 @@ html(lang='en')
 
 		section.about
 			.section-label
-					span about
-			.left-side
-				h3 gfdj
-			.right-side
+					img(src="img/icons/side-labels/about.svg", alt="about")
+			.container
+				.content-holder
+					.left-side
+						h3 MEAT STUDIES
+						p Это ведущий в Украине образовательный проект, посвященный креативным специальностям. <br /> <br /> Мы верим: лучшая учеба — это практика. Поэтому формат обучения в Meat studies не ограничивается лекциями и теорией.
+					.right-side
+						ul.list
+							li
+								.image-holder
+									img(src="img/content/place-icon-content-1.svg", alt="place")
+								.description
+									span Учителя
+							li
+								.image-holder
+									img(src="img/content/place-icon-content-1.svg", alt="place")
+								.description
+									span Процесс
+							li
+								.image-holder
+									img(src="img/content/place-icon-content-1.svg", alt="place")
+								.description
+									span Место
+
+		section.blog
+			.section-label
+					img(src="img/icons/side-labels/blog.svg", alt="about")
+			.container
+				.content-holder
+					include ./partials/blog.jade
 
 		include ./partials/footer.jade
 
