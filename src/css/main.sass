@@ -167,7 +167,7 @@ label
 			.price
 				margin-top: 18px
 			a
-				border: 3px solid #ffc962
+				border: 3px solid #ffd500
 				display: inline-block
 				color: black
 				font-size: 15px
@@ -183,6 +183,7 @@ label
 				text-align: center
 				padding: 15px 0
 				&:hover
+					// background-color: #ffc962
 					background-color: #ffd500
 					transition: background .1s
 		.course:nth-child(2)
@@ -321,11 +322,16 @@ section.blog
 	article
 		position: relative
 	.like
+		cursor: pointer
 		top: 0
 		left: -59px
 		position: absolute
 		height: 59px
 		width: 59px
+		transition: background .3s
+		z-index: 1
+		&:hover
+			background: #FFD500
 	.articles-holder
 		display: inline-block
 		vertical-align: top
