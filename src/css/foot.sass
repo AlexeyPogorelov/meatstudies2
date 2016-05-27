@@ -13,10 +13,11 @@ $main-color: #ffd500
 		top: 0
 	.content-holder
 		.subscribe-input
+			position: relative
 			float: left
 			width: 521px
 			width: 50%
-			input
+			input[type="text"], input.text
 				background-color: #f7f7f7
 				border: 1px solid #e6e6e6
 				padding-left: 20px
@@ -25,6 +26,16 @@ $main-color: #ffd500
 			input::placeholder
 				font-size: 15px
 				font-weight: 600
+			input[type="submit"], input.submit
+				height: 49px
+				position: absolute
+				top: 0
+				right: 0
+				background: none
+				border: none
+				color: $main-color
+				font-size: 15px
+				font-weight: 700
 		ul.socials-holder
 			position: relative
 			top: 5px

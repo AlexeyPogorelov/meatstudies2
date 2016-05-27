@@ -1,12 +1,21 @@
 mixin hover
 	.hover
-		ul
-			li
-				.category
-			li
-				.comments
+		.links
+			a(href="#").category
+					.icon
+					.label Interview
+			a(href="#").comments
+					.icon
+					.label 224
 
 .articles-holder.left
+	if !mainpage
+		.filter
+			form(action="#")
+				select(name="filter")
+				.icon
+				.select
+					.option все категории
 	article
 		if !mainpage
 			.like

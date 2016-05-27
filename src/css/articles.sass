@@ -5,3 +5,187 @@ $mobile-large: 760px
 $mobile-medium: 640px
 $mobile-small: 480px
 $mobile-x-small: 320px
+
+section.blog
+	margin-top: 156px
+	font-size: 0
+	letter-spacing: 0
+	.section-label
+		// margin-top: 20px
+	h3
+		color: black
+		font-size: 18px
+		font-weight: 700
+		letter-spacing: 0.9px
+		line-height: 30px
+		margin-bottom: 21px
+	p
+		color: #6e6e6e
+		font-size: 15px
+		font-weight: 400
+		line-height: 20px
+	article
+		position: relative
+		margin-bottom: 76px
+	.article-link
+		display: block
+	.image-holder
+		max-width: 100%
+		&:after
+			content: ''
+			background: $main-color
+			opacity: 0
+			position: absolute
+			height: 100%
+			width: 100%
+			top: 0
+			left: 0
+			transition: opacity .3s
+			pointer-events: none
+	.like
+		cursor: pointer
+		top: 0
+		left: -59px
+		position: absolute
+		height: 59px
+		width: 59px
+		transition: background .3s
+		z-index: 1
+		&:hover
+			background: #FFD500
+	.description
+		margin-top: 30px
+		// TODO discuss it
+		max-width: 78%
+	.read-more
+		border: 3px solid $main-color
+		color: black
+		display: inline-block
+		font-size: 15px
+		font-weight: 700
+		letter-spacing: 0
+		line-height: 1em
+		padding: 14px 103px
+		position: relative
+		text-align: center
+		text-transform: uppercase
+		top: 14px
+		transition: background .3s
+		&:hover
+			background: $main-color
+			transition: background .1s
+	.hover
+		background: $main-color
+		cursor: default
+		opacity: 0
+		transition: opacity .3s, transform .3s
+		position: absolute
+		left: 0
+		top: 0
+		width: 100%
+		transform: translateY(-100%)
+		z-index: 2
+		a
+			display: block
+			text-align: left
+			color: #000
+			font-size: 15px
+			font-weight: 700
+			.icon, .label, .comments
+				display: inline-block
+				vertical-align: middle
+			.icon
+				background-position: 0 50%
+				background-repeat: no-repeat
+				margin-left: 23px
+				height: 45px
+				width: 55px
+				width: 30px
+			&.category
+				.icon
+					background-image: url('../img/icons/article-category.svg')
+					// height: 10px
+					// width: 13px
+			&.comments
+				.icon
+					background-image: url('../img/icons/article-comments.svg')
+					// height: 20px
+					// width: 23px
+	article
+		&:hover
+			.hover
+				opacity: 1
+				transform: translateY(0)
+			.image-holder
+				&:after
+					opacity: 0.6
+	.articles-holder
+		display: inline-block
+		vertical-align: top
+		width: 50%
+		&.left
+			padding-top: 58px
+			.description
+				text-align: left
+			article:nth-child(odd)
+				&:after
+					background-color: $main-color
+					content: ''
+					width: 144px
+					position: absolute
+					top: 260px
+					left: -38px
+					height: 23px
+				.image-holder
+					height: 301px
+					width: 359px
+					width: 70%
+			article:nth-child(even)
+				left: -20px
+				.image-holder
+					height: 361px
+					width: 420px
+				.description
+					padding-left: 60px
+					&:after
+						background-color: $main-color
+						content: ''
+						height: 307px
+						position: absolute
+						left: 20px
+						bottom: 0
+						width: 9px
+		&.right
+			padding-top: 86px
+			.description
+				text-align: right
+			article:nth-child(odd)
+				&:after
+					background-color: $main-color
+					content: ''
+					width: 12px
+					position: absolute
+					top: -12px
+					left: 330px
+					height: 201px
+				.image-holder
+					width: 370px
+					height: 451px
+				.description
+					padding-left: 40px
+					text-align: left
+			article:nth-child(even)
+				text-align: right
+				&:after
+					background-color: $main-color
+					content: ''
+					width: 210px
+					position: absolute
+					top: 24px
+					left: 322px
+					height: 33px
+				.image-holder
+					height: 331px
+					width: 520px
+				.description
+					padding-right: 16px
