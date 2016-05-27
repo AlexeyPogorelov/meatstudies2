@@ -1,6 +1,6 @@
 html(lang='en')
 	head
-		title MEAT Studies 2
+		title MEAT ˢᵗᵘᵈⁱᵉˢ 2
 
 		include ./partials/head.jade
 
@@ -14,8 +14,21 @@ html(lang='en')
 				include ./partials/blog.jade
 
 				.load-more-holder
-					.btn.load-more
-						span Більше
+					a.btn.load-more
+						span показать больше
+
+				.pagination
+					ul
+						li.arrow-left
+						li.active 1
+						li
+							a(href="#") 2
+						li
+							a(href="#") 3
+						li.gap
+						li
+							a(href="#") 20
+						li.arrow-right
 
 		include ./partials/footer.jade
 
