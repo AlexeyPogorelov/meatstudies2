@@ -6,47 +6,145 @@ html(lang='en')
 		include ./partials/head.jade
 
 	body
-		.modal-holder#about-modal.fake(data-cross="cross-top").opened
-			.modal-content
-				a(href="index.html").close-about
-					svg(xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24")
-						path(fill="#fff9dc" fill-rule="evenodd" d="M 24 1.79 L 22.21 0 L 12 10.21 L 1.79 0 L 0 1.79 L 10.21 12 L 0 22.21 L 1.79 24 L 12 13.79 L 22.21 24 L 24 22.21 L 13.79 12 L 24 1.79 Z M 24 1.79")
-				.modal-container
-					.container
-						.left-side
-							img(src="http://pogorelov.cc.ua/blevogue/img/content/rectangle-95.jpg", alt="article")
-							//- .image-holder
-								img.fake-img(src="http://41.media.tumblr.com/dc0eb9a4abc1e019417bf1550f7d86b0/tumblr_nw7eb8lzqI1slisbmo2_1280.jpg", alt="article")
-								.img(style="background-image:url(http://41.media.tumblr.com/dc0eb9a4abc1e019417bf1550f7d86b0/tumblr_nw7eb8lzqI1slisbmo2_1280.jpg)")
-						.right-side
-							.content-holder
-								h2 About
-								p «Мої плаття – ефемерні предмети архітектури, призначені для того, щоб прославляти пропорції жіночого тіла,» – одного разу поспіхом прокоментував Крістіан Діор. Так само швидко ми зуміли забути ці слова. Сьогодні приймаємо як належне речі, які вчора були революційною історію, стержнем, принципом і сенсом життя.
-							a(href="mailto:email@blevogue.com").write-message
-								span.label написати лист
-								span.email email@blevogue.com
 
-			#fixed-socials-2.fixed-socials-2
-				ul.socials
-					li
-						a(href='https://www.facebook.com/sharer.php?src=sp&u=http://makemeat.com/works/lounge_fm&app_id=966242223397117&display=popup&title=Lounge FM&description=Design for iOS Application&picture=http://makemeat.com', target='_blank').facebook Facebook
-					li
-						a(href='https://twitter.com/intent/tweet?text=Perfect project "Lounge FM" by Meat Agency http://makemeat.com/works/lounge_fm', target='_blank').twitter Twitter
-					li
-						a(href='https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=&url=http://makemeat.com/works/lounge_fm&title=Lounge FM&content=http://makemeat.com&caption=Design for iOS Application&posttype=link', target='_blank').tumblr Tumblr
-					li
-						a(href="#" data-pin-do='buttonBookmark', data-pin-title='Lounge FM', data-pin-media='http://makemeat.com', data-pin-custom='true', target='_blank', data-pin-log='button_pinit_bookmarklet', data-pin-href='https://www.pinterest.com/pin/create/button/').pinterest Pinterest
+		include ./partials/navigation.jade
 
-			.to-blog-button
-				a(href="blog.html")
-					span перейти в блог
+		section.courses
+			.section-label
+				//- span about
+				img(src="img/icons/side-labels/about.svg", alt="about")
+			.content-holder
+				h3 MEAT STUDIES
+				p Это ведущий в Украине образовательный проект, посвященный креативным специальностям. <br /> Мы верим: лучшая учеба — это практика. Поэтому формат обучения в Meat studies не ограничивается лекциями и теорией. <br /> Это пространство постоянного взаимодействия идей и их воплощения. Если ты хочешь стать частью креативной индустрии — добро пожаловать к нам.
 
-			.lang-switcher-holder
-				ul
-					li.active
-						a(href="#") Укр
-					li
-						a(href="#") Eng
+		section.process
+			.section-label
+					img(src="img/icons/side-labels/process.svg", alt="process")
+			.container
+				.content-holder
+					.video
 
+		section.teachers
+			.section-label
+					img(src="img/icons/side-labels/teachers.svg", alt="teachers")
+			.container
+				ul.teachers-holder
+					mixin teacher(name, profession, description, image)
+						li.teacher
+							.image-container
+								.image-holder
+									img(src= image, alt= name)
+							.description-container
+								h3= name
+								h4= profession
+								p= description
+								ul.socials-holder
+									li
+										a(href="#")
+											i.fa.fa-vk
+									li
+										a(href="#")
+											i.fa.fa-facebook
+									li
+										a(href="#")
+											i.fa.fa-instagram
+					+teacher(
+						'Антон Денисенко',
+						'Преподователь Art',
+						'Участник группы Собор святой марии',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+					+teacher('Маша Не Каша',
+						'Не каша',
+						'Суп, картошка, салат, укроп петрушка, торт',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+					+teacher('Артур Гимальдинов',
+						'Преподователь Art',
+						'Созадтель мировой корпорации, рисуй или рисуй',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+					+teacher('Шмакс Шмерехин',
+						'Мастер боевых искусств',
+						'Мировой победитель в мировом мире',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+					+teacher('Эуген Моцарт',
+						'Преподователь Art',
+						'Участник группы Собор святой марии',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+					+teacher('Панда Конгу Фу',
+						'Мастер боевых искусств',
+						'Любитель поспать и бамбука,  лапшу не предлагать',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+				.button-holder
+					a(href="#").btn.load-more показать еще
+
+		section.place
+			.section-label
+					img(src="img/icons/side-labels/place.svg", alt="place")
+			.container
+				h3 Prostir 86
+				.gallery-holder
+					.address-bar
+						.image-holder
+							img.map(src="../img/content/map-1.png", alt="map")
+						.address-holder
+							p г. Киев
+							p ул. Малевича, 86П
+						.controls
+							.arrow-left
+							.state
+								.current 8
+								.separator /
+								.from 22
+							.arrow-right
+					.main-image
+						.image-holder
+							img.map(src="http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg", alt="main image")
+					.images-gallery
+						mixin image-thumb-list(url, alt)
+							li
+								.image-holder
+									img(src= url, alt= alt)
+						ul
+							+image-thumb-list(
+								'http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg',
+								'place'
+							)
+							+image-thumb-list(
+								'http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg',
+								'place'
+							)
+							+image-thumb-list(
+								'http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg',
+								'place'
+							)
+							+image-thumb-list(
+								'http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg',
+								'place'
+							)
+							+image-thumb-list(
+								'http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg',
+								'place'
+							)
+
+		section.ask
+			.section-label
+					img(src="img/icons/side-labels/ask.svg", alt="ask")
+			.container
+				form(action="#")
+					input(type="text", placeholder="E-mail")
+					textarea(placeholder="Вопрос или предложение")
+					button.type-1 узнать
+				.description
+					p Это ведущий в Украине образовательный проект, посвященный креативным специальностям.
+					p Если ты хочешь стать частью креативной индустрии — добро пожаловать к нам.
+
+
+		include ./partials/footer.jade
+		include ./partials/modals.jade
 
 	include ./partials/scripts.jade

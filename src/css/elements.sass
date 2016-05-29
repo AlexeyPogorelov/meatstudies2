@@ -38,20 +38,39 @@ $mobile-x-small: 320px
 
 .load-more-holder
 	text-align: center
-	a.btn.load-more
+a.btn.load-more
+	color: black
+	font-size: 15px
+	font-weight: 700
+	line-height: 1em
+	text-transform: uppercase
+	border: 3px solid $main-color
+	padding: 15px 40px
+	transition: background .3s
+	&:hover
+		background: $main-color
+		transition: background .1s
+	span
+		display: inline-block
+		vertical-align: middle
+	&:after
+		content: ''
+		width: 13px
+		height: 20px
+		display: inline-block
+		vertical-align: middle
+
+.btn, button
+	&.type-1
+		background: transparent
 		color: black
 		font-size: 15px
 		font-weight: 700
 		line-height: 1em
-		text-transform: uppercase
 		border: 3px solid $main-color
-		padding: 15px 40px
-		span
-			display: inline-block
-			vertical-align: middle
-		&:after
-			content: ''
-			width: 13px
-			height: 20px
-			display: inline-block
-			vertical-align: middle
+		transition: background .3s
+		padding: 15px 98px
+		text-transform: uppercase
+		&:hover
+			background: $main-color
+			transition: background .1s
