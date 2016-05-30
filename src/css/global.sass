@@ -133,27 +133,36 @@ select
 		vertical-align: middle
 
 textarea
-	resize: none
+	background-color: #f7f7f7
+	border: 1px solid #e6e6e6
 	outline: none
-	padding-top: 8px
-	padding-left: 18px
-	padding-right: 18px
+	padding-left: 20px
+	padding-right: 20px
+	padding-top: 18px
+	resize: none
 	text-align: left
-	&::-webkit-input-placeholder, &:-moz-placeholder
-		font-size: 18px
+	margin-bottom: 20px
+	&::placeholder
+		font-size: 15px
+		font-weight: 600
 //	END SELECT
 
 // INPUT
 input
-	outline-width: 5px
+	background-color: #f7f7f7
+	border: 1px solid #e6e6e6
 	outline-color: transparent
-	padding-left: 16px
-	padding-right: 16px
+	outline-width: 5px
+	padding-left: 20px
+	padding-right: 20px
 	transition: outline-color .4s
-	font-weight: 600
+	height: 49px
+	margin-bottom: 20px
 	&:focus
 		outline: none
-	&::-webkit-input-placeholder, &:-moz-placeholder, &::-moz-placeholder, &:-ms-input-placeholder
+	&::placeholder
+		font-size: 15px
+		font-weight: 600
 //	END INPUT
 
 // CHECKBOX

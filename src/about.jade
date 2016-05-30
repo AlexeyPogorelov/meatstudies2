@@ -90,36 +90,34 @@ html(lang='en')
 			.container
 				h3 Prostir 86
 				.gallery-holder
-					.address-bar
-						.image-holder
-							img.map(src="../img/content/map-1.png", alt="map")
-						.address-holder
-							p г. Киев
-							p ул. Малевича, 86П
-						.controls
-							.arrow-left
-							.state
-								.current 8
-								.separator /
-								.from 22
-							.arrow-right
-					.main-image
-						.image-holder
-							img.fake-img(src="http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg", alt="main image")
-							.img(style="background-image:url(http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg)")
+					.slider-wrapper
+						.address-bar
+							.image-holder
+								img.map(src="../img/content/map-1.png", alt="map")
+							.address-holder
+								p г. Киев
+								p ул. Малевича, 86П
+							.controls
+								.arrow-left
+								.state
+									.current 8
+									.separator /
+									.from 22
+								.arrow-right
+						.main-image
+							.image-holder
+								img.fake-img(src="http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg", alt="main image")
+								.img(style="background-image:url(http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg)")
 					.images-gallery
-						mixin image-thumb-list(url, alt)
-							li
+						mixin image-thumb-list(url, alt, active)
+							li( class= active ? 'active' : '' )
 								.image-holder
 									img(src= url, alt= alt)
 						ul
 							+image-thumb-list(
 								'http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg',
-								'place'
-							)
-							+image-thumb-list(
-								'http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg',
-								'place'
+								'place',
+								true
 							)
 							+image-thumb-list(
 								'http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg',
@@ -136,7 +134,7 @@ html(lang='en')
 
 		section.ask
 			.section-label
-					img(src="img/icons/side-labels/ask.svg", alt="ask")
+				img(src="img/icons/side-labels/ask.svg", alt="ask")
 			.container
 				form(action="#")
 					input(type="text", placeholder="E-mail")
@@ -145,7 +143,6 @@ html(lang='en')
 				.description
 					p Это ведущий в Украине образовательный проект, посвященный креативным специальностям.
 					p Если ты хочешь стать частью креативной индустрии — добро пожаловать к нам.
-
 
 		include ./partials/footer.jade
 		include ./partials/modals.jade
