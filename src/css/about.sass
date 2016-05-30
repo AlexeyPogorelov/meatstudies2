@@ -1,0 +1,259 @@
+$large: 1300px
+$medium: 1260px
+$tablet: 1000px
+$mobile-large: 760px
+$mobile-medium: 640px
+$mobile-small: 480px
+$mobile-x-small: 320px
+$main-color: #ffd500
+
+section.about
+	margin-top: 110px
+	overflow: hidden
+	h3
+		font-size: 30px
+		font-weight: 700
+		letter-spacing: 10px
+		line-height: 40px
+		margin-bottom: 21px
+	p
+		color: black
+		font-size: 18px
+		font-weight: 600
+		letter-spacing: 0.8px
+		line-height: 30px
+	.section-label
+		margin-left: -15px
+	.content-holder
+		margin-top: 53px
+		position: relative
+		font-size: 0
+		letter-spacing: 0
+		white-space: nowrap
+		&:before
+			content: ''
+			position: absolute
+			left: 122px
+			top: 0
+			background: $main-color
+			height: 100%
+			width: 100%
+			z-index: 0
+	.left-side, .right-side
+		padding: 91px 0
+		display: inline-block
+		vertical-align: middle
+		position: relative
+		white-space: normal
+	.left-side
+		padding-right: 30px
+		width: 50%
+	.right-side
+		width: 50%
+		width: calc(50% + 8px)
+		ul.list
+			li
+				font-size: 0
+				letter-spacing: 0
+				display: inline-block
+				vertical-align: top
+				width: 33%
+				.image-holder
+					display: inline-block
+					margin-bottom: 70px
+					max-width: 240px
+					position: relative
+					bottom: -10px
+				span
+					color: black
+					font-size: 18px
+					font-weight: 700
+					line-height: 30px
+					letter-spacing: 1px
+			// TODO discuss it
+			// text align algorythm is requ...
+			li:nth-child(3n-2)
+				text-align: left
+				.image-holder
+					margin-left: -10px
+			li:nth-child(3n-1)
+				text-align: center
+				.image-holder
+					margin-left: -5px
+					margin-right: -5px
+			li:nth-child(3n+0)
+				text-align: right
+				.image-holder
+					margin-right: -10px
+
+section.about-page
+	.section-label
+		top: 179px
+	.content-holder
+		background: $main-color
+		color: #000
+		margin: 0
+		width: 780px
+		width: 75%
+		padding: 171px 40px 120px 100px
+		h3
+			font-size: 30px
+			font-weight: 600
+			letter-spacing: 10px
+			line-height: 40px
+			margin-bottom: 24px
+		p
+			color: inherit
+			line-height: 1.7em
+
+section.process
+	.section-label
+		top: 2px
+	.video
+		position: relative
+		&:before
+			content: ''
+			cursor: pointer
+			background: url('../img/icons/play-button-1.svg') no-repeat 50% 50%
+			position: absolute
+			top: 50%
+			left: 50%
+			margin: -49px auto auto -45px
+			height: 104px
+			width: 97px
+		img
+			height: 532px
+			width: 100%
+
+section.teachers
+	margin-top: 118px
+	.section-label
+		top: 11px
+	.button-holder
+		text-align: left
+		margin-top: -32px
+		a
+			padding: 12px 52px
+	.teachers-holder
+		margin-top: 8px
+		font-size: 0
+		letter-spacing: 0
+		.teacher
+			display: inline-block
+			margin-bottom: 81px
+			vertical-align: top
+			width: 50%
+			.image-container, .description-container
+				display: inline-block
+				vertical-align: top
+			.image-container
+				width: 27%
+				.image-holder
+					text-align: left
+					img
+						background: rgba(158,185,100,.6)
+						width: 73%
+			.description-container
+				width: 73%
+				h3
+					font-size: 30px
+					font-weight: 700
+					line-height: 34px
+				h4
+					font-size: 18px
+					font-weight: 700
+					line-height: 18px
+					letter-spacing: 1px
+					margin-bottom: 11px
+				p
+					font-size: 15px
+					font-weight: 400
+					line-height: 20px
+				.socials-holder
+					margin-top: 23px
+					li
+						display: inline-block
+						margin-right: 58px
+						&:last-child
+							margin-right: 0
+						a
+							color: #9e9e9e
+							font-size: 1em
+							line-height: 1em
+							font-size: 20px
+
+section.place
+	margin-top: 205px
+	.section-label
+		top: 6px
+	h3
+		font-size: 30px
+		font-weight: 600
+		line-height: 1em
+		letter-spacing: 10px
+	.gallery-holder
+		font-size: 0
+		margin-top: 46px
+		letter-spacing: 0
+		.address-bar, .main-image
+			display: inline-block
+			vertical-align: top
+		.address-bar
+			width: 25%
+			.image-holder
+				text-align: left
+				margin-bottom: 29px
+				.map
+					cursor: pointer
+					width: 78%
+			.address-holder
+				position: relative
+				p
+					color: #141414
+					font-size: 18px
+					font-weight: 400
+					letter-spacing: 1px
+					line-height: 30px
+			.controls
+				position: absolute
+				.arrow-left, .arrow-right
+					background-position: 50% 50%
+					background-repeat: no-repeat
+					display: inline-block
+					height: 14px
+					width: 52px
+				.arrow-left
+					background-image: url('../img/icons/slider-arrow-left-1.svg')
+				.arrow-right
+					background-image: url('../img/icons/slider-arrow-right-1.svg')
+				.state
+					display: inline-block
+					font-size: 18px
+					font-weight: 400
+					line-height: 1em
+					letter-spacing: 1px
+					color: #141414
+					.separator, .from, .current
+						display: inline-block
+					.current
+						color: #bfbfbf
+					.separator, .from
+						color: #141414
+		.main-image
+			height: 360px
+			width: 75%
+			.image-holder
+				height: 100%
+				width: 100%
+		.images-gallery
+			margin-top: 59px
+			ul
+				li
+					border: 3px solid transparent
+					display: inline-block
+					vertical-align: top
+					width: 20%
+					&.active
+						border-color: $main-color
+					.image-holder
+						img

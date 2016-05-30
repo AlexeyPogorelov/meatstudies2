@@ -8,27 +8,30 @@ html(lang='en')
 
 		include ./partials/navigation.jade
 
-		section.blog
+		section.blog.single
+			.section-label
+					img(src="img/icons/side-labels/blog.svg", alt="about")
 			.container
-
 				include ./partials/blog.jade
 
-				.load-more-holder
-					a.btn.load-more
-						span показать больше
+			.pagination
+				ul
+					li.arrow-left
+						a(href="#")
+					li.active 1
+					li
+						a(href="#") 2
+					li
+						a(href="#") 3
+					li ...
+					li
+						a(href="#") 20
+					li.arrow-right
+						a(href="#")
 
-				.pagination
-					ul
-						li.arrow-left
-						li.active 1
-						li
-							a(href="#") 2
-						li
-							a(href="#") 3
-						li.gap
-						li
-							a(href="#") 20
-						li.arrow-right
+			.load-more-holder
+				a.btn.load-more
+					span показать больше
 
 		include ./partials/footer.jade
 

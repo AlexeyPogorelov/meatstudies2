@@ -9,13 +9,14 @@ html(lang='en')
 
 		include ./partials/navigation.jade
 
-		section.courses
-			.section-label
-				//- span about
-				img(src="img/icons/side-labels/about.svg", alt="about")
-			.content-holder
-				h3 MEAT STUDIES
-				p Это ведущий в Украине образовательный проект, посвященный креативным специальностям. <br /> Мы верим: лучшая учеба — это практика. Поэтому формат обучения в Meat studies не ограничивается лекциями и теорией. <br /> Это пространство постоянного взаимодействия идей и их воплощения. Если ты хочешь стать частью креативной индустрии — добро пожаловать к нам.
+		section.about-page
+			.container
+				.section-label
+					//- span about
+					img(src="img/icons/side-labels/about.svg", alt="about")
+				.content-holder
+					h3 MEAT STUDIES
+					p Это ведущий в Украине образовательный проект, посвященный креативным специальностям. <br /> Мы верим: лучшая учеба — это практика. Поэтому формат обучения в Meat studies не ограничивается лекциями и теорией. <br /> Это пространство постоянного взаимодействия идей и их воплощения. Если ты хочешь стать частью креативной индустрии — добро пожаловать к нам.
 
 		section.process
 			.section-label
@@ -23,6 +24,7 @@ html(lang='en')
 			.container
 				.content-holder
 					.video
+						img(src="http://meatstudies.com/storage/app/uploads/public/56b/b6b/07c/56bb6b07ca95c529819270.jpg", alt="video")
 
 		section.teachers
 			.section-label
@@ -103,7 +105,8 @@ html(lang='en')
 							.arrow-right
 					.main-image
 						.image-holder
-							img.map(src="http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg", alt="main image")
+							img.fake-img(src="http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg", alt="main image")
+							.img(style="background-image:url(http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg)")
 					.images-gallery
 						mixin image-thumb-list(url, alt)
 							li

@@ -18,21 +18,39 @@ $mobile-x-small: 320px
 		font-weight: 400
 		line-height: 1em
 		vertical-align: middle
-		margin: 0 10px
+		margin: 0 14px
+		&:hover
+			a
+				color: $main-color
+				transition: color .1s
 		a
 			color: inherit
 			font-weight: inherit
 			line-height: inherit
 			font-size: inherit
+			transition: color .3s
 		&.active
 			cursor: default
-			font-weight: 700
 			color: black
 		&.gap
 			margin: 0 12px
 			background-color: #b2b6c2
 			height: 1px
 			width: 16px
+	.arrow-left, .arrow-right
+		height: 8px
+		width: 52px
+		margin: 0 26px
+		a
+			display: block
+			height: 100%
+			width: 100%
+			background-position: 50% 50%
+			background-repeat: no-repeat
+	.arrow-left
+		background: url('../img/icons/slider-arrow-left-1.svg')
+	.arrow-right
+		background: url('../img/icons/slider-arrow-right-1.svg')
 .load-more-holder ~ .pagination-1
 	margin-top: -40px
 
@@ -43,6 +61,7 @@ a.btn.load-more
 	font-size: 15px
 	font-weight: 700
 	line-height: 1em
+	letter-spacing: 0
 	text-transform: uppercase
 	border: 3px solid $main-color
 	padding: 15px 40px
@@ -55,9 +74,11 @@ a.btn.load-more
 		vertical-align: middle
 	&:after
 		content: ''
+		background: url('../img/icons/more-awesome-2.svg') no-repeat 50% 50%
 		width: 13px
 		height: 20px
 		display: inline-block
+		margin-left: 6px
 		vertical-align: middle
 
 .btn, button

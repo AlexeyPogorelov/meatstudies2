@@ -30,8 +30,10 @@ section.blog
 		margin-bottom: 76px
 	.article-link
 		display: block
+	.filter
+		height: 45px
 	.image-holder
-		max-width: 100%
+		width: 100%
 		&:after
 			content: ''
 			background: $main-color
@@ -56,8 +58,11 @@ section.blog
 			background: #FFD500
 	.description
 		margin-top: 30px
-		// TODO discuss it
-		max-width: 78%
+	.pagination
+		margin-top: 29px
+		margin-bottom: 50px
+	.load-more
+		padding: 12px 36px
 	.read-more
 		border: 3px solid $main-color
 		color: black
@@ -76,7 +81,7 @@ section.blog
 			background: $main-color
 			transition: background .1s
 	.hover
-		background: $main-color
+		background: #ffc000
 		cursor: default
 		opacity: 0
 		transition: opacity .3s, transform .3s
@@ -86,6 +91,8 @@ section.blog
 		width: 100%
 		transform: translateY(-100%)
 		z-index: 2
+		.links
+			margin: 14px 0 25px
 		a
 			display: block
 			text-align: left
@@ -98,20 +105,20 @@ section.blog
 			.icon
 				background-position: 0 50%
 				background-repeat: no-repeat
+				margin-right: 3px
 				margin-left: 23px
-				height: 45px
-				width: 55px
-				width: 30px
+				height: 37px
+				width: 24px
+			.label
+				margin-top: -2px
 			&.category
 				.icon
 					background-image: url('../img/icons/article-category.svg')
-					// height: 10px
-					// width: 13px
+					background-position: 2px 50%
 			&.comments
 				.icon
 					background-image: url('../img/icons/article-comments.svg')
-					// height: 20px
-					// width: 23px
+					background-position: 0px 50%
 	article
 		&:hover
 			.hover
@@ -129,6 +136,8 @@ section.blog
 			.description
 				text-align: left
 			article:nth-child(odd)
+				width: 359px
+				width: 70%
 				&:after
 					background-color: $main-color
 					content: ''
@@ -139,13 +148,11 @@ section.blog
 					height: 23px
 				.image-holder
 					height: 301px
-					width: 359px
-					width: 70%
 			article:nth-child(even)
 				left: -16px
+				width: 420px
 				.image-holder
 					height: 361px
-					width: 420px
 				.description
 					padding-left: 60px
 					&:after
@@ -161,6 +168,7 @@ section.blog
 			.description
 				text-align: right
 			article:nth-child(odd)
+				width: 370px
 				&:after
 					background-color: $main-color
 					content: ''
@@ -170,13 +178,14 @@ section.blog
 					left: 330px
 					height: 201px
 				.image-holder
-					width: 370px
 					height: 451px
 				.description
 					padding-left: 40px
 					text-align: left
+					// max-width: 78%
 			article:nth-child(even)
 				text-align: right
+				width: 520px
 				&:after
 					background-color: $main-color
 					content: ''
@@ -187,6 +196,69 @@ section.blog
 					height: 33px
 				.image-holder
 					height: 331px
-					width: 520px
 				.description
-					padding-right: 16px
+					padding: 0 16px 0 10%
+	&.single
+		margin-top: 179px
+		.section-label
+			top: 0
+		h3
+			letter-spacing: 1px
+			line-height: 20px
+		.description
+			margin-top: 38px
+		article
+			margin-bottom: 74px
+		.articles-holder
+			&.left
+				padding-top: 0
+				article:last-child
+					margin-bottom: 0
+				article:nth-child(odd)
+					left: 2px
+					width: 460px
+					width: 88.3%
+					h3
+						margin-bottom: 22px
+					.image-holder
+						height: 301px
+				article:nth-child(even)
+					left: -17px
+					h3
+						margin-bottom: 18px
+					.description
+						margin-top: 28px
+						padding-left: 78px
+			&.right
+				padding-top: 37px
+				article:last-child
+					margin-bottom: 0
+				article:nth-child(even)
+					margin-left: 19%
+					width: 421px
+					&:after
+						width: 4px
+						height: 183px
+						top: 216px
+						top: auto
+						bottom: 77px
+						left: auto
+						right: 22px
+					.image-holder
+						height: 417px
+					.description
+						max-width: 88%
+				article:nth-child(odd)
+					width: 520px
+					&:after
+						height: 33px
+						width: 210px
+						top: -5px
+						left: auto
+						right: -12px
+					.image-holder
+						width: 100%
+						height: 301px
+					.description
+						text-align: right
+						max-width: 100%

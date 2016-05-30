@@ -9,13 +9,6 @@ mixin hover
 					.label 224
 
 .articles-holder.left
-	if !mainpage
-		.filter
-			form(action="#")
-				select(name="filter")
-				.icon
-				.select
-					.option все категории
 	article
 		if !mainpage
 			.like
@@ -54,6 +47,13 @@ mixin hover
 		a.read-more(href="blog.html") читать больше
 
 .articles-holder.right
+	if !mainpage
+		.filter
+			form(action="#")
+				select(name="filter")
+				.icon
+				.select
+					.option все категории
 	article
 		if !mainpage
 			.like
