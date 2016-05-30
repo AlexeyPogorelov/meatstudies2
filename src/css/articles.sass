@@ -76,12 +76,15 @@ section.blog
 		text-align: center
 		text-transform: uppercase
 		top: 14px
+		white-space: nowrap
+		text-overflow: ellipsis
+		overflow: hidden
 		transition: background .3s
 		&:hover
 			background: $main-color
 			transition: background .1s
 	.hover
-		background: #ffc000
+		// background: #ffc000
 		cursor: default
 		opacity: 0
 		transition: opacity .3s, transform .3s
@@ -92,7 +95,7 @@ section.blog
 		transform: translateY(-100%)
 		z-index: 2
 		.links
-			margin: 14px 0 25px
+			margin: 14px 0
 		a
 			display: block
 			text-align: left
