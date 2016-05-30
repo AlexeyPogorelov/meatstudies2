@@ -151,7 +151,7 @@ section.teachers
 				.image-holder
 					text-align: left
 					img
-						background: rgba(158,185,100,.6)
+						// background: rgba(158,185,100,.6)
 						width: 73%
 			.description-container
 				width: 73%
@@ -185,6 +185,12 @@ section.teachers
 							font-size: 1em
 							line-height: 1em
 							font-size: 20px
+							i
+								transition: color .3s
+							&:hover
+								i
+									transition: color .1s
+									color: $main-color
 
 section.place
 	margin-top: 205px
