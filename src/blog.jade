@@ -15,23 +15,25 @@ html(lang='en')
 				include ./partials/blog.jade
 
 			.pagination
-				ul
-					li.arrow-left
-						a(href="#")
-					li.active 1
-					li
-						a(href="#") 2
-					li
-						a(href="#") 3
-					li ...
-					li
-						a(href="#") 20
-					li.arrow-right
-						a(href="#")
+				.container
+					ul
+						li.arrow-left
+							a(href="#")
+						li.active 1
+						li
+							a(href="#") 2
+						li
+							a(href="#") 3
+						li ...
+						li
+							a(href="#") 20
+						li.arrow-right
+							a(href="#")
 
 			.load-more-holder
-				a.btn.load-more
-					span показать больше
+				.container
+					a.btn.load-more
+						span показать больше
 
 		include ./partials/footer.jade
 

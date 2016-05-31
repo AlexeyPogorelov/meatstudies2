@@ -61,8 +61,26 @@ section.blog
 	.pagination
 		margin-top: 29px
 		margin-bottom: 50px
+		text-align: left
+		ul
+			margin-left: 25%
+		li
+			margin: 0 5px 0 0
+			width: 3.6%
+			&.arrow-left, &.arrow-right
+				width: 52px
+			&.arrow-left
+				margin-left: -40px - 52px
+				margin-right: 40px
+			&.arrow-right
+				margin-left: 40px
+	.load-more-holder
+		text-align: left
 	.load-more
-		padding: 12px 36px
+		margin-left: 25%
+		min-width: 25%
+		padding: 12px 28px
+		text-align: center
 	.read-more
 		border: 4px solid $main-color
 		color: black
@@ -154,6 +172,7 @@ section.blog
 			article:nth-child(even)
 				left: -16px
 				width: 420px
+				width: 81%
 				.image-holder
 					height: 361px
 				.description
@@ -163,7 +182,7 @@ section.blog
 						content: ''
 						height: 307px
 						position: absolute
-						left: 20px
+						left: 16px
 						bottom: 0
 						width: 9px
 		&.right
@@ -188,14 +207,15 @@ section.blog
 					// max-width: 78%
 			article:nth-child(even)
 				text-align: right
-				width: 520px
+				// width: 520px
 				&:after
 					background-color: $main-color
 					content: ''
 					width: 210px
 					position: absolute
 					top: 24px
-					left: 322px
+					left: auto
+					right: -12px
 					height: 33px
 				.image-holder
 					height: 331px
@@ -218,7 +238,6 @@ section.blog
 				article:last-child
 					margin-bottom: 0
 				article:nth-child(odd)
-					left: 2px
 					width: 460px
 					width: 88.3%
 					h3
@@ -239,6 +258,7 @@ section.blog
 				article:nth-child(even)
 					margin-left: 19%
 					width: 421px
+					width: 81%
 					&:after
 						width: 4px
 						height: 183px
@@ -252,7 +272,7 @@ section.blog
 					.description
 						max-width: 88%
 				article:nth-child(odd)
-					width: 520px
+					width: 100%
 					&:after
 						height: 33px
 						width: 210px
