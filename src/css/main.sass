@@ -85,6 +85,38 @@ label
 
 
 // --------------------------------------------------
+// GRID
+// --------------------------------------------------
+
+.grid
+	pointer-events: none
+	position: fixed
+	z-index: 999
+	left: 0
+	top: 0
+	height: 100%
+	width: 100%
+	.container
+		position: relative
+		height: 100%
+	.line-1, .line-2, .line-3, .line-4, .line-5
+		position: absolute
+		// width: 1px
+		height: 100%
+		opacity: 0.2
+		border-left: 1px solid #979797
+	.line-1
+		left: -1px
+	.line-2
+		left: 25%
+	.line-3
+		left: 50%
+	.line-4
+		left: 75%
+	.line-5
+		right: -1px
+
+// --------------------------------------------------
 // MAIN VIDEO
 // --------------------------------------------------
 .main-video

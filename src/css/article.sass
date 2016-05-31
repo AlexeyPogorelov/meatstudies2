@@ -14,6 +14,7 @@ section.article
 		font-weight: 600
 		line-height: 40px
 		letter-spacing: 0
+		margin-bottom: 30px
 	h2
 		color: #1d1d1d
 		font-size: 25px
@@ -26,27 +27,30 @@ section.article
 		font-weight: 400
 		line-height: 20px
 		color: #1d1d1d
-		margin-bottom: 19px
 		letter-spacing: 0
+		margin-bottom: 30px
 	p
 		color: #646464
 		font-size: 18px
 		font-weight: 400
 		letter-spacing: 1px
 		line-height: 30px
-		margin-bottom: 50px
+		margin-bottom: 40px
 	img
-		margin-bottom: 54px
+		margin-bottom: 50px
+	iframe
+		margin-bottom: 60px
 	blockquote
 		color: black
 		font-size: 35px
 		font-style: italic
 		line-height: 33px
 		letter-spacing: 0
-		margin-bottom: 50px
+		margin-bottom: 60px
 	.article-header
-		margin: auto
-		width: 53.2%
+		margin-left: auto
+		margin-right: calc(18% + 60px)
+		width: 54.4%
 		h1
 			margin: 0
 		h4
@@ -61,10 +65,12 @@ section.article
 		& > *
 			margin-left: auto
 			margin-right: auto
+			margin-right: calc(18% + 60px)
 			margin-top: 0
-			width: 53.2%
+			width: 54.4%
 			display: block
 		& > .full
+			margin-bottom: 60px
 			width: 100%
 		& > .half
 			margin-left: auto
@@ -72,15 +78,22 @@ section.article
 			width: 72.4%
 
 section.article-share
-	.bottom-line, .top-line
+	position: relative
+	padding-top: 37px
+	padding-bottom: 25px
+	&:before, &:after
+		content: ''
+		display: block
 		height: 5px
-		width: 77.7%
-	.top-line
+		left: 0
+		position: absolute
+		right: calc(18% + 60px)
+	&:before
 		background: $main-color
-		margin-bottom: 35px
-	.bottom-line
+		top: -5px
+	&:after
 		background-color: #fafafa
-		margin-top: 28px
+		bottom: -5px
 	.container
 		ul, .label
 			display: inline-block
