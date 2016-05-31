@@ -6,6 +6,14 @@ $mobile-medium: 640px
 $mobile-small: 480px
 $mobile-x-small: 320px
 
+.article-like
+	background: url('../img/icons/like-icon-1.svg') no-repeat 50% 50%
+	position: absolute
+	top: 0
+	left: 61px
+	height: 59px
+	width: 59px
+
 section.event-head
 	background-image: url("http://www.s.048.ua/s/4/section/newsInText/upload/images/news/intext/560/93d2c67601/3f01c64fd0088b0587f9d19ac3537324.jpg")
 	background-position: 50% 50%
@@ -158,16 +166,19 @@ a.btn.load-more
 	white-space: nowrap
 	text-overflow: ellipsis
 	overflow: hidden
+	background: transparent
+	color: black
+	font-size: 15px
+	font-weight: 700
+	line-height: 1em
+	border: 4px solid $main-color
+	transition: background .3s
+	padding: 12px 37px
+	text-transform: uppercase
+	&:hover
+		background: $main-color
+		transition: background .1s
 	&.type-1
-		background: transparent
-		color: black
-		font-size: 15px
-		font-weight: 700
-		line-height: 1em
-		border: 4px solid $main-color
-		transition: background .3s
 		padding: 15px 98px
-		text-transform: uppercase
-		&:hover
-			background: $main-color
-			transition: background .1s
+	&.type-2
+		color: #fff
