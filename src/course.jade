@@ -9,7 +9,71 @@ html(lang='en')
 
 		include ./partials/navigation.jade
 
-		section
+		section.courses-list
+			.section-label
+				//- span courses
+				img(src="img/icons/side-labels/courses.svg", alt="courses")
+			.container
+				.description
+					p Мы создали специальные «неправильную» программу — перевернули с ног на голову теорию и практику. Сначала навыки, потом принципы. Визуальная муштра. Задачи от реальных клиентов.
+				ul.list
+					mixin course (image, price, duration, description, button)
+						li
+							img(src= image, alt= button)
+							span.price= price
+							span.duration= duration
+							p= description
+							a.btn(href="course.html")= button
+					+course(
+						'img/content/course-1.svg',
+						'3 600 грн/мес',
+						'4 МЕСЯЦА',
+						'Направление «Дизайн» представляет учебные программы по графическому дизайну, визуальным коммуникациям и коммуникативному дизайну.',
+						'Записаться на 12 мая'
+					)
+					+course(
+						'img/content/course-2.svg',
+						'6 600 грн/мес',
+						'2 МЕСЯЦА',
+						'Направление «Дизайн» представляет учебные программы по графическому дизайну, визуальным коммуникациям и коммуникативному дизайну.',
+						'Записаться на сентябрь'
+					)
+					+course(
+						'img/content/course-3.svg',
+						'3 600 грн/мес',
+						'4 МЕСЯЦА',
+						'Направление «Дизайн» представляет учебные программы по графическому дизайну, визуальным коммуникациям и коммуникативному дизайну.',
+						'Записаться на 22 сентября'
+					)
+
+
+		section.video.video-course
+			.section-label
+				//- span video-course
+				img(src="img/icons/side-labels/video-course.svg", alt="video-course")
+			.container
+				.content-holder
+					.videos
+						ul
+							li
+								.card
+									.image-holder
+										img(src="img/content/videocourse-card-1.svg", alt="course")
+									.description
+										.duration 15 уроков по 30 мин.
+										.price 2 000 грн / 80 usd
+								a(href="video.html").more
+									| подробнее о видеокурсе
+								.image-holder
+									img.fake-img(src="http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg", alt="article")
+									.img(style="background-image:url(http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg)")
+						.controls
+							.arrow.left
+								img(src="img/icons/slider-arrow-left-1.svg", alt="arrow")
+							.name
+								| UI+UX
+							.arrow.right
+								img(src="img/icons/slider-arrow-right-1.svg", alt="arrow")
 
 		include ./partials/footer.jade
 		include ./partials/modals.jade

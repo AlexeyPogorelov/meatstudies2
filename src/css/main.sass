@@ -285,6 +285,7 @@ section.video
 			text-transform: uppercase
 			transition: background .3s
 			padding: 15px 64px
+			white-space: nowrap
 			&:hover
 				background: $main-color
 		.card
@@ -351,6 +352,28 @@ section.video
 			font-size: 15px
 			font-weight: 600
 			line-height: 1em
+
+section.video.video-course
+	margin-top: 19px
+	.videos
+		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3)
+		height: 376px
+		margin-left: 0
+		.card, .image-holder
+			display: inline-block
+		.card
+			position: relative
+			left: 0
+			top: 0
+			box-shadow: none
+			width: 322px
+		li > .image-holder
+			display: inline-block
+			height: 100%
+			width: calc(100% - 322px)
+		a.more
+			left: 50%
+			transform: translate(0, -50%)
 
 // --------------------------------------------------
 // INPUT
