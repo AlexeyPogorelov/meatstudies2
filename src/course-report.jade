@@ -1,0 +1,109 @@
+- var headerclass = 'invert'
+html(lang='en')
+	head
+		title MEAT ˢᵗᵘᵈⁱᵉˢ 2
+
+		include ./partials/head.jade
+
+	body
+
+		include ./partials/navigation.jade
+
+		section.event-head
+			.tint
+			.container
+				.content-holder
+					.title-report Отчет: <b>UI+UX</b>
+					.footer
+						.conditions Вход свободный (По регистрации)
+
+		section.course-report
+			.section-label
+					img(src="img/icons/side-labels/course-report.svg", alt="course-report")
+			.container
+				.article-like
+				.wysiwyg
+					p Ура, дизайнеры сайтов на коне. Мир стал цифровым, молекулы превратились в 0 и 1. Теперь всем нужны не пластинки Элвиса Пресли, а качественные сайты для развития бизнеса.
+					p Войти в профессию несложно, если у вас достаточно энергии и упорства (заметьте, мы ничего не пишем про художественное образование и супер-способности). Но дорогу от дебюта до первой сильной работы можно сократить в разы. Чем мы и займемся.
+
+		section.students
+			.section-label
+					img(src="img/icons/side-labels/students.svg", alt="students")
+			.container
+				ul.students-holder
+					mixin student(name, profession, description, image)
+						li.student
+							.image-container
+								.image-holder
+									img(src= image, alt= name)
+							.description-container
+								h3= name
+								h4= profession
+								p= description
+								ul.socials-holder
+									li
+										a(href="#")
+											i.fa.fa-vk
+									li
+										a(href="#")
+											i.fa.fa-facebook
+									li
+										a(href="#")
+											i.fa.fa-instagram
+					+student(
+						'Антон Денисенко',
+						'Преподователь Art',
+						'Участник группы Собор святой марии',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+
+		section.works
+			.section-label
+					img(src="img/icons/side-labels/works.svg", alt="works")
+			.container
+
+		section.article-share
+			.container
+				.label share
+				mixin share (social, link, count)
+					li(class= count ? 'active' : '')
+						a(href= link ? link : '#')
+							i(class= 'fa fa-' + social)
+							if count
+								span.count= count
+				ul
+					+share(
+						'facebook'
+					)
+					+share(
+						'vk'
+					)
+					+share(
+						'twitter'
+					)
+					+share(
+						'envelope'
+					)
+
+		section.register-section
+			.section-label
+					img(src="img/icons/side-labels/register.svg", alt="register")
+			.container
+				form.content-holder(action="#")
+					.input-holder
+						label(for="name") Имя и фамилия
+						input(type="text" id="name")
+					.input-holder
+						label(for="name") Email
+						input(type="text" id="name")
+					.input-holder
+						label(for="name") Номер телефона
+						input(type="text" id="name")
+					.button-holder
+						button.btn(type="submit") записаться на курс
+
+		include ./partials/footer.jade
+
+		include ./partials/modals.jade
+
+	include ./partials/scripts.jade
