@@ -28,13 +28,14 @@ html(lang='en')
 				blockquote «Ну, даже не знаю… »
 
 		section.article-share
-			.top-line
 			.container
 				.label share
-				mixin share (social, link)
-					li
+				mixin share (social, link, count)
+					li(class= count ? 'active' : '')
 						a(href= link ? link : '#')
 							i(class= 'fa fa-' + social)
+							if count
+								span.count= count
 				ul
 					+share(
 						'facebook'
@@ -48,7 +49,6 @@ html(lang='en')
 					+share(
 						'envelope'
 					)
-			.bottom-line
 
 		section.article-comments
 			.section-label

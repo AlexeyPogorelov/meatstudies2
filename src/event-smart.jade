@@ -1,0 +1,107 @@
+- var mainpage = true
+- var eventpage = true
+doctype html
+html(lang='en')
+	head
+		title MEAT ˢᵗᵘᵈⁱᵉˢ 2
+
+		include ./partials/head.jade
+
+	body
+
+		include ./partials/navigation.jade
+
+		section.event-head
+			.tint
+			.container
+				.content-holder
+					.title-yellow 21 Марта / 18:00
+					h2 Лофт Мастер карате и джиу-танго
+					.footer
+						.conditions Вход свободный (По регистрации)
+						.address
+							b Prostir 86
+							span ул. Малевича 86
+
+		section.teachers.event-smart-teachers
+			.section-label
+				img(src="img/icons/side-labels/speaker.svg", alt="speaker")
+			.container
+				ul.teachers-holder
+					mixin teacher(name, profession, description, image)
+						li.teacher
+							.image-container
+								.image-holder
+									img(src= image, alt= name)
+							.description-container
+								h3= name
+								h4= profession
+								p= description
+								ul.socials-holder
+									li
+										a(href="#")
+											i.fa.fa-vk
+									li
+										a(href="#")
+											i.fa.fa-facebook
+									li
+										a(href="#")
+											i.fa.fa-instagram
+					+teacher(
+						'Антон Денисенко',
+						'Преподователь Art',
+						'Участник группы Собор святой марии',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+					+teacher('Маша Не Каша',
+						'Не каша',
+						'Суп, картошка, салат, укроп петрушка, торт',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+
+		section.register
+			.section-label
+				img(src="img/icons/side-labels/about-alt.svg", alt="about")
+			.container
+				.content-holder
+					.description
+						p Ура, дизайнеры сайтов на коне. Мир стал цифровым, молекулы превратились в 0 и 1. Теперь всем нужны не пластинки Элвиса Пресли, а качественные сайты для развития бизнеса.
+						p Войти в профессию несложно, если у вас достаточно энергии и упорства (заметьте, мы ничего не пишем про художественное образование и супер-способности). Но дорогу от дебюта до первой сильной работы можно сократить в разы. Чем мы и займемся.
+
+					form.register-form(action="#")
+						h2 РЕГИСТРАЦИЯ
+						input(type="text" placeholder="Имя+Фамилия")
+						input(type="text" placeholder="Email")
+						input(type="text" placeholder="Номер телефона")
+						.button-holder
+							button(type='submit') посетить мероприятие
+
+		section.article-share
+			.container
+				.label share
+				mixin share (social, link, count)
+					li(class= count ? 'active' : '')
+						a(href= link ? link : '#')
+							i(class= 'fa fa-' + social)
+							if count
+								span.count= count
+				ul
+					+share(
+						'facebook'
+					)
+					+share(
+						'vk'
+					)
+					+share(
+						'twitter'
+					)
+					+share(
+						'envelope',
+						'',
+						'25'
+					)
+
+		include ./partials/footer.jade
+		include ./partials/modals.jade
+
+	include ./partials/scripts.jade
