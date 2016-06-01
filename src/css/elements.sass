@@ -14,6 +14,69 @@ $mobile-x-small: 320px
 	height: 59px
 	width: 59px
 
+.mosaic-gallery
+	font-size: 0
+	letter-spacing: 0
+	margin-top: 112px
+	.item
+		display: inline-block
+		vertical-align: top
+		height: 244px
+		height: 17vw
+		width: 33.333%
+		.image-holder
+			position: relative
+		&:nth-child(7n+1)
+			.image-holder
+				height: 80%
+				width: 94%
+		&:nth-child(7n+2)
+			.image-holder
+				left: 1.2%
+				height: 89.7%
+				width: 78.2%
+		&:nth-child(7n+3)
+			.image-holder
+				left: -14%
+				height: 65%
+				width: 114%
+		&:nth-child(7n+4)
+			.image-holder
+				top: -11%
+				height: 100%
+				width: 78%
+		&:nth-child(7n+5)
+			.image-holder
+				top: -1.2%
+				left: -15.5%
+				height: 89.4%
+				width: 95%
+		&:nth-child(7n+6)
+			width: 16.6%
+			text-align: left
+			.image-holder
+				top: -25.8%
+				left: -28.1%
+				height: 114.3%
+				width: 107.7%
+		&:nth-child(7n+7)
+			width: 16.7%
+			text-align: right
+			.image-holder
+				top: -25.8%
+				left: -7%
+				height: 114.3%
+				width: 107%
+		&:nth-child(8)
+		&:nth-child(9)
+		&:nth-child(10)
+		&:nth-child(11)
+		&:nth-child(12)
+		&:nth-child(13)
+		&:nth-child(14)
+		&:nth-child(15)
+		&:nth-child(16)
+
 section.event-head
 	background-image: url("http://www.s.048.ua/s/4/section/newsInText/upload/images/news/intext/560/93d2c67601/3f01c64fd0088b0587f9d19ac3537324.jpg")
 	background-position: 50% 50%
@@ -38,6 +101,14 @@ section.event-head
 				font-size: 30px
 				font-weight: 700
 				line-height: 40px
+			.title-report
+				color: white
+				font-size: 50px
+				line-height: 65px
+				font-weight: 500
+				margin-top: 185px
+				b
+					font-weight: 800
 			.title-yellow
 				display: block
 				color: $main-color
@@ -46,6 +117,15 @@ section.event-head
 				line-height: 30px
 				letter-spacing: 1px
 				margin-bottom: 28px
+			.pre-footer
+				color: $main-color
+				font-size: 20px
+				font-weight: 700
+				line-height: 1em
+				margin-top: 73px
+				margin-bottom: 30px
+				& ~ .footer
+					margin-top: 20px
 			.footer
 				position: relative
 				margin-top: 100px
@@ -82,6 +162,7 @@ section.event-head
 						width: 25px
 					b
 						font-weight: 500
+						letter-spacing: 1px
 
 
 .pagination
