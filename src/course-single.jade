@@ -1,0 +1,37 @@
+doctype html
+html(lang='en')
+	head
+		title MEAT ˢᵗᵘᵈⁱᵉˢ 2
+
+		include ./partials/head.jade
+
+	body
+
+		include ./partials/navigation.jade
+
+		section.hottest
+			.section-label
+				//- span hottest
+				img(src="img/icons/side-labels/hottest.svg", alt="hottest")
+			.container
+				.tint
+				.content-holder
+					.title-yellow 21 Марта / 18:00
+					h2 Лофт Мастер карате и джиу-танго
+					.footer
+						.conditions Вход свободный (По регистрации)
+						.address
+							b Prostir 86
+							span ул. Малевича 86
+
+		section.all-events
+			.section-label
+				//- span all
+				img(src="img/icons/side-labels/all.svg", alt="all")
+			.container
+				
+
+		include ./partials/footer.jade
+		include ./partials/modals.jade
+
+	include ./partials/scripts.jade
