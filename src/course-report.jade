@@ -63,21 +63,21 @@ html(lang='en')
 							'https://unsplash.it/200/300?image=217',
 							'image'
 						)
+					ul.button-holder
+						.btn.load-more показать больше
 
 		section.students
 			.section-label
 					img(src="img/icons/side-labels/students.svg", alt="students")
 			.container
 				ul.students-holder
-					mixin student(name, profession, description, image)
+					mixin student(name, image)
 						li.student
 							.image-container
 								.image-holder
 									img(src= image, alt= name)
 							.description-container
 								h3= name
-								h4= profession
-								p= description
 								ul.socials-holder
 									li
 										a(href="#")
@@ -90,8 +90,58 @@ html(lang='en')
 											i.fa.fa-instagram
 					+student(
 						'Антон Денисенко',
-						'Преподователь Art',
-						'Участник группы Собор святой марии',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
+						)
+					+student(
+						'Антон Денисенко',
 						'http://findicons.com/files/icons/1072/face_avatars/300/i05.png'
 						)
 
@@ -99,6 +149,90 @@ html(lang='en')
 			.section-label
 					img(src="img/icons/side-labels/works.svg", alt="works")
 			.container
+				mixin work-case(name, image, description, autor)
+					li.work
+						a(href="#")
+							.image-container
+								.image-holder
+									img.fake-img(src= image, alt= name)
+									.img(style= 'background-image:url(' + image + ')')
+							.description-container
+								h3= name
+								p
+									b= description
+								hr
+								p= autor
+				h3.label SOLO
+				ul.work-case-holder
+					+work-case(
+						'The Divan',
+						'http://ramilrama.com/img/portfolio/portfolio-bg-360-1.png',
+						'App/Web',
+						'Васильковская А.'
+					)
+					+work-case(
+						'Moldovia Watches (Beta)',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6-1.jpg',
+						'UI+UX/Product design',
+						'Мижнародна К.'
+					)
+					+work-case(
+						'Mac Beth',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6.jpg',
+						'App/Web',
+						'Мукачево А,'
+					)
+
+				h3.label GROUP
+				ul.work-case-holder
+					+work-case(
+						'The Divan',
+						'http://ramilrama.com/img/portfolio/portfolio-bg-ulo-2.jpg',
+						'App/Web',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'Moldovia Watches (Beta)',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6-1.jpg',
+						'UI+UX/Product design',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'Mac Beth',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-40.jpg',
+						'App/Web',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'The Divan',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-3-1.jpg',
+						'App/Web',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'Moldovia Watches (Beta)',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-3.jpg',
+						'UI+UX/Product design',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'Mac Beth',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-1-1.jpg',
+						'App/Web',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'Moldovia Watches (Beta)',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-1.jpg',
+						'UI+UX/Product design',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'Mac Beth',
+						'http://ramilrama.com/img/portfolio/portfolio-bg-speakgeek2.png',
+						'App/Web',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
 
 		section.article-share
 			.container
