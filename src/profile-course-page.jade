@@ -1,0 +1,245 @@
+doctype html
+html(lang='en')
+	head
+		title MEAT Studies 2
+
+		include ./partials/head.jade
+
+	body
+		include ./partials/navigation.jade
+			
+		section.profile-top
+			.profilemenu
+				mixin profilemenu(href, text, active)
+					li
+						a(href= href class= active ? 'active' : '')=text
+
+				ul
+					+profilemenu('#', 'BOOKMARKS')
+					+profilemenu('#', 'VIDEO')
+					+profilemenu('#', 'COURSE', true)
+					+profilemenu('#', 'HOMEWORK')
+			.container
+				.user-info
+					.image-container
+						.image-holder
+							img(src='img/content/bitmap.png')
+					.description-container
+						.description-heading
+							h1 Валентин Дядька
+							.type-marker 
+								span.marker-text UI+UX
+						.contacts-holder
+							a(href="mailto:VDyaydke@mail.ru") VDyaydke@mail.ru
+							a(href="tel:+38 075 466 24 13") +38 075 466 24 13
+						ul.socials
+							li
+								a(href='#')
+									i.fa.fa-instagram
+				.edit-btn-holder
+					button.type-1 РЕДАКТИРОВАТЬ
+
+		section.yelow-bord
+			.bord-header
+				.container
+					h1 UI+UX COURSE
+			.bord-body
+				.white-part
+				.container
+					.task-holder
+						mixin task-item(month, integer, day, task, href, download)
+							.tesk-item
+								span.month=month
+								.left-part
+									.day-cube=integer
+										.day-marker=day
+								.right-part
+									.task-content=task
+										p
+											a(href= href)=download
+						+task-item(
+							'сентябрь',
+							'24',
+							'пн',
+							'Сделать презентацию в который вы расскажите о себе, покажите 3 своих лучших работы (если нету, любые достижения вне дизайна). Рассказать о том, что вы хотите получить от курса',
+							'#',
+							'ЗАГРУЗИТЬ РАБОТУ'
+						)
+						+task-item(
+							'сентябрь',
+							'24',
+							'чт',
+							'Сделать презентацию в который вы расскажите о себе, покажите 3 своих лучших работы (если нету, любые достижения вне дизайна). Рассказать о том, что вы хотите получить от курса',
+							'#',
+							'ЗАГРУЗИТЬ РАБОТУ'
+						)
+
+		section.celendar
+			.container
+				mixin celendar-item(date, month, day, heading, disabled, curent)
+					li.celendar-item(class= disabled ? 'disabled' : '')(class= curent ? 'curent' : '')
+						//- .dropdown
+						//- 	h3 Темы
+						//- 	a(href="#") Скачать лекцию
+						//- 	ul
+						//- 		li Ознакомление с программой курса
+						//- 		li Дизайн и искусство
+						//- 		li Дизайнер и бизнес
+						//- 		li Как сформировать и натренировать вкус.
+						//- 	h4 Домащнее задание:
+						//- 	span Сделать постер /
+						//- 	a(href="") Перейти к домашним заданиям
+
+						span= date
+						span= month
+						p= day
+						h1= heading
+						i(class="fa fa-angle-down" aria-hidden="true")
+				ul.celendar-list
+					+celendar-item(
+						29,
+						'февраля',
+						'Понедельник',
+						'Intro',
+						true
+					)
+					+celendar-item(
+						3,
+						'марта',
+						'четверг',
+						'Основы UX',
+						true
+					)
+					+celendar-item(
+						10,
+						'марта',
+						'Понедельник',
+						'Цвет,композиция и сетки',
+						true
+					)
+					+celendar-item(
+						14,
+						'марта',
+						'четверг',
+						'Основы типографики. Часть 1',
+						true
+					)
+					+celendar-item(
+						15,
+						'марта',
+						'четверг',
+						'Цвет, композиция и сетки',
+						true
+					)
+					+celendar-item(
+						15,
+						'марта',
+						'четверг',
+						'Цвет, композиция и сетки',
+						true
+					)
+					+celendar-item(
+						17,
+						'марта',
+						'четверг',
+						'Основы UX',
+						true
+					)
+					+celendar-item(
+						17,
+						'марта',
+						'четверг',
+						'Основы UX',
+						true
+					)
+					+celendar-item(
+						15,
+						'марта',
+						'Понедельник',
+						'Цвет, композиция и сетки',
+						false,
+						true
+					)
+					+celendar-item(
+						17,
+						'марта',
+						'четверг',
+						'Основы UX',
+						false
+					)
+					+celendar-item(
+						17,
+						'марта',
+						'четверг',
+						'Цвет, композиция и сетки',
+						false
+					)
+					+celendar-item(
+						17,
+						'марта',
+						'четверг',
+						'Основы UX',
+						false
+					)
+					+celendar-item(
+						17,
+						'марта',
+						'четверг',
+						'Цвет, композиция и сетки',
+						false
+					)
+					+celendar-item(
+						17,
+						'марта',
+						'четверг',
+						'Основы UX',
+						false
+					)
+					+celendar-item(
+						17,
+						'марта',
+						'четверг',
+						'Цвет, композиция и сетки',
+						false
+					)
+					+celendar-item(
+						17,
+						'марта',
+						'четверг',
+						'Основы UX',
+						false
+					)
+
+				.downloads
+					.down-item
+						.image-container
+							.image-holder
+								img(src="img/content/dbook1.png", alt="")
+						.description
+							a(href="#") Index.psd
+							p 
+								| Исходник главной страницы, в котором вы м
+								| ожете посмотреть организацию слоев и прочее
+					.down-item
+						.image-container
+							.image-holder
+								img(src="img/content/dbook2.png", alt="")
+						.description
+							a(href="#") Books.zip
+							p 
+								| Зборник книг по сеткам, цветоведениью и 
+								| композиции, которые пригодятся вам в работе
+
+ 
+
+
+
+
+ 
+
+
+
+
+
+		include ./partials/footer.jade
+	include ./partials/scripts.jade

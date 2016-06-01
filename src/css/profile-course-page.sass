@@ -1,0 +1,297 @@
+$large: 1300px
+$medium: 1260px
+$tablet: 1000px
+$mobile-large: 760px
+$mobile-medium: 640px
+$mobile-small: 480px
+$mobile-x-small: 320px
+$main-color: #ffd500
+
+.user-info
+	position: relative
+	font-size: 0
+	letter-spacing: 0
+	.image-container
+		display: inline-block
+		vertical-align: top
+		width: 20%
+		.image-holder
+			width: 99%
+			img
+	.description-container
+		display: inline-block
+		width: 80%
+		vertical-align: top
+		padding-left: 15px
+		padding-top: 10px
+		.description-heading
+			position: relative
+			.type-marker
+				display: inline-block
+				margin-left: 10px
+				width: 55px
+				height: 13px
+				background-color: #ffd500
+				z-index: 1
+				padding-left: 2px
+				position: relative
+				right: -8px
+				top: 4px
+				.marker-text
+					position: relative
+					top: -8px
+					left: 1px
+					color: #1a1a1a
+					font-size: 15px
+					font-weight: 600
+					line-height: 20px
+		h1
+			margin-bottom: 0
+			margin-top: 0
+			font-size: 25px
+			font-weight: 600
+			line-height: 40px
+			letter-spacing: 1px
+			display: inline-block
+
+	div.contacts-holder
+		a
+			color: #b3b3b3
+			font-size: 15px
+			margin-right: 20px
+			display: inline-block
+			letter-spacing: 0
+		.socials
+			a
+				i
+
+
+section.profile-top
+	margin-top: 179px
+	.profilemenu
+		position: absolute
+		left: 48px
+		top: -5px
+		ul
+			li
+				color: #9e9e9e
+				font-size: 18px
+				font-weight: 500
+				line-height: 30px
+				letter-spacing: 1px
+				padding-left: 10px
+				margin-bottom: 24px
+				a
+					color: inherit
+					display: inline-block
+					padding-right: 20px
+					&.active
+					position: relative
+					&.active:after
+						content: ''
+						position: absolute
+						height: 1px
+						background: #ffd500
+						width: 100%
+						top: 13px
+						left: -6px
+	.container
+		vertical-align: top
+		.user-info
+			width: 50%
+			display: inline-block
+			vertical-align: top
+		.edit-btn-holder
+			vertical-align: top
+			text-align: right
+			display: inline-block
+			button.type-1
+				padding: 15px 53px;
+
+
+section.yelow-bord
+	.bord-header
+		margin-top: 20px
+		.container
+			h1
+				font-size: 25px
+				margin-bottom: 13px
+	.bord-body
+		padding-top: 65px
+		padding-bottom: 64px
+		background: #ffd500
+		position: relative
+		.white-part
+			position: absolute
+			height: 101%
+			width: 16.6%
+			background: #fff
+			left: 0
+			top: -1px
+		.container
+			.task-holder
+				font-size: 0
+				letter-spacing: 0
+				.tesk-item
+					width: 50%
+					display: inline-block
+					vertical-align: top
+					position: relative
+					padding-left: 8px
+					span.month
+						font-size: 13px
+						font-weight: 400
+						position: absolute
+						transform: rotate(-90deg)
+						left: -37px
+						top: 29px
+					.left-part
+						display: inline-block
+						font-size: 0
+						letter-spacing: 0
+						vertical-align: top
+						width: 23%
+						padding-left: 5px
+						.day-cube
+							width: 99px
+							height: 87px
+							background-color: #ffd71d
+							border: 1.5px solid black
+							font-size: 30px
+							font-weight: 700
+							display: inline-block
+							text-align: center
+							padding-top: 30px
+							position: relative
+							.day-marker
+								position: absolute
+								right: -1px
+								bottom: -24px
+								background: #000
+								color: #fff
+								color: #f8e71c
+								font-size: 15px
+								font-weight: 600
+								width: 17px
+								height: 20px
+								width: 53px
+								height: 35px
+								text-align: center
+								padding-top: 5px
+					.right-part
+						display: inline-block
+						font-size: 0
+						letter-spacing: 0
+						width: 77%
+						vertical-align: top
+						padding-right: 30px
+						padding-left: 14px
+						.task-content
+							font-size: 15px
+							line-height: 20px
+							p
+								margin-top: 14px
+								a
+									font-weight: 600
+									color: #000
+
+section.celendar
+	ul.celendar-list
+		padding-bottom: 70px
+		border-bottom: 1px solid #000
+		font-size: 0
+		letter-spacing: 0
+		li
+			display: inline-block
+			width: 50%
+			position: relative
+			margin-top: 70px
+			margin-top: 70px
+			margin-bottom: 17px
+			&.curent:before
+				content: ''
+				height: 139%
+				width: 92%
+				background: #f7f7f7
+				position: absolute
+				left: -6%
+				top: -15%
+			&:after
+				content: ''
+				height: 1px
+				width: 16px
+				bottom: 3px
+				left: 2px
+				background: #000
+				position: absolute
+			&.disabled
+				span
+					color: #b3b3b3
+					margin-right: 6px
+				p
+					color: #b3b3b3
+				h1
+					color: #6b6b6b
+					position: relative
+				h1:after
+					content: ''
+					position: absolute
+					height: 2px
+					width: 100%
+					top: 16px
+					left: 0
+					background: #ffd500
+
+			span
+				color: #000
+				font-size: 18px
+				font-weight: 600
+				letter-spacing: 1px
+				position: relative
+			p
+				color: #000
+				font-size: 18px
+				font-weight: 400
+				position: relative
+				line-height: 1em
+			h1
+				color: #000
+				font-weight: 600
+				line-height: 30px
+				position: relative
+				margin-top: 23px
+				font-size: 27px
+				display: inline-block
+				cursor: pointer
+			i
+				font-size: 27px
+				color: #000
+				margin-left: 11px
+				position: relative
+				z-index: 1
+
+	.downloads
+		font-size: 0
+		letter-spacing: 0
+		margin-top: 40px
+		.down-item
+			width: 50%
+			display: inline-block
+			font-size: 0
+			letter-spacing: 0
+			.image-container
+				width: 30%
+				display: inline-block
+				.image-holder
+					img
+			.description
+				width: 70%
+				display: inline-block
+				a
+					color: #b3b3b3
+					font-size: 18px
+					letter-spacing: 1px
+				p 
+					color: #000
+					font-size: 15px
+					font-weight: 400
