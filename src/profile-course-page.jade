@@ -76,19 +76,19 @@ html(lang='en')
 
 		section.celendar
 			.container
-				mixin celendar-item(date, month, day, heading, disabled, curent)
-					li.celendar-item(class= disabled ? 'disabled' : '')(class= curent ? 'curent' : '')
-						//- .dropdown
-						//- 	h3 Темы
-						//- 	a(href="#") Скачать лекцию
-						//- 	ul
-						//- 		li Ознакомление с программой курса
-						//- 		li Дизайн и искусство
-						//- 		li Дизайнер и бизнес
-						//- 		li Как сформировать и натренировать вкус.
-						//- 	h4 Домащнее задание:
-						//- 	span Сделать постер /
-						//- 	a(href="") Перейти к домашним заданиям
+				mixin celendar-item(date, month, day, heading, disabled, curent, active)
+					li.celendar-item(class= disabled ? 'disabled' : '')(class= curent ? 'curent' : '')(class= active ? 'active' : '')
+						.dropdown
+							h3 Темы
+							a.downmat(href="#") Скачать лекцию
+							ul
+								li Ознакомление с программой курса
+								li Дизайн и искусство
+								li Дизайнер и бизнес
+								li Как сформировать и натренировать вкус.
+							h4 Домащнее задание:
+							span Сделать постер /
+							a.gotask(href="") Перейти к домашним заданиям
 
 						span= date
 						span= month
@@ -122,6 +122,8 @@ html(lang='en')
 						'марта',
 						'четверг',
 						'Основы типографики. Часть 1',
+						true,
+						false,
 						true
 					)
 					+celendar-item(
@@ -159,20 +161,6 @@ html(lang='en')
 						'Цвет, композиция и сетки',
 						false,
 						true
-					)
-					+celendar-item(
-						17,
-						'марта',
-						'четверг',
-						'Основы UX',
-						false
-					)
-					+celendar-item(
-						17,
-						'марта',
-						'четверг',
-						'Цвет, композиция и сетки',
-						false
 					)
 					+celendar-item(
 						17,

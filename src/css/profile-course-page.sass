@@ -119,15 +119,15 @@ section.yelow-bord
 	.bord-body
 		padding-top: 65px
 		padding-bottom: 64px
-		background: #ffd500
 		position: relative
-		.white-part
+		&:before
+			content: ''
+			background: #ffd500
 			position: absolute
-			height: 101%
-			width: 16.6%
-			background: #fff
-			left: 0
-			top: -1px
+			top: 0
+			right: 0
+			width: 83.3%
+			height: 100%
 		.container
 			.task-holder
 				font-size: 0
@@ -197,17 +197,55 @@ section.yelow-bord
 
 section.celendar
 	ul.celendar-list
-		padding-bottom: 70px
+		padding-bottom: 83px
 		border-bottom: 1px solid #000
 		font-size: 0
 		letter-spacing: 0
-		li
+		li.celendar-item
 			display: inline-block
 			width: 50%
 			position: relative
 			margin-top: 70px
 			margin-top: 70px
 			margin-bottom: 17px
+			.dropdown
+				position: absolute
+				background: #fff
+				z-index: 2
+				height: 0
+				width: 100%
+				overflow: hidden
+				top: 108px
+				padding-left: 5px
+				h3
+					line-height: 1em
+					margin-top: 13px
+					margin-bottom: 2px
+				a
+					font-size: 14px
+				ul
+					li
+						line-height: 1em
+						margin-bottom: 5px
+				h4
+					color: #bfbfbf
+					font-size: 18px
+					font-weight: 600
+					letter-spacing: 1px
+					line-height: 30px
+					margin-top: 19px
+					margin-bottom: 7px
+				span
+					color: #9e9e9e
+					font-size: 11px
+					font-weight: 400
+					line-height: 20px
+				a.gotask
+					color: #9e9e9e
+					font-size: 11px
+					font-weight: 600
+					line-height: 20px
+					text-decoration: underline
 			&.curent:before
 				content: ''
 				height: 139%
@@ -224,6 +262,23 @@ section.celendar
 				left: 2px
 				background: #000
 				position: absolute
+			&.active
+				.dropdown
+					height: auto
+					h3
+						color: #a8a8a8
+						font-size: 15px
+						font-weight: 600
+					a.downmat
+						color: #9e9e9e
+						font-size: 15px
+						font-weight: 600
+						text-decoration: underline
+					ul
+						li
+							color: #bfbfbf
+							font-size: 13px
+							font-weight: 400
 			&.disabled
 				span
 					color: #b3b3b3
@@ -241,6 +296,8 @@ section.celendar
 					top: 16px
 					left: 0
 					background: #ffd500
+				i
+					color: #6b6b6b
 
 			span
 				color: #000
@@ -273,7 +330,7 @@ section.celendar
 	.downloads
 		font-size: 0
 		letter-spacing: 0
-		margin-top: 40px
+		margin-top: 97px
 		.down-item
 			width: 50%
 			display: inline-block
@@ -282,11 +339,18 @@ section.celendar
 			.image-container
 				width: 30%
 				display: inline-block
+				vertical-align: top
+				box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1)
 				.image-holder
 					img
 			.description
 				width: 70%
 				display: inline-block
+				vertical-align: top
+				padding-left: 28px
+				padding-top: 13px
+				line-height: 1.35em
+				padding-right: 79px
 				a
 					color: #b3b3b3
 					font-size: 18px
