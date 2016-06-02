@@ -1,0 +1,50 @@
+$large: 1300px
+$medium: 1260px
+$tablet: 1000px
+$mobile-large: 760px
+$mobile-medium: 640px
+$mobile-small: 480px
+$mobile-x-small: 320px
+$main-color: #ffd500
+
+.calendar-1
+	border-collapse:collapse
+	table-layout: fixed
+	thead
+		td
+			text-align: right
+			padding-right: 18px
+	tbody
+		background: #fafafa
+		td
+			border: 1px solid #f2f2f2
+			position: relative
+			.day, .description
+				color: #000
+				position: absolute
+			.day
+				right: 18px
+				top: 18px
+			.description
+				left: 18px
+				bottom: 18px
+			.edit-button
+				pointer-events: none
+				opacity: 0
+			img
+				opacity: 0
+				width: 100%
+			&:hover
+				.edit-button
+					pointer-events: all
+				img
+					opacity: 1
+			&.disabled
+				.day, .description
+					color: #bfbfbf
+
+section.events-calendar
+	margin-top: 200px
+	& > table
+		margin-left: 24.2%
+		width: 100% - 24.2%
