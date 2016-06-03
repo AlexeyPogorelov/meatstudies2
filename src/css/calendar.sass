@@ -46,8 +46,10 @@ $main-color: #ffd500
 				line-height: 20px
 				cursor: pointer
 				display: inline-block
+				transition: opacity .1s
 				span
 					color: #000
+					transition: color .1s
 					letter-spacing: 0
 					&.edit, &.add
 						&:before
@@ -76,6 +78,8 @@ $main-color: #ffd500
 			&:hover
 				.description, .day
 					color: #fff
+					p
+						color: #fff
 				.edit-button
 					pointer-events: all
 					opacity: 1
@@ -83,12 +87,19 @@ $main-color: #ffd500
 					opacity: 1
 			&.disabled
 				.day, .description
+					color: #bfbfbf
 					p
 						color: #bfbfbf
 			&.disabled:hover
 				.day, .description
+					color: #fff
 					p
 						color: #fff
+				.edit-button
+					// pointer-events: none
+					// opacity: 0
+					span.add
+						display: none
 
 section.events-calendar
 	margin-top: 200px
