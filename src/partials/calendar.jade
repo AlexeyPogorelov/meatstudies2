@@ -6,7 +6,14 @@ mixin calendar-item (day, description, cls)
 		else
 			img(src="img/bg/calendar-add-1.svg", alt="add")
 		.day= day
-		.description= description
+		.description
+			.edit-button
+				if description
+					span.edit Edit
+				else
+					span.add Add lesson
+			if description
+				p= description
 
 table.calendar-1
 	thead
