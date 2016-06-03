@@ -109,14 +109,14 @@ section.profile-top
 				padding: 15px 53px;
 
 
-section.yelow-bord
-	.bord-header
+section.yelow-board
+	.board-header
 		margin-top: 20px
 		.container
 			h1
 				font-size: 25px
 				margin-bottom: 13px
-	.bord-body
+	.board-body
 		padding-top: 65px
 		padding-bottom: 64px
 		position: relative
@@ -129,7 +129,7 @@ section.yelow-bord
 			width: 83.3%
 			height: 100%
 		.container
-			.task-holder
+			.tasks-holder
 				font-size: 0
 				letter-spacing: 0
 				.tesk-item
@@ -194,14 +194,17 @@ section.yelow-bord
 								a
 									font-weight: 600
 									color: #000
-
-section.celendar
-	ul.celendar-list
+section.course-events
+	.downloads.materials
+		margin-top: 0
+		.down-item
+			margin-bottom: 53px
+	.course-events-list
 		padding-bottom: 83px
 		border-bottom: 1px solid #000
 		font-size: 0
 		letter-spacing: 0
-		li.celendar-item
+		.course-event
 			display: inline-block
 			width: 50%
 			position: relative
@@ -246,7 +249,7 @@ section.celendar
 					font-weight: 600
 					line-height: 20px
 					text-decoration: underline
-			&.curent:before
+			&.current:before
 				content: ''
 				height: 139%
 				width: 92%
@@ -360,7 +363,7 @@ section.celendar
 					font-size: 15px
 					font-weight: 400
 
-.bord-header
+.board-header
 	.container
 		.downds-header
 			font-size: 0
@@ -390,45 +393,39 @@ section.celendar
 						position: absolute
 						left: -4px
 						top: -5px
-section.celendar
-	.downloads.materials
-		margin-top: 0
-		.down-item
-			margin-bottom: 53px
 
 section.feed-list
 	margin-top: 59px
-	.container
-		li 
-			font-size: 0
-			letter-spacing: 0
-			margin-bottom: 38px
-			.image-container
-				display: inline-block
-				vertical-align: top
-				width: 7.7%
-				padding-right: 15px
+	li 
+		font-size: 0
+		letter-spacing: 0
+		margin-bottom: 38px
+		.image-container
+			display: inline-block
+			vertical-align: top
+			width: 7.7%
+			padding-right: 15px
 
-				.image-holder
-					img
-			.feed-description
-				padding-top: 7px
-				display: inline-block
-				vertical-align: top
-				width: 92.3%
-				font-size: 15px;
-				color: #9e9e9e;
-				font-weight: 500;
-				div
-					line-height: 1.2em
-					span
-						font-size: inherit
-						margin-right: 7px
-						line-height: 1em
-					span.hapend
-						color: #000
-					span.time
-						font-size: 13px
+			.image-holder
+				img
+		.feed-description
+			padding-top: 7px
+			display: inline-block
+			vertical-align: top
+			width: 92.3%
+			font-size: 15px;
+			color: #9e9e9e;
+			font-weight: 500;
+			div
+				line-height: 1.2em
+				span
+					font-size: inherit
+					margin-right: 7px
+					line-height: 1em
+				span.hapend
+					color: #000
+				span.time
+					font-size: 13px
 .show-more-holder
 	margin-top: 65px
 	button

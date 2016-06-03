@@ -12,7 +12,7 @@ html(lang='en')
 			.profilemenu
 				mixin profilemenu(href, text, active)
 					li
-						a(href= href class= active ? 'active' : '')=text
+						a(href= href, class= active ? 'active' : '')= text
 
 				ul
 					+profilemenu('#', 'BOOKMARKS')
@@ -23,7 +23,7 @@ html(lang='en')
 				.user-info
 					.image-container
 						.image-holder
-							img(src='img/content/bitmap.png')
+							img(src='img/content/profile-image-1.png')
 					.description-container
 						.description-heading
 							h1 Валентин Дядька
@@ -39,24 +39,23 @@ html(lang='en')
 				.edit-btn-holder
 					button.type-1 РЕДАКТИРОВАТЬ
 
-		section.yelow-bord
-			.bord-header
+		section.yelow-board
+			.board-header
 				.container
 					h1 UI+UX COURSE
-			.bord-body
-				.white-part
+			.board-body
 				.container
-					.task-holder
+					.tasks-holder
 						mixin task-item(month, integer, day, task, href, download)
 							.tesk-item
-								span.month=month
+								span.month= month
 								.left-part
-									.day-cube=integer
-										.day-marker=day
+									.day-cube= integer
+										.day-marker= day
 								.right-part
-									.task-content=task
+									.task-content= task
 										p
-											a(href= href)=download
+											a(href= href)= download
 						+task-item(
 							'сентябрь',
 							'24',
@@ -74,10 +73,10 @@ html(lang='en')
 							'ЗАГРУЗИТЬ РАБОТУ'
 						)
 
-		section.celendar
+		section.course-events
 			.container
-				mixin celendar-item(date, month, day, heading, disabled, curent, active)
-					li.celendar-item(class= disabled ? 'disabled' : '')(class= curent ? 'curent' : '')(class= active ? 'active' : '')
+				mixin celendar-item(date, month, day, heading, cls)
+					li.course-event-item(class= cls ? cls : '')
 						.dropdown
 							h3 Темы
 							a.downmat(href="#") Скачать лекцию
@@ -95,107 +94,99 @@ html(lang='en')
 						p= day
 						h1= heading
 						i(class="fa fa-angle-down" aria-hidden="true")
-				ul.celendar-list
+				ul.course-events-list
 					+celendar-item(
 						29,
 						'февраля',
 						'Понедельник',
 						'Intro',
-						true
+						'disabled'
 					)
 					+celendar-item(
 						3,
 						'марта',
 						'четверг',
 						'Основы UX',
-						true
+						'disabled'
 					)
 					+celendar-item(
 						10,
 						'марта',
 						'Понедельник',
 						'Цвет,композиция и сетки',
-						true
+						'disabled'
 					)
 					+celendar-item(
 						14,
 						'марта',
 						'четверг',
 						'Основы типографики. Часть 1',
-						true,
-						false,
-						true
+						'disabled active'
 					)
 					+celendar-item(
 						15,
 						'марта',
 						'четверг',
 						'Цвет, композиция и сетки',
-						true
+						'disabled'
 					)
 					+celendar-item(
 						15,
 						'марта',
 						'четверг',
 						'Цвет, композиция и сетки',
-						true
+						'disabled'
 					)
 					+celendar-item(
 						17,
 						'марта',
 						'четверг',
 						'Основы UX',
-						true
+						'disabled'
 					)
 					+celendar-item(
 						17,
 						'марта',
 						'четверг',
 						'Основы UX',
-						true
+						'disabled'
 					)
 					+celendar-item(
 						15,
 						'марта',
 						'Понедельник',
 						'Цвет, композиция и сетки',
-						false,
-						true
+						'current'
 					)
 					+celendar-item(
 						17,
 						'марта',
 						'четверг',
-						'Основы UX',
-						false
+						'Основы UX'
 					)
 					+celendar-item(
 						17,
 						'марта',
 						'четверг',
-						'Цвет, композиция и сетки',
-						false
+						'Цвет, композиция и сетки'
 					)
 					+celendar-item(
 						17,
 						'марта',
 						'четверг',
-						'Основы UX',
-						false
+						'Основы UX'
 					)
 					+celendar-item(
 						17,
 						'марта',
 						'четверг',
-						'Цвет, композиция и сетки',
-						false
+						'Цвет, композиция и сетки'
 					)
 					+celendar-item(
 						17,
 						'марта',
 						'четверг',
-						'Основы UX',
-						false
+						'Основы UX'
 					)
 
 				.downloads
