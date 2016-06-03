@@ -1,0 +1,103 @@
+doctype html
+html(lang='en')
+	head
+		title MEAT Studies 2
+
+		include ./partials/head.jade
+
+	body
+		include ./partials/navigation.jade
+			
+		section.profile-top
+			.profilemenu
+				mixin profilemenu(href, text, active)
+					li
+						a(href= href class= active ? 'active' : '')=text
+
+				ul
+					+profilemenu('#', 'BOOKMARKS')
+					+profilemenu('#', 'VIDEO')
+					+profilemenu('#', 'COURSE', true)
+					+profilemenu('#', 'HOMEWORK')
+			.container
+				.user-info
+					.image-container
+						.image-holder
+							img(src='img/content/bitmap.png')
+					.description-container
+						.description-heading
+							h1 Валентин Дядька
+							.type-marker 
+								span.marker-text UI+UX
+						.contacts-holder
+							a(href="mailto:VDyaydke@mail.ru") VDyaydke@mail.ru
+							a(href="tel:+38 075 466 24 13") +38 075 466 24 13
+						ul.socials
+							li
+								a(href='#')
+									i.fa.fa-instagram
+				.edit-btn-holder
+					button.type-1 РЕДАКТИРОВАТЬ
+
+		section.yelow-bord
+			.bord-header
+				.container
+					.downds-header
+						.h-holder
+							h1 UI+UX COURSE
+						.downds-holder
+							a(href="#") ЗАГРУЗИТЬ МАТЕРИАЛ
+								img(src="img/content/2-layers.jpg", alt="")
+		section.celendar
+			.container
+				.downloads.materials
+					.down-item
+						.image-container
+							.image-holder
+								img(src="img/content/dbook1.png", alt="")
+						.description
+							a(href="#") Index.psd
+							p 
+								| Исходник главной страницы, в котором вы м
+								| ожете посмотреть организацию слоев и прочее
+					.down-item
+						.image-container
+							.image-holder
+								img(src="img/content/dbook2.png", alt="")
+						.description
+							a(href="#") Books.zip
+							p 
+								| Зборник книг по сеткам, цветоведениью и 
+								| композиции, которые пригодятся вам в работе
+					.down-item
+						.image-container
+							.image-holder
+								img(src="img/content/dbook1.png", alt="")
+						.description
+							a(href="#") Index.psd
+							p 
+								| Исходник главной страницы, в котором вы м
+								| ожете посмотреть организацию слоев и прочее
+					.down-item
+						.image-container
+							.image-holder
+								img(src="img/content/dbook2.png", alt="")
+						.description
+							a(href="#") Books.zip
+							p 
+								| Зборник книг по сеткам, цветоведениью и 
+								| композиции, которые пригодятся вам в работе
+
+ 
+
+
+
+
+ 
+
+
+
+
+
+		include ./partials/footer.jade
+	include ./partials/scripts.jade
