@@ -1,0 +1,76 @@
+mixin calendar-item (day, description, cls)
+	//- supposted classes is disabled and current
+	td(class= cls ? cls : '')
+		if description
+			img(src="img/bg/calendar-edit-1.svg", alt="edit")
+		else
+			img(src="img/bg/calendar-add-1.svg", alt="add")
+		.day= day
+		.description
+			.edit-button
+				if description
+					span.edit Edit
+				else
+					span.add Add lesson
+			if description
+				p= description
+
+table.calendar-1
+	thead
+		tr
+			td Пн
+			td Вт
+			td Ср
+			td Чт
+			td Пт
+			td Сб
+			td Вс
+	tbody
+		tr
+			+calendar-item (25, '', 'disabled')
+			+calendar-item (26, 'Мастер Пиф', 'disabled')
+			+calendar-item (27, '', 'disabled')
+			+calendar-item (28, '', 'disabled')
+			+calendar-item (29, 'Выживание в степи, после борща', 'disabled')
+			+calendar-item (30, '', 'disabled')
+			+calendar-item (1, '', 'disabled')
+		tr
+			+calendar-item (2, '', 'disabled')
+			+calendar-item (3, 'Основы типографики. Часть 1', 'disabled')
+			+calendar-item (4, '', 'disabled')
+			+calendar-item (5, '', 'disabled')
+			+calendar-item (6, 'Выживание в степи, после борща', 'disabled')
+			+calendar-item (7, '', 'disabled')
+			+calendar-item (8, '', 'disabled')
+		tr
+			+calendar-item (9, '', 'disabled')
+			+calendar-item (10, 'Основы типографики. Часть 1', 'disabled')
+			+calendar-item (11, '', 'disabled')
+			+calendar-item (12, '', 'active')
+			+calendar-item (13, 'Выживание в степи, после борща')
+			+calendar-item (14, '')
+			+calendar-item (15, '')
+		tr
+			+calendar-item (16, '')
+			+calendar-item (17, 'Основы типографики. Часть 1')
+			+calendar-item (18, '')
+			+calendar-item (19, '')
+			+calendar-item (20, 'Вводная лекция О позитиве')
+			+calendar-item (21, '')
+			+calendar-item (22, '')
+		tr
+			+calendar-item (23, '')
+			+calendar-item (24, 'Основы типографики. Часть 1')
+			+calendar-item (25, '')
+			+calendar-item (26, '')
+			+calendar-item (27, '')
+			+calendar-item (28, '')
+			+calendar-item (29, '')
+		tr
+			+calendar-item (30, '')
+			+calendar-item (31, '')
+			+calendar-item ('1 июня', '', 'disabled')
+			+calendar-item (2, '', 'disabled')
+			+calendar-item (3, '', 'disabled')
+			+calendar-item (4, '', 'disabled')
+			+calendar-item (5, '', 'disabled')

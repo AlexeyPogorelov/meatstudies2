@@ -6,6 +6,170 @@ $mobile-medium: 640px
 $mobile-small: 480px
 $mobile-x-small: 320px
 
+.article-like
+	background: url('../img/icons/like-icon-1.svg') no-repeat 50% 50%
+	position: absolute
+	top: 0
+	left: 61px
+	height: 59px
+	width: 59px
+
+.mosaic-gallery
+	font-size: 0
+	letter-spacing: 0
+	margin-top: 112px
+	.item
+		display: inline-block
+		vertical-align: top
+		height: 244px
+		height: 17vw
+		width: 33.333%
+		.image-holder
+			position: relative
+		&:nth-child(7n+1)
+			.image-holder
+				height: 80%
+				width: 94%
+		&:nth-child(7n+2)
+			.image-holder
+				left: 1.2%
+				height: 89.7%
+				width: 78.2%
+		&:nth-child(7n+3)
+			.image-holder
+				left: -14%
+				height: 65%
+				width: 114%
+		&:nth-child(7n+4)
+			.image-holder
+				top: -11%
+				height: 100%
+				width: 78%
+		&:nth-child(7n+5)
+			.image-holder
+				top: -1.2%
+				left: -15.5%
+				height: 89.4%
+				width: 95%
+		&:nth-child(7n+6)
+			width: 16.6%
+			text-align: left
+			.image-holder
+				top: -25.8%
+				left: -28.1%
+				height: 114.3%
+				width: 107.7%
+		&:nth-child(7n+7)
+			width: 16.7%
+			text-align: right
+			.image-holder
+				top: -25.8%
+				left: -7%
+				height: 114.3%
+				width: 107%
+		// &:nth-child(8)
+		// &:nth-child(9)
+		// &:nth-child(10)
+		// &:nth-child(11)
+		// &:nth-child(12)
+		// &:nth-child(13)
+		// &:nth-child(14)
+		// &:nth-child(15)
+		// &:nth-child(16)
+	.button-holder
+		margin-top: 32px
+		text-align: left
+		.btn
+			padding: 11px 35px
+
+section.event-head
+	background-image: url("http://www.s.048.ua/s/4/section/newsInText/upload/images/news/intext/560/93d2c67601/3f01c64fd0088b0587f9d19ac3537324.jpg")
+	background-position: 50% 50%
+	background-repeat: repeat
+	position: relative
+	.tint
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		background: rgba(0,0,0,0.4)
+	.container
+		.content-holder
+			position: relative
+			margin: 175px 0 36px
+			color: #fff
+			font-size: 0
+			letter-spacing: 0
+			h2
+				color: white
+				font-size: 30px
+				font-weight: 700
+				line-height: 40px
+			.title-report
+				color: white
+				font-size: 50px
+				line-height: 65px
+				font-weight: 500
+				margin-top: 185px
+				b
+					font-weight: 800
+			.title-yellow
+				display: block
+				color: $main-color
+				font-size: 25px
+				font-weight: 600
+				line-height: 30px
+				letter-spacing: 1px
+				margin-bottom: 28px
+			.pre-footer
+				color: $main-color
+				font-size: 20px
+				font-weight: 700
+				line-height: 1em
+				margin-top: 73px
+				margin-bottom: 30px
+				& ~ .footer
+					margin-top: 20px
+			.footer
+				position: relative
+				margin-top: 100px
+				&:before
+					content: ''
+					background: white
+					height: 3px
+					left: 1px
+					position: absolute
+					top: -14px
+					width: 42px
+				.conditions
+					display: inline-block
+					color: white
+					font-size: 18px
+					font-weight: 500
+					line-height: 30px
+					width: 50%
+				.address
+					color: white
+					display: inline-block
+					font-size: 18px
+					font-weight: 400
+					line-height: 30px
+					width: 50%
+					&:before
+						background: url(../img/icons/pin-1.svg) no-repeat
+						background-size: contain
+						content: ''
+						display: inline-block
+						position: relative
+						top: 4px
+						height: 24px
+						width: 25px
+					b
+						font-weight: 600
+						letter-spacing: 1px
+
+
 .pagination
 	text-align: center
 	margin-bottom: 53px
@@ -41,6 +205,8 @@ $mobile-x-small: 320px
 		height: 8px
 		width: 52px
 		margin: 0 26px
+		background-position: 50% 50%
+		background-repeat: no-repeat
 		a
 			display: block
 			height: 100%
@@ -48,21 +214,22 @@ $mobile-x-small: 320px
 			background-position: 50% 50%
 			background-repeat: no-repeat
 	.arrow-left
-		background: url('../img/icons/slider-arrow-left-1.svg')
+		background-image: url('../img/icons/slider-arrow-left-1.svg')
 	.arrow-right
-		background: url('../img/icons/slider-arrow-right-1.svg')
+		background-image: url('../img/icons/slider-arrow-right-1.svg')
 .load-more-holder ~ .pagination-1
 	margin-top: -40px
 
 .load-more-holder
 	text-align: center
-a.btn.load-more
+.btn.load-more
 	color: black
 	font-size: 15px
-	font-weight: 700
+	font-weight: 600
 	line-height: 1em
 	letter-spacing: 0
 	text-transform: uppercase
+	text-align: center
 	border: 3px solid $main-color
 	padding: 15px 40px
 	transition: background .3s
@@ -82,16 +249,22 @@ a.btn.load-more
 		vertical-align: middle
 
 .btn, button
+	white-space: nowrap
+	text-overflow: ellipsis
+	overflow: hidden
+	background: transparent
+	color: black
+	font-size: 15px
+	font-weight: 700
+	line-height: 1em
+	border: 3px solid $main-color
+	transition: background .3s
+	padding: 12px 37px
+	text-transform: uppercase
+	&:hover
+		background: $main-color
+		transition: background .1s
 	&.type-1
-		background: transparent
-		color: black
-		font-size: 15px
-		font-weight: 700
-		line-height: 1em
-		border: 3px solid $main-color
-		transition: background .3s
 		padding: 15px 98px
-		text-transform: uppercase
-		&:hover
-			background: $main-color
-			transition: background .1s
+	&.type-2
+		color: #fff

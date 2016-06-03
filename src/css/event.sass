@@ -1,0 +1,366 @@
+$large: 1300px
+$medium: 1260px
+$tablet: 1000px
+$mobile-large: 760px
+$mobile-medium: 640px
+$mobile-small: 480px
+$mobile-x-small: 320px
+
+section.teachers.event-smart-teachers
+	margin-top: 80px
+	// margin-bottom: 10px
+
+section.register-block
+	margin-top: 22px
+	margin-bottom: 136px
+	.container
+		font-size: 0
+		letter-spacing: 0
+		.content-holder
+			.description, .register-form
+				display: inline-block
+				vertical-align: top
+				width: 50%
+			.description
+				padding-right: 40px
+				p
+					color: black
+					font-size: 18px
+					font-weight: 500
+					// letter-spacing: 1px
+					line-height: 30px
+					margin-bottom: 30px
+			.register-form
+				box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3)
+				padding: 51px 60px 50px
+				width: 48%
+				h2
+					color: #1a1a1a
+					font-size: 30px
+					font-weight: 600
+					line-height: 1em
+					margin-bottom: 36px
+				input
+					display: block
+					margin-bottom: 30px
+					width: 100%
+				.button-holder
+					text-align: right
+					button
+						border: 3px solid $main-color
+						padding: 15px 22px
+						background: none
+						text-transform: uppercase
+						color: black
+						font-size: 15px
+						font-weight: 700
+						letter-spacing: 0
+						line-height: 1em
+						margin-top: 10px
+						transition: background .3s
+						&:hover
+							background: $main-color
+							transition: background .1s
+	&.first
+		margin-top: 71px
+		.section-label
+			top: 8px
+
+.subscribe.event-page
+	margin-top: 114px
+
+section.old-events
+	font-size: 0
+	letter-spacing: 0
+	.event
+		h4
+		h3
+		p
+		.image-container, .description-container
+			display: inline-block
+			vertical-align: top
+		.image-container
+		.description-container
+
+section.all-events
+	margin-top: 100px
+	font-size: 0
+	letter-spacing: 0
+	.section-label
+		top: 0
+	.event
+		margin-bottom: 78px
+		h4
+			color: black
+			font-size: 18px
+			font-weight: 400
+			line-height: 1em
+			letter-spacing: 1px
+			margin-top: 5px
+		h3
+			color: black
+			font-size: 25px
+			font-weight: 600
+			line-height: 30px
+			margin-top: 15px
+			// TODO verify it
+			letter-spacing: 1px
+		p, .address
+			color: black
+			font-size: 18px
+			line-height: 30px
+			font-weight: 500
+			letter-spacing: 1px
+			b
+				font-weight: 700
+		.address
+			color: #000
+			display: inline-block
+			font-size: 18px
+			font-weight: 400
+			line-height: 30px
+			position: absolute
+			left: 100%
+			white-space: nowrap
+			bottom: -8px
+			width: 50%
+			&:before
+				background: url(../img/icons/pin-2.svg) no-repeat
+				background-size: contain
+				content: ''
+				display: inline-block
+				position: relative
+				top: 4px
+				height: 24px
+				width: 25px
+			&:after
+				content: ''
+				background: black
+				height: 3px
+				left: 0px
+				position: absolute
+				top: -24px
+				width: 45px
+		.image-container, .description-container
+			display: inline-block
+			vertical-align: top
+		.image-container
+			position: relative
+			width: 28.9%
+			.image-holder
+				width: 86.5%
+		.description-container
+			width: 100% - 28.9%
+		.info-holder
+			padding-right: 10%
+	.button-holder
+		margin-top: 80px
+		text-align: left
+		.btn
+			min-width: 25%
+
+section.old-events
+	margin-top: 40px
+	font-size: 0
+	letter-spacing: 0
+	.section-label
+		top: 0
+	.event
+		background-color: #fafafa
+		border: 1px solid #efefef
+		// margin-bottom: 78px
+		h4
+			color: black
+			font-size: 18px
+			font-weight: 400
+			line-height: 1em
+			letter-spacing: 1px
+		h3
+			font-size: 18px
+			line-height: 30px
+			color: black
+			font-weight: 600
+			letter-spacing: 0
+		p, .address
+			color: black
+			font-size: 18px
+			line-height: 30px
+			font-weight: 500
+			letter-spacing: 1px
+			b
+				font-weight: 700
+		.label
+			font-size: 18px
+			line-height: 1em
+			color: #bfbfbf
+			font-weight: 400
+			letter-spacing: 1px
+			margin-bottom: 7px
+			// color: black
+			// font-weight: 500
+			// letter-spacing: 0.72px
+		.address
+			color: #000
+			color: #bfbfbf
+			display: inline-block
+			font-size: 18px
+			font-weight: 400
+			line-height: 30px
+			position: absolute
+			right: 100%
+			white-space: nowrap
+			bottom: 42px
+			width: 100%
+			width: calc(100% - 60px)
+			&:after
+				content: ''
+				background: black
+				height: 3px
+				left: 0px
+				position: absolute
+				top: -15px
+				width: 45px
+			p
+				color: inherit
+				font-size: inherit
+				font-weight: inherit
+		.address-icon
+			&:before
+				background: url(../img/icons/pin-2.svg) no-repeat
+				background-size: contain
+				content: ''
+				display: inline-block
+				opacity: 0.3
+				position: relative
+				top: 4px
+				height: 24px
+				width: 25px
+		.image-container, .description-container
+			display: inline-block
+			vertical-align: top
+			width: 50%
+		.image-container
+			position: relative
+			.image-holder
+		.description-container
+			padding: 48px 60px
+	.button-holder
+		margin-top: 80px
+		text-align: left
+		.btn
+			min-width: 25%
+
+section.programm-graph
+	.section-label
+		top: 2px
+	.graph-holder
+		.item
+			margin-left: -26px
+			padding-bottom: 70px
+			position: relative
+			// width: 50%
+			&:before
+				content: ''
+				position: absolute
+				left: 23px
+				top: 10px
+				bottom: -10px
+				background: whitesmoke
+				z-index: -1
+				width: 5px
+				// border: 5px solid whitesmoke
+			.image-container, .time-container, .description-container
+				display: inline-block
+				vertical-align: top
+			.image-container
+				width: 86px
+				.image-holder
+					margin-top: -12px
+					border-radius: 50%
+					height: 50px
+					width: 50px
+			.no-image
+				width: 16px
+				height: 16px
+				border: 3px solid #bfbfbf
+				border-radius: 50%
+				position: absolute
+				left: 50%
+				top: 50%
+				transform: translate(-50%, -50%)
+			.time-container
+				width: 88px
+				span
+					color: black
+					font-size: 25px
+					font-weight: 300
+					line-height: 1em
+					letter-spacing: 0
+					position: relative
+					bottom: -3px
+			.description-container
+				width: 50%
+				width: calc(50% - 200px)
+				h3
+					color: black
+					font-size: 18px
+					font-weight: 600
+					line-height: 30px
+					letter-spacing: 1px
+					margin-bottom: 7px
+				p, .description
+					color: #6e6e6e
+					font-size: 15px
+					font-weight: 400
+					line-height: 20px
+					letter-spacing: 0
+			&:first-child
+				.no-image
+					width: 25px
+					height: 25px
+					background-color: #f0f0f0
+					border: 3px solid #bfbfbf
+			&:last-child, .last
+				&:before
+					display: none
+
+section.video-stream
+	margin-top: 49px
+	.section-label
+		top: 0
+	.video-stream-holder
+		background: #000
+		position: relative
+		height: 585px
+		display: table-cell
+		vertical-align: middle
+		&:after
+			content: ''
+			position: absolute
+			left: 0
+			top: 0
+			right: 0
+			bottom: 0
+			background: rgba(0,0,0,0.4)
+		.content-holder
+			position: absolute
+			left: 50%
+			top: 50%
+			transform: translate(-50%, -50%)
+			text-align: center
+			z-index: 1
+			h2
+				color: white
+				font-size: 30px
+				font-weight: 700
+				line-height: 40px
+			a.btn
+				margin-top: 14px
+				color: #fff
+				letter-spacing: 0
+				padding: 13px 24px
+	.stream
+		& > *
+			width: 100%
+	& + .article-share
+		margin-top: 104px

@@ -1,0 +1,281 @@
+- var headerclass = 'invert'
+html(lang='en')
+	head
+		title MEAT ˢᵗᵘᵈⁱᵉˢ 2
+
+		include ./partials/head.jade
+
+	body
+
+		include ./partials/navigation.jade
+
+		section.event-head
+			.tint
+			.container
+				.content-holder
+					.title-report Отчет: <b>UI+UX</b>
+					.pre-footer
+						span Basic
+					.footer
+						.conditions
+							b 14 мая 2016 – 14 июля 2016
+
+		section.course-report
+			.section-label
+					img(src="img/icons/side-labels/about-alt.svg", alt="about-alt")
+			.container
+				.article-like
+				.wysiwyg
+					p Ура, дизайнеры сайтов на коне. Мир стал цифровым, молекулы превратились в 0 и 1. Теперь всем нужны не пластинки Элвиса Пресли, а качественные сайты для развития бизнеса.
+					p Войти в профессию несложно, если у вас достаточно энергии и упорства (заметьте, мы ничего не пишем про художественное образование и супер-способности). Но дорогу от дебюта до первой сильной работы можно сократить в разы. Чем мы и займемся.
+				.mosaic-gallery
+					ul.content-holder
+						mixin student(image, name)
+							li.item
+								.image-holder
+									img.fake-img(src= image, alt= name)
+									.img(style= 'background-image:url(' + image + ')')
+						+student(
+							'https://unsplash.it/200/300?image=211',
+							'image'
+						)
+						+student(
+							'https://unsplash.it/200/300?image=212',
+							'image'
+						)
+						+student(
+							'https://unsplash.it/200/300?image=169',
+							'image'
+						)
+						+student(
+							'https://unsplash.it/200/300?image=214',
+							'image'
+						)
+						+student(
+							'https://unsplash.it/200/300?image=215',
+							'image'
+						)
+						+student(
+							'https://unsplash.it/200/300?image=216',
+							'image'
+						)
+						+student(
+							'https://unsplash.it/200/300?image=217',
+							'image'
+						)
+					ul.button-holder
+						.btn.load-more показать больше
+
+		section.students
+			.section-label
+					img(src="img/icons/side-labels/students.svg", alt="students")
+			.container
+				ul.students-holder
+					mixin student(name, image)
+						li.student
+							.image-container
+								.image-holder
+									img(src= image, alt= name)
+							.description-container
+								h3= name
+								ul.socials-holder
+									li
+										a(href="#")
+											i.fa.fa-vk
+									li
+										a(href="#")
+											i.fa.fa-facebook
+									li
+										a(href="#")
+											i.fa.fa-instagram
+					+student(
+						'Антон Денисенко',
+						'http://i1.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/orange_rose_hair_couleur_cheveux-_peche_orange_pink_colorful-_pastel_hairs1.jpg?fit=520%2C816'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs3.jpg?resize=224%2C300'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs3.jpg?resize=224%2C300'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://i2.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs11.jpg?resize=200%2C300'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs-12.jpg?w=646'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs14.jpg?resize=198%2C300'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://i1.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_lavander_hair_couleur_cheveux-_rose_colorful-_pastel_hairs21.jpg?w=545'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_blue_hair_couleur_cheveux-_rose_bleu_colorful-_pastel_hairs20.jpg?w=581'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://i1.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_lavander_hair_couleur_cheveux-_rose_colorful-_pastel_hairs21.jpg?w=545'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs-12.jpg?w=646'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs-12.jpg?w=646'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs3.jpg?resize=224%2C300'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://i1.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/orange_rose_hair_couleur_cheveux-_peche_orange_pink_colorful-_pastel_hairs1.jpg?fit=520%2C816'
+						)
+					+student(
+						'Антон Денисенко',
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs-12.jpg?w=646'
+						)
+
+		section.works
+			.section-label
+					img(src="img/icons/side-labels/works.svg", alt="works")
+			.container
+				mixin work-case(name, image, description, autor)
+					li.work
+						a(href="#")
+							.image-container
+								.image-holder
+									img.fake-img(src= image, alt= name)
+									.img(style= 'background-image:url(' + image + ')')
+							.description-container
+								h3= name
+								p
+									b= description
+								hr
+								p= autor
+				h3.label SOLO
+				ul.work-case-holder
+					+work-case(
+						'The Divan',
+						'http://ramilrama.com/img/portfolio/portfolio-bg-360-1.png',
+						'App/Web',
+						'Васильковская А.'
+					)
+					+work-case(
+						'Moldovia Watches (Beta)',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6-1.jpg',
+						'UI+UX/Product design',
+						'Мижнародна К.'
+					)
+					+work-case(
+						'Mac Beth',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6.jpg',
+						'App/Web',
+						'Мукачево А,'
+					)
+
+				h3.label GROUP
+				ul.work-case-holder
+					+work-case(
+						'The Divan',
+						'http://ramilrama.com/img/portfolio/portfolio-bg-ulo-2.jpg',
+						'App/Web',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'Moldovia Watches (Beta)',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6-1.jpg',
+						'UI+UX/Product design',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'Mac Beth',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-40.jpg',
+						'App/Web',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'The Divan',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-3-1.jpg',
+						'App/Web',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'Moldovia Watches (Beta)',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-3.jpg',
+						'UI+UX/Product design',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'Mac Beth',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-1-1.jpg',
+						'App/Web',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'Moldovia Watches (Beta)',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-1.jpg',
+						'UI+UX/Product design',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'Mac Beth',
+						'http://ramilrama.com/img/portfolio/portfolio-bg-speakgeek2.png',
+						'App/Web',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+
+		section.article-share
+			.container
+				.label share
+				mixin share (social, link, count)
+					li(class= count ? 'active' : '')
+						a(href= link ? link : '#')
+							i(class= 'fa fa-' + social)
+							if count
+								span.count= count
+				ul
+					+share(
+						'facebook'
+					)
+					+share(
+						'vk'
+					)
+					+share(
+						'twitter'
+					)
+					+share(
+						'envelope'
+					)
+
+		section.register-section
+			.section-label
+					img(src="img/icons/side-labels/register.svg", alt="register")
+			.container
+				form.content-holder(action="#")
+					.input-holder
+						label(for="name") Имя и фамилия
+						input(type="text" id="name")
+					.input-holder
+						label(for="name") Email
+						input(type="text" id="name")
+					.input-holder
+						label(for="name") Номер телефона
+						input(type="text" id="name")
+					.button-holder
+						button.btn(type="submit") записаться на курс
+
+		include ./partials/footer.jade
+
+		include ./partials/modals.jade
+
+	include ./partials/scripts.jade

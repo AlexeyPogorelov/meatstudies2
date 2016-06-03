@@ -1,0 +1,119 @@
+html(lang='en')
+	head
+		title MEAT ˢᵗᵘᵈⁱᵉˢ 2
+
+		include ./partials/head.jade
+
+	body
+
+		include ./partials/navigation.jade
+
+		section.article
+			.article-like
+			.article-header
+				h1 h1 Иван Дорн о главном за год и ни о чём
+				h4 Interview
+			.wysiwyg-holder
+				p h3 27 ноября на вечеринке Adidas TOUCHDOWN! (название упомянуто по договорённости с организаторами события) выступил с диджей-сетом Иван Дорн — Look At Me поговорил с музыкантом о самых важных 
+				img.full(src="http://dpchas.com.ua/sites/default/files/styles/juicebox_medium/public/u1537/dorn.jpg?itok=l4W3NEmT", alt="Dorn")
+				h2 h2 Intro
+				h4 ― h4 Вообще, что у вас за издание?
+				p Ну, даже не знаю…
+				h4 ― Вообще, что у вас за издание?
+				p 27 ноября на вечеринке Adidas TOUCHDOWN! (название упомянуто по договорённости с организаторами события) выступил с диджей-сетом Иван Дорн — Look At Me поговорил с музыкантом о самых важных
+				h4 ― Вообще, что у вас за издание?
+				p 27 ноября на вечеринке Adidas TOUCHDOWN! (название упомянуто по договорённости с организаторами события) выступил с диджей-сетом Иван Дорн — Look At Me поговорил с музыкантом о самых важных
+				img(src="https://www.buro247.ru/thumb/700x390_5/images/events/10/ddorn_photo_h.jpg", alt="Dorn")
+				img.half(src="https://www.buro247.ru/thumb/700x390_5/images/events/10/ddorn_photo_h.jpg", alt="Dorn")
+				blockquote «Ну, даже не знаю… »
+
+		section.article-share
+			.container
+				.label share
+				mixin share (social, link, count)
+					li(class= count ? 'active' : '')
+						a(href= link ? link : '#')
+							i(class= 'fa fa-' + social)
+							if count
+								span.count= count
+				ul
+					+share(
+						'facebook'
+					)
+					+share(
+						'vk'
+					)
+					+share(
+						'twitter'
+					)
+					+share(
+						'envelope'
+					)
+
+		section.article-comments
+			.section-label
+					img(src="img/icons/side-labels/comments.svg", alt="comments")
+			.container
+				ul.comments-holder
+					mixin comment (image, name, date, text)
+						li.comment
+							.image-container
+								.image-holder
+									img(src= image, alt= name)
+							.comment-container
+								.head
+									.name= name
+									.date= date
+									input(type="number")
+								.text= text
+					+comment(
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_blue_hair_couleur_cheveux-_rose_bleu_colorful-_pastel_hairs20.jpg?w=581',
+						'KIZARY',
+						'12 марта 2007',
+						'ХМ...Забавно!!!'
+					)
+					+comment(
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs-12.jpg?w=646',
+						'Megabit',
+						'13 марта 2007',
+						'Черт ногу сломит на сайте Megogo. Захотел подробней узнать об этом предложении — вообще ничего не понял. Тыкнуть в определённую серию и посмотреть её после подписки я смогу или это подписка на 2 канала Амедиа? Какое разрешение видео, какой язык, есть ли субтитры? Где на сайте вариант stand alone?'
+					)
+					+comment(
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs14.jpg?resize=198%2C300',
+						'Rifmacombainer',
+						'13 марта 2007',
+						'Нет, амерсокое кино (идеологию) только безплатно. А если не будут даром давать смотреть, то смотреть будет нечего. Придётся книжки умные читать или смотреть кино СССР... а это, полагаю, в планы капиталистов не входит.'
+					)
+				form(action="#")
+					textarea(placeholder="Напишите комментарий")
+
+		section.article-recomend
+			.section-label
+					img(src="img/icons/side-labels/recomend.svg", alt="recomend")
+			.container
+				ul.recomend-holder
+					mixin recomend (image, description)
+						li
+							a(href="#").image-holder
+								img.fake-img(src= image, alt="recomend")
+								.img(style= 'background-image: url(' + image + ')', alt="recomend")
+							p
+								a(href="#")= description
+					+recomend (
+						'https://unsplash.it/200/300?image=402',
+						'Кимоно у каратиста хуже песни реп артиста'
+					)
+					+recomend (
+						'https://unsplash.it/200/300?image=407',
+						'Паук человек напал на бэтробина, джойказино точка ком'
+					)
+					+recomend (
+						'https://unsplash.it/200/300?image=419',
+						'Лайки-лайки-лайки, ЭФЕКТЫ, и немного спец ЭФЕТКЫ'
+					)
+
+		include ./partials/footer.jade
+
+		include ./partials/modals.jade
+
+	include ./partials/scripts.jade

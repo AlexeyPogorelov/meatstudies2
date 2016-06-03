@@ -1,0 +1,110 @@
+$large: 1300px
+$medium: 1260px
+$tablet: 1000px
+$mobile-large: 760px
+$mobile-medium: 640px
+$mobile-small: 480px
+$mobile-x-small: 320px
+$main-color: #ffd500
+
+.calendar-1
+	border-collapse:collapse
+	table-layout: fixed
+	thead
+		td
+			text-align: right
+			padding-right: 18px
+	tbody
+		background: #fafafa
+		td
+			border: 1px solid #f2f2f2
+			position: relative
+			.day, .description
+				color: #000
+				position: absolute
+				transition: color .1s
+			.day
+				right: 15px
+				top: 14px
+			.description
+				left: 11px
+				bottom: 4px
+				p
+					color: #6e6e6e
+					font-size: 13px
+					font-weight: 500
+					line-height: 20px
+					letter-spacing: 0
+					padding-right: 12px
+					margin-top: 16px
+			.edit-button
+				pointer-events: none
+				opacity: 0
+				color: black
+				font-size: 15px
+				font-weight: 700
+				line-height: 20px
+				cursor: pointer
+				display: inline-block
+				transition: opacity .1s
+				span
+					color: #000
+					transition: color .1s
+					letter-spacing: 0
+					&.edit, &.add
+						&:before
+							content: ''
+							display: inline-block
+							background-repeat: no-repeat
+							background-position: 50% 50%
+							background-size: contain
+							vertical-align: middle
+					&.edit
+						&:before
+							background-image: url('../img/icons/calendar-pencil.svg')
+							height: 23px
+							width: 20px
+							margin-right: 4px
+					&.add
+						&:before
+							background-image: url('../img/icons/calendar-plus-minus.svg')
+							margin-right: 9px
+							height: 25px
+							width: 14px
+			img
+				opacity: 0
+				transition: opacity .1s
+				width: 100%
+			&:hover
+				.description, .day
+					color: #fff
+					p
+						color: #fff
+				.edit-button
+					pointer-events: all
+					opacity: 1
+				img
+					opacity: 1
+			&.disabled
+				.day, .description
+					color: #bfbfbf
+					p
+						color: #bfbfbf
+			&.disabled:hover
+				.day, .description
+					color: #fff
+					p
+						color: #fff
+				.edit-button
+					// pointer-events: none
+					// opacity: 0
+					span.add
+						display: none
+
+section.events-calendar
+	margin-top: 200px
+	& > table
+		margin-left: 100% - 72.4%
+		width: 72.4%
+		margin-left: calc(27.6% - 60px)
+		width: calc(72.4% + 60px)

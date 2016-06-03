@@ -1,0 +1,171 @@
+html(lang='en')
+	head
+		title MEAT ˢᵗᵘᵈⁱᵉˢ 2
+
+		include ./partials/head.jade
+
+	body
+
+		include ./partials/navigation.jade
+
+		section.course-header
+			ul.statistic-holder
+				li.item
+					span.grand 3500
+					span грн/мес
+				li.item
+					span.grand 3
+					span месяца
+				li.item
+					span.grand 27
+					span занятий
+			.container
+				.content-holder
+					h2 UI+UX
+					h3 Basic
+					a.btn(href="#") записаться на курс
+
+		section.course-page
+			.container
+				.canvas
+					.article-like
+					.wysiwyg
+						p Ура, дизайнеры сайтов на коне. Мир стал цифровым, молекулы превратились в 0 и 1. Теперь всем нужны не пластинки Элвиса Пресли, а качественные сайты для развития бизнеса.
+						p Войти в профессию несложно, если у вас достаточно энергии и упорства (заметьте, мы ничего не пишем про художественное образование и супер-способности). Но дорогу от дебюта до первой сильной работы можно сократить в разы. Чем мы и займемся.
+						p Это необычный курс. У него есть формула.
+						p Практика. Практика. Практика. Регулярный фидбек. Супер-доброжелательная амтосфера.
+						p До встречи!
+					a.btn(href="#") отчет с прошлого курса
+
+		section.teachers
+			.section-label
+					img(src="img/icons/side-labels/sensei.svg", alt="sensei")
+			.container
+				ul.teachers-holder
+					mixin teacher(name, profession, description, image)
+						li.teacher
+							.image-container
+								.image-holder
+									img(src= image, alt= name)
+							.description-container
+								h3= name
+								h4= profession
+								p= description
+								ul.socials-holder
+									li
+										a(href="#")
+											i.fa.fa-vk
+									li
+										a(href="#")
+											i.fa.fa-facebook
+									li
+										a(href="#")
+											i.fa.fa-instagram
+					+teacher(
+						'Антон Денисенко',
+						'Преподователь Art',
+						'Участник группы Собор святой марии',
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs14.jpg?resize=198%2C300'
+						)
+
+		section.for
+			.section-label
+					img(src="img/icons/side-labels/for.svg", alt="for")
+			.container
+				.content-holder
+					p Молодым и начинающим веб-дизайнерам, а также графическим дизайнерам, которые хотят попробовать себя в вебе. 
+					p <b>Минимальные требования: </b>базовое владение Adobe Photoshop и время на выполнение домашних заданий.
+					p И да, вам обязательно понадобится <b>собственный ноутбук.</b>
+
+		section.programm
+			.section-label
+					img(src="img/icons/side-labels/programm.svg", alt="programm")
+			.container
+				ul.stages
+					mixin stage(order, header, description, image)
+						li.stage
+							h2= order
+							h3= header
+							p= description
+
+					+stage(
+						'1.',
+						'UX+UI - Основные понятия',
+						'Ура, дизайнеры сайтов на коне. Мир стал цифровым, молекулы превратились в 0 и 1. Теперь всем нужны не пластинки Элвиса Пресли, а качественные сайты для'
+						)
+					+stage(
+						'2.',
+						'Жизненый смысл был потерян в бутылке молока',
+						'Ура, дизайнеры сайтов на коне. Мир стал цифровым, молекулы превратились в 0 и 1. Теперь всем нужны не пластинки Элвиса Пресли, а качественные сайты для'
+						)
+					+stage(
+						'3.',
+						'UX+UI - Основные понятия',
+						'Теперь всем нужны не пластинки Элвиса Пресли, а качественные сайты для'
+						)
+					+stage(
+						'4.',
+						'Инструкция к счастью это хлеб с маслом, только он знает!',
+						'Ура, дизайнеры сайтов на коне. Мир стал цифровым, молекулы превратились в 0 и 1. Теперь всем нужны не пластинки Элвиса Пресли, а качественные сайты для Ура, дизайнеры сайтов на коне. Мир стал'
+						)
+					+stage(
+						'5.',
+						'UX+UI - Основные понятия',
+						'Миндоус фиста, каратиста жизнь туриста, асталависта'
+						)
+					+stage(
+						'6.',
+						'Жизненый смысл был потерян в бутылке молока',
+						'Теперь всем нужны не пластинки Элвиса Пресли, а качественные сайты для'
+						)
+					+stage(
+						'7.',
+						'UX+UI - Основные понятия',
+						'Ура, дизайнеры сайтов на коне. Мир стал цифровым, молекулы превратились в 0 и 1. Теперь всем нужны не пластинки'
+						)
+
+		section.article-share
+			.container
+				.label share
+				mixin share (social, link, count)
+					li(class= count ? 'active' : '')
+						a(href= link ? link : '#')
+							i(class= 'fa fa-' + social)
+							if count
+								span.count= count
+				ul
+					+share(
+						'facebook'
+					)
+					+share(
+						'vk'
+					)
+					+share(
+						'twitter'
+					)
+					+share(
+						'envelope'
+					)
+
+		section.register-section
+			.section-label
+					img(src="img/icons/side-labels/register.svg", alt="register")
+			.container
+				form.content-holder(action="#")
+					.input-holder
+						label(for="name") Имя и фамилия
+						input(type="text" id="name")
+					.input-holder
+						label(for="name") Email
+						input(type="text" id="name")
+					.input-holder
+						label(for="name") Номер телефона
+						input(type="text" id="name")
+					.button-holder
+						button.btn(type="submit") записаться на курс
+
+		include ./partials/footer.jade
+
+		include ./partials/modals.jade
+
+	include ./partials/scripts.jade
