@@ -12,7 +12,7 @@ html(lang='en')
 			.profilemenu
 				mixin profilemenu(href, text, active)
 					li
-						a(href= href class= active ? 'active' : '')=text
+						a(href= href, class= active ? 'active' : '')= text
 
 				ul
 					+profilemenu('#', 'BOOKMARKS')
@@ -23,7 +23,7 @@ html(lang='en')
 				.user-info
 					.image-container
 						.image-holder
-							img(src='img/content/bitmap.png')
+							img(src='img/content/profile-image-1.png')
 					.description-container
 						.description-heading
 							h1 Валентин Дядька
@@ -48,13 +48,13 @@ html(lang='en')
 							.image-holder
 								img(src= src, alt="")
 						.feed-description
-							div
+							p
 								span= name
-								span.hapend= happened
+								b= happened
 								span= theme
-							div
+							p
 								span.time= time
-				ul
+				ul.feed-list
 					+feed-item(
 						'img/content/feed-1.jpg',
 						'Карина Лобова',

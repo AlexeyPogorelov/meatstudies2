@@ -8,6 +8,14 @@ $mobile-x-small: 320px
 $main-color: #ffd500
 
 
+//Global//
+.show-more-holder
+	margin-top: 65px
+	button
+		padding: 15px 46px
+
+//End Global//
+
 section.profile-top
 	margin-top: 179px
 	.profilemenu
@@ -39,275 +47,27 @@ section.profile-top
 						left: -6px
 	.container
 		vertical-align: top
+		font-size: 0
+		letter-spacing: 0
 		.user-info
 			width: 50%
 			display: inline-block
 			vertical-align: top
 		.edit-btn-holder
 			vertical-align: top
-			text-align: right
+			text-align: left
 			display: inline-block
+			width: 50%
 			button.type-1
-				padding: 15px 53px;
-
-
+				padding: 15px 57px
 section.yelow-board
 	.board-header
-		margin-top: 20px
+		margin-top: 26px
 		.container
 			h1
-				font-size: 25px
+				font-size: 26px
 				margin-bottom: 13px
-	.board-body
-		padding-top: 65px
-		padding-bottom: 64px
-		position: relative
-		&:before
-			content: ''
-			background: #ffd500
-			position: absolute
-			top: 0
-			right: 0
-			width: 83.3%
-			height: 100%
-		.container
-			.tasks-holder
-				font-size: 0
-				letter-spacing: 0
-				.tesk-item
-					width: 50%
-					display: inline-block
-					vertical-align: top
-					position: relative
-					padding-left: 8px
-					span.month
-						font-size: 13px
-						font-weight: 400
-						position: absolute
-						transform: rotate(-90deg)
-						left: -37px
-						top: 29px
-					.left-part
-						display: inline-block
-						font-size: 0
-						letter-spacing: 0
-						vertical-align: top
-						width: 23%
-						padding-left: 5px
-						.day-cube
-							width: 99px
-							height: 87px
-							background-color: #ffd71d
-							border: 1.5px solid black
-							font-size: 30px
-							font-weight: 700
-							display: inline-block
-							text-align: center
-							padding-top: 30px
-							position: relative
-							.day-marker
-								position: absolute
-								right: -1px
-								bottom: -24px
-								background: #000
-								color: #fff
-								color: #f8e71c
-								font-size: 15px
-								font-weight: 600
-								width: 17px
-								height: 20px
-								width: 53px
-								height: 35px
-								text-align: center
-								padding-top: 5px
-					.right-part
-						display: inline-block
-						font-size: 0
-						letter-spacing: 0
-						width: 77%
-						vertical-align: top
-						padding-right: 30px
-						padding-left: 14px
-						.task-content
-							font-size: 15px
-							line-height: 20px
-							p
-								margin-top: 14px
-								a
-									font-weight: 600
-									color: #000
-section.course-events
-	.downloads.materials
-		margin-top: 0
-		.down-item
-			margin-bottom: 53px
-	.course-events-list
-		padding-bottom: 83px
-		border-bottom: 1px solid #000
-		font-size: 0
-		letter-spacing: 0
-		.course-event
-			display: inline-block
-			width: 50%
-			position: relative
-			margin-top: 70px
-			margin-top: 70px
-			margin-bottom: 17px
-			.dropdown
-				position: absolute
-				background: #fff
-				z-index: 2
-				height: 0
-				width: 100%
-				overflow: hidden
-				top: 108px
-				padding-left: 5px
-				h3
-					line-height: 1em
-					margin-top: 13px
-					margin-bottom: 2px
-				a
-					font-size: 14px
-				ul
-					li
-						line-height: 1em
-						margin-bottom: 5px
-				h4
-					color: #bfbfbf
-					font-size: 18px
-					font-weight: 600
-					letter-spacing: 1px
-					line-height: 30px
-					margin-top: 19px
-					margin-bottom: 7px
-				span
-					color: #9e9e9e
-					font-size: 11px
-					font-weight: 400
-					line-height: 20px
-				a.gotask
-					color: #9e9e9e
-					font-size: 11px
-					font-weight: 600
-					line-height: 20px
-					text-decoration: underline
-			&.current:before
-				content: ''
-				height: 139%
-				width: 92%
-				background: #f7f7f7
-				position: absolute
-				left: -6%
-				top: -15%
-			&:after
-				content: ''
-				height: 1px
-				width: 16px
-				bottom: 3px
-				left: 2px
-				background: #000
-				position: absolute
-			&.active
-				.dropdown
-					height: auto
-					h3
-						color: #a8a8a8
-						font-size: 15px
-						font-weight: 600
-					a.downmat
-						color: #9e9e9e
-						font-size: 15px
-						font-weight: 600
-						text-decoration: underline
-					ul
-						li
-							color: #bfbfbf
-							font-size: 13px
-							font-weight: 400
-			&.disabled
-				span
-					color: #b3b3b3
-					margin-right: 6px
-				p
-					color: #b3b3b3
-				h1
-					color: #6b6b6b
-					position: relative
-				h1:after
-					content: ''
-					position: absolute
-					height: 2px
-					width: 100%
-					top: 16px
-					left: 0
-					background: #ffd500
-				i
-					color: #6b6b6b
-
-			span
-				color: #000
-				font-size: 18px
-				font-weight: 600
-				letter-spacing: 1px
-				position: relative
-			p
-				color: #000
-				font-size: 18px
-				font-weight: 400
-				position: relative
-				line-height: 1em
-			h1
-				color: #000
-				font-weight: 600
-				line-height: 30px
-				position: relative
-				margin-top: 23px
-				font-size: 27px
-				display: inline-block
-				cursor: pointer
-			i
-				font-size: 27px
-				color: #000
-				margin-left: 11px
-				position: relative
-				z-index: 1
-
-	.downloads
-		font-size: 0
-		letter-spacing: 0
-		margin-top: 97px
-		.down-item
-			width: 50%
-			display: inline-block
-			font-size: 0
-			letter-spacing: 0
-			.image-container
-				width: 30%
-				display: inline-block
-				vertical-align: top
-				box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1)
-				.image-holder
-					img
-			.description
-				width: 70%
-				display: inline-block
-				vertical-align: top
-				padding-left: 28px
-				padding-top: 13px
-				line-height: 1.35em
-				padding-right: 79px
-				a
-					color: #b3b3b3
-					font-size: 18px
-					letter-spacing: 1px
-				p 
-					color: #000
-					font-size: 15px
-					font-weight: 400
-
-.board-header
-	.container
-		.downds-header
+			.downds-header
 			font-size: 0
 			letter-spacing: 0
 			.h-holder
@@ -335,65 +95,290 @@ section.course-events
 						position: absolute
 						left: -4px
 						top: -5px
-
-section.feed-list
-	margin-top: 59px
-	li 
+	.board-body
+		padding-top: 65px
+		position: relative
+		&:before
+			content: ''
+			background: #ffd500
+			position: absolute
+			top: 0
+			right: 0
+			width: 83.3%
+			height: 100%
+		.container
+			.tasks-holder
+				font-size: 0
+				letter-spacing: 0
+				.task-item
+					width: 50%
+					display: inline-block
+					vertical-align: top
+					position: relative
+					padding-left: 8px
+					margin-bottom: 63px
+					span.month
+						font-size: 13px
+						font-weight: 400
+						position: absolute
+						transform: rotate(-90deg)
+						left: -37px
+						top: 29px
+					.left-part
+						display: inline-block
+						font-size: 0
+						letter-spacing: 0
+						vertical-align: top
+						width: 23%
+						padding-left: 5px
+						.day-cube
+							width: 99px
+							height: 87px
+							background-color: #ffd71d
+							border: 1px solid black
+							font-size: 30px
+							font-weight: 700
+							display: inline-block
+							text-align: center
+							padding-top: 30px
+							position: relative
+							.day-marker
+								position: absolute
+								right: -1px
+								bottom: -26px
+								background: #000
+								color: #f8e71c
+								font-size: 15px
+								font-weight: 600
+								width: 53px
+								height: 35px
+								text-align: center
+								padding-top: 3px
+					.right-part
+						display: inline-block
+						font-size: 0
+						letter-spacing: 0
+						width: 77%
+						vertical-align: top
+						padding-right: 30px
+						padding-left: 14px
+						.task-content
+							font-size: 15px
+							line-height: 20px
+							color: #000
+							p,a
+								color: inherit
+							p
+								font-size: inherit
+								line-height: 20px
+							a
+								font-weight: 600
+								display: block
+								margin-top: 16px
+section.course-events
+	padding-bottom: 10px
+	.downloads
 		font-size: 0
 		letter-spacing: 0
-		margin-bottom: 38px
-		.image-container
+		margin-top: 97px
+		.down-item
+			width: 50%
 			display: inline-block
-			vertical-align: top
-			width: 7.7%
-			padding-right: 15px
-<<<<<<< HEAD
+			font-size: 0
+			letter-spacing: 0
+			.image-container, .description
+				display: inline-block
+				vertical-align: top
+			.image-container
+				width: 30%
+				box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1)
+			.description
+				width: 70%
+				padding-left: 28px
+				padding-top: 13px
+				line-height: 1.35em
+				padding-right: 79px
+				color: #000
+				font-size: 15px
+				font-weight: 400
+				a
+					color: #b3b3b3
+					font-size: 18px
+					letter-spacing: 1px
+					margin-bottom: 6px
+					display: block
+				p 
+					color: inherit
+					font-size: inherit
+					line-height: inherit
+		&.materials
+			margin-top: 0
+			.down-item
+				margin-bottom: 53px
+	.course-events-list
+		padding-bottom: 92px
+		border-bottom: 1px solid #000
+		font-size: 0
+		letter-spacing: 0
+		.course-event-item
+			display: inline-block
+			width: 50%
+			position: relative
+			margin-top: 70px
+			margin-bottom: 17px
+			.dropdown
+				position: absolute
+				background: #fff
+				z-index: 2
+				height: 0
+				width: 100%
+				overflow: hidden
+				top: 108px
+				padding-left: 5px
+				h3
+					line-height: 1em
+					margin-top: 13px
+					margin-bottom: 2px
+				a
+					font-size: 14px
+				ul.down-list
+					li
+						line-height: 1em
+						margin-bottom: 5px
+				h4
+					color: #bfbfbf
+					font-size: 18px
+					font-weight: 600
+					letter-spacing: 1px
+					line-height: 30px
+					margin-top: 19px
+					margin-bottom: 7px
+				span
+					color: #9e9e9e
+					font-size: 11px
+					font-weight: 400
+					line-height: 20px
+				a.gotask
+					color: #9e9e9e
+					font-weight: 600
+					font-size: 11px
+					line-height: 20px
+					text-decoration: underline
+			&.current:before
+				content: ''
+				height: 139%
+				width: 92%
+				background: #f7f7f7
+				position: absolute
+				left: -6%
+				top: -15%
+			&:after
+				content: ''
+				height: 1px
+				width: 16px
+				bottom: 3px
+				left: 2px
+				background: #000
+				position: absolute
+			&.active
+				.dropdown
+					height: auto
+					h3, a.downmat
+						font-size: 15px
+						font-weight: 600
+					h3
+						color: #a8a8a8
+					a.downmat
+						color: #9e9e9e
+						text-decoration: underline
+					ul.down-list
+						li
+							color: #bfbfbf
+							font-size: 13px
+							font-weight: 400
+			&.disabled
+				span
+					color: #b3b3b3
+					margin-right: 6px
+				p
+					color: #b3b3b3
+				h1
+					color: #6b6b6b
+					position: relative
+				h1:after
+					content: ''
+					position: absolute
+					height: 2px
+					width: 100%
+					top: 16px
+					left: 0
+					background: #ffd500
+				i
+					color: #6b6b6b
+			span, p, h1, i
+				color: #000
+			span, p
+				font-size: 18px
+				position: relative
+			span
+				font-weight: 600
+				letter-spacing: 1px
+			p
+				font-weight: 400
+				line-height: 1em
+			h1
+				font-weight: 600
+				line-height: 30px
+				position: relative
+				margin-top: 23px
+				font-size: 26px
+				display: inline-block
+				cursor: pointer
+				letter-spacing: 0.3px
+			i
+				font-size: 27px
+				margin-left: 11px
+				position: relative
+				z-index: 1
 
-			.image-holder
-				img
-		.feed-description
-			padding-top: 7px
-			display: inline-block
-			vertical-align: top
-			width: 92.3%
-			font-size: 15px;
-			color: #9e9e9e;
-			font-weight: 500;
-			div
-				line-height: 1.2em
+
+
+
+
+section.feed-list
+	margin-top: 69px
+	p
+		line-height: 1.2em
+	ul.feed-list
+		li 
+			font-size: 0
+			letter-spacing: 0
+			margin-bottom: 38px
+			.image-container
+				display: inline-block
+				vertical-align: top
+				width: 7.7%
+				padding-right: 15px
+				.image-holder
+					img
+			.feed-description
+				padding-top: 6px
+				display: inline-block
+				vertical-align: top
+				width: 92.3%
+				font-size: 14px
+				color: #9e9e9e
+				font-weight: 500
+				p
+					font-size: inherit
 				span
 					font-size: inherit
-					margin-right: 7px
 					line-height: 1em
-				span.hapend
+					margin-right: 4px
+				b
 					color: #000
-				span.time
-					font-size: 13px
-
-=======
-
-			.image-holder
-				img
-		.feed-description
-			padding-top: 7px
-			display: inline-block
-			vertical-align: top
-			width: 92.3%
-			font-size: 15px;
-			color: #9e9e9e;
-			font-weight: 500;
-			div
-				line-height: 1.2em
-				span
-					font-size: inherit
-					margin-right: 7px
-					line-height: 1em
-				span.hapend
-					color: #000
-				span.time
-					font-size: 13px
->>>>>>> ac583618dba801674ed90c348f2ed4a39e575c83
-.show-more-holder
-	margin-top: 65px
-	button
-		padding: 15px 46px
+					letter-spacing: 0.7px
+					font-weight: 400
+					margin-right: 4px
+				.time
+					font-size: 11px

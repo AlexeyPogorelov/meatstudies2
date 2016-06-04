@@ -47,15 +47,15 @@ html(lang='en')
 				.container
 					.tasks-holder
 						mixin task-item(month, integer, day, task, href, download)
-							.tesk-item
+							.task-item
 								span.month= month
 								.left-part
 									.day-cube= integer
 										.day-marker= day
 								.right-part
-									.task-content= task
-										p
-											a(href= href)= download
+									.task-content
+										p= task
+										a(href= href)= download
 						+task-item(
 							'сентябрь',
 							'24',
@@ -80,7 +80,7 @@ html(lang='en')
 						.dropdown
 							h3 Темы
 							a.downmat(href="#") Скачать лекцию
-							ul
+							ul.down-list
 								li Ознакомление с программой курса
 								li Дизайн и искусство
 								li Дизайнер и бизнес
