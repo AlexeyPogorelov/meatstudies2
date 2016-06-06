@@ -17,7 +17,7 @@ $main-color: #ffd500
 //End Global//
 
 section.profile-top
-	margin-top: 179px
+	margin-top: 180px
 	.profilemenu
 		position: absolute
 		left: 48px
@@ -58,15 +58,21 @@ section.profile-top
 			display: inline-block
 			width: 50%
 			button.type-1
+				margin-top: 1px
 				padding: 15px 57px
 
 section.yellow-board
+	margin-top: 67px
 	.board-header
-		margin-top: 26px
 		h1
+			font-weight: 600
 			font-size: 26px
 			margin-bottom: 13px
+			letter-spacing: 0.3px
+			margin: 0 0 0 -2px
+			line-height: 1em
 		.downds-header
+		// TODO move it
 		font-size: 0
 		letter-spacing: 0
 		.h-holder
@@ -74,7 +80,7 @@ section.yellow-board
 			display: inline-block
 			vertical-align: middle
 			h1 
-				line-height: 60px
+				line-height: 1em
 		.downds-holder
 			width: 50%
 			display: inline-block
@@ -95,85 +101,89 @@ section.yellow-board
 					left: -4px
 					top: -5px
 	.board-body
-		padding-top: 65px
+		margin-top: 35px
+		padding-top: 63px
 		position: relative
 		&:before
 			content: ''
-			background: #ffd500
+			background: $main-color
 			position: absolute
 			top: 0
 			right: 0
-			width: 83.3%
+			width: 83.6%
 			height: 100%
-		.container
-			.tasks-holder
-				font-size: 0
-				letter-spacing: 0
-				.task-item
-					width: 50%
+		.tasks-holder
+			font-size: 0
+			letter-spacing: 0
+			.task-item
+				width: 50%
+				display: inline-block
+				vertical-align: top
+				position: relative
+				padding-left: 8px
+				margin-bottom: 63px
+				span.month
+					font-size: 13px
+					font-weight: 400
+					position: absolute
+					transform: rotate(-90deg)
+					left: -38px
+					top: 29px
+				.left-part
 					display: inline-block
+					font-size: 0
+					letter-spacing: 0
 					vertical-align: top
-					position: relative
-					padding-left: 8px
-					margin-bottom: 63px
-					span.month
-						font-size: 13px
-						font-weight: 400
-						position: absolute
-						transform: rotate(-90deg)
-						left: -37px
-						top: 29px
-					.left-part
+					width: 23%
+					padding-left: 5px
+					padding-top: 2px
+					.day-cube
+						width: 99px
+						height: 87px
+						background-color: #ffd71d
+						border: 1px solid black
+						font-size: 30px
+						font-weight: 700
 						display: inline-block
-						font-size: 0
-						letter-spacing: 0
-						vertical-align: top
-						width: 23%
-						padding-left: 5px
-						.day-cube
-							width: 99px
-							height: 87px
-							background-color: #ffd71d
-							border: 1px solid black
-							font-size: 30px
-							font-weight: 700
-							display: inline-block
-							text-align: center
-							padding-top: 30px
-							position: relative
-							.day-marker
-								position: absolute
-								right: -1px
-								bottom: -26px
-								background: #000
-								color: #f8e71c
-								font-size: 15px
-								font-weight: 600
-								width: 53px
-								height: 35px
-								text-align: center
-								padding-top: 3px
-					.right-part
-						display: inline-block
-						font-size: 0
-						letter-spacing: 0
-						width: 77%
-						vertical-align: top
-						padding-right: 30px
-						padding-left: 14px
-						.task-content
+						text-align: center
+						padding-top: 30px
+						position: relative
+						.day-marker
+							position: absolute
+							right: -1px
+							bottom: -24px
+							background: #000
+							color: #f8e71c
 							font-size: 15px
+							font-weight: 600
+							width: 53px
+							height: 35px
+							text-align: center
+							padding-top: 3px
+				.right-part
+					display: inline-block
+					font-size: 0
+					letter-spacing: 0
+					width: 77%
+					vertical-align: top
+					// padding-right: 30px
+					// padding-left: 14px
+					padding: 0 30px 0 14px
+					.task-content
+						font-size: 15px
+						line-height: 20px
+						color: #000
+						p,a
+							color: inherit
+						p
+							font-size: inherit
 							line-height: 20px
-							color: #000
-							p,a
-								color: inherit
-							p
-								font-size: inherit
-								line-height: 20px
-								margin-bottom: 16px
-							a
-								font-weight: 600
-								display: block
+							margin-bottom: 16px
+							letter-spacing: 0
+						a
+							font-weight: 600
+							display: block
+							letter-spacing: 0.7px
 
 section.course-events
 	padding-bottom: 10px
@@ -382,3 +392,8 @@ section.feed-list
 					margin-right: 4px
 				.time
 					font-size: 11px
+					letter-spacing: 0
+					// color: #6e6e6e
+					// font-size: 13px
+					// font-weight: 400
+					// line-height: 20px
