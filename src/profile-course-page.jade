@@ -39,7 +39,7 @@ html(lang='en')
 				.edit-btn-holder
 					button.type-1 РЕДАКТИРОВАТЬ
 
-		section.yelow-board
+		section.yellow-board
 			.board-header
 				.container
 					h1 UI+UX COURSE
@@ -78,7 +78,7 @@ html(lang='en')
 				mixin celendar-item(date, month, day, heading, cls)
 					li.course-event-item(class= cls ? cls : '')
 						.dropdown
-							h3 Темы
+							h3 Темы:
 							a.downmat(href="#") Скачать лекцию
 							ul.down-list
 								li Ознакомление с программой курса
@@ -93,7 +93,6 @@ html(lang='en')
 						span= month
 						p= day
 						h1= heading
-						i(class="fa fa-angle-down" aria-hidden="true")
 				ul.course-events-list
 					+celendar-item(
 						29,
