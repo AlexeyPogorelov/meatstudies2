@@ -1,0 +1,135 @@
+doctype html
+html(lang='en')
+	head
+		title MEAT Studies 2
+
+		include ./partials/head.jade
+
+	body
+		include ./partials/navigation.jade
+			
+		section.profile-top
+			.profilemenu
+				mixin profilemenu(href, text, active)
+					li
+						a(href= href, class= active ? 'active' : '')= text
+
+				ul
+					+profilemenu('#', 'BOOKMARKS')
+					+profilemenu('#', 'VIDEO')
+					+profilemenu('#', 'COURSE', true)
+					+profilemenu('#', 'HOMEWORK')
+			.container
+				.user-info
+					.image-container
+						.image-holder
+							img(src='img/content/profile-image-1.png')
+					.description-container
+						.description-heading
+							h1 Валентин Дядька
+							.type-marker 
+								span.marker-text UI+UX
+						.contacts-holder
+							a(href="mailto:VDyaydke@mail.ru") VDyaydke@mail.ru
+							a(href="tel:+38 075 466 24 13") +38 075 466 24 13
+						ul.socials
+							li
+								a(href='#')
+									i.fa.fa-instagram
+				.edit-btn-holder
+					button.type-1 РЕДАКТИРОВАТЬ
+
+
+		section.feed-list
+			.container
+				mixin feed-item(src, name, happened, theme, time)
+					li 
+						.image-container
+							.image-holder
+								img(src= src, alt="")
+						.feed-description
+							p
+								span= name
+								b= happened
+								span= theme
+							p
+								span.time= time
+				ul.feed-list
+					+feed-item(
+						'img/content/feed-1.jpg',
+						'Карина Лобова',
+						'прокоментировала статью',
+						'«Жизнь бутерброда после кукурузы»',
+						'12 января 14:00'
+					)
+					+feed-item(
+						'img/content/feed-2.jpg',
+						'Карина Лобова',
+						'загрузил(а) домашнее задание в',
+						'«Курс UI: Лекция 1: Мистер квалификация хлеба»',
+						'12 января 14:00'
+					)
+					+feed-item(
+						'img/content/feed-3.jpg',
+						'Жираф Полужам',
+						'прокоментировал(а) видео',
+						'«Какие были времена»',
+						'12 января 14:00'
+					)  
+					+feed-item(
+						'img/content/feed-4.jpg',
+						'Карина Лобова',
+						'прокоментировала статью',
+						'«Жизнь бутерброда после кукурузы»',
+						'12 января 14:00'
+					)
+					+feed-item(
+						'img/content/feed-5.jpg',
+						'Карина Лобова',
+						'прокоментировала статью',
+						'«Жизнь бутерброда после кукурузы»',
+						'12 января 14:00'
+					)
+					+feed-item(
+						'img/content/feed-6.jpg',
+						'Карина Лобова',
+						'прокоментировала статью',
+						'«Жизнь бутерброда после кукурузы»',
+						'12 января 14:00'
+					)
+					+feed-item(
+						'img/content/feed-7.jpg',
+						'Карина Лобова',
+						'загрузил(а) домашнее задание в',
+						'«Курс UI: Лекция 1: Мистер квалификация хлеба»',
+						'12 января 14:00'
+					)
+					+feed-item(
+						'img/content/feed-8.jpg',
+						'Жираф Полужам',
+						'прокоментировала видео',
+						'«Какие были времена»',
+						'12 января 14:00'
+					)
+					+feed-item(
+						'img/content/feed-9.jpg',
+						'Карина Лобова',
+						'прокоментировала статью',
+						'«Жизнь бутерброда после кукурузы»',
+						'12 января 14:00'
+					)
+					+feed-item(
+						'img/content/feed-10.jpg',
+						'Карина Лобова',
+						'прокоментировала статью',
+						'«Жизнь бутерброда после кукурузы»',
+						'12 января 14:00'
+					)
+				.show-more-holder
+					button(class='type-1') Показать больше
+
+
+
+
+		include ./partials/footer.jade
+	include ./partials/scripts.jade

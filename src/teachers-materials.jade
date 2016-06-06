@@ -12,7 +12,7 @@ html(lang='en')
 			.profilemenu
 				mixin profilemenu(href, text, active)
 					li
-						a(href= href, class= active ? 'active' : '')=text
+						a(href= href, class= active ? 'active' : '')= text
 
 				ul
 					+profilemenu('#', 'BOOKMARKS')
@@ -23,10 +23,10 @@ html(lang='en')
 				.user-info
 					.image-container
 						.image-holder
-							img(src='img/content/bitmap.png')
+							img(src='img/content/profile-image-1.png')
 					.description-container
 						.description-heading
-							h3 Валентин Дядька
+							h1 Валентин Дядька
 							.type-marker 
 								span.marker-text UI+UX
 						.contacts-holder
@@ -39,8 +39,8 @@ html(lang='en')
 				.edit-btn-holder
 					button.type-1 РЕДАКТИРОВАТЬ
 
-		section.yelow-bord
-			.bord-header
+		section.yellow-board
+			.board-header
 				.container
 					.downds-header
 						.h-holder
@@ -48,7 +48,7 @@ html(lang='en')
 						.downds-holder
 							a(href="#") ЗАГРУЗИТЬ МАТЕРИАЛ
 								img(src="img/content/2-layers.jpg", alt="")
-		section.celendar
+		section.course-events
 			.container
 				.downloads.materials
 					.down-item
@@ -88,6 +88,5 @@ html(lang='en')
 								| Зборник книг по сеткам, цветоведениью и 
 								| композиции, которые пригодятся вам в работе
 
- 
 		include ./partials/footer.jade
 	include ./partials/scripts.jade
