@@ -10,6 +10,8 @@ $main-color: #ffd500
 .calendar-1
 	border-collapse:collapse
 	table-layout: fixed
+	position: relative
+	z-index: 1001
 	thead
 		td
 			text-align: right
@@ -95,14 +97,15 @@ $main-color: #ffd500
 					color: #fff
 					p
 						color: #fff
-				.edit-button
+				// .edit-button
 					// pointer-events: none
 					// opacity: 0
 
 section.events-calendar
-	margin-top: 200px
+	margin-top: 64px
 	& > table
+		margin-top: 50px
 		margin-left: 100% - 72.4%
-		width: 72.4%
 		margin-left: calc(27.6% - 60px)
+		width: 72.4%
 		width: calc(72.4% + 60px)

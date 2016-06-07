@@ -40,7 +40,7 @@ html(lang='en')
 					button.type-1 РЕДАКТИРОВАТЬ
 
 
-		section.feed-list
+		section.feedback-block
 			.container
 				mixin feed-item(src, name, happened, theme, time)
 					li 
@@ -56,70 +56,63 @@ html(lang='en')
 								span.time= time
 				ul.feed-list
 					+feed-item(
-						'img/content/feed-1.jpg',
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs3.jpg?resize=224%2C300',
 						'Карина Лобова',
 						'прокоментировала статью',
 						'«Жизнь бутерброда после кукурузы»',
 						'12 января 14:00'
 					)
 					+feed-item(
-						'img/content/feed-2.jpg',
+						'http://i2.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs11.jpg?resize=200%2C300',
 						'Карина Лобова',
 						'загрузил(а) домашнее задание в',
 						'«Курс UI: Лекция 1: Мистер квалификация хлеба»',
 						'12 января 14:00'
 					)
 					+feed-item(
-						'img/content/feed-3.jpg',
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs14.jpg?resize=198%2C300',
 						'Жираф Полужам',
 						'прокоментировал(а) видео',
 						'«Какие были времена»',
 						'12 января 14:00'
 					)  
 					+feed-item(
-						'img/content/feed-4.jpg',
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_blue_hair_couleur_cheveux-_rose_bleu_colorful-_pastel_hairs20.jpg?w=581',
 						'Карина Лобова',
 						'прокоментировала статью',
 						'«Жизнь бутерброда после кукурузы»',
 						'12 января 14:00'
 					)
 					+feed-item(
-						'img/content/feed-5.jpg',
+						'http://i1.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_lavander_hair_couleur_cheveux-_rose_colorful-_pastel_hairs21.jpg?w=545',
 						'Карина Лобова',
 						'прокоментировала статью',
 						'«Жизнь бутерброда после кукурузы»',
 						'12 января 14:00'
 					)
 					+feed-item(
-						'img/content/feed-6.jpg',
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_blue_hair_couleur_cheveux-_rose_bleu_colorful-_pastel_hairs20.jpg?w=581',
 						'Карина Лобова',
 						'прокоментировала статью',
 						'«Жизнь бутерброда после кукурузы»',
 						'12 января 14:00'
 					)
 					+feed-item(
-						'img/content/feed-7.jpg',
+						'http://i2.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs11.jpg?resize=200%2C300',
 						'Карина Лобова',
 						'загрузил(а) домашнее задание в',
 						'«Курс UI: Лекция 1: Мистер квалификация хлеба»',
 						'12 января 14:00'
 					)
 					+feed-item(
-						'img/content/feed-8.jpg',
+						'http://i2.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs11.jpg?resize=200%2C300',
 						'Жираф Полужам',
 						'прокоментировала видео',
 						'«Какие были времена»',
 						'12 января 14:00'
 					)
 					+feed-item(
-						'img/content/feed-9.jpg',
-						'Карина Лобова',
-						'прокоментировала статью',
-						'«Жизнь бутерброда после кукурузы»',
-						'12 января 14:00'
-					)
-					+feed-item(
-						'img/content/feed-10.jpg',
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs14.jpg?resize=198%2C300',
 						'Карина Лобова',
 						'прокоментировала статью',
 						'«Жизнь бутерброда после кукурузы»',
@@ -127,9 +120,6 @@ html(lang='en')
 					)
 				.show-more-holder
 					button(class='type-1') Показать больше
-
-
-
 
 		include ./partials/footer.jade
 	include ./partials/scripts.jade

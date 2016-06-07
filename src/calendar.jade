@@ -9,7 +9,40 @@ html(lang='en')
 
 		include ./partials/navigation.jade
 
+		section.profile-top
+			.profilemenu
+				mixin profilemenu(href, text, active)
+					li
+						a(href= href, class= active ? 'active' : '')= text
+				ul
+					+profilemenu('#', 'BOOKMARKS')
+					+profilemenu('#', 'VIDEO')
+					+profilemenu('#', 'COURSE', true)
+					+profilemenu('#', 'HOMEWORK')
+			.container
+				.user-info
+					.image-container
+						.image-holder
+							img(src='img/content/profile-image-1.png')
+					.description-container
+						.description-heading
+							h1 Валентин Дядька
+							.type-marker
+								span.marker-text Teacher
+						.contacts-holder
+							a(href="mailto:VDyaydke@mail.ru") VDyaydke@mail.ru
+							a(href="tel:+38 075 466 24 13") +38 075 466 24 13
+						ul.socials
+							li
+								a(href='#')
+									i.fa.fa-instagram
+				.edit-btn-holder
+					button.type-1 РЕДАКТИРОВАТЬ
+
 		section.events-calendar
+			.container
+				.section-header
+					h2 UI+UX COURSE
 			include ./partials/calendar.jade
 
 		include ./partials/footer.jade

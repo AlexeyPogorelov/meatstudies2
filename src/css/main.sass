@@ -277,7 +277,6 @@ section.video
 	.videos
 		margin-top: 58px
 		margin-left: 260px
-		// overflow: hidden
 		height: 537px
 		a.more
 			border: 3px solid $main-color
@@ -306,7 +305,6 @@ section.video
 				top: 0
 				height: 100%
 				width: 100%
-
 				color: #141414
 				font-size: 18px
 				font-weight: 400
@@ -354,32 +352,41 @@ section.video
 			font-size: 15px
 			font-weight: 600
 			line-height: 1em
-
-section.video.video-course
-	margin-top: 19px
-	.videos
-		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3)
-		height: 376px
-		margin-left: 0
-		ul
-			li
-				letter-spacing: 0
-				font-size: 0
-		.card, .image-holder
-			display: inline-block
-		.card
-			position: relative
-			left: 0
-			top: 0
-			box-shadow: none
-			width: 322px
-		li > .image-holder
-			display: inline-block
-			height: 100%
-			width: calc(100% - 322px)
-		a.more
-			left: 50%
-			transform: translate(0, -50%)
+	&.video-course
+		margin-top: 19px
+		.videos
+			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3)
+			height: 376px
+			margin-left: 0
+			ul
+				li
+					letter-spacing: 0
+					font-size: 0
+			.card, .image-holder
+				display: inline-block
+			.card
+				position: relative
+				left: 0
+				top: 0
+				box-shadow: none
+				width: 322px
+			li > .image-holder
+				display: inline-block
+				height: 100%
+				width: calc(100% - 322px)
+				&:after
+					content: ''
+					background: rgba(0, 0, 0, 0.4)
+					z-index: 1
+					display: block
+					position: absolute
+					left: 0
+					top: 0
+					height: 100%
+					width: 100%
+			a.more
+				left: 50%
+				transform: translate(0, -50%)
 
 // --------------------------------------------------
 // INPUT
