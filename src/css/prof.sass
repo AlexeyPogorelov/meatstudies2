@@ -72,14 +72,17 @@ $main-color: #ffd500
 
 section.homeworks
 	margin-top: 62px
-	font-size: 0
-	letter-spacing: 0
+	overflow: hidden
 	.homeworks-list
-		margin-top: 30px
+		$gap: 25% / 4
+		margin: 30px ($gap * -1) 0
+		font-size: 0
+		letter-spacing: 0
 		.work
 			display: inline-block
 			vertical-align: top
 			height: 186px
+			margin: 0 $gap
 			width: 25%
 			.description-holder
 				.image-holder, .name-holder
@@ -106,11 +109,21 @@ section.homeworks
 			&.upload-work
 				border: 5px solid $main-color
 				box-shadow: 0 3px 7px rgba(0, 0, 0, 0.17)
+				position: relative
+				.upload-icon-holder
+					margin-top: 10px
+					margin-left: 10px
+					width: 60px
+					img
+						width: 100%
 				.label-holder
 					color: black
 					font-size: 13px
 					font-weight: 500
 					line-height: 20px
+					position: absolute
+					right: 10px
+					bottom: 10px
 
 .breadcrumb
 	font-size: 25px
