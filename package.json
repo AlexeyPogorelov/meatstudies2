@@ -1,7 +1,7 @@
 {
-  "name": "meatstudies",
+  "name": "justicon",
   "version": "0.0.1",
-  "description": "School",
+  "description": "website",
   "main": "gulpfile.js",
   "dependencies": {
     "bower": "^1.7.9",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlexeyPogorelov/meatstudies2.git"
+    "url": "git+https://github.com/AlexeyPogorelov/justicon.git"
   },
   "keywords": [
     "meat",
@@ -26,7 +26,7 @@
   "author": "Alexey Pogorelov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AlexeyPogorelov/meatstudies2/issues"
+    "url": "https://github.com/AlexeyPogorelov/justicon/issues"
   },
-  "homepage": "https://github.com/AlexeyPogorelov/meatstudies2#readme"
+  "homepage": "https://github.com/AlexeyPogorelov/justicon#readme"
 }

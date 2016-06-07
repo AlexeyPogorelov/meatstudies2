@@ -1,6 +1,6 @@
 {
-  "name": "meatstudies",
-  "description": "School",
+  "name": "justicon",
+  "description": "layout",
   "main": "index.html",
   "moduleType": [],
   "keywords": [
@@ -11,7 +11,7 @@
     "Alexey Pogorelov"
   ],
   "license": "no license",
-  "homepage": "https://github.com/AlexeyPogorelov/meatstudies2",
+  "homepage": "https://github.com/AlexeyPogorelov/justicon",
   "private": true,
   "ignore": [
     "**/.*",
