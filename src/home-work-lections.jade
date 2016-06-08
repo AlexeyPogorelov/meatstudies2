@@ -49,7 +49,7 @@ html(lang='en')
 				ul.homeworks-list
 					mixin work (name, workImage, userImage, you)
 						li.work
-							.image-holder
+							.image-holder.case-image
 								img.fake-img(src= workImage, alt= name)
 								.img(style="background-image:url(" + workImage + ")")
 							.description-holder
@@ -61,25 +61,42 @@ html(lang='en')
 										.name-label (Это вы)
 
 					li.work.upload-work
-						.upload-icon-holder
-							img(src="img/icons/upload-icon-1.svg", alt="")
-						.label-holder
-							span ЗАГРУЗИТЬ <br /> ДОМАШНЕЕ ЗАДАНЕ
+						label.image-holder.upload-label
+							.upload-icon-holder
+								img(src="img/icons/upload-icon-1.svg", alt="")
+							.label-holder
+								span ЗАГРУЗИТЬ<br />ДОМАШНЕЕ ЗАДАНЕ
+						.description-holder
+							.image-holder
+								img(src= 'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs14.jpg?resize=198%2C300', alt= 'name')
+							.name-holder
+								.name Валентин Дядька
+								.name-label (Это вы)
 
 					+work (
 						'Валентин Дядька',
-						'http://ramilrama.com/img/portfolio/portfolio-bg-ulo-1white.jpg',
+						'http://ramilrama.com/img/portfolio/portfolio-bg-360-1.png',
 						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs3.jpg?resize=100%2C100'
 					)
 					+work (
 						'Валентин Дядька',
 						'http://ramilrama.com/img/portfolio/portfolio-bg-ulo-1white.jpg',
-						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs3.jpg?resize=100%2C100'
+						'http://i2.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs11.jpg?resize=200%2C300'
+					)
+					+work (
+						'Валентин Дядька',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-1.jpg',
+						'http://i1.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/orange_rose_hair_couleur_cheveux-_peche_orange_pink_colorful-_pastel_hairs1.jpg?fit=520%2C816'
 					)
 					+work (
 						'Валентин Дядька',
 						'http://ramilrama.com/img/portfolio/portfolio-bg-ulo-1white.jpg',
-						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs3.jpg?resize=100%2C100'
+						'http://i1.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_lavander_hair_couleur_cheveux-_rose_colorful-_pastel_hairs21.jpg?w=545'
+					)
+					+work (
+						'Валентин Дядька',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-3-1.jpg',
+						'http://i1.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/orange_rose_hair_couleur_cheveux-_peche_orange_pink_colorful-_pastel_hairs1.jpg?fit=520%2C816'
 					)
 
 		include ./partials/footer.jade

@@ -74,17 +74,23 @@ section.homeworks
 	margin-top: 62px
 	overflow: hidden
 	.homeworks-list
-		$gap: 25% / 4
-		margin: 30px ($gap * -1) 0
+		$width: 22.3%
+		$gap: (100% / 3 - $width) / 2
+		margin: 30px ($gap * -1 - 0.7%) 0
 		font-size: 0
 		letter-spacing: 0
 		.work
 			display: inline-block
 			vertical-align: top
-			height: 186px
-			margin: 0 $gap
-			width: 25%
+			min-height: 186px
+			margin: 0 $gap 54px
+			width: $width
+			.case-image, .upload-label
+				height: 160px
+				height: 13vw
+				box-shadow: 0 3px 7px rgba(0, 0, 0, 0.17)
 			.description-holder
+				margin-top: 20px
 				.image-holder, .name-holder
 					display: inline-block
 					vertical-align: top
@@ -92,9 +98,9 @@ section.homeworks
 					height: 50px
 					width: 50px
 					border-radius: 50%
-					margin-right: 10px
+					margin-right: 18px
 				.name-holder
-					margin-top: 9px
+					margin-top: 18px
 					.name
 						font-size: 15px
 						font-weight: 600
@@ -106,14 +112,17 @@ section.homeworks
 						font-weight: 500
 						line-height: 20px
 						letter-spacing: 0
+						margin-top: 3px
 			&.upload-work
-				border: 5px solid $main-color
-				box-shadow: 0 3px 7px rgba(0, 0, 0, 0.17)
 				position: relative
+				cursor: pointer
+				.upload-label
+					border: 5px solid $main-color
+					display: block
 				.upload-icon-holder
-					margin-top: 10px
-					margin-left: 10px
-					width: 60px
+					margin-top: 21px
+					margin-left: 18px
+					width: 51px
 					img
 						width: 100%
 				.label-holder
@@ -121,9 +130,11 @@ section.homeworks
 					font-size: 13px
 					font-weight: 500
 					line-height: 20px
+					letter-spacing: 0
 					position: absolute
-					right: 10px
-					bottom: 10px
+					text-align: right
+					right: 20px
+					bottom: 12px
 
 .breadcrumb
 	font-size: 25px
@@ -139,7 +150,7 @@ section.homeworks
 		display: inline-block
 		&:before
 			content: '/'
-			margin-right: 10px
+			margin-right: 8px
 		&:last-child
 			color: #000
 		&:first-child
