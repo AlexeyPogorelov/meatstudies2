@@ -613,14 +613,19 @@ $mobile-x-small: 320px
 	position: absolute
 	display: block
 	width: 100%
-	// z-index: 100
 	background-color: #fff
 	padding: 33px 18px
 	box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1)
-	right: 3px
-	top: -23px
+	right: 20px
+	top: 20px
 	width: 382px
 	z-index: 1002
+	// closed
+	opacity: 0
+	pointer-events: none
+	max-height: 0
+	max-width: 0
+	overflow: hidden
 	a
 		margin: 0
 		margin-left: 0
@@ -645,6 +650,7 @@ $mobile-x-small: 320px
 			padding: 0
 	.profile-messages-header
 		margin-bottom: 28px
+		width: inherit
 	.profile-messages-footer
 		text-align: center
 		margin-top: 10px
@@ -675,12 +681,9 @@ $mobile-x-small: 320px
 				b
 					color: black
 					font-weight: 600
-
-.profile-button
-	.profile-messages-modal
-		opacity: 0
-		pointer-events: none
 	&.opened
-		.profile-messages-modal
-			pointer-events: all
-			opacity: 1
+		pointer-events: all
+		opacity: 1
+		max-height: 800px
+		max-width: 400px
+		transition: opacity .6s 0s, max-height .6s .6s, max-width .6s .12s

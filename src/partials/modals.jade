@@ -73,6 +73,43 @@
 					button(type="submit")
 						span Sign Up
 
+.profile-messages-modal#profile-messages-modal
+	.profile-messages-header
+		a(href="#") ПЕРЕЙТИ В ЛИЧНЫЙ КАБИНЕТ
+	.profile-messages-content
+		ul.messages-list
+			mixin feed-item(src, name, happened, theme)
+				li.message
+					.image-container
+						.image-holder
+							img(src= src, alt= theme)
+					.feed-description
+						p
+							span= name
+							b= happened
+							span= theme
+			+feed-item (
+				'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6-1.jpg',
+				'Карина Лобова',
+				' прокоментировал(а) статью',
+				' «Жизнь бутерброда после кукурузы»'
+			)
+			+feed-item (
+				'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6-1.jpg',
+				'Карина Лобова',
+				' прокоментировал(а) статью',
+				' «Жизнь бутерброда после кукурузы»'
+			)
+			+feed-item (
+				'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6-1.jpg',
+				'Карина Лобова',
+				' прокоментировал(а) статью',
+				' «Жизнь бутерброда после кукурузы»'
+			)
+	.profile-messages-footer
+		a(href="#") ПЕРЕЙТИ КО ВСЕМ УВЕДОМЛЕНИЯМ
+
+
 //- .modal-holder(data-modal-ununique="true")
 	//- .modal-content
 		//- .close-modal(data-close)

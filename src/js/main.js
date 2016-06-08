@@ -361,6 +361,119 @@ $(document).on('ready', function () {
 
 		});
 
+		// tooltips
+		var tooltips = {
+			opened: [],
+			openTooltip: function ( $modal ) {
+
+				if (!$modal.data('modal-ununique') && this.opened.length > 0) {
+					tooltips.closeModal( this.opened[this.opened.length - 1], true );
+				}
+				this.opened.push( $modal );
+				// $modal.addClass('opened').one( transitionPrefix, bodyOverflow.fixBody );
+
+				$modal.off( transitionPrefix ).addClass('opened');
+
+			},
+			closeTooltip: function ($modal, alt) {
+
+				if ( this.opened.length > 0 && !$modal ) {
+
+					for ( var y = 0; y < this.opened.length; y++ ) {
+
+						this.closeModal( this.opened[y] );
+
+					}
+
+					return;
+
+				} else if ( $modal && !($modal instanceof jQuery) ) {
+
+					$modal = $( $modal );
+
+				} else if ( $modal === undefined ) {
+
+					throw 'something went wrong';
+
+				}
+
+				try {
+
+					$modal.removeClass('opened');
+
+				} catch (e) {
+
+					console.error(e);
+
+					this.closeModal();
+
+					return;
+
+				}
+
+				this.opened.pop();
+
+				if (!alt) {
+
+					$modal.one( transitionPrefix, bodyOverflow.unfixBody );
+
+					try {
+
+						this.$cross.addClass('fadeOut').one(animationPrefix, function () {
+
+							$(this).remove();
+
+						});
+
+					} catch (e) {
+
+						console.error(e);
+
+					}
+
+				} else {
+
+					this.$cross.remove();
+
+				}
+
+			}
+
+		};
+
+		$('[data-tooltip]').on('click', function (e) {
+
+			e.preventDefault();
+
+			var $self = $(this),
+				target = $self.attr('data-tooltip'),
+				$target = $(target);
+
+			if ($target.length) {
+
+				tooltips.openTooltip($target);
+
+			} else {
+
+				console.warn('Ошибка в элементе:');
+				console.log(this);
+				console.warn('Не найдены элементы с селектором ' + target);
+
+			}
+			
+		});
+
+		$window.on('keyup', function (e) {
+
+			// esc pressed
+			if (e.keyCode == '27') {
+
+				tooltips.closeTooltip();
+
+			}
+
+		});
+
 
 		// shuffle array
 		Array.prototype.shuffle = function() {
