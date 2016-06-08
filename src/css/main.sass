@@ -519,7 +519,7 @@ input[type="text"], input[type="password"], input[type="email"]
 	top: 0
 	width: 100%
 	transform: translateZ(0)
-	z-index: 11
+	z-index: 1001
 	.block-holder
 		margin-left: auto
 		margin-right: auto
@@ -639,11 +639,10 @@ input[type="text"], input[type="password"], input[type="email"]
 		position: absolute
 		top: -3px
 		right: 0
-		a
+		& > a
 			margin-left: 60px
 			margin-right: 23px
 			color: #35363c
-			font-family: 'Futura New'
 			font-size: 18px
 			font-weight: 500
 		& > *
@@ -661,18 +660,40 @@ input[type="text"], input[type="password"], input[type="email"]
 			width: 27px
 		.search-button
 			.search-icon-1
-				background: url(../img/icons/search-icon-1.svg) no-repeat
+				background: url('../img/icons/search-icon-1.svg') no-repeat
 			// span
 		.login-button
 			.login-icon-1
-				background: url(../img/icons/login-icon-1.svg) no-repeat
+				background: url('../img/icons/login-icon-1.svg') no-repeat
 		.profile-button
+			position: relative
+			transition: height .3s, width .3s
+			.badge
+				background: url('../img/icons/badge-icon-1.svg') 50% 50% no-repeat
+				background-size: contain
+				position: absolute
+				padding: 11px 11px 9px 9px
+				right: -18px
+				top: -11px
+				text-align: center
+				color: white
+				font-size: 13px
+				font-weight: 700
+				line-height: 1em
+				letter-spacing: 0
+				height: 33px
+				min-width: 32px
 			.profile-image
 				background-size: cover
 				background-position: 50% 50%
 				border-radius: 50%
 				height: 34px
 				width: 34px
+			&.opened
+				.profile-image
+					height: 40px
+					width: 40px
+					z-index: 1003
 
 @media screen and (max-width: $medium)
 	.main-navigation

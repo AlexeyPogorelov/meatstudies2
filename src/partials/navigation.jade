@@ -51,11 +51,48 @@
 			a(href="search.html" data-modal="#search-modal").search-button
 				i.search-icon-1
 				span Пошук
-			a(href="login.html" data-modal="#login-modal").login-button
+			//- a(href="login.html" data-modal="#login-modal").login-button
 				i.login-icon-1
 				span Логін
-			//- a(href="profile.html").profile-button
-				i.profile-image(style="background-image: url(http://40.media.tumblr.com/355c4c5196bf6c05e1a37093a7682d09/tumblr_o3h2h81gst1slisbmo1_1280.jpg)")
+			a#profile-messages-modal.profile-button(href="profile.html" data-modal="#profile-messages-modal")
+				.badge 22
+				i.profile-image(style="background-image: url(http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_blue_hair_couleur_cheveux-_rose_bleu_colorful-_pastel_hairs20.jpg?w=581)")
+				.profile-messages-modal
+					.profile-messages-header
+						span ПЕРЕЙТИ В ЛИЧНЫЙ КАБИНЕТ
+					.profile-messages-content
+						ul.messages-list
+							mixin feed-item(src, name, happened, theme)
+								li.message
+									.image-container
+										.image-holder
+											img(src= src, alt= theme)
+									.feed-description
+										p
+											span= name
+											b= happened
+											span= theme
+							+feed-item (
+								'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6-1.jpg',
+								'Карина Лобова',
+								' прокоментировал(а) статью',
+								' «Жизнь бутерброда после кукурузы»'
+							)
+							+feed-item (
+								'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6-1.jpg',
+								'Карина Лобова',
+								' прокоментировал(а) статью',
+								' «Жизнь бутерброда после кукурузы»'
+							)
+							+feed-item (
+								'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6-1.jpg',
+								'Карина Лобова',
+								' прокоментировал(а) статью',
+								' «Жизнь бутерброда после кукурузы»'
+							)
+
+					.profile-messages-footer
+						a(href="#") ПЕРЕЙТИ КО ВСЕМ УВЕДОМЛЕНИЯМ
 
 .mobile-navigation
 	.block-holder

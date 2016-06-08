@@ -295,3 +295,31 @@ section.event-head
 		letter-spacing: 1px
 		line-height: 30px
 		margin: 0 0 0 -3px
+
+.profilemenu
+	position: absolute
+	left: 48px
+	top: -5px
+	li
+		color: #9e9e9e
+		font-size: 18px
+		font-weight: 500
+		line-height: 30px
+		letter-spacing: 1px
+		padding-left: 10px
+		margin-bottom: 24px
+		a
+			color: inherit
+			display: inline-block
+			padding-right: 10px
+			font-weight: 600
+			&.active
+				position: relative
+			&.active:after
+				content: ''
+				position: absolute
+				height: 1px
+				background: $main-color
+				width: 100%
+				top: 13px
+				left: -6px
