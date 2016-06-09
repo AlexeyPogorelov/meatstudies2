@@ -389,7 +389,7 @@ $(document).on('ready', function () {
 			openTooltip: function ( $modal, $self ) {
 
 				if ( this.opened.length > 0 ) {
-					tooltips.closeModal();
+					tooltips.closeTooltip();
 				}
 				this.opened.push( $modal );
 				this.opened.push( $self );

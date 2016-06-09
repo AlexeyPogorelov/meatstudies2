@@ -7,6 +7,10 @@ $mobile-small: 480px
 $mobile-x-small: 320px
 $main-color: #ffd500
 
+@media (max-width: $mobile-large)
+	.test
+		margin-top: 20px
+
 .chromeperfectpixel-initial-block iframe,
 #chromeperfectpixel-supported-by
 	display: none !important
@@ -109,12 +113,19 @@ label
 		left: -1px
 	.line-2
 		left: 25%
+		@media (max-width: $mobile-large)
+			display: none
 	.line-3
 		left: 50%
+		@media (max-width: $mobile-large)
+			display: none
 	.line-4
 		left: 75%
+		@media (max-width: $mobile-large)
+			display: none
 	.line-5
 		right: -1px
+
 
 // --------------------------------------------------
 // MAIN VIDEO
@@ -830,3 +841,4 @@ input[type="text"], input[type="password"], input[type="email"]
 						width: 52px
 						text
 							fill: url(#pattern)
+
