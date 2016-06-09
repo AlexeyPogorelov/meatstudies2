@@ -361,6 +361,94 @@ $(document).on('ready', function () {
 
 		});
 
+		// tooltips
+		var tooltips = {
+			opened: [],
+			$body: $('body'),
+			bodyHandler: function (e) {
+				var $self = $(e.target),
+					hasOpenedParent = null;
+				if ( $self.hasClass('opened') ) {
+					hasOpenedParent = true;
+				} else {
+					for (var i = 0; i < $self.parents().length; i++) {
+						if ( $self.parents().eq(i).hasClass('opened') ) {
+							hasOpenedParent = true;
+							break;
+						}
+					}
+				}
+
+				if ( hasOpenedParent !== true ) {
+					e.preventDefault();
+					e.stopPropagation();
+					tooltips.closeTooltip();
+				}
+
+			},
+			openTooltip: function ( $modal, $self ) {
+
+				if ( this.opened.length > 0 ) {
+					tooltips.closeTooltip();
+				}
+				this.opened.push( $modal );
+				this.opened.push( $self );
+
+				this.$body.addClass('tooltip').on('click', this.bodyHandler);
+
+				$modal.off( transitionPrefix ).addClass('opened');
+				$self.addClass('opened');
+
+			},
+			closeTooltip: function () {
+
+				this.$body.removeClass('tooltip').off('click', this.bodyHandler);
+
+				for ( var y = 0; y < this.opened.length; y++ ) {
+
+					this.opened[y].removeClass('opened');
+
+				}
+
+				this.opened = [];
+
+			}
+
+		};
+
+		$('[data-tooltip]').on('click', function (e) {
+
+			e.preventDefault();
+
+			var $self = $(this),
+				target = $self.attr('data-tooltip'),
+				$target = $(target);
+
+			if ($target.length) {
+
+				tooltips.openTooltip($target, $self);
+
+			} else {
+
+				console.warn('Ошибка в элементе:');
+				console.log(this);
+				console.warn('Не найдены элементы с селектором ' + target);
+
+			}
+			
+		});
+
+		$window.on('keyup', function (e) {
+
+			// esc pressed
+			if (e.keyCode == '27') {
+
+				tooltips.closeTooltip();
+
+			}
+
+		});
+
 
 		// shuffle array
 		Array.prototype.shuffle = function() {

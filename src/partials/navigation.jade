@@ -48,14 +48,15 @@
 				a(href="videos.html")
 					span видео
 		.controls-holder
-			a(href="search.html" data-modal="#search-modal").search-button
+			a(href="search.html" data-modal="#search-modal").control.search-button
 				i.search-icon-1
 				span Пошук
-			a(href="login.html" data-modal="#login-modal").login-button
+			//- a(href="login.html" data-modal="#login-modal").login-button
 				i.login-icon-1
 				span Логін
-			//- a(href="profile.html").profile-button
-				i.profile-image(style="background-image: url(http://40.media.tumblr.com/355c4c5196bf6c05e1a37093a7682d09/tumblr_o3h2h81gst1slisbmo1_1280.jpg)")
+			a.control.profile-button(href="profile.html" data-tooltip="#profile-messages-modal")
+				.badge 22
+				.profile-image(style="background-image: url(http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_blue_hair_couleur_cheveux-_rose_bleu_colorful-_pastel_hairs20.jpg?w=581)")
 
 .mobile-navigation
 	.block-holder
@@ -66,9 +67,9 @@
 			a(href="index.html")
 				img(src="img/icons/meatstudies.svg", alt="MEATSTUDIES")
 		.controls-holder
-			a(href="search.html" data-modal="#search-modal").search-button
+			a(href="search.html" data-modal="#search-modal").control.search-button
 				i.search-icon-1
-			a(href="login.html" data-modal="#login-modal").login-button
+			a(href="login.html" data-modal="#login-modal").control.login-button
 				i.login-icon-1
 			//- a(href="profile.html" data-modal="#profile-modal").profile-button.hidden
 				i.profile-image(style="background-image: url(http://40.media.tumblr.com/355c4c5196bf6c05e1a37093a7682d09/tumblr_o3h2h81gst1slisbmo1_1280.jpg)")
