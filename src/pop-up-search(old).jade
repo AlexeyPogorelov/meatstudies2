@@ -1,0 +1,62 @@
+doctype html
+html(lang='en')
+	head
+		title MEAT ˢᵗᵘᵈⁱᵉˢ 2
+
+		include ./partials/head.jade
+
+	body
+		include ./partials/navigation.jade
+		
+		.modal.open
+			.container
+				.close-btn
+					img(src="img/icons/cross-button-1.svg", alt="")
+			section.search-section
+				.section-label
+					img(src="img/icons/side-labels/search.svg", alt="search")
+				.container
+					.modal-body
+						.modal-container
+							.search-holder
+								input(type="text")
+								.sr-bott
+									.inline-holder
+										.search-cats.inline-el
+											mixin catsItem(href, text)
+												li
+													a(href= href)= text
+
+											ul
+												+catsItem('#', 'Interview')
+												+catsItem('#', 'Design')
+												+catsItem('#', 'Education')
+												+catsItem('#', 'Course')
+												+catsItem('#', 'UI/UX')
+												+catsItem('#', 'Front End')
+												+catsItem('#', 'Teacher')
+												+catsItem('#', 'Inspiration')
+												+catsItem('#', 'Video')
+												+catsItem('#', 'Identity')
+												+catsItem('#', 'Logo')
+										.serch-btn.inline-el
+											button искать
+								.results-count
+									span 
+										| Найдено 24 по запросу «
+										b UI
+										| »
+			section.course-section
+				.section-label
+					img(src="img/icons/side-labels/courses.svg", alt="search")
+				.container
+					.modal-body
+						.modal-container
+							.search-results-block.inline-holder
+								.img-content.inline-el
+									img(src="img/content/ui-ux-modal.jpg", alt="")
+								.description.inline-el
+									span
+										| Направление «Дизайн» представляет учебные |программы по графическому дизайну, |визуальным коммуникациям и 	коммуникативному |дизайну.
+		include ./partials/footer.jade
+	include ./partials/scripts.jade

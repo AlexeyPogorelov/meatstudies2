@@ -13,6 +13,13 @@ $main-color: #ffd500
 	margin-top: 65px
 	button
 		padding: 15px 46px
+
+.inline-holder
+	font-size: 0
+	letter-spacing: 0
+.inline-el
+	display: inline-block
+	vertical-align: top
 //--- end GLOBAL ---//
 
 section.profile-top
@@ -394,3 +401,90 @@ section.download-materials
 			margin-top: 0
 			.down-item
 				margin-bottom: 53px
+
+.modal-container
+	width: 75%
+	position: relative
+	.search-results-block
+		.img-content
+			width: 33.33333%
+			img
+		.description
+			width: 66.66666%
+			span
+				color: #8c8c8c
+				font-family: "Gotham Pro"
+				font-size: 15px
+				font-weight: 400
+				line-height: 20px
+.modal.open
+	position: fixed
+	height: 100vh
+	width: 100vw
+	background: #fff
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	z-index: 11
+	.section-label
+		top: 0
+		left: 68px
+	.container
+		position: relative
+		.close-btn
+			position: absolute
+			top: 66px
+			right: 2px
+			height: 30px
+			width: 30px
+			cursor: pointer
+	section.search-section
+		position: relative
+		margin-top: 177px
+		.container
+			position: relative
+			.modal-body
+				.search-holder
+					input
+						background-color: #f7f7f7
+						border: 1px solid #e6e6e6
+						height: 49px
+						margin: 0
+						padding-left: 20px
+						width: 100%
+					.sr-bott
+						margin-top: 40px
+						.search-cats
+							width: 66.66666%
+							li
+								display: inline-block
+								margin-right: 20px
+								a
+									font-size: 13px
+						.serch-btn
+							width: 33.33333%
+							button
+								white-space: nowrap
+								text-overflow: ellipsis
+								overflow: hidden
+								background: transparent
+								color: black
+								font-size: 15px
+								font-weight: 700
+								line-height: 1em
+								border: 3px solid #ffd500
+								transition: background .3s
+								padding: 14px 37px
+								width: 100%
+								text-transform: uppercase
+					.results-count
+						margin-top: 40px
+						border: -bottom: 2px solid #000
+						padding-bottom: 12px
+						span
+							color: #9b9b9b
+							letter-spacing: 1px
+							b
+								font-weight: 400
+								color: black
