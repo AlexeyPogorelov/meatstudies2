@@ -76,15 +76,18 @@
 .profile-messages-modal#profile-messages-modal
 	.profile-messages-header
 		a(href="#") ПЕРЕЙТИ В ЛИЧНЫЙ КАБИНЕТ
+		.profile-icon(href="profile.html" data-tooltip="#profile-messages-modal")
+			.badge 22
+			.profile-image(style="background-image: url(http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_blue_hair_couleur_cheveux-_rose_bleu_colorful-_pastel_hairs20.jpg?w=581)")
 	.profile-messages-content
 		ul.messages-list
 			mixin feed-item(src, name, happened, theme)
 				li.message
 					.image-container
-						.image-holder
+						a(href="#").image-holder
 							img(src= src, alt= theme)
 					.feed-description
-						p
+						a(href="#")
 							span= name
 							b= happened
 							span= theme

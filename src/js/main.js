@@ -364,78 +364,53 @@ $(document).on('ready', function () {
 		// tooltips
 		var tooltips = {
 			opened: [],
-			openTooltip: function ( $modal ) {
-
-				if (!$modal.data('modal-ununique') && this.opened.length > 0) {
-					tooltips.closeModal( this.opened[this.opened.length - 1], true );
+			$body: $('body'),
+			bodyHandler: function (e) {
+				var $self = $(e.target),
+					hasOpenedParent = null;
+				if ( $self.hasClass('opened') ) {
+					hasOpenedParent = true;
+				} else {
+					for (var i = 0; i < $self.parents().length; i++) {
+						if ( $self.parents().eq(i).hasClass('opened') ) {
+							hasOpenedParent = true;
+							break;
+						}
+					}
 				}
-				this.opened.push( $modal );
-				// $modal.addClass('opened').one( transitionPrefix, bodyOverflow.fixBody );
 
-				$modal.off( transitionPrefix ).addClass('opened');
+				if ( hasOpenedParent !== true ) {
+					e.preventDefault();
+					e.stopPropagation();
+					tooltips.closeTooltip();
+				}
 
 			},
-			closeTooltip: function ($modal, alt) {
+			openTooltip: function ( $modal, $self ) {
 
-				if ( this.opened.length > 0 && !$modal ) {
+				if ( this.opened.length > 0 ) {
+					tooltips.closeModal();
+				}
+				this.opened.push( $modal );
+				this.opened.push( $self );
 
-					for ( var y = 0; y < this.opened.length; y++ ) {
+				this.$body.addClass('tooltip').on('click', this.bodyHandler);
 
-						this.closeModal( this.opened[y] );
+				$modal.off( transitionPrefix ).addClass('opened');
+				$self.addClass('opened');
 
-					}
+			},
+			closeTooltip: function () {
 
-					return;
+				this.$body.removeClass('tooltip').off('click', this.bodyHandler);
 
-				} else if ( $modal && !($modal instanceof jQuery) ) {
+				for ( var y = 0; y < this.opened.length; y++ ) {
 
-					$modal = $( $modal );
-
-				} else if ( $modal === undefined ) {
-
-					throw 'something went wrong';
+					this.opened[y].removeClass('opened');
 
 				}
 
-				try {
-
-					$modal.removeClass('opened');
-
-				} catch (e) {
-
-					console.error(e);
-
-					this.closeModal();
-
-					return;
-
-				}
-
-				this.opened.pop();
-
-				if (!alt) {
-
-					$modal.one( transitionPrefix, bodyOverflow.unfixBody );
-
-					try {
-
-						this.$cross.addClass('fadeOut').one(animationPrefix, function () {
-
-							$(this).remove();
-
-						});
-
-					} catch (e) {
-
-						console.error(e);
-
-					}
-
-				} else {
-
-					this.$cross.remove();
-
-				}
+				this.opened = [];
 
 			}
 
@@ -451,7 +426,7 @@ $(document).on('ready', function () {
 
 			if ($target.length) {
 
-				tooltips.openTooltip($target);
+				tooltips.openTooltip($target, $self);
 
 			} else {
 

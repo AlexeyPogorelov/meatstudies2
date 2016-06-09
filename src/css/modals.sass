@@ -616,21 +616,50 @@ $mobile-x-small: 320px
 	background-color: #fff
 	padding: 33px 18px
 	box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1)
-	right: 20px
-	top: 20px
+	right: 41px
+	top: 51px
 	width: 382px
 	z-index: 1002
+
 	// closed
 	opacity: 0
 	pointer-events: none
 	max-height: 0
 	max-width: 0
 	overflow: hidden
+	transition: opacity .6s .6s, max-height .6s .12s, max-width .6s .6s
+	a.image-holder
+		display: block
 	a
 		margin: 0
 		margin-left: 0
 		margin-right: 0
 		padding: 0
+	.profile-icon
+		position: absolute
+		right: 22px
+		top: 19px
+		.badge
+			background-size: contain
+			background: url('../img/icons/badge-icon-1.svg') 50% 50% no-repeat
+			color: white
+			font-size: 13px
+			font-weight: 700
+			height: 33px
+			letter-spacing: 0
+			line-height: 1em
+			min-width: 32px
+			padding: 11px 11px 9px 9px
+			position: absolute
+			right: -18px
+			text-align: center
+			top: -11px
+		.profile-image
+			background-position: 50% 50%
+			background-size: cover
+			border-radius: 50%
+			height: 40px
+			width: 40px
 	.profile-messages-header, .profile-messages-footer
 		color: #9e9e9e
 		display: block
@@ -639,6 +668,7 @@ $mobile-x-small: 320px
 		line-height: 20px
 		text-align: left
 		letter-spacing: 0
+		white-space: nowrap
 		a
 			display: inline-block
 			color: inherit
@@ -673,6 +703,7 @@ $mobile-x-small: 320px
 		.feed-description
 			width: 262px
 			a, p
+				display: block
 				font-size: 13px
 				line-height: 20px
 				color: #9e9e9e
@@ -684,6 +715,9 @@ $mobile-x-small: 320px
 	&.opened
 		pointer-events: all
 		opacity: 1
+		// TODO remove it
+		// opacity: 0.5
+		// filter: invert(1)
 		max-height: 800px
 		max-width: 400px
 		transition: opacity .6s 0s, max-height .6s .6s, max-width .6s .12s

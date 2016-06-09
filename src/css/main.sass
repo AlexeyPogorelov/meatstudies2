@@ -470,15 +470,15 @@ input[type="text"], input[type="password"], input[type="email"]
 // --------------------------------------------------
 
 #to-top
+	cursor: pointer
 	height: 70px
-	top: -100px
 	position: absolute
 	right: 0
-	cursor: pointer
+	top: -100px
+	transition: transform .3s, opacity .3s, bottom .3s
 	transition: transform .3s, opacity .3s, bottom .3s
 	white-space: nowrap
 	width: 97px
-	transition: transform .3s, opacity .3s, bottom .3s
 	&:hover
 		opacity: 1
 		span
@@ -512,13 +512,12 @@ input[type="text"], input[type="password"], input[type="email"]
 
 .mobile-navigation,
 .main-navigation
-	// background: #fff
 	left: 0
 	padding: 0 40px
 	position: absolute
 	top: 0
-	width: 100%
 	transform: translateZ(0)
+	width: 100%
 	z-index: 1001
 	.block-holder
 		margin-left: auto
@@ -537,17 +536,17 @@ input[type="text"], input[type="password"], input[type="email"]
 					display: block
 					width: 100%
 			.cities-list-holder
-				cursor: pointer
-				position: absolute
-				top: 40px
-				left: 75px
-				width: 64px
-				height: 33px
 				color: black
+				cursor: pointer
 				font-size: 17px
 				font-weight: 700
-				line-height: 16px
+				height: 33px
+				left: 75px
 				letter-spacing: 0
+				line-height: 16px
+				position: absolute
+				top: 40px
+				width: 64px
 				.label
 					white-space: nowrap
 					.icon, span
@@ -559,28 +558,28 @@ input[type="text"], input[type="password"], input[type="email"]
 						background-position: 50% 50%
 						background-size: 16px 8px
 						background: url('../img/icons/triangle-1.svg') no-repeat
-						top: 5px
-						right: -26px
-						position: absolute
-						pointer-events: none
-						transition: transform .3s
-						transform-origin: 50% 50%
 						height: 8px
+						pointer-events: none
+						position: absolute
+						right: -26px
+						top: 5px
+						transform-origin: 50% 50%
+						transition: transform .3s
 						width: 16px
 				li:nth-child(1n+2)
+					height: 0
 					opacity: 0
 					pointer-events: none
 					transition: opacity .3s, height .3s .3s
-					height: 0
 				&:hover
 					.label
 						.icon
 							transform: rotate(-180deg)
 					li:nth-child(1n+2)
-						transition: opacity .3s
-						pointer-events: all
 						height: 1em
 						opacity: 1
+						pointer-events: all
+						transition: opacity .3s
 						&:hover
 							span
 								color: $main-color
@@ -597,9 +596,9 @@ input[type="text"], input[type="password"], input[type="email"]
 						transition-delay: .5s
 		.navigation-pannel
 			// padding: 23px 0 19px
-			margin: 73px 293px 0 243px
 			display: flex
 			justify-content: space-between
+			margin: 73px 293px 0 243px
 			li
 				display: inline-block
 				margin: 0 10px
@@ -618,11 +617,11 @@ input[type="text"], input[type="password"], input[type="email"]
 					padding: 4px 10px
 					span
 						display: inline-block
-						text-overflow: ellipsis
 						overflow: hidden
-						white-space: nowrap
+						text-overflow: ellipsis
 						text-transform: uppercase
 						transition: transform .3s, opacity .3s, color .3s
+						white-space: nowrap
 					&:hover
 						span
 							// opacity: 0.8
@@ -637,14 +636,14 @@ input[type="text"], input[type="password"], input[type="email"]
 						color: #fff
 	.controls-holder
 		position: absolute
-		top: -3px
 		right: 0
+		top: -3px
 		& > a, .control
-			margin-left: 60px
-			margin-right: 23px
 			color: #35363c
 			font-size: 18px
 			font-weight: 500
+			margin-left: 60px
+			margin-right: 23px
 		& > *
 			display: inline-block
 			& > *
@@ -669,28 +668,31 @@ input[type="text"], input[type="password"], input[type="email"]
 			position: relative
 			transition: height .3s, width .3s
 			.badge
-				background: url('../img/icons/badge-icon-1.svg') 50% 50% no-repeat
 				background-size: contain
-				position: absolute
-				padding: 11px 11px 9px 9px
-				right: -18px
-				top: -11px
-				text-align: center
+				background: url('../img/icons/badge-icon-1.svg') 50% 50% no-repeat
 				color: white
 				font-size: 13px
 				font-weight: 700
-				line-height: 1em
-				letter-spacing: 0
 				height: 33px
+				letter-spacing: 0
+				line-height: 1em
 				min-width: 32px
+				padding: 11px 11px 9px 9px
+				position: absolute
+				right: -18px
+				text-align: center
+				top: -11px
 			.profile-image
-				background-size: cover
 				background-position: 50% 50%
+				background-size: cover
 				border-radius: 50%
 				height: 34px
 				width: 34px
+				transition: height .3s 1.2s, width .3s 1.2s
 			&.opened
+				z-index: 1003
 				.profile-image
+					transition: height .3s, width .3s
 					height: 40px
 					width: 40px
 					z-index: 1003
@@ -718,17 +720,17 @@ input[type="text"], input[type="password"], input[type="email"]
 
 .mobile-navigation
 	display: none
-	padding: 0 30px
 	height: 54px
+	padding: 0 30px
 	.block-holder
 		.gamburger
 			margin-top: 14px
 			float: left
 		.logotype-holder
-			position: absolute
-			top: 14px
-			text-align: center
 			left: 25%
+			position: absolute
+			text-align: center
+			top: 14px
 			width: 50%
 			img
 				width: 124px
