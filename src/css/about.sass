@@ -10,28 +10,42 @@ $main-color: #ffd500
 section.about
 	margin-top: 110px
 	overflow: hidden
+	@media (max-width: $mobile-large)
+		margin-top: 77px
 	h3
 		font-size: 30px
 		font-weight: 600
 		letter-spacing: 10px
 		line-height: 40px
-		margin-bottom: 21px
+		margin-bottom: 36px
 		margin-left: -3px
+		@media (max-width: $mobile-large)
+			font-size: 25px
+			line-height: 20px
+			letter-spacing: 0
 	p
 		color: black
 		font-size: 18px
 		font-weight: 500
 		letter-spacing: 0.8px
+		// TODO discuss it
+		// letter-spacing: 1px
 		line-height: 30px
 		margin-left: -1px
 	.section-label
 		margin-left: -15px
+		@media (max-width: $mobile-large)
+			position: absolute
+			margin-left: 0
+			display: none
 	.content-holder
 		margin-top: 53px
 		position: relative
 		font-size: 0
 		letter-spacing: 0
 		white-space: nowrap
+		@media (max-width: $mobile-large)
+			white-space: normal
 		&:before
 			content: ''
 			position: absolute
@@ -41,18 +55,36 @@ section.about
 			height: 100%
 			width: 100%
 			z-index: 0
+	.mobile-label
+		display: none
+		font-size: 15px
+		font-weight: 400
+		line-height: 13px
+		letter-spacing: 5.25px
+		text-transform: uppercase
+		margin-top: 10px
+		margin-bottom: 27px
+		@media (max-width: $mobile-large)
+			display: block
 	.left-side, .right-side
 		padding: 91px 0
 		display: inline-block
 		vertical-align: middle
 		position: relative
 		white-space: normal
+		width: 50%
+		@media (max-width: $mobile-large)
+			display: block
+			width: 100%
 	.left-side
 		padding-right: 30px
-		width: 50%
+		@media (max-width: $mobile-large)
+			padding-bottom: 21px
 	.right-side
-		width: 50%
 		width: calc(50% + 8px)
+		@media (max-width: $mobile-large)
+			padding-top: 0
+			width: 100%
 		ul.list
 			li
 				font-size: 0
@@ -63,15 +95,23 @@ section.about
 				.image-holder
 					display: inline-block
 					margin-bottom: 70px
-					max-width: 240px
+					max-width: 150px
+					max-width: 67%
 					position: relative
 					bottom: -10px
+					@media (max-width: $mobile-large)
+						margin-bottom: 25px
+						letter-spacing: 0
 				span
 					color: black
 					font-size: 18px
 					font-weight: 600
 					line-height: 30px
 					letter-spacing: 1px
+					@media (max-width: $mobile-large)
+						color: black
+						font-size: 15px
+						font-weight: 500
 			// TODO discuss it
 			// text align algorythm is requ...
 			li:nth-child(3n-2)
