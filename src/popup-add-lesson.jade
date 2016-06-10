@@ -1,0 +1,27 @@
+doctype html
+html(lang='en')
+	head
+		title MEAT Studies 2
+
+		include ./partials/head.jade
+
+	body
+		include ./partials/navigation.jade
+
+		.modal-holder.opened#add-homework-modal(data-cross="cross-top")
+			.modal-content
+				section.add-homework-modal
+					form(action="#").container
+						.left-side
+							.side-label
+								span Превью
+							label.load-file-container(for="load-preview")
+								input(type="file")#load-preview
+							.description
+						.right-side
+							.form-group
+								.label
+								.input-group
+
+		include ./partials/footer.jade
+	include ./partials/scripts.jade
