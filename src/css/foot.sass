@@ -21,6 +21,9 @@ $main-color: #ffd500
 			float: left
 			width: 521px
 			width: 50%
+			@media (max-width: $mobile-large)
+				margin-bottom: 40px
+				width: 100%
 			input[type="text"], input.text
 				background-color: #f7f7f7
 				border: 1px solid #e6e6e6
@@ -57,6 +60,8 @@ $main-color: #ffd500
 			padding-left: 25%
 			display: flex
 			justify-content: space-between
+			@media (max-width: $mobile-large)
+				display: none
 			li
 				display: inline-block
 				&:hover
@@ -72,6 +77,8 @@ $main-color: #ffd500
 		clear: both
 		font-size: 0
 		letter-spacing: 0
+		@media (max-width: $mobile-large)
+			margin-bottom: 20px
 		.left, .right
 			display: inline-block
 			width: 50%
@@ -81,6 +88,9 @@ $main-color: #ffd500
 			font-size: 18px
 			line-height: 30px
 			letter-spacing: 1px
+			@media (max-width: $mobile-large)
+				text-align: center
+				width: 100%
 			.phone, .address
 				font-weight: 400
 				a
@@ -91,3 +101,8 @@ $main-color: #ffd500
 				a
 					font-weight: inherit
 					color: inherit
+		.left
+			display: block
+		.right, .address
+			@media (max-width: $mobile-large)
+				display: none
