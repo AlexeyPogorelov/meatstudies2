@@ -9,68 +9,75 @@ $main-color: #ffd500
 
 .subscribe
 	margin-top: 164px
+	@media (max-width: $mobile-large)
+		margin-top: 133px
 	&.error
 		background: #f5f6f8
 		margin-top: 0
 	.section-label
 		top: 0
-	.content-holder
-		.subscribe-input
-			position: relative
-			overflow: hidden
-			float: left
-			width: 521px
-			width: 50%
-			@media (max-width: $mobile-large)
-				margin-bottom: 40px
-				width: 100%
-			input[type="text"], input.text
-				background-color: #f7f7f7
-				border: 1px solid #e6e6e6
-				height: 49px
-				margin: 0
-				padding-left: 20px
-				width: 100%
-				&::placeholder
-					line-height: 49px
-					font-size: 15px
-					font-weight: 600
-				&:focus ~, &.focus ~
-					input[type="submit"], input.submit
-							transform: translateY(0)
-							transition: transform .3s
-			input[type="submit"], input.submit
-				display: inline-block
-				height: 49px
-				position: absolute
-				top: 0
-				right: 0
-				background: none
-				border: none
-				color: $main-color
+		@media (max-width: $mobile-large)
+			text-align: right
+			margin-bottom: 30px
+			margin-right: -7px
+	// .content-holder
+	.subscribe-input
+		position: relative
+		overflow: hidden
+		float: left
+		width: 521px
+		width: 50%
+		@media (max-width: $mobile-large)
+			margin-bottom: 35px
+			width: 100%
+		input[type="text"], input.text
+			background-color: #f7f7f7
+			border: 1px solid #e6e6e6
+			height: 49px
+			margin: 0
+			padding-left: 20px
+			width: 100%
+			&::placeholder
+				line-height: 49px
 				font-size: 15px
-				font-weight: 700
-				transform: translateY(100%)
-				transition: transform .3s .6s
-				text-transform: uppercase
-		ul.socials-holder
-			position: relative
-			top: 5px
-			padding-left: 260px
-			padding-left: 25%
-			display: flex
-			justify-content: space-between
-			@media (max-width: $mobile-large)
-				display: none
-			li
-				display: inline-block
-				&:hover
-					a
-						transition: color 0s
-						color: $main-color
+				font-weight: 600
+			&:focus ~, &.focus ~
+				input[type="submit"], input.submit
+						transform: translateY(0)
+						transition: transform .3s
+		input[type="submit"], input.submit
+			display: inline-block
+			height: 49px
+			position: absolute
+			top: 0
+			right: 0
+			background: none
+			border: none
+			color: $main-color
+			font-size: 15px
+			font-weight: 700
+			transform: translateY(100%)
+			transition: transform .3s .6s
+			text-transform: uppercase
+	.socials-holder
+		position: relative
+		top: 5px
+		padding-left: 260px
+		padding-left: 25%
+		display: flex
+		justify-content: space-between
+		@media (max-width: $mobile-large)
+			display: none
+		li
+			display: inline-block
+			&:hover
 				a
-					font-size: 25px
-					transition: color .3s
+					transition: color 0s
+					color: $main-color
+			a
+				font-size: 25px
+				transition: color .3s
+				letter-spacing: 0
 	.footer
 		margin-top: 150px
 		margin-bottom: 90px
@@ -93,16 +100,44 @@ $main-color: #ffd500
 				width: 100%
 			.phone, .address
 				font-weight: 400
+				@media (max-width: $mobile-large)
+					line-height: 1em
 				a
-					font-weight: inherit
 					color: inherit
+					font-weight: inherit
+					line-height: 1.4em
+					@media (max-width: $mobile-large)
+						letter-spacing: 0
 			.email, .place
 				font-weight: 700
+				@media (max-width: $mobile-large)
+					line-height: 1em
 				a
-					font-weight: inherit
 					color: inherit
+					font-weight: inherit
+					line-height: 1.4em
+					@media (max-width: $mobile-large)
+						letter-spacing: 0
 		.left
 			display: block
 		.right, .address
 			@media (max-width: $mobile-large)
 				display: none
+		.socials-holder-mobile
+			display: none
+			position: relative
+			top: 5px
+			margin-top: 30px
+			justify-content: space-between
+			@media (max-width: $mobile-large)
+				display: flex
+			li
+				display: inline-block
+				&:hover
+					a
+						transition: color 0s
+						color: $main-color
+				a
+					font-size: 25px
+					transition: color .3s
+					letter-spacing: 0

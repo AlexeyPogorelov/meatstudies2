@@ -8,6 +8,14 @@ mixin hover
 					.icon
 					.label 224
 
+if !mainpage
+	.filter-mobile
+		form(action="#")
+			select(name="filter")
+			.icon
+			.select
+				.option все категории
+
 .articles-holder.left
 	article
 		if !mainpage
@@ -25,6 +33,8 @@ mixin hover
 		.description
 			h3 Поради: що почитати, щоб ще мозку прибавилося?
 			p представляет, чем занимаются UX-дизайнеры. Всё потому, что точного
+			.article-footer-mobile
+				+hover
 
 	article
 		if !mainpage
@@ -42,6 +52,8 @@ mixin hover
 		.description
 			h3 Поради: що почитати, щоб мозку прибавилося?
 			p представляет, чем занимаются UX-дизайнеры. Всё потому, что точного
+			.article-footer-mobile
+				+hover
 
 	if mainpage
 		a.read-more(href="blog.html") читать больше
@@ -70,6 +82,8 @@ mixin hover
 		.description
 			h3 Поради: що почитати, щоб ще мозку прибавилося?
 			p представляет, чем занимаются UX-дизайнеры. Всё потому, что точного
+			.article-footer-mobile
+				+hover
 
 	article
 		if !mainpage
@@ -87,7 +101,9 @@ mixin hover
 		.description
 			h3 Поради: що почитати, щоб мозку прибавилося?
 			p представляет, чем занимаются UX-дизайнеры. Всё потому, что точного
+			.article-footer-mobile
+				+hover
 
 	if mainpage
 		.read-more-mobile-holder
-			a.read-more-mobile(href="blog.html") читать больше
+			a.read-more-mobile(href="blog.html") читать больше статей
