@@ -33,8 +33,13 @@ label
 	text-transform: uppercase
 	left: 71px
 	top: 58px
+	@media (max-width: $mobile-large)
+		position: static
+		left: 0
+		top: 0
+		padding: 0 20px
 	span
-		display: inline-block
+		display: none
 		white-space: nowrap
 		// width: 0
 		color: black
@@ -44,6 +49,16 @@ label
 		letter-spacing: 3px
 		transform: rotate(-90deg) translate(-100%)
 		transform-origin: 0% 0%
+		@media (max-width: $mobile-large)
+			transform: none
+			display: block
+			font-size: 15px
+			font-weight: 400
+			line-height: 13px
+			letter-spacing: 5.25px
+	img
+		@media (max-width: $mobile-large)
+			display: none
 
 .cross-top-fixed, .cross-bottom-fixed
 	cursor: pointer
@@ -135,6 +150,9 @@ label
 	position: relative
 	height: 773px
 	height: calc(100vw / 16 * 9 - 100px)
+	@media (max-width: $tablet)
+		height: auto
+		overflow: hidden
 	.video-holder
 		clip-path: polygon(6% 39%, 9% 15%, 19% -4%, 39% -4%, 50% 14%, 68% 47%, 68% 71%, 45% 87%, 36% 96%, 19% 87%, 14% 73%, 6% 39%)
 		animation: mask-animation 4s linear 0ms infinite
@@ -145,6 +163,11 @@ label
 		width: 100%
 		height: 100%
 		z-index: -1
+		@media (max-width: $tablet)
+			left: -50%
+			height: auto
+			width: 200%
+			bottom: 0
 		&:after
 			content: ''
 			background: rgba(0, 0, 0, 0.4);
@@ -158,40 +181,89 @@ label
 	.content-holder
 		max-width: 768px
 		margin: 166px auto 300px
+		@media (max-width: $mobile-large)
+			margin: 93px auto 80px
+			padding: 0 20px
 	h2
 		line-height: 1.3em
 		font-size: 50px
 		font-weight: 600
 		margin-left: -4px
+		@media (max-width: $mobile-large)
+			font-size: 24px
+			line-height: 30px
 	h4
 		font-size: 30px
+		@media (max-width: $mobile-large)
+			margin-top: 0
+			font-size: 24px
+			line-height: 30px
+	.header
+		@media (max-width: $mobile-large)
+			display: none
 	.description
 		margin-top: 71px
+		@media (max-width: $mobile-large)
+			margin-top: 0
 	.when, .address
 		// color: white
 		font-size: 18px
 		font-weight: 400
 		line-height: 30px
 		letter-spacing: 1px
+		@media (max-width: $mobile-large)
+			font-size: 15px
+			line-height: 20px
+			letter-spacing: 0
+			b
+				font-weight: 600
 	.when
 		margin-bottom: 7px
+		@media (max-width: $mobile-large)
+			margin-bottom: 2px
 	.address
 		margin-top: 20px
+		@media (max-width: $mobile-large)
+			margin-top: 72px
 
 .courses
 	margin-top: 103px
+	@media (max-width: $mobile-large)
+		margin-top: 133px
+	.section-label
+		@media (max-width: $mobile-large)
+			text-align: right
+			padding-right: 15px
+			margin-bottom: 8px
+	.container
+		// &::-webkit-scrollbar
+		// 	height: 3px
+		// 	width: 3px
+		@media (max-width: $mobile-large)
+			overflow: auto
+			width: 100%
 	.courses-row
 		letter-spacing: 0
 		font-size: 0
+		@media (max-width: $mobile-large)
+			width: 400%
 		.course
 			letter-spacing: 1px
 			display: inline-block
 			vertical-align: top
 			padding-right: 20px
 			width: 25%
+			@media (max-width: $mobile-large)
+				padding-left: 20px
 			.image-holder
 				// TODO remove align left before production
 				text-align: left
+				// height: 200px
+				@media (max-width: $mobile-large)
+					height: 120px
+				.img
+					background-size: contain
+					background-position: 0 0
 				.temp
 					width: 73%
 			.when, .price
@@ -238,26 +310,34 @@ label
 					// background-color: #ffc962
 					background-color: $main-color
 					transition: background .1s
-		.course:nth-child(2)
-			margin-top: 307px
-			a
-				border-color: #ffc962
-				&:hover
-					background-color: #ffc962
-		.course:nth-child(3)
-			margin-top: 117px
-			a
-				border-color: #fff8bb
-				&:hover
-					background-color: #fff8bb
-		.course:nth-child(4)
-			margin-top: 423px
-			a
-				border-color: #fff2a4
-				&:hover
-					background-color: #fff2a4
+			&:nth-child(2)
+				margin-top: 307px
+				@media (max-width: $mobile-large)
+					margin-top: 0
+				a
+					border-color: #ffc962
+					&:hover
+						background-color: #ffc962
+			&:nth-child(3)
+				margin-top: 117px
+				@media (max-width: $mobile-large)
+					margin-top: 0
+				a
+					border-color: #fff8bb
+					&:hover
+						background-color: #fff8bb
+			&:nth-child(4)
+				margin-top: 423px
+				@media (max-width: $mobile-large)
+					margin-top: 0
+				a
+					border-color: #fff2a4
+					&:hover
+						background-color: #fff2a4
 	.see-all
 		margin-top: -20px
+		@media (max-width: $mobile-large)
+			display: none
 		a
 			color: #9e9e9e
 			font-size: 15px
@@ -282,6 +362,32 @@ label
 				margin-left: 9px
 				vertical-align: middle
 				width: 6px
+	.mobile-controls-holder
+		display: none
+		font-size: 0
+		letter-spacing: 0
+		@media (max-width: $mobile-large)
+			display: block
+			.arrow.left, .name, .arrow.right
+				display: inline-block
+				vertical-align: middle
+			.name
+				color: black
+				font-size: 18px
+				font-weight: 600
+				letter-spacing: 1px
+				line-height: 1em
+				overflow: hidden
+				padding: 0 20px
+				text-align: center
+				text-overflow: ellipsis
+				white-space: nowrap
+				width: calc(100% - 100px)
+			.arrow.left, .arrow.right
+				width: 50px
+		.controls
+			margin-top: 13px
+			padding: 0 20px
 
 section.video
 	margin-top: 77px
@@ -349,7 +455,7 @@ section.video
 					transform: translate(-50%, -50%)
 					z-index: 2
 	.controls
-		float: right
+		// float: right
 		text-align: right
 		margin-top: 29px
 		.arrow, .name
@@ -557,13 +663,23 @@ input[type="text"], input[type="password"], input[type="email"]
 				line-height: 16px
 				position: absolute
 				top: 40px
+<<<<<<< HEAD
 				width: 64px
+=======
+				text-align: left
+				max-width: 64px
+				@media (max-width: $mobile-large)
+					max-width: 48px
+>>>>>>> master
 				.label
 					white-space: nowrap
 					.icon, span
-						display: inline-block
+						display: block
+						overflow: hidden
+						text-overflow: ellipsis
+						white-space: nowrap
 					span
-						padding-right: 12px
+						// padding-right: 12px
 						transition: color .3s
 					.icon
 						background-position: 50% 50%
@@ -577,12 +693,24 @@ input[type="text"], input[type="password"], input[type="email"]
 						transform-origin: 50% 50%
 						transition: transform .3s
 						width: 16px
+				li
+					max-width: 100%
+					span
+						display: block
+						overflow: hidden
+						text-overflow: ellipsis
+						white-space: nowrap
+						max-width: 100%
 				li:nth-child(1n+2)
 					height: 0
 					opacity: 0
 					pointer-events: none
 					transition: opacity .3s, height .3s .3s
+<<<<<<< HEAD
 				&:hover
+=======
+				&:hover, &.opened
+>>>>>>> master
 					.label
 						.icon
 							transform: rotate(-180deg)
@@ -708,21 +836,8 @@ input[type="text"], input[type="password"], input[type="email"]
 					width: 40px
 					z-index: 1003
 
-@media screen and (max-width: $medium)
-	.main-navigation
-		.block-holder
-			.logotype-holder
-				width: 126px
-				a
-					width: 126px
-					img
-						width: 126px
-
-	.controls-holder
-		a
-			font-size: 15px
-@media screen and (max-width: $tablet)
-	.main-navigation
+.main-navigation
+	@media screen and (max-width: $tablet)
 		display: none
 
 // --------------------------------------------------
@@ -732,12 +847,19 @@ input[type="text"], input[type="password"], input[type="email"]
 .mobile-navigation
 	display: none
 	height: 54px
+<<<<<<< HEAD
 	padding: 0 30px
+=======
+	padding: 0 20px
+	@media screen and (max-width: $tablet)
+		display: block
+>>>>>>> master
 	.block-holder
 		.gamburger
 			margin-top: 14px
-			float: left
+			// float: left
 		.logotype-holder
+<<<<<<< HEAD
 			left: 25%
 			position: absolute
 			text-align: center
@@ -745,41 +867,28 @@ input[type="text"], input[type="password"], input[type="email"]
 			width: 50%
 			img
 				width: 124px
+=======
+			left: 0
+			position: absolute
+			text-align: center
+			top: 18px
+			width: 48px
+			a
+				display: block
+				width: 100%
+				margin: 0
+				img
+					width: 100%
+			.cities-list-holder
+				left: 38px
+				top: 16px
+				font-size: 12px
+>>>>>>> master
 	.controls-holder
 		top: 12px
-		a
+		& > a, .control
 			margin-left: 19px
-
-@media screen and (max-width: $medium)
-	.mobile-navigation
-		.block-holder
-			.logotype-holder
-				top: 19px
-				// width: 126px
-				a
-					width: 126px
-					img
-						width: 126px
-@media screen and (max-width: $tablet)
-	.mobile-navigation
-		display: block
-@media screen and (max-width: $mobile-large)
-	.mobile-navigation
-		padding: 0 20px
-@media screen and (max-width: $mobile-medium)
-	.mobile-navigation
-		padding: 0 16px
-@media screen and (max-width: $mobile-small)
-	.mobile-navigation
-		padding: 0 16px
-		.block-holder
-			.logotype-holder
-				left: 51px
-				width: 126px
-				a
-					width: 126px
-					img
-						width: 126px
+			margin-right: 0
 
 .cross-top-fixed.cross-navigation
 	margin-top: 55px

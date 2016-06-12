@@ -59,7 +59,7 @@ $mobile-x-small: 320px
 			position: absolute
 			top: 80px
 			width: 52px
-			float: left
+			// float: left
 		input[type="text"], input[type="password"], input[type="email"]
 			border: none
 			outline: none
@@ -150,7 +150,6 @@ $mobile-x-small: 320px
 	label
 		display: block
 		color: #35363c
-		font-family: 'Futura New'
 		font-size: 16px
 		font-weight: 300
 		line-height: 19px
@@ -163,7 +162,6 @@ $mobile-x-small: 320px
 		height: 46px
 		width: 320px
 		color: #35363c
-		font-family: 'Futura New'
 		font-size: 18px
 		font-weight: 300
 		line-height: 22px
@@ -400,215 +398,126 @@ $mobile-x-small: 320px
 	#password-recovery
 		background: #fff
 		.close-modal
-#about-modal
-	background-color: #fbe67e
-	.container
-		width: 1060px
-	a.close-about
-		background: url('../img/icons/cross-button-3.svg')
-		background-size: cover
-		position: fixed
-		top: 30px
-		right: 30px
-		height: 24px
-		width: 24px
-		path
-			transition: all .2s
-		&:hover path
-			fill: #000000 !important
-			transition: all .1s
-	.modal-content
-		top: 0
-		right: 0
-		bottom: 0
-		left: 0
-		background-color: transparent
-		padding-top: 80px
-		.left-side, .right-side
+
+.profile-messages-modal
+	position: absolute
+	display: block
+	width: 100%
+	background-color: #fff
+	padding: 33px 18px
+	box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1)
+	right: 41px
+	top: 51px
+	width: 382px
+	z-index: 1002
+
+	// closed
+	opacity: 0
+	pointer-events: none
+	max-height: 0
+	max-width: 0
+	overflow: hidden
+	transition: opacity .6s .6s, max-height .6s .12s, max-width .6s .6s
+	@media (max-width: $tablet)
+		right: 59px
+		top: 1px
+	a.image-holder
+		display: block
+	a
+		margin: 0
+		margin-left: 0
+		margin-right: 0
+		padding: 0
+	.profile-icon
+		position: absolute
+		right: 22px
+		top: 19px
+		.badge
+			background-size: contain
+			background: url('../img/icons/badge-icon-1.svg') 50% 50% no-repeat
+			color: white
+			font-size: 13px
+			font-weight: 700
+			height: 33px
+			letter-spacing: 0
+			line-height: 1em
+			min-width: 32px
+			padding: 11px 11px 9px 9px
+			position: absolute
+			right: -18px
+			text-align: center
+			top: -11px
+		.profile-image
+			background-position: 50% 50%
+			background-size: cover
+			border-radius: 50%
+			height: 40px
+			width: 40px
+	.profile-messages-header, .profile-messages-footer
+		color: #9e9e9e
+		display: block
+		font-size: 15px
+		font-weight: 600
+		line-height: 20px
+		text-align: left
+		letter-spacing: 0
+		white-space: nowrap
+		a
+			display: inline-block
+			color: inherit
+			font-size: inherit
+			font-weight: inherit
+			line-height: inherit
+			letter-spacing: inherit
+			margin: 0
+			padding: 0
+	.profile-messages-header
+		margin-bottom: 28px
+		width: inherit
+	.profile-messages-footer
+		text-align: center
+		margin-top: 10px
+	.messages-list
+		display: block
+		width: 100%
+	.message
+		font-size: 0
+		letter-spacing: 0
+		margin-bottom: 25px
+		.image-container, .feed-description
 			display: inline-block
 			vertical-align: top
-		.left-side
-			padding-top: 20px
-			width: 378px
-			img
-				width: 100%
-		.right-side
-			width: calc(100% - 382px)
-			a.write-message
-				background-position: 50% 50%
-				color: #35363c
-				float: right
-				font-family: 'Futura New'
-				font-size: 18px
-				font-weight: 500
-				letter-spacing: 1px
-				line-height: 2.4em
-				margin-top: 105px
-				position: relative
-				text-align: right
-				transition: color .2s
-				b
-					font-weight: 700
-				span
-					display: inline-block
-					vertical-align: middle
-					position: relative
-				span.label
-					font-size: 18px
-					letter-spacing: 1px
-					text-transform: uppercase
-				span.email
-					font-size: 20px
-					letter-spacing: 1.11px
-					white-space: nowrap
-					&:before
-						content: ''
-						display: inline-block
-						background: #35363c
-						height: 1px
-						width: 64px
-						vertical-align: middle
-						margin: 0 15px
-						transition: background .2s
-				&:hover
-					transition: color .1s
-					color: #fff
-					span.email
-						&:before
-							background: #fff
-							transition: background .1s
-			.content-holder
-				padding-left: 55px
-				position: relative
-				*
-					position: relative
-				h1, h2, h3, h4, h5, h6
-					color: #35363c
-					font-family: 'Playfair Display'
-					font-size: 66px
-					font-weight: 600
-					font-style: italic
-					line-height: 88px
-					letter-spacing: 22px
-					margin-bottom: 10px
-				p
-					color: #35363c
-					font-family: 'Futura New'
-					font-size: 19px
-					font-weight: 300
-					// line-height: 34px
-					line-height: 1.45em
-					padding-right: 180px
-				&:before
-					content: ''
-					display: block
-					background: #fff
-					position: absolute
-					left: 144px
-					top: 52px
-					right: 0
-					bottom: -55px
-@media screen and (max-width: $medium)
-	#about-modal
-		.container
-			width: 813px
-		.modal-content
-			// padding-top: 80px
-			.left-side
-				padding-top: 20px
-				width: 301px
-			.right-side
-				width: calc(100% - 307px)
-				a.write-message
-					margin-top: 81px
-				.content-holder
-					padding-left: 50px
-					&:before
-						left: 139px
-						bottom: -42px
-					p
-						padding-right: 50px
-						font-size: 20px
-						font-weight: 300
-						line-height: 30px
-@media screen and (max-width: $tablet)
-	#about-modal
-		.container
-			width: 660px
-		.modal-content
-			padding-top: 70px
-			.left-side
-				padding-top: 20px
-				width: 266px
-			.right-side
-				width: calc(100% - 277px)
-				a.write-message
-					margin-top: 81px
-					span.label
-						display: none
-				.content-holder
-					padding-left: 40px
-					h1, h2, h3, h4, h5, h6
-						font-size: 50px
-						margin-bottom: 8px
-					&:before
-						left: 108px
-						bottom: -42px
-					p
-						font-size: 18px
-						line-height: 28px
-@media screen and (max-width: $mobile-large)
-	#about-modal
-		.container
-			width: 100%
-		.modal-content
-			.left-side
-				display: none
-			.right-side
+		.image-container
+			margin-right: 20px
+			margin-top: 6px
+			width: 60px
+			.image-holder
+				box-shadow: 0 0 4px rgba(0, 0, 0, 0.19)
+		.feed-description
+			width: 262px
+			a, p
 				display: block
-				margin-left: auto
-				margin-right: auto
-				margin: 41px auto
-				width: 67%
-				a.write-message
-					margin-top: 63px
-					span.label
-						display: none
-				.content-holder
-					padding-left: 0
-					&:before
-						left: 81px
-@media screen and (max-width: $mobile-medium)
-	#about-modal
-		a.close-about
-			top: 16px
-			right: 16px
-			height: 16px
-			width: 16px
-		.modal-content
-			padding: 25px 32px
-			.right-side
-				margin: 0px auto
-				width: 100%
-				a.write-message
-					display: block
-					width: 100%
-					span.email
-						&:before
-							width: 54px
-							width: 36px
-				.content-holder
-					&:before
-						left: 81px
-						right: -32px
-					p
-						padding-right: 0
-		.fixed-socials-2
-			ul.socials
-				margin-top: 24px
-		.lang-switcher-holder
-			display: none
+				font-size: 13px
+				line-height: 20px
+				color: #9e9e9e
+				font-weight: 600
+				letter-spacing: 0
+				b
+					color: black
+					font-weight: 600
+	&.opened
+		pointer-events: all
+		opacity: 1
+		// TODO remove it
+		// opacity: 0.5
+		// filter: invert(1)
+		max-height: 800px
+		max-width: 400px
+		transition: opacity .6s 0s, max-height .6s .6s, max-width .6s .12s
 
+section.add-homework-modal
+
+<<<<<<< HEAD
 .profile-messages-modal
 	position: absolute
 	display: block
@@ -721,3 +630,19 @@ $mobile-x-small: 320px
 		max-height: 800px
 		max-width: 400px
 		transition: opacity .6s 0s, max-height .6s .6s, max-width .6s .12s
+=======
+	.left-side
+		width: 25px
+		.side-label
+			span
+		.description
+			span, p
+		.load-file-container
+			border: 5px solid $main-color
+			input
+				opacity: 0
+	.right-side
+		.form-group
+			.label
+			.input-group
+>>>>>>> master

@@ -14,6 +14,7 @@ html(lang='en')
 		section.main-video
 			.video-holder
 				img(src="http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg", alt="video")
+				//- span video
 			.content-holder
 				.header
 					h2 Курсы, бурсы, тусы ты всегда в плюсе бомбастер
@@ -24,48 +25,63 @@ html(lang='en')
 
 		section.courses
 			.section-label
-				//- span courses
+				span courses
 				img(src="img/icons/side-labels/courses.svg", alt="courses")
 			.container
 				.courses-row
 					.course
 						.image-holder
 							//- TODO remove class "temp" on template
-							img.temp(src="img/content/course-1.svg", alt="course")
+							img.fake-img.temp(src="img/content/course-1.svg", alt="course")
+							.img.temp(style="background-image:url(img/content/course-1.svg)")
 						.when 4 МЕСЯЦА
 						.price 3 600 грн / мec
 						a(href="course.html") Записаться на сентябрь
 					.course
 						.image-holder
 							//- TODO remove class "temp" on template
-							img.temp(src="img/content/course-2.svg", alt="course")
+							img.fake-img.temp(src="img/content/course-2.svg", alt="course")
+							.img.temp(style="background-image:url(img/content/course-2.svg)")
 						.when 2 МЕСЯЦА
 						.price 3 600 грн / мec
 						a(href="course.html") Записаться на Июль
 					.course
 						.image-holder
 							//- TODO remove class "temp" on template
-							img.temp(src="img/content/course-3.svg", alt="course")
+							img.fake-img.temp(src="img/content/course-3.svg", alt="course")
+							.img.temp(style="background-image:url(img/content/course-3.svg)")
 						.when 4 МЕСЯЦА
 						.price 3 600 грн / мec
 						a(href="course.html") Записаться на январь
 					.course
 						.image-holder
 							//- TODO remove class "temp" on template
-							img.temp(src="img/content/course-4.svg", alt="course")
+							img.fake-img.temp(src="img/content/course-4.svg", alt="course")
+							.img.temp(style="background-image:url(img/content/course-4.svg)")
 						.when 2 МЕСЯЦА
 						.price 3 600 грн / мec
 						a(href="course.html") Запись на октябрь
 				.see-all
 					a(href="courses.html")
 						span смотреть все курсы
+			.mobile-controls-holder
+				.controls
+					.arrow.left
+						img(src="img/icons/slider-arrow-left-1.svg", alt="arrow")
+					.name
+						| UI+UX
+					.arrow.right
+						img(src="img/icons/slider-arrow-right-1.svg", alt="arrow")
 
 		section.about
 			.section-label
-					img(src="img/icons/side-labels/about.svg", alt="about")
+				span about
+				img(src="img/icons/side-labels/about.svg", alt="about")
 			.container
 				.content-holder
 					.left-side
+						.mobile-label
+							span about
 						h3 MEAT STUDIES
 						p Это ведущий в Украине образовательный проект, посвященный креативным специальностям. <br /> <br /> Мы верим: лучшая учеба — это практика. Поэтому формат обучения в Meat studies не ограничивается лекциями и теорией.
 					.right-side

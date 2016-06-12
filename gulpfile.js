@@ -2,6 +2,7 @@ var gulp = require('gulp'),
 	jade = require('gulp-jade'),
 	sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
+	// cmq = require('gulp-combine-media-queries'),
 	browserSync = require('browser-sync'),
 	reload = require('browser-sync').reload;
 
@@ -45,6 +46,7 @@ gulp.task('sass', function () {
 	gulp.src(path.src.style)
 		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer({browsers:['last 4 versions']}))
+		// .pipe(cmq())
 		.pipe(gulp.dest(path.dist.css))
 		.pipe(reload({stream:true}));
 });
