@@ -1,6 +1,7 @@
 $large: 1300px
 $medium: 1260px
 $tablet: 1000px
+$tablet1: 1024px
 $mobile-large: 760px
 $mobile-medium: 640px
 $mobile-small: 480px
@@ -25,6 +26,9 @@ $main-color: #ffd500
 		white-space: nowrap
 		max-width: 100%
 		max-width: calc(100% - 76px)
+		@media (max-width: $tablet1)
+			font-size: 18px
+			font-weight: 700
 	.image-container, .description-container
 		display: inline-block
 		vertical-align: top
@@ -32,6 +36,9 @@ $main-color: #ffd500
 		border-radius: 50%
 		height: 101px
 		width: 101px
+		@media (max-width: $tablet1)
+			height: 75px
+			width: 75px
 	.description-container
 		width: 76.3%
 		padding-left: 17px
@@ -47,6 +54,8 @@ $main-color: #ffd500
 				right: -18px
 				padding: 0 4px
 				top: 18px
+				@media (max-width: $tablet1)
+					display: none
 				.marker-text
 					letter-spacing: 0
 					position: relative
@@ -58,14 +67,24 @@ $main-color: #ffd500
 	.contacts-holder
 		line-height: 1em
 		margin-top: 9px
+		@media (max-width: $tablet1)
+			margin-top: 2px
 		a
 			color: #b3b3b3
 			font-size: 15px
 			margin-right: 20px
 			display: inline-block
 			letter-spacing: 0
+			&:last-child
+				margin-right: 0
+			@media (max-width: $tablet1)
+				font-size: 13px
+				margin-right: 0
+				margin-right: 40px
 	.socials
 		margin-top: 1px
+		@media (max-width: $tablet1)
+			display: none
 		a
 			line-height: 1em
 			font-size: 21px

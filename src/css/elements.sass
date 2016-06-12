@@ -1,6 +1,7 @@
 $large: 1300px
 $medium: 1260px
 $tablet: 1000px
+$tablet1: 1024px
 $mobile-large: 760px
 $mobile-medium: 640px
 $mobile-small: 480px
@@ -298,8 +299,10 @@ section.event-head
 
 .profilemenu
 	position: absolute
-	left: 48px
+	left: 29px
 	top: -5px
+	@media (max-width: $tablet1)
+		top: -11px
 	li
 		color: #9e9e9e
 		font-size: 18px
@@ -308,11 +311,16 @@ section.event-head
 		letter-spacing: 1px
 		padding-left: 10px
 		margin-bottom: 24px
+		@media (max-width: $tablet1)
+			margin-bottom: 8px
 		a
 			color: inherit
 			display: inline-block
 			padding-right: 10px
 			font-weight: 600
+			@media (max-width: $tablet1)
+				font-size: 13px
+				letter-spacing: 0
 			&.active
 				position: relative
 			&.active:after
