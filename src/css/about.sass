@@ -404,6 +404,8 @@ section.place
 			height: 360px
 			width: 75%
 			@media (max-width: $mobile-large)
+				height: 234px
+				height: calc(100vw / 1.37)
 				margin-left: calc(-20px)
 				width: 100%
 				width: calc(100% + 40px)
@@ -412,10 +414,23 @@ section.place
 				width: 100%
 		.images-gallery
 			margin-top: 59px
+			@media (max-width: $mobile-large)
+				margin-top: 19px
+				margin-left: -20px
+				margin-right: -20px
 			ul
+				overflow: auto
+				overflow-y: hidden
+				overflow-x: auto
 				height: 127px
+				height: calc(72.4vw / 8)
+				white-space: nowrap
 				@media (max-width: $mobile-large)
 					height: 61px
+					height: calc(100vw / 5)
+				&::-webkit-scrollbar
+					height: 0
+					width: 0
 				li
 					border: 3px solid transparent
 					cursor: pointer
@@ -424,6 +439,8 @@ section.place
 					margin-right: 5%
 					vertical-align: top
 					width: 20%
+					@media (max-width: $mobile-large)
+						width: 87px
 					&.active
 						border-color: $main-color
 						cursor: auto
@@ -432,11 +449,18 @@ section.place
 						height: 100%
 						img
 							height: 100%
+					&:last-child
+						margin-right: 0
 
 section.ask
 	font-size: 0
 	letter-spacing: 0
 	margin-top: 102px
+	.container
+		display: block
+		@media (max-width: $mobile-large)
+			display: flex
+			flex-direction: column-reverse
 	.section-label
 		img
 	form, .description
@@ -444,6 +468,9 @@ section.ask
 		padding-top: 55px
 		vertical-align: top
 		width: 50%
+		@media (max-width: $mobile-large)
+			display: block
+			width: 100%
 	input, textarea
 		display: block
 		width: 100%
@@ -462,6 +489,8 @@ section.ask
 		font-size: 18px
 		font-weight: 400
 		letter-spacing: 1px
+		@media (max-width: $mobile-large)
+			padding-left: 0
 		p
 			color: inherit
 			font-weight: inherit
