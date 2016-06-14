@@ -20,8 +20,6 @@ section.blog
 		letter-spacing: 0.9px
 		line-height: 30px
 		margin-bottom: 21px
-		@media (max-width: $mobile-large)
-			margin-bottom: 9px
 	p
 		color: #6e6e6e
 		font-size: 15px
@@ -30,14 +28,10 @@ section.blog
 	article
 		position: relative
 		margin-bottom: 76px
-		@media (max-width: $mobile-large)
-			margin-bottom: 94px
 	.article-link
 		display: block
 	.filter
 		height: 45px
-		@media (max-width: $mobile-large)
-			display: none
 	.image-holder
 		width: 100%
 		&:after
@@ -62,42 +56,25 @@ section.blog
 		z-index: 1
 		&:hover
 			background: $main-color
-		@media (max-width: $mobile-large)
-			left: -20px
 	.description
 		margin-top: 30px
-		@media (max-width: $mobile-large)
-			margin-top: 12px
 	.pagination
 		margin-top: 29px
 		margin-bottom: 50px
 		text-align: left
 		ul
 			margin-left: 25%
-			@media (max-width: $mobile-large)
-				margin-left: auto
-				margin-right: auto
-				max-width: 400px
 		li
 			margin: 0 5px 0 0
 			width: 3.6%
 			width: calc((25% - 90px) / 3.7)
-			@media (max-width: $mobile-large)
-				text-align: center
-				width: calc((100% - 165px) / 5)
 			&.arrow-left, &.arrow-right
 				width: 52px
 			&.arrow-left
 				margin-left: -40px - 52px
-				margin-right: 17px
-				@media (max-width: $mobile-large)
-					margin-left: 0
-					background-position: 0 50%
+				margin-right: 40px
 			&.arrow-right
-				margin-left: 17px
-				@media (max-width: $mobile-large)
-					background-position: 100% 50%
-					margin-right: 0
+				margin-left: 40px
 	.load-more-holder
 		text-align: left
 		@media (max-width: $mobile-large)
@@ -127,7 +104,7 @@ section.blog
 		@media (max-width: $mobile-large)
 			display: block
 			display: none
-			margin: 0 auto 0
+			margin: 0 auto
 			padding-left: 14px
 			padding-right: 14px
 			max-width: 400px
@@ -142,19 +119,17 @@ section.blog
 			line-height: 1em
 			text-transform: uppercase
 			font-weight: 600
-			margin-right: 16px
-			letter-spacing: 0px
+			margin-right: 6px
 			&:after
-				background: url("../img/icons/more-awesome-1.svg") 50% 1px no-repeat
+				background: url("../img/icons/more-awesome-1.svg") 50% 2px no-repeat
 				content: ''
 				display: inline-block
 				height: 17px
 				width: 7px
 				vertical-align: middle
 				position: relative
-				right: -16px
+				right: -6px
 			&-holder
-				margin-top: -21px
 				text-align: right
 	.hover
 		cursor: default
@@ -167,8 +142,6 @@ section.blog
 		width: 100%
 		transform: translateY(-100%)
 		z-index: 2
-		@media (max-width: $mobile-large)
-			display: none
 		.links
 			margin: 14px 0
 		a
@@ -197,24 +170,6 @@ section.blog
 				.icon
 					background-image: url('../img/icons/article-comments.svg')
 					background-position: 0px 50%
-	.article-footer-mobile
-		.hover
-			display: none
-			position: static
-			transform: none
-			opacity: 1
-			padding: 0
-			letter-spacing: 0
-			@media (max-width: $mobile-large)
-				display: block
-			.links
-				display: flex
-				justify-content: space-between
-				margin: 13px -2px 0
-				a
-					display: inline-block
-					letter-spacing: 0
-
 	article
 		&:hover
 			.hover
@@ -234,8 +189,6 @@ section.blog
 				// width: 100%
 		&.left
 			padding-top: 58px
-			@media (max-width: $mobile-large)
-				padding-top: 30px
 			.description
 				text-align: left
 			article:nth-child(odd)
@@ -251,12 +204,9 @@ section.blog
 					top: 260px
 					left: -38px
 					height: 23px
-					@media (max-width: $mobile-large)
-						top: 208px
 				.image-holder
 					height: 301px
 					@media (max-width: $mobile-large)
-						height: 249px
 						width: calc(100% + 20px)
 			article:nth-child(even)
 				left: -16px
@@ -267,8 +217,6 @@ section.blog
 					width: 100%
 				.image-holder
 					height: 361px
-					@media (max-width: $mobile-large)
-						height: 341px
 				.description
 					padding-left: 60px
 					@media (max-width: $mobile-large)
@@ -304,7 +252,6 @@ section.blog
 				.image-holder
 					height: 451px
 					@media (max-width: $mobile-large)
-						height: 256px
 						margin-left: -20px
 						width: calc(100% + 20px)
 				.description
@@ -328,7 +275,6 @@ section.blog
 				.image-holder
 					height: 331px
 					@media (max-width: $mobile-large)
-						height: 204px
 						margin-left: -20px
 						width: calc(100% + 40px)
 				.description
@@ -342,25 +288,8 @@ section.blog
 			// line-height: 20px
 		.description
 			margin-top: 30px
-			@media (max-width: $mobile-large)
-				margin-top: 12px
 		article
 			margin-bottom: 74px
-			@media (max-width: $mobile-large)
-				margin-bottom: 86px
-		.pagination
-			@media (max-width: $mobile-large)
-				margin-top: 108px
-		.load-more-holder
-			@media (max-width: $mobile-large)
-				display: block
-				margin-top: 51px
-				.container
-					padding: 0 20px
-					width: 100%
-					.load-more
-						margin: 0
-						width: 100%
 		.articles-holder
 			&.left
 				padding-top: 0
@@ -373,38 +302,15 @@ section.blog
 						width: 100%
 					h3
 						margin-bottom: 22px
-						@media (max-width: $mobile-large)
-							margin-bottom: 8px
 					.image-holder
 						height: 301px
-						@media (max-width: $mobile-large)
-							height: 250px
 				article:nth-child(even)
 					left: -17px
-					@media (max-width: $mobile-large)
-						left: 0
-					&:before
-						content: ''
-						display: none
-						position: absolute
-						background-color: $main-color
-						height: 200px
-						width: 12px
-						right: 19px
-						top: -20px
-						z-index: 1
-						@media (max-width: $mobile-large)
-							display: block
 					h3
 						margin-bottom: 18px
 					.description
 						margin-top: 28px
 						padding-left: 78px
-						@media (max-width: $mobile-large)
-							// padding-left: 36px
-							padding-left: 0
-							&:after
-								display: none
 			&.right
 				padding-top: 37px
 				article:last-child
@@ -421,28 +327,12 @@ section.blog
 						bottom: 77px
 						left: auto
 						right: 22px
-						@media (max-width: $mobile-large)
-							right: auto
-							left: 0
-							width: 9px
-							bottom: 130px
 					@media (max-width: $mobile-large)
-						margin-left: 0
-						left: 0
 						width: 100%
 					.image-holder
 						height: 417px
-						@media (max-width: $mobile-large)
-							height: 256px
-							margin-left: -20px
-							width: calc(100% + 20px)
 					.description
 						max-width: 88%
-						@media (max-width: $mobile-large)
-							text-align: left
-							margin-right: 0
-							padding-right: 0
-							max-width: 100%
 				article:nth-child(odd)
 					width: 100%
 					&:after
@@ -451,19 +341,9 @@ section.blog
 						top: -5px
 						left: auto
 						right: -12px
-						@media (max-width: $mobile-large)
-							right: -20px
-							top: 20px
 					.image-holder
-						height: 301px
 						width: 100%
-						@media (max-width: $mobile-large)
-							height: 204px
-							width: calc(100% + 40px)
+						height: 301px
 					.description
 						text-align: right
 						max-width: 100%
-						@media (max-width: $mobile-large)
-							padding-left: 0
-							padding-right: 28px
-							// width: 100%
