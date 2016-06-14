@@ -7,10 +7,6 @@ $mobile-small: 480px
 $mobile-x-small: 320px
 $main-color: #ffd500
 
-@media (max-width: $mobile-large)
-	.test
-		margin-top: 20px
-
 .chromeperfectpixel-initial-block iframe,
 #chromeperfectpixel-supported-by
 	display: none !important
@@ -59,6 +55,12 @@ label
 	img
 		@media (max-width: $mobile-large)
 			display: none
+	&.mobile-right
+		padding-right: 15px
+		text-align: right
+	&.mobile-center
+		padding-right: 15px
+		text-align: center
 
 .cross-top-fixed, .cross-bottom-fixed
 	cursor: pointer
@@ -391,6 +393,8 @@ label
 
 section.video
 	margin-top: 77px
+	@media (max-width: $mobile-large)
+		display: none
 	.videos
 		margin-top: 58px
 		margin-left: 260px
@@ -852,6 +856,8 @@ input[type="text"], input[type="password"], input[type="email"]
 			text-align: center
 			top: 18px
 			width: 48px
+			@media screen and (max-width: $tablet)
+				top: 22px
 			a
 				display: block
 				width: 100%
@@ -862,11 +868,27 @@ input[type="text"], input[type="password"], input[type="email"]
 				left: 38px
 				top: 16px
 				font-size: 12px
+				line-height: 1em
+				@media screen and (max-width: $tablet)
+					left: 32px
+					top: 16px
+					font-size: 11px
+				li
+					line-height: 1em
+				.label
+					.icon
+						background-size: contain
+						top: 2px
+						height: 7px
+						right: -13px
+						width: 11px
 	.controls-holder
-		top: 12px
+		top: 17px
 		& > a, .control
 			margin-left: 19px
 			margin-right: 0
+		.profile-button
+			.badge
 
 .cross-top-fixed.cross-navigation
 	margin-top: 55px

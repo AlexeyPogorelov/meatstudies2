@@ -15,19 +15,23 @@ html(lang='en')
 					//- span about
 					img(src="img/icons/side-labels/about-alt.svg", alt="about")
 				.content-holder
+					.section-label
+						span about
 					h3 MEAT STUDIES
 					p Это ведущий в Украине образовательный проект, посвященный креативным специальностям. <br /> Мы верим: лучшая учеба — это практика. Поэтому формат обучения в Meat studies не ограничивается лекциями и теорией. <br /> Это пространство постоянного взаимодействия идей и их воплощения. Если ты хочешь стать частью креативной индустрии — добро пожаловать к нам.
 
 		section.process
-			.section-label
+			.section-label.mobile-right
+					span process
 					img(src="img/icons/side-labels/process.svg", alt="process")
 			.container
 				.content-holder
 					.video
-						img(src="http://meatstudies.com/storage/app/uploads/public/56b/b6b/07c/56bb6b07ca95c529819270.jpg", alt="video")
+						img(src="http://meatstudies.com/storage/app/uploads/public/56b/1c1/ef5/56b1c1ef5a179472959108.jpg", alt="video")
 
 		section.teachers
-			.section-label
+			.section-label.mobile-center
+					span teachers
 					img(src="img/icons/side-labels/teachers.svg", alt="teachers")
 			.container
 				ul.teachers-holder
@@ -85,7 +89,8 @@ html(lang='en')
 					a(href="#").btn.load-more показать еще
 
 		section.place
-			.section-label
+			.section-label.mobile-center
+					span place
 					img(src="img/icons/side-labels/place.svg", alt="place")
 			.container
 				h3 Prostir 86
@@ -106,8 +111,8 @@ html(lang='en')
 								.arrow-right
 						.main-image
 							.image-holder
-								img.fake-img(src="http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg", alt="main image")
-								.img(style="background-image:url(http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg)")
+								img.fake-img(src="http://meatstudies.com/storage/app/uploads/public/575/ee2/a47/575ee2a4740cf915726881.jpg", alt="main image")
+								.img(style="background-image:url(http://meatstudies.com/storage/app/uploads/public/575/ee2/a47/575ee2a4740cf915726881.jpg)")
 					.images-gallery
 						mixin image-thumb-list(url, alt, active)
 							li( class= active ? 'active' : '' )
@@ -115,20 +120,20 @@ html(lang='en')
 									img(src= url, alt= alt)
 						ul
 							+image-thumb-list(
-								'http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg',
+								'http://meatstudies.com/storage/app/uploads/public/575/ee2/a47/575ee2a4740cf915726881.jpg',
 								'place',
 								true
 							)
 							+image-thumb-list(
-								'http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg',
+								'http://meatstudies.com/storage/app/uploads/public/575/ee2/a47/575ee2a4740cf915726881.jpg',
 								'place'
 							)
 							+image-thumb-list(
-								'http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg',
+								'http://meatstudies.com/storage/app/uploads/public/575/ee2/a47/575ee2a4740cf915726881.jpg',
 								'place'
 							)
 							+image-thumb-list(
-								'http://meatstudies.com/storage/app/uploads/public/56b/b6b/084/56bb6b08488d5537693109.jpg',
+								'http://meatstudies.com/storage/app/uploads/public/575/ee2/a47/575ee2a4740cf915726881.jpg',
 								'place'
 							)
 

@@ -1,7 +1,6 @@
 $large: 1300px
 $medium: 1260px
 $tablet: 1000px
-$tablet1: 1024px
 $mobile-large: 760px
 $mobile-medium: 640px
 $mobile-small: 480px
@@ -14,19 +13,10 @@ $main-color: #ffd500
 	margin-top: 65px
 	button
 		padding: 15px 46px
-
-.inline-holder
-	font-size: 0
-	letter-spacing: 0
-.inline-el
-	display: inline-block
-	vertical-align: top
 //--- end GLOBAL ---//
 
 section.profile-top
 	margin-top: 180px
-	@media (max-width: $tablet1)
-		margin-top: 141px
 	.container
 		vertical-align: top
 		font-size: 0
@@ -43,14 +33,9 @@ section.profile-top
 			button.type-1
 				margin-top: 1px
 				padding: 15px 57px
-				@media (max-width: $tablet1)
-					padding: 15px 36px
-					font-size: 13px
 
 section.yellow-board
 	margin-top: 67px
-	@media (max-width: $tablet1)
-		margin-top: 56px
 	.board-header
 		h1
 			font-weight: 600
@@ -59,9 +44,6 @@ section.yellow-board
 			letter-spacing: 0.3px
 			margin: 0 0 0 -2px
 			line-height: 1em
-			@media (max-width: $tablet1)
-				font-size: 22px
-				letter-spacing: 3.8px
 		.downds-header
 		// TODO move it
 		font-size: 0
@@ -76,8 +58,6 @@ section.yellow-board
 		margin-top: 35px
 		padding-top: 63px
 		position: relative
-		@media (max-width: $tablet1)
-			padding-top: 39px
 		&:before
 			content: ''
 			background: $main-color
@@ -86,8 +66,6 @@ section.yellow-board
 			right: 0
 			width: 83.6%
 			height: 100%
-			@media (max-width: $tablet1)
-				width: 88.4%
 		.tasks-holder
 			font-size: 0
 			letter-spacing: 0
@@ -98,9 +76,6 @@ section.yellow-board
 				position: relative
 				padding-left: 8px
 				margin-bottom: 63px
-				@media (max-width: $tablet1)
-					padding-left: 0
-					margin-bottom: 35px
 				span.month
 					font-size: 13px
 					font-weight: 400
@@ -110,21 +85,14 @@ section.yellow-board
 					white-space: nowrap
 					left: -21px
 					top: 77px
-					@media (max-width: $tablet1)
-						left: -30px
-						top: 65px
 				.left-part
 					display: inline-block
 					font-size: 0
 					letter-spacing: 0
 					vertical-align: top
 					width: 23%
-					width: calc(100px)
 					padding-left: 5px
 					padding-top: 2px
-					@media (max-width: $tablet1)
-						width: calc(97px)
-						padding-left: 0
 					.day-cube
 						width: 99px
 						height: 87px
@@ -136,11 +104,6 @@ section.yellow-board
 						text-align: center
 						padding-top: 30px
 						position: relative
-						@media (max-width: $tablet1)
-							width: 79px
-							height: 70px
-							font-size: 25px
-							padding-top: 20px
 						.day-marker
 							position: absolute
 							right: -1px
@@ -153,23 +116,13 @@ section.yellow-board
 							height: 35px
 							text-align: center
 							padding-top: 3px
-							@media (max-width: $tablet1)
-								bottom: -18px
-								font-size: 15px
-								width: 43px
-								height: 29px
-								padding-top: 0
 				.right-part
 					display: inline-block
 					font-size: 0
 					letter-spacing: 0
 					width: 77%
-					width: calc(77% - 40px)
 					vertical-align: top
-					padding: 0 0px 0 8.8%
-					@media (max-width: $tablet1)
-						width: calc(77% - 46px)
-						padding: 0 0px 0 0%
+					padding: 0 30px 0 14px
 					.task-content
 						font-size: 15px
 						line-height: 20px
@@ -181,16 +134,10 @@ section.yellow-board
 							line-height: 20px
 							margin-bottom: 16px
 							letter-spacing: 0
-							@media (max-width: $tablet1)
-								font-size: 13px
-								margin-bottom: 5px
 						a
 							font-weight: 600
 							display: block
 							letter-spacing: 0.7px
-							@media (max-width: $tablet1)
-								letter-spacing: 0.9px
-								font-size: 15px
 
 section.course-events
 	.course-events-list
@@ -206,8 +153,6 @@ section.course-events
 			margin-top: 70px
 			margin-bottom: 17px
 			padding-right: 6%
-			@media (max-width: $tablet1)
-				margin-bottom: 0
 			.dropdown
 				position: absolute
 				background: #fff
@@ -220,9 +165,6 @@ section.course-events
 				h3, .downmat
 					font-size: 15px
 					font-weight: 600
-					@media (max-width: $tablet1)
-						line-height: 20px
-						margin-top: 7px
 				h3
 					color: #a8a8a8
 				.downmat
@@ -230,14 +172,10 @@ section.course-events
 					letter-spacing: 0
 					text-decoration: underline
 				.down-list
-					@media (max-width: $tablet1)
-						margin-top: 10px
 					li
 						color: #bfbfbf
 						font-size: 13px
 						font-weight: 400
-						@media (max-width: $tablet1)
-							line-height: 20px
 				h4
 					color: #bfbfbf
 					font-size: 18px
@@ -246,10 +184,6 @@ section.course-events
 					line-height: 30px
 					margin-top: 19px
 					margin-bottom: 7px
-					@media (max-width: $tablet1)
-						font-size: 15px
-						margin-top: 15px
-						margin-bottom: 0
 				span
 					color: #9e9e9e
 					font-size: 11px
@@ -271,8 +205,6 @@ section.course-events
 				right: 6%
 				bottom: -15%
 				z-index: -1
-				@media (max-width: $tablet1)
-					bottom: -20%
 			&:after
 				content: ''
 				height: 2px
@@ -301,16 +233,12 @@ section.course-events
 						right: 30px
 						left: 0
 						background: $main-color
-						@media (max-width: $tablet1)
-							top: 8px
 				i
 					color: #6b6b6b
 			span, p, h1, i
 				color: #000
 			span, p
 				font-size: 18px
-				@media (max-width: $tablet1)
-					font-size: 15px
 			span
 				font-weight: 600
 				letter-spacing: 1px
@@ -332,8 +260,6 @@ section.course-events
 				position: relative
 				text-overflow: ellipsis
 				white-space: nowrap
-				@media (max-width: $tablet1)
-					font-size: 19px
 				&:before
 					content: '\f106'
 					font-family: FontAwesome
@@ -407,8 +333,6 @@ section.download-materials
 		font-size: 0
 		letter-spacing: 0
 		margin-top: 97px
-		@media (max-width: $tablet1)
-			margin-top: 80px
 		.down-item
 			width: 50%
 			display: inline-block
@@ -420,8 +344,6 @@ section.download-materials
 			.image-container
 				width: 29%
 				box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1)
-				@media (max-width: $tablet1)
-					width: 32.5%
 			.description
 				width: 71%
 				padding-left: 28px
@@ -431,21 +353,12 @@ section.download-materials
 				color: #000
 				font-size: 15px
 				font-weight: 400
-				@media (max-width: $tablet1)
-					width: 67.5%
-					padding-left: 19px
-					padding-top: 30px
-					padding-right: 8%
-					line-height: 1.65em
-					font-size: 12px
 				a
 					color: #b3b3b3
 					font-size: 18px
 					letter-spacing: 0px
 					margin-bottom: 6px
 					display: inline-block
-					@media (max-width: $tablet1)
-						font-size: 17px
 				p
 					color: inherit
 					font-size: inherit
@@ -454,90 +367,3 @@ section.download-materials
 			margin-top: 0
 			.down-item
 				margin-bottom: 53px
-
-.modal-container
-	width: 75%
-	position: relative
-	.search-results-block
-		.img-content
-			width: 33.33333%
-			img
-		.description
-			width: 66.66666%
-			span
-				color: #8c8c8c
-				font-family: "Gotham Pro"
-				font-size: 15px
-				font-weight: 400
-				line-height: 20px
-.modal.open
-	position: fixed
-	height: 100vh
-	width: 100vw
-	background: #fff
-	top: 0
-	left: 0
-	right: 0
-	bottom: 0
-	z-index: 11
-	.section-label
-		top: 0
-		left: 68px
-	.container
-		position: relative
-		.close-btn
-			position: absolute
-			top: 66px
-			right: 2px
-			height: 30px
-			width: 30px
-			cursor: pointer
-	section.search-section
-		position: relative
-		margin-top: 177px
-		.container
-			position: relative
-			.modal-body
-				.search-holder
-					input
-						background-color: #f7f7f7
-						border: 1px solid #e6e6e6
-						height: 49px
-						margin: 0
-						padding-left: 20px
-						width: 100%
-					.sr-bott
-						margin-top: 40px
-						.search-cats
-							width: 66.66666%
-							li
-								display: inline-block
-								margin-right: 20px
-								a
-									font-size: 13px
-						.serch-btn
-							width: 33.33333%
-							button
-								white-space: nowrap
-								text-overflow: ellipsis
-								overflow: hidden
-								background: transparent
-								color: black
-								font-size: 15px
-								font-weight: 700
-								line-height: 1em
-								border: 3px solid #ffd500
-								transition: background .3s
-								padding: 14px 37px
-								width: 100%
-								text-transform: uppercase
-					.results-count
-						margin-top: 40px
-						border-bottom: 2px solid #000
-						padding-bottom: 12px
-						span
-							color: #9b9b9b
-							letter-spacing: 1px
-							b
-								font-weight: 400
-								color: black

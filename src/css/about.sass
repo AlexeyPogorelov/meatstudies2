@@ -138,21 +138,44 @@ section.about-page
 		width: 780px
 		width: 75%
 		padding: 171px 40px 120px 100px
+		@media (max-width: $mobile-large)
+			padding: 80px 20px 71px
+			margin: 0 calc(-20px) 0
+			width: 100%
+			width: calc(100% + 40px)
 		h3
 			font-size: 30px
 			font-weight: 600
 			letter-spacing: 10px
 			line-height: 40px
 			margin-bottom: 24px
+			@media (max-width: $mobile-large)
+				font-size: 25px
+				font-weight: 600
+				line-height: 30px
+				letter-spacing: 0
+				margin-bottom: 31px
 		p
 			color: inherit
 			line-height: 1.7em
+			@media (max-width: $mobile-large)
+				line-height: 1.4em
+		.section-label
+			margin-top: 20px
+			margin-bottom: 21px
+			padding: 0
 
 section.process
+	@media (max-width: $mobile-large)
+		margin-top: 110px
 	.section-label
 		top: 2px
 	.video
 		position: relative
+		@media (max-width: $mobile-large)
+			margin-top: 28px
+			left: calc(-20px)
+			width: calc(100% + 40px)
 		&:before
 			content: ''
 			cursor: pointer
@@ -163,20 +186,36 @@ section.process
 			margin: -49px auto auto -45px
 			height: 104px
 			width: 97px
+			@media (max-width: $mobile-large)
+				background-size: contain
+				margin: -40px auto auto -40px
+				height: 80px
+				width: 80px
 		img
 			height: 532px
+			height: calc(72.4vw / 16 * 9)
 			width: 100%
+			@media (max-width: $mobile-large)
+				height: calc(100vw / 16 * 9)
 
 section.teachers
 	margin-top: 118px
+	@media (max-width: $mobile-large)
+		margin-top: 152px
 	.section-label
 		top: 11px
+		@media (max-width: $mobile-large)
+			margin-bottom: 20px
 	.button-holder
 		text-align: left
 		margin-top: -32px
+		@media (max-width: $mobile-large)
+			margin-top: -20px
 		a
 			padding: 12px 20px
 			min-width: 25%
+			@media (max-width: $mobile-large)
+				width: 100%
 	.teachers-holder
 		margin-top: 8px
 		font-size: 0
@@ -185,12 +224,20 @@ section.teachers
 			display: inline-block
 			margin-bottom: 81px
 			vertical-align: top
+			padding-right: 20px
 			width: 50%
+			@media (max-width: $mobile-large)
+				margin-bottom: 48px
+				width: 100%
 			.image-container, .description-container
 				display: inline-block
 				vertical-align: top
+				@media (max-width: $mobile-large)
+					display: block
 			.image-container
 				width: 27%
+				@media (max-width: $mobile-large)
+					width: 37%
 				.image-holder
 					text-align: left
 					img
@@ -198,6 +245,8 @@ section.teachers
 						width: 73%
 			.description-container
 				width: 73%
+				@media (max-width: $mobile-large)
+					width: 100%
 				h3, h4
 					white-space: nowrap
 					overflow: hidden
@@ -206,22 +255,43 @@ section.teachers
 					font-size: 30px
 					font-weight: 600
 					line-height: 34px
+					@media (max-width: $mobile-large)
+						margin-top: 7px
+						line-height: 1em
+						font-size: 18px
+						letter-spacing: 1px
 				h4
 					font-size: 18px
 					font-weight: 600
 					line-height: 18px
 					letter-spacing: 1px
 					margin-bottom: 11px
+					@media (max-width: $mobile-large)
+						margin-top: 6px
+						margin-bottom: 5px
+						line-height: 1em
+						font-size: 13px
+						letter-spacing: 0
 				p
 					font-size: 15px
 					font-weight: 400
 					line-height: 20px
 					letter-spacing: 0
+					@media (max-width: $mobile-large)
+						color: #bfbfbf
+						font-size: 13px
+						font-weight: 400
+						line-height: 20px
 				.socials-holder
 					margin-top: 23px
+					@media (max-width: $mobile-large)
+						margin-top: 11px
 					li
 						display: inline-block
 						margin-right: 58px
+						vertical-align: bottom
+						@media (max-width: $mobile-large)
+							margin-right: 42px
 						&:last-child
 							margin-right: 0
 						a
@@ -238,6 +308,8 @@ section.teachers
 
 section.place
 	margin-top: 205px
+	@media (max-width: $mobile-large)
+		margin-top: 139px
 	.section-label
 		top: 6px
 	h3
@@ -246,10 +318,17 @@ section.place
 		line-height: 1em
 		letter-spacing: 10px
 		margin-left: -3px
+		@media (max-width: $mobile-large)
+			margin-left: 0
+			margin-top: 25px
+			font-size: 25px
+			letter-spacing: 0
 	.gallery-holder
 		font-size: 0
 		margin-top: 46px
 		letter-spacing: 0
+		@media (max-width: $mobile-large)
+			margin-top: 15px
 		.slider-wrapper
 			position: relative
 		.address-bar, .main-image
@@ -257,14 +336,28 @@ section.place
 			vertical-align: top
 		.address-bar
 			width: 25%
+			@media (max-width: $mobile-large)
+				width: 100%
 			.image-holder
 				text-align: left
 				margin-bottom: 29px
+				@media (max-width: $mobile-large)
+					display: inline-block
+					vertical-align: top
+					margin-bottom: 17px
+					width: 36%
 				.map
 					cursor: pointer
 					width: 78%
+					@media (max-width: $mobile-large)
+						width: 79%
 			.address-holder
 				position: relative
+				@media (max-width: $mobile-large)
+					display: inline-block
+					vertical-align: top
+					margin-top: 6px
+					width: 100% - 36%
 				p
 					color: #141414
 					font-size: 18px
@@ -272,6 +365,10 @@ section.place
 					letter-spacing: 1px
 					line-height: 30px
 					margin-left: -1px
+					@media (max-width: $mobile-large)
+						font-size: 15px
+						line-height: 20px
+						letter-spacing: 0
 			.controls
 				bottom: 0
 				height: 15px
@@ -306,6 +403,10 @@ section.place
 		.main-image
 			height: 360px
 			width: 75%
+			@media (max-width: $mobile-large)
+				margin-left: calc(-20px)
+				width: 100%
+				width: calc(100% + 40px)
 			.image-holder
 				height: 100%
 				width: 100%
@@ -313,6 +414,8 @@ section.place
 			margin-top: 59px
 			ul
 				height: 127px
+				@media (max-width: $mobile-large)
+					height: 61px
 				li
 					border: 3px solid transparent
 					cursor: pointer
