@@ -93,4 +93,5 @@ gulp.task('watch', function(){
 	gulp.watch(path.watch.img, ['images']);
 });
 
+// DEFAULT
 gulp.task('default', ['sass', 'jade', 'scripts', 'images', 'fonts', 'browser-sync', 'watch']);
