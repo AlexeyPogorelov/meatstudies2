@@ -165,6 +165,12 @@ $(document).on('ready', function () {
 
 		})();
 
+		// Initializing plugins
+		window.test = $('.video-mobile').cardsSlider({
+			'holderClass': 'videos',
+			'viewportClass': 'content-holder',
+			'slideClass': 'card'
+		});
 
 		// article add comment fake textarea
 		(function () {

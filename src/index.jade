@@ -104,15 +104,15 @@ html(lang='en')
 
 		section.blog
 			.section-label
-					span blog
-					img(src="img/icons/side-labels/blog.svg", alt="blog")
+				span blog
+				img(src="img/icons/side-labels/blog.svg", alt="blog")
 			.container
 				.content-holder
 					include ./partials/blog.jade
 
 		section.video
 			.section-label
-					img(src="img/icons/side-labels/video.svg", alt="video")
+				img(src="img/icons/side-labels/video.svg", alt="video")
 			.container
 				.content-holder
 					.videos
@@ -136,6 +136,46 @@ html(lang='en')
 								| UI+UX
 							.arrow.right
 								img(src="img/icons/slider-arrow-right-1.svg", alt="arrow")
+
+		section.video-mobile.hidden
+			.section-label
+				span video
+			.container
+				.content-holder
+					ul.videos
+						li.card
+							.image-holder
+								img(src="img/content/videocourse-card-1.svg", alt="course")
+							.description
+								.duration 15 уроков по 30 мин.
+								.price 2 000 грн / 80 usd
+						li.card
+							.image-holder
+								img(src="img/content/videocourse-card-1.svg", alt="course")
+							.description
+								.duration 15 уроков по 30 мин.
+								.price 2 000 грн / 80 usd
+						li.card
+							.image-holder
+								img(src="img/content/videocourse-card-1.svg", alt="course")
+							.description
+								.duration 15 уроков по 30 мин.
+								.price 2 000 грн / 80 usd
+						li.card
+							.image-holder
+								img(src="img/content/videocourse-card-1.svg", alt="course")
+							.description
+								.duration 15 уроков по 30 мин.
+								.price 2 000 грн / 80 usd
+					.controls
+						.arrow.left
+							img(src="img/icons/slider-arrow-left-1.svg", alt="arrow")
+						.name
+							| UI+UX
+						.arrow.right
+							img(src="img/icons/slider-arrow-right-1.svg", alt="arrow")
+					a(href="video.html").more
+						| подробнее о видеокурсе
 
 
 		include ./partials/footer.jade

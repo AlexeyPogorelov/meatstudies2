@@ -1,0 +1,56 @@
+doctype html
+html(lang='en')
+	head
+		title MEAT ˢᵗᵘᵈⁱᵉˢ 2
+
+		include ./partials/head.jade
+
+	body
+
+		include ./partials/navigation.jade
+
+		section.video-mobile
+			.section-label
+				span video
+			.container
+				.content-holder
+					ul.videos
+						li.card
+							.image-holder
+								img(src="img/content/videocourse-card-1.svg", alt="course")
+							.description
+								.duration 1 уроков по
+								.price 1 000 грн / 80 usd
+						li.card.active
+							.image-holder
+								img(src="img/content/videocourse-card-1.svg", alt="course")
+							.description
+								.duration по 30 мин.
+								.price 2 000 грн / 80 usd
+						li.card
+							.image-holder
+								img(src="img/content/videocourse-card-1.svg", alt="course")
+							.description
+								.duration 1 по 3.
+								.price 800 грн / 20 usd
+						li.card
+							.image-holder
+								img(src="img/content/videocourse-card-1.svg", alt="course")
+							.description
+								.duration 5 о 0 мин.
+								.price 10 грн / 280 usd
+					.controls
+						.arrow.left
+							img(src="img/icons/slider-arrow-left-1.svg", alt="arrow")
+						.name
+							| UI+UX
+						.arrow.right
+							img(src="img/icons/slider-arrow-right-1.svg", alt="arrow")
+					a(href="video.html").more
+						| подробнее о видеокурсе
+
+
+		include ./partials/footer.jade
+		include ./partials/modals.jade
+
+	include ./partials/scripts.jade

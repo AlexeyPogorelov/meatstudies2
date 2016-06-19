@@ -11,8 +11,8 @@ html(lang='en')
 		section.profile-top
 			.profilemenu
 				mixin profilemenu(href, text, active)
-					li
-						a(href= href, class= active ? 'active' : '')= text
+					li( class= active ? 'active' : '' )
+						a( href= href )= text
 
 				ul
 					+profilemenu('#', 'BOOKMARKS')

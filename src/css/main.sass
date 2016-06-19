@@ -508,6 +508,35 @@ section.video
 				left: 50%
 				transform: translate(0, -50%)
 
+section.video-mobile
+	overflow: hidden
+	margin-top: 180px
+	.videos
+		font-size: 0
+		letter-spacing: 0
+		position: relative
+	.description
+		font-size: 12px
+	.card
+		// display: inline-block
+		// vertical-align: top
+		background: #fff
+		border: 1px solid #000
+		left: -20px
+		position: absolute
+		top: 4px
+		height: 100px
+		width: 100px
+		transition: none !important
+		&.active
+			left: 0
+			top: 0
+			z-index: 2
+			& ~ .card
+				left: 20px
+				z-index: 1
+
+
 // --------------------------------------------------
 // INPUT
 // --------------------------------------------------
