@@ -7,6 +7,7 @@ section.course-header
 	margin-bottom: -147px
 	@media (max-width: $mobile-large)
 		margin-top: 79px
+		margin-bottom: 0
 	&:before
 		background: rgba(0,0,0,0.4)
 		content: ''
@@ -22,24 +23,37 @@ section.course-header
 		margin: 60px 0 186px
 		position: relative
 		padding: 0 62px
+		@media (max-width: $mobile-large)
+			padding: 0
+			margin: 32px -3px 61px
 		h2
 			color: white
 			font-size: 50px
 			font-weight: 600
 			line-height: 1em
 			margin-bottom: 10px
+			@media (max-width: $mobile-large)
+				letter-spacing: 0
+				font-size: 40px
+				line-height: 50px
+				letter-spacing: 1px
 		h3
 			color: white
 			font-size: 30px
 			font-weight: 400
 			line-height: 1em
 			letter-spacing: 10px
+			@media (max-width: $mobile-large)
+				letter-spacing: 0
+				font-size: 25px
 		.btn
 			color: #fff
 			margin-top: 58px
 			margin-left: 3px
 			padding: 14px 34px
 			letter-spacing: 0
+			@media (max-width: $mobile-large)
+				display: block
 
 	.statistic-holder
 		position: absolute
@@ -55,11 +69,14 @@ section.course-header
 			padding: 20px 20px
 			max-width: 100%
 			height: auto
+			display: flex
+			justify-content: space-between
 			white-space: nowrap
 		.item
 			margin-bottom: 62px
 			@media (max-width: $mobile-large)
 				display: inline-block
+				margin-bottom: 9px
 				vertical-align: bottom
 			span
 				color: #000
@@ -76,21 +93,34 @@ section.course-header
 				@media (max-width: $mobile-large)
 					font-size: 25px
 					letter-spacing: 0
+					margin-bottom: 11px
 			@media (max-width: $mobile-large)
 				&:nth-child(3n+1)
 					text-align: left
 				&:nth-child(3n+2)
 					text-align: center
+					margin: 0 10px
 				&:nth-child(3n+3)
 					text-align: right
+				&:nth-child(1n+4)
+					display: none
 section.course-page
+	.section-label
+		margin-top: 100px
+		// margin-bottom: 0px
 	.canvas
 		background: #fff
 		padding: 53px 104px 12px 62px
 		width: 83%
+		@media (max-width: $mobile-large)
+			padding: 25px 0 12px
+			width: 100%
 	.article-like
 		top: 186px
 		left: 16.7%
+		@media (max-width: $mobile-large)
+			left: 0
+			top: 0
 	.wysiwyg
 		p
 			color: black
@@ -98,16 +128,27 @@ section.course-page
 			font-weight: 400
 			line-height: 30px
 			margin-bottom: 30px
+			@media (max-width: $mobile-large)
+				font-size: 15px
+				line-height: 20px
+				margin-bottom: 20px
 	.btn
 		margin-top: 20px
 		padding: 14px 22px
 		letter-spacing: 0
+		@media (max-width: $mobile-large)
+			margin-top: 14px
 
 section.for
 	margin-top: 71px
 	overflow: hidden
+	@media (max-width: $mobile-large)
+		background: $main-color
 	.section-label
 		top: 0
+		@media (max-width: $mobile-large)
+			margin-top: 79px
+			margin-bottom: 25px
 	.container
 		position: relative
 		&:before
@@ -118,6 +159,9 @@ section.for
 			height: 100%
 			width: 200%
 			position: absolute
+			@media (max-width: $mobile-large)
+				left: -20px
+				display: none
 	.content-holder
 		position: relative
 		padding: 52px 60px 19px
@@ -125,29 +169,53 @@ section.for
 		font-size: 18px
 		line-height: 30px
 		width: 75%
+		@media (max-width: $mobile-large)
+			padding: 0 0 92px
+			width: 100%
 		p
 			color: inherit
 			font-size: inherit
 			line-height: inherit
 			font-weight: 500
 			margin-bottom: 30px
+			@media (max-width: $mobile-large)
+				font-size: 18px
+				line-height: 25px
+				margin-bottom: 23px
 		b
 			font-weight: 600
 
 section.programm
 	margin-top: 130px
 	margin-bottom: 63px
+	@media (max-width: $mobile-large)
+		margin-top: 119px
+		// overflow: hidden
+	.container
+		@media (max-width: $mobile-large)
+			overflow: auto
+			overflow-y: hidden
+			overflow-x: auto
+			margin: 0
+			width: 100%
 	.section-label
 		top: 20px
+		@media (max-width: $mobile-large)
+			margin-bottom: 25px
 	.stages
 		font-size: 0
 		letter-spacing: 0
+		@media (max-width: $mobile-large)
+			width: 624%
 		.stage
 			display: inline-block
 			padding-right: 40px
 			margin-bottom: 45px
 			vertical-align: top
 			width: 25%
+			@media (max-width: $mobile-large)
+				padding: 0 20px
+				width: calc(100vw - 40px)
 			h2
 				color: black
 				font-size: 30px
@@ -155,6 +223,11 @@ section.programm
 				line-height: 40px
 				letter-spacing: 0
 				margin-bottom: 17px
+				@media (max-width: $mobile-large)
+					font-size: 40px
+					line-height: 50px
+					letter-spacing: 1px
+					margin-bottom: 7px
 			h3
 				color: black
 				font-size: 18px
@@ -162,6 +235,8 @@ section.programm
 				line-height: 25px
 				letter-spacing: 1px
 				min-height: 106px
+				@media (max-width: $mobile-large)
+					min-height: 84px
 			p
 				color: #6e6e6e
 				font-size: 13px

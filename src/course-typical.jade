@@ -26,6 +26,8 @@ html(lang='en')
 					a.btn(href="#") записаться на курс
 
 		section.course-page
+			.section-label.mobile-right
+				span about
 			.container
 				.canvas
 					.article-like
@@ -39,7 +41,8 @@ html(lang='en')
 
 		section.teachers
 			.section-label
-					img(src="img/icons/side-labels/sensei.svg", alt="sensei")
+				span sensei
+				img(src="img/icons/side-labels/sensei.svg", alt="sensei")
 			.container
 				ul.teachers-holder
 					mixin teacher(name, profession, description, image)
@@ -69,8 +72,9 @@ html(lang='en')
 						)
 
 		section.for
-			.section-label
-					img(src="img/icons/side-labels/for.svg", alt="for")
+			.section-label.mobile-center
+				span for
+				img(src="img/icons/side-labels/for.svg", alt="for")
 			.container
 				.content-holder
 					p Молодым и начинающим веб-дизайнерам, а также графическим дизайнерам, которые хотят попробовать себя в вебе. 
@@ -79,7 +83,8 @@ html(lang='en')
 
 		section.programm
 			.section-label
-					img(src="img/icons/side-labels/programm.svg", alt="programm")
+				span programm
+				img(src="img/icons/side-labels/programm.svg", alt="programm")
 			.container
 				ul.stages
 					mixin stage(order, header, description, image)
@@ -149,7 +154,7 @@ html(lang='en')
 
 		section.register-section
 			.section-label
-					img(src="img/icons/side-labels/register.svg", alt="register")
+				img(src="img/icons/side-labels/register.svg", alt="register")
 			.container
 				form.content-holder(action="#")
 					.input-holder
