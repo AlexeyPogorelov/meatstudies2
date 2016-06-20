@@ -5,6 +5,8 @@ section.course-header
 	position: relative
 	margin-top: 180px
 	margin-bottom: -147px
+	@media (max-width: $mobile-large)
+		margin-top: 79px
 	&:before
 		background: rgba(0,0,0,0.4)
 		content: ''
@@ -48,8 +50,17 @@ section.course-header
 		padding: 57px 59px
 		max-height: 100%
 		max-width: 23%
+		@media (max-width: $mobile-large)
+			position: relative
+			padding: 20px 20px
+			max-width: 100%
+			height: auto
+			white-space: nowrap
 		.item
 			margin-bottom: 62px
+			@media (max-width: $mobile-large)
+				display: inline-block
+				vertical-align: bottom
 			span
 				color: #000
 				display: block
@@ -62,7 +73,16 @@ section.course-header
 				letter-spacing: 10px
 				font-size: 30px
 				margin-bottom: 23px
-
+				@media (max-width: $mobile-large)
+					font-size: 25px
+					letter-spacing: 0
+			@media (max-width: $mobile-large)
+				&:nth-child(3n+1)
+					text-align: left
+				&:nth-child(3n+2)
+					text-align: center
+				&:nth-child(3n+3)
+					text-align: right
 section.course-page
 	.canvas
 		background: #fff

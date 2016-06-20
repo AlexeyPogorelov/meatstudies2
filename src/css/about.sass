@@ -363,37 +363,50 @@ section.place
 						font-size: 15px
 						line-height: 20px
 						letter-spacing: 0
-			.controls
-				bottom: 0
-				height: 15px
-				position: absolute
-				white-space: nowrap
-				.arrow-left, .arrow-right
-					background-position: 50% 50%
-					background-repeat: no-repeat
+		.controls, .controls-mobile
+			bottom: 0
+			height: 15px
+			position: absolute
+			white-space: nowrap
+			@media (max-width: $mobile-large)
+				display: none
+			.arrow-left, .arrow-right
+				background-position: 50% 50%
+				background-repeat: no-repeat
+				display: inline-block
+				height: 14px
+				width: 52px
+			.arrow-left
+				background-image: url('../img/icons/slider-arrow-left-1.svg')
+				margin: 0 49px 0 -100px
+			.arrow-right
+				background-image: url('../img/icons/slider-arrow-right-1.svg')
+				margin: 0 0 0 59px
+			.state
+				display: inline-block
+				font-size: 18px
+				font-weight: 400
+				line-height: 1em
+				letter-spacing: -4px
+				color: #141414
+				.separator, .from, .current
+					letter-spacing: 0px
 					display: inline-block
-					height: 14px
-					width: 52px
-				.arrow-left
-					background-image: url('../img/icons/slider-arrow-left-1.svg')
-					margin: 0 49px 0 -100px
-				.arrow-right
-					background-image: url('../img/icons/slider-arrow-right-1.svg')
-					margin: 0 0 0 59px
-				.state
-					display: inline-block
-					font-size: 18px
-					font-weight: 400
-					line-height: 1em
-					letter-spacing: -4px
+				.current
+					color: #bfbfbf
+				.separator, .from
 					color: #141414
-					.separator, .from, .current
-						letter-spacing: 0px
-						display: inline-block
-					.current
-						color: #bfbfbf
-					.separator, .from
-						color: #141414
+			&-mobile
+				position: static
+				margin-top: 36px
+				display: none
+				@media (max-width: $mobile-large)
+					display: block
+				.arrow-left, .arrow-right
+					margin: 0
+				.state
+					text-align: center
+					width: calc(100% - 104px)
 		.main-image
 			height: 360px
 			width: 75%
@@ -450,13 +463,14 @@ section.ask
 	font-size: 0
 	letter-spacing: 0
 	margin-top: 102px
+	@media (max-width: $mobile-large)
+		margin-top: 146px
+		margin-bottom: 199px
 	.container
 		display: block
 		@media (max-width: $mobile-large)
 			display: flex
 			flex-direction: column-reverse
-	.section-label
-		img
 	form, .description
 		display: inline-block
 		padding-top: 55px
@@ -470,6 +484,8 @@ section.ask
 		width: 100%
 	form
 		padding-top: 59px
+		@media (max-width: $mobile-large)
+			padding-top: 7px
 	input
 	textarea
 		min-height: 189px
@@ -477,6 +493,9 @@ section.ask
 		margin-top: 11px
 		padding: 15px 20px
 		min-width: 50%
+		@media (max-width: $mobile-large)
+			margin-top: 0
+			width: 100%
 	.description
 		padding-left: 40px
 		color: black
@@ -484,8 +503,12 @@ section.ask
 		font-weight: 400
 		letter-spacing: 1px
 		@media (max-width: $mobile-large)
-			padding-left: 0
+			padding: 23px 0 0
 		p
 			color: inherit
 			font-weight: inherit
 			margin-bottom: 35px
+			@media (max-width: $mobile-large)
+				letter-spacing: 1px
+				line-height: 1.4em
+				margin-bottom: 25px

@@ -143,6 +143,10 @@ textarea
 	resize: none
 	text-align: left
 	margin-bottom: 20px
+	@media (max-width: $mobile-large)
+		padding-top: 7px
+		padding-left: 8px
+		padding-right: 8px
 	&::placeholder
 		font-size: 15px
 		font-weight: 600
@@ -159,6 +163,9 @@ input
 	transition: outline-color .4s
 	height: 49px
 	margin-bottom: 20px
+	@media (max-width: $mobile-large)
+		padding-left: 8px
+		padding-right: 8px
 	&:focus
 		outline: none
 	&::placeholder
