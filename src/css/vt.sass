@@ -6,29 +6,6 @@
 		padding: 15px 46px
 //--- end GLOBAL ---//
 
-section.profile-top
-	margin-top: 180px
-	.container
-		vertical-align: top
-		font-size: 0
-		letter-spacing: 0
-		.user-info
-			width: 50%
-			display: inline-block
-			vertical-align: top
-			@media (max-width: $mobile-large)
-				width: 100%
-		.edit-btn-holder
-			vertical-align: top
-			text-align: left
-			display: inline-block
-			width: 50%
-			@media (max-width: $mobile-large)
-				width: 100%
-			button.type-1
-				margin-top: 1px
-				padding: 15px 57px
-
 section.yellow-board
 	margin-top: 67px
 	.board-header
@@ -314,10 +291,14 @@ section.download-materials
 		letter-spacing: 0
 		margin-top: 58px
 		margin-bottom: 25px
+		@media (max-width: $mobile-large)
+			margin-top: 65px
 		.h-holder
 			width: 50%
 			display: inline-block
 			vertical-align: middle
+			@media (max-width: $mobile-large)
+				width: 100%
 			h1
 				line-height: 1em
 				font-weight: 600
@@ -325,6 +306,11 @@ section.download-materials
 				margin-bottom: 13px
 				letter-spacing: 0.3px
 				margin: 0 0 0 -2px
+				@media (max-width: $mobile-large)
+					color: black
+					font-weight: 400
+					font-size: 15px
+					letter-spacing: 1px
 	.downloads
 		font-size: 0
 		letter-spacing: 0
@@ -334,21 +320,26 @@ section.download-materials
 			display: inline-block
 			font-size: 0
 			letter-spacing: 0
+			@media (max-width: $mobile-large)
+				width: 100%
 			.image-container, .description
 				display: inline-block
 				vertical-align: top
 			.image-container
 				width: 29%
 				box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1)
+				@media (max-width: $mobile-large)
+					width: 54%
 			.description
-				width: 71%
-				padding-left: 28px
-				padding-top: 13px
-				line-height: 1.35em
-				padding-right: 16%
 				color: #000
+				line-height: 1.35em
+				padding: 13px 16% 0 28px
 				font-size: 15px
 				font-weight: 400
+				width: 71%
+				@media (max-width: $mobile-large)
+					padding: 13px 0 0
+					width: 100%
 				a
 					color: #b3b3b3
 					font-size: 18px
@@ -363,3 +354,10 @@ section.download-materials
 			margin-top: 0
 			.down-item
 				margin-bottom: 53px
+				@media (max-width: $mobile-large)
+					margin-bottom: 75px
+					&:last-child
+						margin-bottom: 0
+	& ~ .subscribe
+		@media (max-width: $mobile-large)
+			margin-top: 100px

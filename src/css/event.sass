@@ -6,54 +6,66 @@ section.teachers.event-smart-teachers
 section.register-block
 	margin-top: 22px
 	margin-bottom: 136px
+	.section-label
+		@media (max-width: $mobile-large)
+			margin-bottom: 20px
 	.container
 		font-size: 0
 		letter-spacing: 0
-		.content-holder
-			.description, .register-form
-				display: inline-block
-				vertical-align: top
-				width: 50%
-			.description
-				padding-right: 40px
-				p
+		.description, .register-form
+			display: inline-block
+			vertical-align: top
+			width: 50%
+			@media (max-width: $mobile-large)
+				width: 100%
+		.description
+			padding-right: 40px
+			@media (max-width: $mobile-large)
+				padding-right: 0
+			p
+				color: black
+				font-size: 18px
+				font-weight: 500
+				// letter-spacing: 1px
+				line-height: 30px
+				margin-bottom: 30px
+		.register-form
+			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3)
+			padding: 51px 60px 50px
+			width: 48%
+			@media (max-width: $mobile-large)
+				box-shadow: none
+				padding: 0
+				width: 100%
+			h2
+				color: #1a1a1a
+				font-size: 30px
+				font-weight: 600
+				line-height: 1em
+				margin-bottom: 36px
+				@media (max-width: $mobile-large)
+					display: none
+			input
+				display: block
+				margin-bottom: 30px
+				width: 100%
+			.button-holder
+				text-align: right
+				button
+					border: 3px solid $main-color
+					padding: 15px 22px
+					background: none
+					text-transform: uppercase
 					color: black
-					font-size: 18px
-					font-weight: 500
-					// letter-spacing: 1px
-					line-height: 30px
-					margin-bottom: 30px
-			.register-form
-				box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3)
-				padding: 51px 60px 50px
-				width: 48%
-				h2
-					color: #1a1a1a
-					font-size: 30px
-					font-weight: 600
+					font-size: 15px
+					font-weight: 700
+					letter-spacing: 0
 					line-height: 1em
-					margin-bottom: 36px
-				input
-					display: block
-					margin-bottom: 30px
-					width: 100%
-				.button-holder
-					text-align: right
-					button
-						border: 3px solid $main-color
-						padding: 15px 22px
-						background: none
-						text-transform: uppercase
-						color: black
-						font-size: 15px
-						font-weight: 700
-						letter-spacing: 0
-						line-height: 1em
-						margin-top: 10px
-						transition: background .3s
-						&:hover
-							background: $main-color
-							transition: background .1s
+					margin-top: 10px
+					transition: background .3s
+					&:hover
+						background: $main-color
+						transition: background .1s
 	&.first
 		margin-top: 71px
 		.section-label
@@ -245,76 +257,92 @@ section.old-events
 section.programm-graph
 	.section-label
 		top: 2px
-	.graph-holder
-		.item
-			margin-left: -26px
-			padding-bottom: 70px
-			position: relative
-			// width: 50%
-			&:before
-				content: ''
-				position: absolute
-				left: 23px
-				top: 10px
-				bottom: -10px
-				background: whitesmoke
-				z-index: -1
-				width: 5px
-				// border: 5px solid whitesmoke
-			.image-container, .time-container, .description-container
-				display: inline-block
-				vertical-align: top
-			.image-container
-				width: 86px
-				.image-holder
-					margin-top: -12px
-					border-radius: 50%
-					height: 50px
-					width: 50px
-			.no-image
-				width: 16px
-				height: 16px
-				border: 3px solid #bfbfbf
+		@media (max-width: $mobile-large)
+			margin-bottom: 28px
+	.item
+		margin-left: -26px
+		padding-bottom: 70px
+		position: relative
+		// width: 50%
+		@media (max-width: $mobile-large)
+			margin-left: 0
+		&:before
+			content: ''
+			position: absolute
+			left: 23px
+			top: 10px
+			bottom: -10px
+			background: whitesmoke
+			z-index: -1
+			width: 5px
+			// border: 5px solid whitesmoke
+		.image-container, .time-container, .description-container
+			display: inline-block
+			vertical-align: top
+		.image-container
+			width: 86px
+			@media (max-width: $mobile-large)
+				width: 56px
+			.image-holder
+				margin-top: -12px
 				border-radius: 50%
-				position: absolute
-				left: 50%
-				top: 50%
-				transform: translate(-50%, -50%)
-			.time-container
-				width: 88px
-				span
-					color: black
-					font-size: 25px
-					font-weight: 300
-					line-height: 1em
-					letter-spacing: 0
-					position: relative
-					bottom: -3px
-			.description-container
-				width: 50%
-				width: calc(50% - 200px)
-				h3
-					color: black
-					font-size: 18px
-					font-weight: 600
-					line-height: 30px
-					letter-spacing: 1px
-					margin-bottom: 7px
-				p, .description
-					color: #6e6e6e
+				height: 50px
+				width: 50px
+		.no-image
+			width: 16px
+			height: 16px
+			border: 3px solid #bfbfbf
+			border-radius: 50%
+			position: absolute
+			left: 50%
+			top: 50%
+			transform: translate(-50%, -50%)
+		.time-container
+			width: 88px
+			span
+				color: black
+				font-size: 25px
+				font-weight: 300
+				line-height: 1em
+				letter-spacing: 0
+				position: relative
+				bottom: -3px
+		.description-container
+			width: 50%
+			width: calc(50% - 200px)
+			@media (max-width: $mobile-large)
+				padding-left: 62px
+				width: 100%
+			h3
+				color: black
+				font-size: 18px
+				font-weight: 600
+				line-height: 30px
+				letter-spacing: 1px
+				margin-bottom: 7px
+				@media (max-width: $mobile-large)
 					font-size: 15px
-					font-weight: 400
 					line-height: 20px
-					letter-spacing: 0
-			&:first-child
-				.no-image
-					width: 25px
-					height: 25px
-					background-color: #f0f0f0
-					border: 3px solid #bfbfbf
-			&:last-child, .last
-				&:before
-					display: none
+					margin-bottom: 0
+			p, .description
+				color: #6e6e6e
+				font-size: 15px
+				font-weight: 400
+				line-height: 20px
+				letter-spacing: 0
+				@media (max-width: $mobile-large)
+					color: #bfbfbf
+					font-size: 13px
+					line-height: 20px
+		&:first-child
+			.no-image
+				width: 25px
+				height: 25px
+				background-color: #f0f0f0
+				border: 3px solid #bfbfbf
+		&:last-child, .last
+			&:before
+				display: none
 
 section.video-stream
 	margin-top: 49px

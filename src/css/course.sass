@@ -2,11 +2,11 @@
 section.courses-list
 	margin-top: 175px
 	@media (max-width: $mobile-large)
-		margin-top: 125px
+		margin-top: 100px
 	.section-label
 		top: 7px
 		@media (max-width: $mobile-large)
-			margin-bottom: 20px
+			margin-bottom: 31px
 	.description
 		width: 75%
 		@media (max-width: $mobile-large)
@@ -18,6 +18,8 @@ section.courses-list
 			line-height: 30px
 			letter-spacing: 1px
 			margin-left: -2px
+			@media (max-width: $mobile-large)
+				line-height: 26px
 	ul.list
 		letter-spacing: 0
 		font-size: 0
@@ -28,22 +30,28 @@ section.courses-list
 			margin-bottom: 71px
 			width: 50%
 			@media (max-width: $mobile-large)
+				margin-bottom: 82px
 				width: 100%
 			img
 				display: block
 				margin-bottom: -9px
 				max-width: 80%
 			.price, .duration
+				display: inline-block
 				color: #141414
 				font-size: 18px
 				font-weight: 400
 				line-height: 30px
 				letter-spacing: 1px
+				@media (max-width: $mobile-large)
+					display: block
 			.price
 				position: relative
 				margin-left: -2px
 				padding-right: 22px
 				margin-right: 23px
+				@media (max-width: $mobile-large)
+					margin-bottom: 25px
 				&:after
 					content: ''
 					border: 1px solid #141414
@@ -51,9 +59,16 @@ section.courses-list
 					height: 16px
 					display: inline-block
 					vertical-align: middle
-					top: -2px
+					top: 6px
 					right: -1px
 					// width: 2px
+					@media (max-width: $mobile-large)
+						bottom: -13px
+						left: 0
+						right: auto
+						top: auto
+						height: 0
+						width: 16px
 			p
 				color: #6e6e6e
 				font-size: 15px
@@ -65,6 +80,7 @@ section.courses-list
 				width: 60%
 				@media (max-width: $mobile-large)
 					width: 100%
+					display: none
 			.btn
 				color: black
 				font-size: 15px
@@ -80,6 +96,7 @@ section.courses-list
 				text-transform: none
 				transition: background .3s
 				@media (max-width: $mobile-large)
+					margin-top: 11px
 					width: 100%
 				&:hover
 					background: $main-color
@@ -96,6 +113,9 @@ section.hottest
 		background: rgba(0,0,0,0.4)
 	.container
 		position: relative
+		@media (max-width: $mobile-large)
+			padding: 0 20px
+			width: 100%
 		&:before
 			display: block
 			position: absolute

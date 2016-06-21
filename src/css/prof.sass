@@ -1,4 +1,31 @@
 
+section.profile-top
+	margin-top: 180px
+	@media (max-width: $mobile-large)
+		margin-top: 98px
+	.container
+		vertical-align: top
+		font-size: 0
+		letter-spacing: 0
+	.user-info
+		width: 50%
+		display: inline-block
+		vertical-align: top
+		@media (max-width: $mobile-large)
+			width: 100%
+	.edit-btn-holder
+		vertical-align: top
+		text-align: left
+		display: inline-block
+		width: 50%
+		@media (max-width: $mobile-large)
+			width: 100%
+		button, .btn
+			margin-top: 1px
+			padding: 15px 57px
+			@media (max-width: $mobile-large)
+				width: 100%
+
 .user-info
 	position: relative
 	font-size: 0
@@ -19,6 +46,8 @@
 		max-width: calc(100% - 76px)
 		@media (max-width: $mobile-large)
 			font-size: 18px
+			max-width: 100%
+			margin-top: 8px
 	.image-container, .description-container
 		display: inline-block
 		vertical-align: top
@@ -34,6 +63,9 @@
 		padding-left: 17px
 		padding-top: 9px
 		@media (max-width: $mobile-large)
+			margin-bottom: 18px
+			padding-left: 10px
+			padding-top: 0
 			width: 100%
 			width: calc(100% - 70px)
 		.description-heading
@@ -47,6 +79,8 @@
 				right: -18px
 				padding: 0 4px
 				top: 18px
+				@media (max-width: $mobile-large)
+					display: none
 				.marker-text
 					letter-spacing: 0
 					position: relative
@@ -58,6 +92,8 @@
 	.contacts-holder
 		line-height: 1em
 		margin-top: 9px
+		@media (max-width: $mobile-large)
+			margin-top: 0
 		a
 			color: #b3b3b3
 			font-size: 15px
@@ -69,6 +105,8 @@
 				font-size: 13px
 	.socials
 		margin-top: 1px
+		@media (max-width: $mobile-large)
+			display: none
 		a
 			line-height: 1em
 			font-size: 21px
@@ -97,10 +135,10 @@ section.homeworks
 				height: 160px
 				height: 13vw
 				box-shadow: 0 3px 7px rgba(0, 0, 0, 0.17)
-			.case-image
 				@media (max-width: $mobile-large)
 					height: 320px
 					height: calc(100vw - 40px)
+			.case-image
 			.description-holder
 				margin-top: 20px
 				.image-holder, .name-holder

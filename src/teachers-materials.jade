@@ -9,16 +9,23 @@ html(lang='en')
 		include ./partials/navigation.jade
 
 		section.profile-top
+			mixin profilemenu(href, text, active)
+				li( class= active ? 'active' : '' )
+					a( href= href )= text
 			.profilemenu
-				mixin profilemenu(href, text, active)
-					li( class= active ? 'active' : '' )
-						a( href= href )= text
-
 				ul
-					+profilemenu('#', 'BOOKMARKS')
-					+profilemenu('#', 'VIDEO')
-					+profilemenu('#', 'COURSE', true)
-					+profilemenu('#', 'HOMEWORK')
+					+profilemenu('#', 'bookmarks')
+					+profilemenu('#', 'video')
+					+profilemenu('#', 'course', true)
+					+profilemenu('#', 'homework')
+			.profilemenu-mobile
+				.active-element
+					a(href="#") bookmarks
+				ul
+					+profilemenu('#', 'bookmarks')
+					+profilemenu('#', 'video')
+					+profilemenu('#', 'course', true)
+					+profilemenu('#', 'homework')
 			.container
 				.user-info
 					.image-container
@@ -40,6 +47,8 @@ html(lang='en')
 					button.type-1 РЕДАКТИРОВАТЬ
 
 		section.download-materials
+			//- .section-label
+				//- span UI+UX COURSE
 			.container
 				.downds-header
 						.h-holder

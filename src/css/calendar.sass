@@ -8,6 +8,9 @@
 		td
 			text-align: right
 			padding-right: 18px
+			@media (max-width: $mobile-large)
+				color: #6e6e6e
+				font-size: 13px
 	tbody
 		background: #fafafa
 		td
@@ -23,6 +26,8 @@
 			.description
 				left: 11px
 				bottom: 4px
+				@media (max-width: $mobile-large)
+					display: none
 				p
 					color: #6e6e6e
 					font-size: 13px
@@ -69,7 +74,7 @@
 				opacity: 0
 				transition: opacity .1s
 				width: 100%
-			&:hover
+			&.hover
 				.description, .day
 					color: #fff
 					p
@@ -80,11 +85,13 @@
 				img
 					opacity: 1
 			&.disabled
+				@media (max-width: $mobile-large)
+					opacity: .5
 				.day, .description
 					color: #bfbfbf
 					p
 						color: #bfbfbf
-			&.disabled:hover
+			&.disabled.hover
 				.day, .description
 					color: #fff
 					p
@@ -101,3 +108,6 @@ section.events-calendar
 		margin-left: calc(27.6% - 60px)
 		width: 72.4%
 		width: calc(72.4% + 60px)
+		@media (max-width: $mobile-large)
+			margin: 0
+			width: 100%
