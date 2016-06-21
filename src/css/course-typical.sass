@@ -191,6 +191,8 @@ section.programm
 	@media (max-width: $mobile-large)
 		margin-top: 119px
 		// overflow: hidden
+	.controls-mobile
+		margin: 25px 20px 87px
 	.container
 		@media (max-width: $mobile-large)
 			overflow: auto
@@ -201,12 +203,12 @@ section.programm
 	.section-label
 		top: 20px
 		@media (max-width: $mobile-large)
-			margin-bottom: 25px
+			margin-bottom: 20px
 	.stages
 		font-size: 0
 		letter-spacing: 0
 		@media (max-width: $mobile-large)
-			width: 624%
+			width: 670%
 		.stage
 			display: inline-block
 			padding-right: 40px
@@ -227,7 +229,7 @@ section.programm
 					font-size: 40px
 					line-height: 50px
 					letter-spacing: 1px
-					margin-bottom: 7px
+					margin-bottom: 2px
 			h3
 				color: black
 				font-size: 18px
@@ -246,12 +248,19 @@ section.programm
 
 section.register-section
 	margin-top: 106px
+	@media (max-width: $mobile-large)
+		margin-top: 94px
+		margin-bottom: 197px
 	.section-label
 		top: 2px
+		@media (max-width: $mobile-large)
+			margin-bottom: 40px
 	.input-holder
 		letter-spacing: 0
 		font-size: 0
 		margin-bottom: 20px
+		@media (max-width: $mobile-large)
+			margin-bottom: 0
 		label, input
 			display: inline-block
 			vertical-align: middle
@@ -265,14 +274,28 @@ section.register-section
 			width: 25%
 			margin-left: -2px
 			margin-right: 2px
+			padding-right: 20px
+			@media (max-width: $mobile-large)
+				display: none
 		input
 			width: 50%
+			@media (max-width: $mobile-large)
+				width: 100%
+			&::placeholder
+				color: transparent
+				@media (max-width: $mobile-large)
+					color: transparent
+					color: #6e6e6e
 	.button-holder
 		text-align: right
+		@media (max-width: $mobile-large)
+			margin-top: 19px
 		.btn
 			min-width: 25%
 			margin-right: 25%
 			padding: 14px 14px
+			@media (max-width: $mobile-large)
+				width: 100%
 
 section.course-report
 	.section-label

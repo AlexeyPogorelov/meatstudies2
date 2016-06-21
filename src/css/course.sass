@@ -1,10 +1,16 @@
 
 section.courses-list
 	margin-top: 175px
+	@media (max-width: $mobile-large)
+		margin-top: 125px
 	.section-label
 		top: 7px
+		@media (max-width: $mobile-large)
+			margin-bottom: 20px
 	.description
 		width: 75%
+		@media (max-width: $mobile-large)
+			width: 100%
 		p
 			color: black
 			font-size: 18px
@@ -21,6 +27,8 @@ section.courses-list
 			vertical-align: top
 			margin-bottom: 71px
 			width: 50%
+			@media (max-width: $mobile-large)
+				width: 100%
 			img
 				display: block
 				margin-bottom: -9px
@@ -55,6 +63,8 @@ section.courses-list
 				margin-top: 13px
 				margin-left: -1px
 				width: 60%
+				@media (max-width: $mobile-large)
+					width: 100%
 			.btn
 				color: black
 				font-size: 15px
@@ -69,6 +79,8 @@ section.courses-list
 				min-width: 50%
 				text-transform: none
 				transition: background .3s
+				@media (max-width: $mobile-large)
+					width: 100%
 				&:hover
 					background: $main-color
 					transition: background .1s

@@ -17,6 +17,8 @@
 		white-space: nowrap
 		max-width: 100%
 		max-width: calc(100% - 76px)
+		@media (max-width: $mobile-large)
+			font-size: 18px
 	.image-container, .description-container
 		display: inline-block
 		vertical-align: top
@@ -24,10 +26,16 @@
 		border-radius: 50%
 		height: 101px
 		width: 101px
+		@media (max-width: $mobile-large)
+			height: 70px
+			width: 70px
 	.description-container
 		width: 76.3%
 		padding-left: 17px
 		padding-top: 9px
+		@media (max-width: $mobile-large)
+			width: 100%
+			width: calc(100% - 70px)
 		.description-heading
 			position: relative
 			.type-marker
@@ -56,6 +64,9 @@
 			margin-right: 20px
 			display: inline-block
 			letter-spacing: 0
+			@media (max-width: $mobile-large)
+				color: #bfbfbf
+				font-size: 13px
 	.socials
 		margin-top: 1px
 		a
@@ -71,16 +82,25 @@ section.homeworks
 		margin: 30px ($gap * -1 - 0.7%) 0
 		font-size: 0
 		letter-spacing: 0
+		@media (max-width: $mobile-large)
+			margin: 0
 		.work
 			display: inline-block
 			vertical-align: top
 			min-height: 186px
 			margin: 0 $gap 54px
 			width: $width
+			@media (max-width: $mobile-large)
+				margin: 20px 0
+				width: 100%
 			.case-image, .upload-label
 				height: 160px
 				height: 13vw
 				box-shadow: 0 3px 7px rgba(0, 0, 0, 0.17)
+			.case-image
+				@media (max-width: $mobile-large)
+					height: 320px
+					height: calc(100vw - 40px)
 			.description-holder
 				margin-top: 20px
 				.image-holder, .name-holder

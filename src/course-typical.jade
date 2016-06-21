@@ -128,6 +128,13 @@ html(lang='en')
 						'UX+UI - Основные понятия',
 						'Ура, дизайнеры сайтов на коне. Мир стал цифровым, молекулы превратились в 0 и 1. Теперь всем нужны не пластинки'
 						)
+			.controls-mobile
+				.arrow-left
+				.state
+					.current 8
+					.separator /
+					.from 22
+				.arrow-right
 
 		section.article-share
 			.container
@@ -154,18 +161,19 @@ html(lang='en')
 
 		section.register-section
 			.section-label
+				span register
 				img(src="img/icons/side-labels/register.svg", alt="register")
 			.container
 				form.content-holder(action="#")
 					.input-holder
 						label(for="name") Имя и фамилия
-						input(type="text" id="name")
+						input(type="text" id="name" placeholder="Имя фамилия")
 					.input-holder
 						label(for="name") Email
-						input(type="text" id="name")
+						input(type="text" id="name" placeholder="Email")
 					.input-holder
 						label(for="name") Номер телефона
-						input(type="text" id="name")
+						input(type="text" id="name" placeholder="Номер телефона")
 					.button-holder
 						button.btn(type="submit") записаться на курс
 
