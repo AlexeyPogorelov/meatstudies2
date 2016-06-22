@@ -9,16 +9,23 @@ html(lang='en')
 		include ./partials/navigation.jade
 			
 		section.profile-top
+			mixin profilemenu(href, text, active)
+				li( class= active ? 'active' : '' )
+					a( href= href )= text
 			.profilemenu
-				mixin profilemenu(href, text, active)
-					li( class= active ? 'active' : '' )
-						a( href= href )= text
-
 				ul
-					+profilemenu('#', 'BOOKMARKS')
-					+profilemenu('#', 'VIDEO')
-					+profilemenu('#', 'COURSE', true)
-					+profilemenu('#', 'HOMEWORK')
+					+profilemenu('#', 'bookmarks')
+					+profilemenu('#', 'video')
+					+profilemenu('#', 'course', true)
+					+profilemenu('#', 'homework')
+			.profilemenu-mobile
+				.active-element
+					a(href="#") bookmarks
+				ul
+					+profilemenu('#', 'bookmarks')
+					+profilemenu('#', 'video')
+					+profilemenu('#', 'course', true)
+					+profilemenu('#', 'homework')
 			.container
 				.user-info
 					.image-container
@@ -78,6 +85,10 @@ html(lang='en')
 			.container
 				mixin celendar-item(date, month, day, heading, cls)
 					li.course-event-item(class= cls ? cls : '')
+						span= date
+						span= month
+						p= day
+						h1= heading
 						.dropdown
 							h3 Темы:
 							a.downmat(href="#") Скачать лекцию
@@ -90,10 +101,6 @@ html(lang='en')
 							span Сделать постер /
 							a.gotask(href="") Перейти к домашним заданиям
 
-						span= date
-						span= month
-						p= day
-						h1= heading
 				ul.course-events-list
 					+celendar-item(
 						29,
