@@ -6,70 +6,74 @@ section.teachers.event-smart-teachers
 section.register-block
 	margin-top: 22px
 	margin-bottom: 136px
+	&.first
+		margin-top: 71px
+		.section-label
+			top: 8px
 	.section-label
 		@media (max-width: $mobile-large)
 			margin-bottom: 20px
 	.container
 		font-size: 0
 		letter-spacing: 0
-		.description, .register-form
-			display: inline-block
-			vertical-align: top
-			width: 50%
+	.description, .register-form
+		display: inline-block
+		vertical-align: top
+		width: 50%
+		@media (max-width: $mobile-large)
+			width: 100%
+	.description
+		padding-right: 40px
+		@media (max-width: $mobile-large)
+			padding-right: 0
+		p
+			color: black
+			font-size: 18px
+			font-weight: 500
+			// letter-spacing: 1px
+			line-height: 30px
+			margin-bottom: 30px
+	.register-form
+		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3)
+		padding: 51px 60px 50px
+		width: 48%
+		@media (max-width: $mobile-large)
+			box-shadow: none
+			padding: 0
+			width: 100%
+		h2
+			color: #1a1a1a
+			font-size: 30px
+			font-weight: 600
+			line-height: 1em
+			margin-bottom: 36px
 			@media (max-width: $mobile-large)
-				width: 100%
-		.description
-			padding-right: 40px
-			@media (max-width: $mobile-large)
-				padding-right: 0
-			p
+				display: none
+		input
+			display: block
+			margin-bottom: 30px
+			width: 100%
+		.button-holder
+			text-align: right
+			button
+				border: 3px solid $main-color
+				padding: 15px 22px
+				background: none
+				text-transform: uppercase
+				text-align: center
 				color: black
-				font-size: 18px
-				font-weight: 500
-				// letter-spacing: 1px
-				line-height: 30px
-				margin-bottom: 30px
-		.register-form
-			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3)
-			padding: 51px 60px 50px
-			width: 48%
-			@media (max-width: $mobile-large)
-				box-shadow: none
-				padding: 0
-				width: 100%
-			h2
-				color: #1a1a1a
-				font-size: 30px
-				font-weight: 600
+				font-size: 15px
+				font-weight: 700
+				letter-spacing: 0
 				line-height: 1em
-				margin-bottom: 36px
+				margin-top: 10px
+				transition: background .3s
 				@media (max-width: $mobile-large)
-					display: none
-			input
-				display: block
-				margin-bottom: 30px
-				width: 100%
-			.button-holder
-				text-align: right
-				button
-					border: 3px solid $main-color
-					padding: 15px 22px
-					background: none
-					text-transform: uppercase
-					color: black
-					font-size: 15px
-					font-weight: 700
-					letter-spacing: 0
-					line-height: 1em
-					margin-top: 10px
-					transition: background .3s
-					&:hover
-						background: $main-color
-						transition: background .1s
-	&.first
-		margin-top: 71px
-		.section-label
-			top: 8px
+					display: block
+					width: 100%
+				&:hover
+					background: $main-color
+					transition: background .1s
 
 .subscribe.event-page
 	margin-top: 114px
@@ -89,10 +93,14 @@ section.all-events
 	margin-top: 100px
 	font-size: 0
 	letter-spacing: 0
+	@media (max-width: $mobile-large)
+		margin-top: 161px
 	.section-label
 		top: 0
 	.event
 		margin-bottom: 78px
+		@media (max-width: $mobile-large)
+			margin-bottom: 144px
 		h4
 			color: black
 			font-size: 18px
@@ -108,6 +116,11 @@ section.all-events
 			margin-top: 15px
 			// TODO verify it
 			letter-spacing: 1px
+			@media (max-width: $mobile-large)
+				margin-top: 10px
+				font-size: 25px
+				line-height: 30px
+				// font-weight: 500
 		p, .address
 			color: black
 			font-size: 18px
@@ -127,6 +140,12 @@ section.all-events
 			white-space: nowrap
 			bottom: -8px
 			width: 50%
+			@media (max-width: $mobile-large)
+				padding: 20px 0
+				position: static
+				width: 100%
+				white-space: normal
+				display: none
 			&:before
 				background: url(../img/icons/pin-2.svg) no-repeat
 				background-size: contain
@@ -136,6 +155,8 @@ section.all-events
 				top: 4px
 				height: 24px
 				width: 25px
+				@media (max-width: $mobile-large)
+					display: none
 			&:after
 				content: ''
 				background: black
@@ -144,19 +165,86 @@ section.all-events
 				position: absolute
 				top: -24px
 				width: 45px
+				@media (max-width: $mobile-large)
+					display: none
 		.image-container, .description-container
 			display: inline-block
 			vertical-align: top
 		.image-container
 			position: relative
 			width: 28.9%
+			@media (max-width: $mobile-large)
+				width: 100%
 			.image-holder
 				min-height: 18vw
 				width: 86.5%
+				@media (max-width: $mobile-large)
+					height: 191px
+					min-height: 1px
+					width: 100%
 		.description-container
 			width: 100% - 28.9%
+			@media (max-width: $mobile-large)
+				width: 100%
 		.info-holder
 			padding-right: 10%
+			@media (max-width: $mobile-large)
+				margin-top: 19px
+				padding-right: 0
+		.mobile-footer
+			display: none
+			position: relative
+			margin-top: 71px
+			@media (max-width: $mobile-large)
+				display: block
+			&:before
+				content: ''
+				background: black
+				height: 3px
+				left: 1px
+				position: absolute
+				top: -17px
+				width: 45px
+			.conditions
+				display: inline-block
+				width: 100%
+				&, b, span
+					color: black
+					font-size: 18px
+					font-weight: 700
+					line-height: 30px
+					letter-spacing: 0
+				&
+					line-height: 20px
+				span
+					display: block
+					font-size: 15px
+					line-height: 20px
+					font-weight: 500
+				b
+					line-height: 27px
+			.address
+				color: black
+				display: inline-block
+				margin-top: -7px
+				width: 100%
+				&, b, span
+					font-size: 18px
+					font-weight: 600
+					line-height: 30px
+					letter-spacing: 0
+				&
+					line-height: 20px
+				span
+					display: block
+					font-size: 15px
+					line-height: 20px
+					font-weight: 500
+				b
+					line-height: 25px
+					font-weight: 900
+					letter-spacing: 1px
+
 	.button-holder
 		margin-top: 80px
 		text-align: left
@@ -167,12 +255,21 @@ section.old-events
 	margin-top: 40px
 	font-size: 0
 	letter-spacing: 0
+	@media (max-width: $mobile-large)
+		margin-top: 5px
 	.section-label
 		top: 0
+		@media (max-width: $mobile-large)
+			margin-bottom: 17px
+	.container
+		@media (max-width: $mobile-large)
+			margin: 0
+			width: 100%
 	.event
 		background-color: #fafafa
 		border: 1px solid #efefef
-		// margin-bottom: 78px
+		@media (max-width: $mobile-large)
+			margin-bottom: 60px
 		h4
 			color: black
 			font-size: 18px
@@ -204,7 +301,6 @@ section.old-events
 			// font-weight: 500
 			// letter-spacing: 0.72px
 		.address
-			color: #000
 			color: #bfbfbf
 			display: inline-block
 			font-size: 18px
@@ -216,6 +312,11 @@ section.old-events
 			bottom: 42px
 			width: 100%
 			width: calc(100% - 60px)
+			@media (max-width: $mobile-large)
+				position: static
+				padding: 13px 0 2px
+				white-space: normal
+				width: 100%
 			&:after
 				content: ''
 				background: black
@@ -224,6 +325,8 @@ section.old-events
 				position: absolute
 				top: -15px
 				width: 45px
+				@media (max-width: $mobile-large)
+					position: static
 			p
 				color: inherit
 				font-size: inherit
@@ -239,20 +342,96 @@ section.old-events
 				top: 4px
 				height: 24px
 				width: 25px
+			@media (max-width: $mobile-large)
+				display: none
 		.image-container, .description-container
 			display: inline-block
 			vertical-align: top
 			width: 50%
+			@media (max-width: $mobile-large)
+				width: 100%
 		.image-container
 			position: relative
+			@media (max-width: $mobile-large)
+				padding: 40px 20px 0
 			.image-holder
+				@media (max-width: $mobile-large)
+					height: 191px
 		.description-container
 			padding: 48px 60px
+			@media (max-width: $mobile-large)
+				display: none
+				padding: 40px 20px
+		.mobile-footer
+			display: none
+			position: relative
+			margin-top: 1
+			@media (max-width: $mobile-large)
+				display: block
+				padding: 0 20px 26px
+			.description
+				color: black
+				font-size: 25px
+				font-weight: 600
+				line-height: 30px
+				position: relative
+				margin-bottom: 72px
+				&:after
+					content: ''
+					background: #bfbfbf
+					height: 3px
+					left: 0
+					position: absolute
+					bottom: -56px
+					width: 45px
+			.conditions
+				display: inline-block
+				width: 100%
+				&, b, span
+					color: #bfbfbf
+					font-size: 18px
+					font-weight: 700
+					line-height: 20px
+					letter-spacing: 1px
+					letter-spacing: 0
+				span
+					display: block
+					font-size: 15px
+					line-height: 20px
+					font-weight: 500
+				b
+					line-height: 27px
+			.address
+				color: #bfbfbf
+				display: inline-block
+				width: 50%
+				margin-top: -3px
+				width: 100%
+				&, b, span
+					font-size: 18px
+					font-weight: 600
+					line-height: 30px
+					letter-spacing: 0
+				&
+					line-height: 20px
+				span
+					display: block
+					font-size: 15px
+					line-height: 20px
+					font-weight: 500
+				b
+					line-height: 25px
+					font-weight: 900
+					letter-spacing: 1px
 	.button-holder
 		margin-top: 80px
 		text-align: left
+		@media (max-width: $mobile-large)
+			padding: 0 20px
 		.btn
 			min-width: 25%
+			@media (max-width: $mobile-large)
+				width: 100%
 
 section.programm-graph
 	.section-label

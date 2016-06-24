@@ -10,8 +10,8 @@ html(lang='en')
 		include ./partials/navigation.jade
 
 		section.hottest
-			.section-label
-				//- span hottest
+			.section-label.mobile-center
+				span events
 				img(src="img/icons/side-labels/hottest.svg", alt="hottest")
 			.container
 				.tint
@@ -19,7 +19,9 @@ html(lang='en')
 					.title-yellow 21 Марта / 18:00
 					h2 Лофт Мастер карате и джиу-танго
 					.footer
-						.conditions Вход свободный (По регистрации)
+						.conditions
+							b Вход свободный 
+							span (По регистрации)
 						.address
 							b Prostir 86 
 							span ул. Малевича 86
@@ -30,59 +32,70 @@ html(lang='en')
 				img(src="img/icons/side-labels/all.svg", alt="all")
 			.container
 				ul.events-list
-					mixin event-list(date, name, address, image)
+					mixin event-list(date, name, address, image, conditions)
 						li.event
 							.image-container
 								.image-holder
 									img(src= image, alt= name)
-								.address= address
+								.address!= address
 							.description-container
 								.info-holder
-									h4= date
-									h3= name
+									h4!= date
+									h3!= name
+							.mobile-footer
+								.conditions!= conditions
+								.address!= address
 					+event-list(
 						'21 Марта / 18:00',
 						'Жизнь течет, как твой кран кушай кашу, а не трам, твой братюня наркоман, никогда не слушал мам',
-						'Prostir 86  ул. Малевича 86',
-						'https://unsplash.it/500/500?image=411'
+						'<b>Prostir 86 </b><span>ул. Малевича 86</span>',
+						'https://unsplash.it/500/500?image=411',
+						'<b>Вход свободный </b><span>(По регистрации)</span>'
 						)
 					+event-list(
 						'22 Марта / 18:00',
 						'Пау-пау, Бау-Бау, И пиф-паф-ПУК',
-						'Prostir 86  ул. Малевича 86',
-						'https://unsplash.it/500/500?image=410'
+						'<b>Prostir 86 </b><span>ул. Малевича 86</span>',
+						'https://unsplash.it/500/500?image=410',
+						'<b>Вход свободный </b><span>(По регистрации)</span>'
 						)
 
 		section.old-events
-			.section-label
-				//- span old
+			.section-label.mobile-center
+				span old
 				img(src="img/icons/side-labels/old.svg", alt="old")
 			.container
 				ul.events-list
-					mixin event-list(date, name, address, image)
+					mixin event-list(date, name, address, image, conditions)
 						li.event
 							.description-container
 								.info-holder
 									.label Отчет:
-									h3= name
+									h3!= name
 							.image-container
 								.image-holder
 									img(src= image, alt= name)
 								.address
-									p= date
-									p.address-icon= address
+									p!= date
+									p.address-icon!= address
+							.mobile-footer
+								.description!= name
+								.conditions!= conditions
+								.address!= address
 
 					+event-list(
 						'21 Марта / 18:00',
 						'Жизнь течет, как твой кран кушай кашу, а не трам, твой братюня наркоман, никогда не слушал мам',
-						'Prostir 86  ул. Малевича 86',
-						'https://unsplash.it/500/500?image=411'
+						'<b>Prostir 86 </b><span>ул. Малевича 86</span>',
+						'https://unsplash.it/500/500?image=411',
+						'<b>Вход свободный </b><span>(По регистрации)</span>'
 						)
 					+event-list(
 						'22 Марта / 18:00',
 						'Пау-пау, Бау-Бау, И пиф-паф-ПУК',
-						'Prostir 86  ул. Малевича 86',
-						'https://unsplash.it/500/500?image=410'
+						'<b>Prostir 86 </b><span>ул. Малевича 86</span>',
+						'https://unsplash.it/500/500?image=410',
+						'<b>Вход свободный </b><span>(По регистрации)</span>'
 						)
 				.button-holder
 					.btn.load-more показать больше

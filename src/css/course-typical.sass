@@ -296,67 +296,117 @@ section.register-section
 			padding: 14px 14px
 			@media (max-width: $mobile-large)
 				width: 100%
+	.mobile-description
+		display: none
+		@media (max-width: $mobile-large)
+			display: block
+		&, p
+			color: #000
+			font-size: 15px
+			font-weight: 400
+			line-height: 20px
 
 section.course-report
 	.section-label
 		top: 100px
+		@media (max-width: $mobile-large)
+			padding-top: 100px
 	.container
 		position: relative
+		@media (max-width: $mobile-large)
+			position: static
 	.article-like
 		left: -100px
 		top: 100px
+		@media (max-width: $mobile-large)
+			left: 0
+			top: 0
 	.wysiwyg
 		margin-top: 94px
 		width: 75%
+		@media (max-width: $mobile-large)
+			margin-top: 25px
+			width: 100%
 		p
 			color: black
 			font-size: 18px
 			font-weight: 400
 			line-height: 30px
 			margin-bottom: 29px
+			@media (max-width: $mobile-large)
+				font-size: 15px
+				line-height: 20px
+				margin-bottom: 20px
 
 section.students
 	margin-top: 140px
+	@media (max-width: $mobile-large)
+		margin-top: 103px
 	.section-label
 		top: 0
+		@media (max-width: $mobile-large)
+			margin-bottom: 26px
+	.container
+		@media (max-width: $mobile-large)
+			margin: 0
+			overflow: auto
+			padding-left: 20px
+			width: 100%
 	.students-holder
 		font-size: 0
 		letter-spacing: 0
-		.student
+		@media (max-width: $mobile-large)
+			width: 400%
+	.student
+		display: inline-block
+		margin-bottom: 42px
+		vertical-align: top
+		width: 25%
+		@media (max-width: $mobile-large)
+			width: calc(25% - 20px)
+			margin-bottom: 28px
+		.image-container, .description-container
 			display: inline-block
-			margin-bottom: 42px
 			vertical-align: top
-			width: 25%
-			.image-container, .description-container
+		.image-container
+			width: 22%
+			@media (max-width: $mobile-large)
+				margin-right: 10px
+				margin-top: 0px
+				height: 40px
+				width: 40px
+			.image-holder
+				border-radius: 50%
+				width: 88%
+				@media (max-width: $mobile-large)
+					height: 100%
+					width: 100%
+		.description-container
+			width: 78%
+			h3, h4, p
+				font-size: 15px
+				font-weight: 600
+				letter-spacing: 0
+				line-height: 2em
+				white-space: nowrap
+				overflow: hidden
+				text-overflow: ellipsis
+				@media (max-width: $mobile-large)
+					line-height: 1em
+					margin-bottom: 5px
+		.socials-holder
+			li
 				display: inline-block
-				vertical-align: top
-			.image-container
-				width: 22%
-				.image-holder
-					border-radius: 50%
-					width: 88%
-			.description-container
-				width: 78%
-				h3, h4, p
-					font-size: 15px
-					font-weight: 600
-					letter-spacing: 0
-					line-height: 2em
-					white-space: nowrap
-					overflow: hidden
-					text-overflow: ellipsis
-				p
-				.socials-holder
-					li
-						display: inline-block
-						margin-right: 24px
-						a
-							font-size: 16px
-							// i
+				margin-right: 24px
+				a
+					font-size: 16px
+					// i
 
 section.works
 	margin-top: 89px
 	margin-bottom: 46px
+	@media (max-width: $mobile-large)
+		display: none
 	.section-label
 		top: 5px
 	.container

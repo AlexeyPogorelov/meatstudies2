@@ -21,8 +21,9 @@ html(lang='en')
 							b 14 мая 2016 – 14 июля 2016
 
 		section.course-report
-			.section-label
-					img(src="img/icons/side-labels/about-alt.svg", alt="about-alt")
+			.section-label.mobile-right
+				span about
+				img(src="img/icons/side-labels/about-alt.svg", alt="about")
 			.container
 				.article-like
 				.wysiwyg
@@ -68,7 +69,8 @@ html(lang='en')
 
 		section.students
 			.section-label
-					img(src="img/icons/side-labels/students.svg", alt="students")
+				span students
+				img(src="img/icons/side-labels/students.svg", alt="students")
 			.container
 				ul.students-holder
 					mixin student(name, image)
@@ -147,7 +149,7 @@ html(lang='en')
 
 		section.works
 			.section-label
-					img(src="img/icons/side-labels/works.svg", alt="works")
+				img(src="img/icons/side-labels/works.svg", alt="works")
 			.container
 				mixin work-case(name, image, description, autor)
 					li.work
@@ -259,8 +261,11 @@ html(lang='en')
 
 		section.register-section
 			.section-label
-					img(src="img/icons/side-labels/register.svg", alt="register")
+				span register
+				img(src="img/icons/side-labels/register.svg", alt="register")
 			.container
+				.mobile-description
+					p Ура, дизайнеры сайтов на коне. Мир стал цифровым, молекулы превратились в 0 и 1. Теперь всем нужны не пластинки Элвиса Пресли, а качественные сайты для развития бизнеса.
 				form.content-holder(action="#")
 					.input-holder
 						label(for="name") Имя и фамилия

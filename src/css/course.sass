@@ -104,6 +104,11 @@ section.courses-list
 
 section.hottest
 	margin-top: 180px
+	@media (max-width: $mobile-large)
+		margin-top: 105px
+	.section-label
+		@media (max-width: $mobile-large)
+			margin-bottom: 28px
 	.tint
 		position: absolute
 		top: 0
@@ -111,10 +116,13 @@ section.hottest
 		right: 0
 		bottom: 0
 		background: rgba(0,0,0,0.4)
+		@media (max-width: $mobile-large)
+			left: 20px
+			right: 20px
 	.container
 		position: relative
 		@media (max-width: $mobile-large)
-			padding: 0 20px
+			padding: 0 40px
 			width: 100%
 		&:before
 			display: block
@@ -126,17 +134,25 @@ section.hottest
 			right: 0
 			bottom: 0
 			left: -10.4%
+			@media (max-width: $mobile-large)
+				left: 20px
+				right: 20px
 	.content-holder
 		position: relative
 		padding: 54px 0 45px
 		color: #fff
 		font-size: 0
 		letter-spacing: 0
+		@media (max-width: $mobile-large)
+			padding: 25px 0 17px
 		h2
 			color: white
 			font-size: 30px
 			font-weight: 700
 			line-height: 40px
+			@media (max-width: $mobile-large)
+				font-size: 25px
+				line-height: 30px
 		.title-report
 			color: white
 			font-size: 50px
@@ -153,6 +169,10 @@ section.hottest
 			line-height: 30px
 			letter-spacing: 1px
 			margin-bottom: 28px
+			@media (max-width: $mobile-large)
+				font-size: 18px
+				line-height: 25px
+				margin-bottom: 9px
 		.pre-footer
 			color: $main-color
 			font-size: 20px
@@ -165,6 +185,8 @@ section.hottest
 	.footer
 		position: relative
 		margin-top: 90px
+		@media (max-width: $mobile-large)
+			margin-top: 107px
 		&:before
 			content: ''
 			background: white
@@ -173,21 +195,56 @@ section.hottest
 			position: absolute
 			top: -24px
 			width: 42px
+			@media (max-width: $mobile-large)
+				top: -17px
+				width: 45px
 		.conditions
 			display: inline-block
-			color: white
-			font-size: 18px
-			font-weight: 700
-			line-height: 30px
-			letter-spacing: 1px
 			width: 50%
+			@media (max-width: $mobile-large)
+				width: 100%
+			&, b, span
+				color: white
+				font-size: 18px
+				font-weight: 700
+				line-height: 30px
+				letter-spacing: 1px
+			@media (max-width: $mobile-large)
+				&, b, span
+					letter-spacing: 0
+				&
+					line-height: 20px
+				span
+					display: block
+					font-size: 15px
+					line-height: 20px
+					font-weight: 500
+				b
+					line-height: 27px
 		.address
 			color: white
 			display: inline-block
-			font-size: 18px
-			font-weight: 600
-			line-height: 30px
 			width: 50%
+			@media (max-width: $mobile-large)
+				margin-top: 12px
+				width: 100%
+			&, b, span
+				font-size: 18px
+				font-weight: 600
+				line-height: 30px
+				letter-spacing: 1px
+			@media (max-width: $mobile-large)
+				&, b, span
+					letter-spacing: 0
+				&
+					line-height: 20px
+				span
+					display: block
+					font-size: 15px
+					line-height: 20px
+					font-weight: 500
+				b
+					line-height: 25px
 			&:before
 				background: url(../img/icons/pin-1.svg) no-repeat
 				background-size: contain
@@ -197,6 +254,8 @@ section.hottest
 				top: 4px
 				height: 24px
 				width: 25px
+				@media (max-width: $mobile-large)
+					display: none
 			b
 				font-weight: 900
 				letter-spacing: 1px
