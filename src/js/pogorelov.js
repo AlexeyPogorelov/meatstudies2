@@ -995,11 +995,10 @@ $.fn.cardsSlider = function (opt) {
 						})();
 
 				// move active card
-				console.log(mult);
 				if ( !(state.$activeSlide instanceof jQuery && state.$prevSlide instanceof jQuery && state.$nextSlide instanceof jQuery) ) return;
 
 				// if (mult < 0) mult = -mult
-				if (mult < 0 || mult > 1) return
+				if (mult < 0 || mult > 1 || isNaN(mult)) return
 
 				if (mult <= 0.7) {
 					stepChanged = step.set(1);
@@ -1009,6 +1008,7 @@ $.fn.cardsSlider = function (opt) {
 					stepChanged = step.set(3);
 				}
 
+				console.log(mult);
 				// 0.3 = 1
 				// 0 = x
 				if (step.get() === 1) {
@@ -1089,6 +1089,29 @@ $.fn.cardsSlider = function (opt) {
 				}
 
 			},
+			animateSlideToFinish: function (status, speed, startTime) {
+				console.info( 'animateSlideToFinish' );
+				var animationTime, endTime, startAnimation;
+				animationTime = speed - speed * status;
+				endTime = startTime + animationTime;
+				startAnimationTime = endTime - speed;
+				requestAnimFrame(function loop () {
+
+					var time = new Date().getTime(),
+						calculatedState = status * (time - startAnimationTime) / (startTime - startAnimationTime);
+
+					if (time > endTime) {
+						plg.renderState( 1 );
+						return;
+					}
+
+					// startTime - startAnimationTime = status
+					// time - startAnimationTime = x
+
+					plg.renderState( calculatedState );
+					requestAnimFrame( loop );
+				});
+			},
 			createPagination: function () {
 				console.info( 'createPagination' );
 
@@ -1127,34 +1150,6 @@ $.fn.cardsSlider = function (opt) {
 				$('<div>')
 					.addClass( opt.nextClass )
 					.appendTo( DOM.$pagination );
-
-			},
-			transitionEnded: function (e) {
-
-				if (this !== e.target) return;
-				console.info( 'transitionEnded' );
-
-				state.animated = false;
-
-				DOM.$sliderHolder.css({
-					'transition': 'none'
-				});
-
-				// todo add class
-				// DOM.$slider.removeClass('animated');
-
-				if ( typeof state.doAfterTransition === 'function' ) {
-
-					setTimeout(function () {
-
-						state.doAfterTransition();
-						state.doAfterTransition = null;
-
-					}, 10);
-
-				}
-
-				pagesState.lastScrollTime = new Date().getTime();
 
 			},
 			getCurrent: function () {
@@ -1288,10 +1283,12 @@ $.fn.cardsSlider = function (opt) {
 			}).on('touchend touchcancel', function (e) {
 				// TODO reformat it
 				var distance = 70,
-					speed = opt.speed || 200;
+					speed = opt.speed || 200,
+					currentStatus = state.deltaX / state.itemWidth;
 
-				if (state.deltaX / state.itemWidth < 1) {
+				if (currentStatus < 1) {
 					// TODO complete animation
+					plg.animateSlideToFinish(currentStatus, opt.speed, new Date().getTime());
 				}
 
 				state.touchEnd.xPos = 0;
@@ -1349,17 +1346,15 @@ $.fn.cardsSlider = function (opt) {
 
 		}
 
-		DOM.$sliderHolder.on(transitionPrefix, plg.transitionEnded);
-
 		$window.on( 'resize', plg.resize.bind(plg) );
 
 		return {
-					'getCurrent': plg.getCurrent,
-					'init': plg.init,
-					'nextSlide': plg.nextSlide,
-					'prevSlide': plg.prevSlide,
-					'toSlide': plg.toSlide
-				};
+				'getCurrent': plg.getCurrent,
+				'init': plg.init,
+				'nextSlide': plg.nextSlide,
+				'prevSlide': plg.prevSlide,
+				'toSlide': plg.toSlide
+			};
 	};
 
 	if (this.length > 1) {
