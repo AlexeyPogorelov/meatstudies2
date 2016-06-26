@@ -998,7 +998,8 @@ $.fn.cardsSlider = function (opt) {
 				if ( !(state.$activeSlide instanceof jQuery && state.$prevSlide instanceof jQuery && state.$nextSlide instanceof jQuery) ) return;
 
 				// if (mult < 0) mult = -mult
-				if (mult < 0 || mult > 1 || isNaN(mult)) return
+				// if (mult < 0 || mult > 1 || isNaN(mult)) return
+				if ( isNaN(mult) ) return
 
 				if (mult <= 0.7) {
 					stepChanged = step.set(1);
@@ -1070,6 +1071,8 @@ $.fn.cardsSlider = function (opt) {
 				// end
 				if (step.get() === 3) {
 
+					if (!stepChanged) return;
+
 					state.$activeSlide
 						.css({
 							'z-index': 3,
@@ -1107,6 +1110,29 @@ $.fn.cardsSlider = function (opt) {
 
 					// startTime - startAnimationTime = status
 					// time - startAnimationTime = x
+
+					plg.renderState( calculatedState );
+					requestAnimFrame( loop );
+				});
+			},
+			animateSlideToStart: function (status, speed, startTime) {
+				console.info( 'animateSlideToStart' );
+				var animationTime, endTime, startAnimation;
+				animationTime = speed * status;
+				endTime = startTime + animationTime;
+				startAnimationTime = startTime - animationTime;
+				requestAnimFrame(function loop () {
+
+					var time = new Date().getTime(),
+						calculatedState = status * (endTime - time) / (startTime - startAnimationTime);
+
+					if (time > endTime) {
+						plg.renderState( 0 );
+						return;
+					}
+
+					// startTime - startAnimationTime = status
+					// endTime - time = x
 
 					plg.renderState( calculatedState );
 					requestAnimFrame( loop );
@@ -1286,8 +1312,11 @@ $.fn.cardsSlider = function (opt) {
 					speed = opt.speed || 200,
 					currentStatus = state.deltaX / state.itemWidth;
 
-				if (currentStatus < 1) {
+				if (currentStatus < 0.3) {
 					// TODO complete animation
+					// plg.animateSlideToFinish(currentStatus, opt.speed, new Date().getTime());
+					plg.animateSlideToStart(currentStatus, opt.speed, new Date().getTime());
+				} else if (currentStatus < 1) {
 					plg.animateSlideToFinish(currentStatus, opt.speed, new Date().getTime());
 				}
 
