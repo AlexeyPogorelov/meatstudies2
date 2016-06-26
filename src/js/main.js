@@ -64,7 +64,7 @@ var loading = {
 
 			bodyOverflow.unfixBody();
 
-			$(window).trigger('scroll').trigger('resize');
+			// $(window).trigger('scroll').trigger('resize');
 
 			loading.status(0);
 			$(this).detach();

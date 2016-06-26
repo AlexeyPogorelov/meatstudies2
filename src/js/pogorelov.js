@@ -647,27 +647,33 @@ $.fn.cardsSlider = function (opt) {
 		'loop': true,
 		'mouseDrug': true,
 		'mouseWheel': true,
-		'nextClass': 'arrow-right',
+		'nextClass': 'next-slide',
+		'paginationHolderClass': 'pagination-holder',
+		'paginationPageClass': 'page',
 		'preloaderClass': 'slide',
-		'prevClass': 'arrow-left',
+		'prevClass': 'prev-slide',
+		'scaleFactor': 0.8,
 		'sectionClass': 'section',
 		'slideClass': 'slide',
 		'slidesOnPage': 1,
 		'speed': 400,
 		'startSlide': 0,
-		'swing': 40,
+		'swing': 20,
 		'touch': true,
 		'viewportClass': 'viewport'
 	}, opt);
 
 	var plugin = function (i) {
 
-		var DOM = {},
+		// privat and cnstants
+		var self = this,
+			DOM = {
+				$slider: $(self)
+			},
 			state = {
 				'touchStart': {},
 				'touchEnd': {}
 			},
-			self = this,
 			$window = $(window),
 			touchendCleaner = function () {
 				DOM.$sliderHolder.removeClass('touched');
@@ -684,11 +690,14 @@ $.fn.cardsSlider = function (opt) {
 				state.touchStart.yPos = null;
 			};
 
+		// TODO remove it
+		_pogorelov.state = state;
+
 		// methods
 		var plg = {
 			cacheDOM: function () {
-				DOM.$slider = $(self);
-				DOM.$section = $(self).closest('.' + opt.sectionClass);
+				console.info( 'cacheDOM' );
+				DOM.$section = DOM.$slider.closest('.' + opt.sectionClass);
 				DOM.$preloader = DOM.$slider.find('.' + opt.preloaderClass);
 				DOM.$viewport = DOM.$slider.find('.' + opt.viewportClass);
 				DOM.$sliderHolder = DOM.$viewport.find('.' + opt.holderClass);
@@ -696,32 +705,21 @@ $.fn.cardsSlider = function (opt) {
 				DOM.$slides.eq( state.current || 0 ).addClass('active');
 			},
 			init: function () {
+				console.info( 'init' );
+				this.cacheDOM();
 				state.current = state.current || 0;
 				state.slides = DOM.$slides.length;
 				state.pages = Math.ceil(DOM.$slides.length / opt.slidesOnPage);
+
+				// console.log(this)
 
 				if (this.initialized) return false;
 
 				this.addIdsToSlides();
 
-				if (opt.loop) {
+				if (opt.loop) this.createClones();
 
-					DOM.$slides.each(function (i) {
-						$(this)
-							.clone()
-							.addClass('cloned')
-							.insertBefore( DOM.$slides.eq(0) )
-							.clone()
-							.appendTo( DOM.$sliderHolder );
-					});
-
-					DOM.$slidesAndCloned = DOM.$sliderHolder.find(opt.slideClass);
-
-				}
-
-				if (opt.slidesClickable) {
-					this.addHandlersToSlides();
-				}
+				if (opt.slidesClickable) this.addHandlersToSlides();
 
 				DOM.$preloader.fadeOut(150);
 
@@ -729,30 +727,50 @@ $.fn.cardsSlider = function (opt) {
 
 			},
 			addIdsToSlides: function () {
+				console.info( 'addIdsToSlides' );
 
 				DOM.$slides.not('.cloned').each(function (i) {
 					$(this).attr('data-id', i);
 				});
 
 			},
-			addHandlersToSlides: function () {
+			createClones: function () {
+				console.info( 'createClones' );
 
-				DOM.$slides.not('.cloned').each(function (i) {
-					var $self = $(this);
-					$self.find('a').on('click', function (e) {
-						if (!$self.hasClass('active')) {
-							e.preventDefault();
-							if (i > state.current) {
-								plg.nextSlide();
-							} else {
-								plg.prevSlide();
-							}
-						}
-					});
+				DOM.$slides.each(function (i) {
+					$(this)
+						.clone()
+						.addClass('cloned')
+						.insertBefore( DOM.$slides.eq(0) )
+						.clone()
+						.appendTo( DOM.$sliderHolder );
 				});
+
+				DOM.$slidesAndCloned = DOM.$slider.find( '.' + opt.slideClass);
+
+			},
+			addHandlersToSlides: function () {
+				console.info( 'addHandlersToSlides' );
+				console.warn( 'remove this methood!' );
+
+				// DOM.$slides.not('.cloned').each(function (i) {
+				// 	var $self = $(this);
+				// 	$self.on('click', function (e) {
+				// 		if (!$self.hasClass('active')) {
+				// 			e.preventDefault();
+				// 			e.stopPropagation();
+				// 			if (i > state.current) {
+				// 				plg.nextSlide();
+				// 			} else {
+				// 				plg.prevSlide();
+				// 			}
+				// 		}
+				// 	});
+				// });
 
 			},
 			calculateMaxHeight: function ($el) {
+				console.info( 'calculateMaxHeight' );
 
 				var max = 1;
 
@@ -775,12 +793,14 @@ $.fn.cardsSlider = function (opt) {
 
 			},
 			resize: function () {
+				console.info( 'resize' );
 
 				state.sliderWidth = DOM.$viewport.width();
 
 				if ($window.width() > 300 && opt.slidesOnPage > 1 && $window.width() <= 700) {
 
 					opt.slidesOnPage = Math.floor( opt.slidesOnPage / 2 );
+					// TODO is this needed?
 					plg.init();
 
 				}
@@ -813,6 +833,7 @@ $.fn.cardsSlider = function (opt) {
 
 			},
 			prevSlide: function () {
+				console.info( 'prevSlide' );
 
 				var id = state.current - 1;
 				if (id < 0 && false) {
@@ -827,6 +848,7 @@ $.fn.cardsSlider = function (opt) {
 
 			},
 			nextSlide: function () {
+				console.info( 'nextSlide' );
 
 				var id = state.current + 1;
 				if (id >= state.pages && false) {
@@ -841,6 +863,7 @@ $.fn.cardsSlider = function (opt) {
 
 			},
 			fakeAnimation: function (id) {
+				console.info( 'fakeAnimation' );
 
 				var direction = state.current > id ? true : false;
 
@@ -882,6 +905,10 @@ $.fn.cardsSlider = function (opt) {
 			},
 			toSlide: function (id, resize) {
 
+				console.info( 'toSlide' );
+
+				var $activeSlide;
+
 				if ( id < 0 || id >= state.pages ) {
 					console.warn('id is ' + id);
 					return;
@@ -889,87 +916,181 @@ $.fn.cardsSlider = function (opt) {
 
 				state.current = id;
 
-				if ( DOM.$sliderHolder.hasClass('touched') || resize ) {
+				if (opt.loop) {
 
-					state.animated = false;
+					// console.log( $('[data-id="' + id + '"]') );
+					// console.log( id );
+
+					DOM.$slidesAndCloned
+						.removeClass('active fake-active')
+						.filter('[data-id="' + id + '"]').each(function () {
+							$self = $(this);
+							if ($self.hasClass('cloned')) {
+								$self.addClass('fake-active');
+							} else {
+								$self.addClass('active');
+								$activeSlide = $self;
+							}
+						});
 
 				} else {
 
-					state.animated = true;
+					$activeSlide = DOM.$slides
+									.removeClass('active')
+									.eq(id)
+									.addClass('active');
 
 				}
 
-				if (opt.loop) {
+				// TODO ...
+				// save active
+				try {
 
-					DOM.$slidesAndCloned.removeClass('active fake-active');
-					DOM.$slidesAndCloned.filter('[data-id="' + id + '"]').each(function () {
-						$self = $(this);
-						if ($self.hasClass('cloned')) {
-							$self.addClass('fake-active');
-						} else {
-							$self.addClass('active');
-						}
-					});
+					state.$activeSlide = $activeSlide;
+					state.$prevSlide = $activeSlide.prev();
+					state.$nextSlide = $activeSlide.next();
 
-				} else {
+				} catch (e) {
 
-					DOM.$slides.removeClass('active').eq(id).addClass('active');
+					console.error(e);
+					state.$prevSlide = null;
+					state.$nextSlide = null;
 
 				}
 
 				if (opt.pagination) {
 
-					DOM.$pagination.find('.page').eq(id).addClass('active').siblings().removeClass('active');
+					DOM.$pagination
+						.find('.page')
+						.eq(id)
+						.addClass('active')
+						.siblings()
+						.removeClass('active');
 
 				}
 
-				DOM.$slides.eq(id).addClass('active').siblings().removeClass('active');
+				// DOM.$slides
+				// 	.eq(id)
+				// 	.addClass('active')
+				// 	.siblings()
+				// 	.removeClass('active');
 
 			},
 			renderState: function (mult) {
+				var stepChanged = null,
+					step = (function (s) {
+							var stp = null;
+							return {
+								get: function (s) {
+									return stp;
+								},
+								set: function (s) {
+									if (s !== stp) {
+										stp = s;
+										return true;
+									}
+									return false;
+								}
+							}
+						})();
+
 				// move active card
 				console.log(mult);
-				if (mult < 0) {
+				if ( !(state.$activeSlide instanceof jQuery && state.$prevSlide instanceof jQuery && state.$nextSlide instanceof jQuery) ) return;
 
-					return;
+				// if (mult < 0) mult = -mult
+				if (mult < 0 || mult > 1) return
 
-				} else if (mult < 1) {
+				if (mult <= 0.7) {
+					stepChanged = step.set(1);
+				} else if (mult > 0.7 && mult < 1) {
+					stepChanged = step.set(2);
+				} else {
+					stepChanged = step.set(3);
+				}
 
-					DOM.$slides
-						.eq( state.current )
+				// 0.3 = 1
+				// 0 = x
+				if (step.get() === 1) {
+
+					state.$activeSlide
 						.css({
-							'left': opt.swing * mult
+							'z-index': 4,
+							'transform': 'scale(1)',
+							'left': state.itemWidth * mult / 0.7
 						});
 
-				} else {
+					state.$prevSlide
+						.css({
+							'z-index': 3,
+						});
 
-					return;
+						if (stepChanged) {
+							state.$activeSlide.addClass('active');
+							state.$prevSlide.removeClass('active');
+						}
+
+				} else if (step.get() === 2) {
+
+					state.$activeSlide
+						.css({
+							'z-index': 3,
+							'transform': 'scale(' + ( 1 - ( ( 1 - opt.scaleFactor ) * ( mult - 0.7 ) / 0.3 ) ) + ')',
+							'transform-origin': + (30 * mult + 70) + '% 50%',
+							'left': state.itemWidth - ( state.itemWidth * (mult - 0.7) / 0.3 ) + (opt.swing * (mult - 0.7) / 0.3 )
+						});
+
+					state.$prevSlide
+						.css({
+							'z-index': 4,
+						});
+
+						if (stepChanged) {
+							state.$activeSlide.removeClass('active');
+							state.$prevSlide.addClass('active');
+						}
 
 				}
 
-
-				// move passive card
-				if (mult < 0) {
-
-					return;
-
-				} else if (mult < 1) {
-
-					DOM.$slides
-						.eq( state.current )
-						.prev()
+				// Prev Slide
+				if (step.get() === 1 || step.get() === 2) {
+					state.$prevSlide
 						.css({
-							'left': opt.swing * mult - opt.swing / 2
+							'transform': 'scale(' + (0.2 * mult + opt.scaleFactor) + ')',
+							'transform-origin': + (50 * mult) + '% 50%',
+							'left':  -opt.swing + opt.swing * mult
+						});
+				}
+
+				// state.$nextSlide
+				// 	.css({
+				// 		'left': opt.swing * mult
+				// 	});
+
+				// end
+				if (step.get() === 3) {
+
+					state.$activeSlide
+						.css({
+							'z-index': 3,
+							'transform': 'scale(' + opt.scaleFactor + ')',
+							'transform-origin': '100% 50%',
+							'left': opt.swing
 						});
 
-				} else {
-
-					return;
+					state.$prevSlide
+						.css({
+							'z-index': 4,
+							'transform': 'scale(1)',
+							'transform-origin': '50% 50%',
+							'left': 0
+						});
 
 				}
 
 			},
 			createPagination: function () {
+				console.info( 'createPagination' );
 
 				if (DOM.$pagination) {
 
@@ -977,7 +1098,7 @@ $.fn.cardsSlider = function (opt) {
 
 				} else {
 
-					DOM.$pagination = $('<div>').addClass('paginator-holder');
+					DOM.$pagination = $('<div>').addClass( opt.paginationHolderClass );
 
 					if (opt.pagination || true) {
 
@@ -988,11 +1109,11 @@ $.fn.cardsSlider = function (opt) {
 				}
 
 				$('<div>')
-					.addClass('prev-slide')
-					.appendTo(DOM.$pagination);
+					.addClass( opt.prevSlide )
+					.appendTo( DOM.$pagination );
 
 				for (var i = 0; i < state.pages / opt.slidesOnPage; i++) {
-					var page = $('<div>').data('page', i).addClass('page');
+					var page = $('<div>').data('page', i).addClass( opt.paginationPageClass );
 
 					if (!i) {
 
@@ -1000,17 +1121,18 @@ $.fn.cardsSlider = function (opt) {
 
 					}
 
-					DOM.$pagination.append(page);
+					DOM.$pagination.append( page );
 				}
 
 				$('<div>')
-					.addClass('next-slide')
-					.appendTo(DOM.$pagination);
+					.addClass( opt.nextClass )
+					.appendTo( DOM.$pagination );
 
 			},
 			transitionEnded: function (e) {
 
 				if (this !== e.target) return;
+				console.info( 'transitionEnded' );
 
 				state.animated = false;
 
@@ -1040,7 +1162,7 @@ $.fn.cardsSlider = function (opt) {
 			}
 		};
 
-		plg.cacheDOM();
+		// initializing
 		plg.init();
 		plg.resize();
 
@@ -1058,17 +1180,34 @@ $.fn.cardsSlider = function (opt) {
 
 				plg.toSlide( $(e.target).data('page') );
 
-			} else if ( $target.hasClass('prev-slide') ) {
+			} else if ( $target.hasClass( opt.prevClass ) ) {
 
 				plg.prevSlide();
 
-			} else if ( $target.hasClass('next-slide') ) {
+			} else if ( $target.hasClass( opt.nextClass ) ) {
 
 				plg.nextSlide();
 
 			} else if ( opt.clickToNext && $target.parents(opt.slideClass).length ) {
 
-				plg.nextSlide();
+				// plg.nextSlide();
+
+
+				var $slideTrigger = $target.closest(opt.slideClass);
+				var targetId =  parseInt( $slideTrigger.attr('data-id') );
+				if (typeof targetId !== 'number') return
+
+				// TODO not .not('.cloned')
+
+				if (!$slideTrigger.hasClass('active')) {
+					e.preventDefault();
+					e.stopPropagation();
+					if (targetId > state.current) {
+						plg.nextSlide();
+					} else {
+						plg.prevSlide();
+					}
+				}
 
 			}
 
@@ -1151,36 +1290,12 @@ $.fn.cardsSlider = function (opt) {
 				var distance = 70,
 					speed = opt.speed || 200;
 
+				if (state.deltaX / state.itemWidth < 1) {
+					// TODO complete animation
+				}
+
 				state.touchEnd.xPos = 0;
 				state.touchEnd.yPos = 0;
-
-				// if (state.deltaX > distance || -state.deltaX > distance) {
-				// 	if (state.deltaX < 0) {
-
-				// 		if (state.animated) {
-
-				// 			state.doAfterTransition = plg.nextSlide;
-
-				// 		} else {
-
-				// 			plg.nextSlide();
-
-				// 		}
-
-				// 	} else {
-
-				// 		if (state.animated) {
-
-				// 			state.doAfterTransition = plg.prevSlide;
-
-				// 		} else {
-
-				// 			plg.prevSlide();
-
-				// 		}
-
-				// 	}
-				// }
 
 				moveendCleaner();
 
@@ -1237,9 +1352,14 @@ $.fn.cardsSlider = function (opt) {
 		DOM.$sliderHolder.on(transitionPrefix, plg.transitionEnded);
 
 		$window.on( 'resize', plg.resize.bind(plg) );
-		plg.init();
 
-		return plg;
+		return {
+					'getCurrent': plg.getCurrent,
+					'init': plg.init,
+					'nextSlide': plg.nextSlide,
+					'prevSlide': plg.prevSlide,
+					'toSlide': plg.toSlide
+				};
 	};
 
 	if (this.length > 1) {
