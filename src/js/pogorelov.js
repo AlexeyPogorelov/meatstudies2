@@ -752,22 +752,6 @@ $.fn.cardsSlider = function (opt) {
 			addHandlersToSlides: function () {
 				console.info( 'addHandlersToSlides' );
 				console.warn( 'remove this methood!' );
-
-				// DOM.$slides.not('.cloned').each(function (i) {
-				// 	var $self = $(this);
-				// 	$self.on('click', function (e) {
-				// 		if (!$self.hasClass('active')) {
-				// 			e.preventDefault();
-				// 			e.stopPropagation();
-				// 			if (i > state.current) {
-				// 				plg.nextSlide();
-				// 			} else {
-				// 				plg.prevSlide();
-				// 			}
-				// 		}
-				// 	});
-				// });
-
 			},
 			calculateMaxHeight: function ($el) {
 				console.info( 'calculateMaxHeight' );
@@ -922,12 +906,10 @@ $.fn.cardsSlider = function (opt) {
 					// console.log( id );
 
 					DOM.$slidesAndCloned
-						.removeClass('active fake-active')
+						.removeClass('active')
 						.filter('[data-id="' + id + '"]').each(function () {
 							$self = $(this);
-							if ($self.hasClass('cloned')) {
-								$self.addClass('fake-active');
-							} else {
+							if (!$self.hasClass('cloned')) {
 								$self.addClass('active');
 								$activeSlide = $self;
 							}
@@ -1172,8 +1154,6 @@ $.fn.cardsSlider = function (opt) {
 				// move active card
 				if ( !( $activeSlide instanceof jQuery && $futureSlide instanceof jQuery ) ) return;
 
-				// if (mult < 0) mult = -mult
-				// if (mult < 0 || mult > 1 || isNaN(mult)) return
 				if ( isNaN(mult) ) return
 
 				if ( mult >= -0.7 && mult <= 0.7 ) {
@@ -1184,21 +1164,20 @@ $.fn.cardsSlider = function (opt) {
 					stepChanged = step.set(3);
 				}
 
-				// console.log(mult);
-
-				if (mult > 0) {
+				console.log(mult);
+				if (mult === 0 || mult >= 1 || mult <= -1) {
+					plg.renderReset($activeSlide, $futureSlide)
+				} else if (mult > 0) {
 					plg.renderFw($activeSlide, $futureSlide, mult, step.get(), stepChanged)
 				} else if (mult < 0) {
 					plg.renderBw($activeSlide, $futureSlide, mult, step.get(), stepChanged)
-				} else {
-					plg.renderReset($activeSlide, $futureSlide)
 				}
 
 			},
-			animateSlideToFinish: function (status, speed, startTime) {
+			animateSlideToFinish: function (status, speed, startTime, direction) {
 				console.info( 'animateSlideToFinish' );
 				var animationTime, endTime, startAnimation;
-				animationTime = speed - speed * status;
+				animationTime = speed - speed * Math.abs(status);
 				endTime = startTime + animationTime;
 				startAnimationTime = endTime - speed;
 				requestAnimFrame(function loop () {
@@ -1218,10 +1197,10 @@ $.fn.cardsSlider = function (opt) {
 					requestAnimFrame( loop );
 				});
 			},
-			animateSlideToStart: function (status, speed, startTime) {
+			animateSlideToStart: function (status, speed, startTime, direction) {
 				console.info( 'animateSlideToStart' );
 				var animationTime, endTime, startAnimation;
-				animationTime = speed * status;
+				animationTime = speed * Math.abs(status);
 				endTime = startTime + animationTime;
 				startAnimationTime = startTime - animationTime;
 				requestAnimFrame(function loop () {
@@ -1394,15 +1373,11 @@ $.fn.cardsSlider = function (opt) {
 				state.touchEnd.yPos = e.originalEvent.touches[0].clientY;
 
 				if (!state.touchStart.xPos) {
-
 					state.touchStart.xPos = e.originalEvent.touches[0].clientX;
-
 				}
 
 				if (!state.touchStart.yPos) {
-
 					state.touchStart.yPos = e.originalEvent.touches[0].clientY;
-
 				}
 
 				state.deltaX = state.touchEnd.xPos - state.touchStart.xPos;
@@ -1415,9 +1390,9 @@ $.fn.cardsSlider = function (opt) {
 					speed = opt.speed || 200,
 					currentStatus = state.deltaX / state.itemWidth;
 
-				if (currentStatus < 0.3) {
+				if (currentStatus < 0.3 && currentStatus > -0.3) {
 					plg.animateSlideToStart(currentStatus, opt.speed, new Date().getTime());
-				} else if (currentStatus < 1) {
+				} else if (currentStatus < 1 || currentStatus > -1) {
 					plg.animateSlideToFinish(currentStatus, opt.speed, new Date().getTime());
 				}
 
