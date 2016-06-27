@@ -696,16 +696,15 @@ $.fn.cardsSlider = function (opt) {
 		// methods
 		var plg = {
 			cacheDOM: function () {
-				console.info( 'cacheDOM' );
+				// console.info( 'cacheDOM' );
 				DOM.$section = DOM.$slider.closest('.' + opt.sectionClass);
 				DOM.$preloader = DOM.$slider.find('.' + opt.preloaderClass);
 				DOM.$viewport = DOM.$slider.find('.' + opt.viewportClass);
 				DOM.$sliderHolder = DOM.$viewport.find('.' + opt.holderClass);
 				DOM.$slides = DOM.$slidesAndCloned = DOM.$sliderHolder.find('.' + opt.slideClass);
-				// DOM.$slides.eq( state.current || 0 ).addClass('active');
 			},
 			init: function () {
-				console.info( 'init' );
+				// console.info( 'init' );
 				this.cacheDOM();
 				state.current = state.current || 0;
 				state.slides = DOM.$slides.length;
@@ -725,7 +724,7 @@ $.fn.cardsSlider = function (opt) {
 
 			},
 			addIdsToSlides: function () {
-				console.info( 'addIdsToSlides' );
+				// console.info( 'addIdsToSlides' );
 
 				DOM.$slides.not('.cloned').each(function (i) {
 					$(this).attr('data-id', i);
@@ -733,7 +732,7 @@ $.fn.cardsSlider = function (opt) {
 
 			},
 			createClones: function () {
-				console.info( 'createClones' );
+				// console.info( 'createClones' );
 
 				DOM.$slides.each(function (i) {
 					$(this)
@@ -749,7 +748,7 @@ $.fn.cardsSlider = function (opt) {
 
 			},
 			calculateMaxHeight: function ($el) {
-				console.info( 'calculateMaxHeight' );
+				// console.info( 'calculateMaxHeight' );
 
 				var max = 1;
 
@@ -772,7 +771,7 @@ $.fn.cardsSlider = function (opt) {
 
 			},
 			resize: function () {
-				console.info( 'resize' );
+				// console.info( 'resize' );
 
 				state.sliderWidth = DOM.$viewport.width();
 
@@ -812,7 +811,7 @@ $.fn.cardsSlider = function (opt) {
 
 			},
 			prevSlide: function () {
-				console.info( 'prevSlide' );
+				// console.info( 'prevSlide' );
 
 				var id = state.current - 1;
 
@@ -826,7 +825,7 @@ $.fn.cardsSlider = function (opt) {
 
 			},
 			nextSlide: function () {
-				console.info( 'nextSlide' );
+				// console.info( 'nextSlide' );
 
 				var id = state.current + 1;
 
@@ -840,7 +839,7 @@ $.fn.cardsSlider = function (opt) {
 
 			},
 			toSlide: function (id) {
-				console.info( 'toSlide' );
+				// console.info( 'toSlide' );
 
 				var $activeSlide;
 
@@ -896,7 +895,7 @@ $.fn.cardsSlider = function (opt) {
 
 			},
 			renderFw: function ($activeSlide, $futureSlide, mult, step, stepChanged) {
-				console.info( 'renderFw' );
+				// console.info( 'renderFw' );
 
 				if (step === 1) {
 
@@ -973,7 +972,7 @@ $.fn.cardsSlider = function (opt) {
 				}
 			},
 			renderBw: function ($activeSlide, $futureSlide, mult, step, stepChanged) {
-				console.info( 'renderBw' );
+				// console.info( 'renderBw' );
 
 				if (step === 1) {
 
@@ -1001,7 +1000,8 @@ $.fn.cardsSlider = function (opt) {
 							'z-index': 3,
 							'transform': 'scale(' + ( 1 - ( ( 1 - opt.scaleFactor ) * ( -mult - 0.7 ) / 0.3 ) ) + ')',
 							'transform-origin': + (30 * -mult + 70) + '% 50%',
-							'left': state.itemWidth - ( state.itemWidth * (mult + 0.7) / 0.3 ) + (-opt.swing * (mult + 0.7) / 0.3 )
+							// 'left': ( state.itemWidth * (mult + 0.7) / 0.3 ) + (-opt.swing * (mult + 0.7) / 0.3 )
+							'left': -state.itemWidth + (-state.itemWidth * (mult + 0.7) / 0.3 )
 						});
 
 					$futureSlide
@@ -1048,10 +1048,9 @@ $.fn.cardsSlider = function (opt) {
 						});
 
 				}
-
 			},
 			renderReset: function ( id ) {
-				console.info( 'renderReset' );
+				// console.info( 'renderReset' );
 				// TODO refactor
 				var resetStyles = {
 						'z-index': '',
@@ -1069,7 +1068,7 @@ $.fn.cardsSlider = function (opt) {
 					.removeClass('active')
 					.css(resetStyles);
 
-				console.warn(id)
+				// console.warn(id)
 				plg.toSlide( id );
 
 			},
@@ -1110,23 +1109,30 @@ $.fn.cardsSlider = function (opt) {
 					stepChanged = step.set(3);
 				}
 
-				console.log(mult);
+				// console.log(mult);
 
 				if (mult === 0 ) {
+					state.direction = 0;
 					plg.renderReset( state.current );
 				} else if (mult <= -1) {
+					state.direction = 0;
 					plg.renderReset( plg.nextSlide() );
 				} else if (mult >= 1) {
+					state.direction = 0;
 					plg.renderReset( plg.prevSlide() );
 				} else if (mult > 0) {
+					if (state.direction == -1) plg.renderReset( state.current );
+					state.direction = 1;
 					plg.renderFw($activeSlide, $futureSlide, mult, step.get(), stepChanged)
 				} else if (mult < 0) {
+					if (state.direction == 1) plg.renderReset( state.current );
+					state.direction = -1;
 					plg.renderBw($activeSlide, $futureSlide, mult, step.get(), stepChanged)
 				}
 
 			},
 			animateSlideToFinish: function (status, speed, startTime) {
-				console.info( 'animateSlideToFinish' );
+				// console.info( 'animateSlideToFinish' );
 				var animationTime, endTime, startAnimation;
 				animationTime = speed - speed * Math.abs(status);
 				endTime = startTime + animationTime;
@@ -1150,7 +1156,7 @@ $.fn.cardsSlider = function (opt) {
 				});
 			},
 			animateSlideToStart: function (status, speed, startTime) {
-				console.info( 'animateSlideToStart' );
+				// console.info( 'animateSlideToStart' );
 				var animationTime, endTime, startAnimation;
 				animationTime = speed * Math.abs(status);
 				endTime = startTime + animationTime;
@@ -1170,7 +1176,7 @@ $.fn.cardsSlider = function (opt) {
 				});
 			},
 			createPagination: function () {
-				console.info( 'createPagination' );
+				// console.info( 'createPagination' );
 
 				if (DOM.$pagination) {
 
@@ -1278,13 +1284,15 @@ $.fn.cardsSlider = function (opt) {
 
 					if (delta > 0) {
 
-						plg.animateSlideToStart(0.1, opt.speed, new Date().getTime());
+						plg.animateSlideToFinish(-0.1, opt.speed, new Date().getTime());
 
 					} else if (delta < 0) {
 
 						plg.animateSlideToFinish(0.1, opt.speed, new Date().getTime());
 
 					}
+
+					state.lastScrollTime = new Date().getTime();
 
 				}
 
@@ -1298,13 +1306,15 @@ $.fn.cardsSlider = function (opt) {
 
 					if (delta > 0) {
 
-						plg.animateSlideToStart(0.1, opt.speed, new Date().getTime());
+						plg.animateSlideToFinish(-0.1, opt.speed, new Date().getTime());
 
 					} else if (delta < 0) {
 
 						plg.animateSlideToFinish(0.1, opt.speed, new Date().getTime());
 
 					}
+
+					state.lastScrollTime = new Date().getTime();
 
 				}
 
@@ -1335,8 +1345,8 @@ $.fn.cardsSlider = function (opt) {
 
 				mult = state.deltaX / state.itemWidth;
 
-				mult = Math.min(0.99, mult);
-				mult = Math.max(-0.99, mult);
+				mult = Math.min(0.9999, mult);
+				mult = Math.max(-0.9999, mult);
 
 				plg.updateState( mult );
 
