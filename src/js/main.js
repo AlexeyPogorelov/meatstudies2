@@ -168,6 +168,8 @@ $(document).on('ready', function () {
 		// Initializing plugins
 		window.test = $('.video-mobile').cardsSlider({
 			'holderClass': 'videos',
+			'pagination': false,
+			'mouseWheel': false,
 			'viewportClass': 'content-holder',
 			'slideClass': 'card'
 		});

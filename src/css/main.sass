@@ -447,8 +447,8 @@ section.video
 		ul
 			height: 100%
 			li
-				position: relative
 				height: 100%
+				position: relative
 				.image-holder
 					height: 100%
 				a.more
@@ -459,8 +459,8 @@ section.video
 					z-index: 2
 	.controls
 		// float: right
-		text-align: right
 		margin-top: 29px
+		text-align: right
 		.arrow, .name
 			display: inline-block
 			vertical-align: middle
@@ -468,10 +468,10 @@ section.video
 			cursor: pointer
 		.name
 			color: black
-			margin: 0 46px
 			font-size: 15px
 			font-weight: 600
 			line-height: 1em
+			margin: 0 46px
 	&.video-course
 		margin-top: 19px
 		.videos
@@ -480,62 +480,90 @@ section.video
 			margin-left: 0
 			ul
 				li
-					letter-spacing: 0
 					font-size: 0
+					letter-spacing: 0
 			.card, .image-holder
 				display: inline-block
 			.card
-				position: relative
-				left: 0
-				top: 0
 				box-shadow: none
+				left: 0
+				position: relative
+				top: 0
 				width: 322px
 			li > .image-holder
 				display: inline-block
 				height: 100%
 				width: calc(100% - 322px)
 				&:after
-					content: ''
 					background: rgba(0, 0, 0, 0.4)
-					z-index: 1
+					content: ''
 					display: block
-					position: absolute
-					left: 0
-					top: 0
 					height: 100%
+					left: 0
+					position: absolute
+					top: 0
 					width: 100%
+					z-index: 1
 			a.more
 				left: 50%
 				transform: translate(0, -50%)
 
 section.video-mobile
-	overflow: hidden
 	margin-top: 180px
+	overflow: hidden
+	display: block
+	.section-label
+		margin-bottom: 30px
 	.videos
 		font-size: 0
 		letter-spacing: 0
 		position: relative
+		height: 436px
+	.card-image
+		height: 226px
 	.description
-		font-size: 12px
+		color: black
+		font-size: 18px
+		padding: 25px 20px
+		// font-weight: 400
+		.duration
+			position: relative
+			padding-bottom: 13px
+			&:after
+				content: ''
+				position: absolute
+				bottom: 0
+				left: 4px
+				display: block
+				background: #000
+				height: 2px
+				width: 16px
+		.price
+			margin-top: 13px
+		.btn, button
+			margin-top: 22px
+			display: block
+			font-size: 13px
+			letter-spacing: 0
+			padding-left: 0
+			padding-right: 0
+			width: 100%
 	.card
-		// display: inline-block
-		// vertical-align: top
+		// border: 1px solid #000
 		background: #fff
-		border: 1px solid #000
-		// box-shadow: 0 0 5px rgba(0, 0, 0, 0.18)
 		box-shadow: 0 0 5px rgba(0, 0, 0, 0.08)
 		left: -20px
 		position: absolute
-		height: 100px
-		width: 100px
-		transition: none !important
-		transform: scale(0.8)
 		transform-origin: 0 50%
+		transform: scale(0.8)
+		transition: none !important
+		width: 100%
 		z-index: 1
 		&.active
+			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3)
 			left: 0
-			transform: scale(1)
 			transform-origin: 50% 50%
+			transform: scale(1)
 			z-index: 3
 			& ~ .card
 				left: 20px

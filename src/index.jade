@@ -137,45 +137,51 @@ html(lang='en')
 							.arrow.right
 								img(src="img/icons/slider-arrow-right-1.svg", alt="arrow")
 
-		section.video-mobile.hidden
-			.section-label
-				span video
+		section.video-mobile
+			.section-label.mobile-center
+				span video courses
 			.container
 				.content-holder
 					ul.videos
-						li.card
-							.image-holder
-								img(src="img/content/videocourse-card-1.svg", alt="course")
+						li.card(data-name="UI+UX")
+							.image-holder.card-image
+								img.fake-img(src="http://meatstudies.com/storage/app/uploads/public/56b/1c1/ef5/56b1c1ef5a179472959108.jpg", alt="article")
+								.img(style="background-image:url(http://meatstudies.com/storage/app/uploads/public/56b/1c1/ef5/56b1c1ef5a179472959108.jpg)")
 							.description
 								.duration 15 уроков по 30 мин.
 								.price 2 000 грн / 80 usd
-						li.card
-							.image-holder
-								img(src="img/content/videocourse-card-1.svg", alt="course")
+								a.btn(href="#") подробнее о видеокурсе
+						li.card(data-name="UX+UI")
+							.image-holder.card-image
+								img.fake-img(src="http://apptractor.ru/wp-content/uploads/2015/08/210-667x500.png", alt="article")
+								.img(style="background-image:url(http://apptractor.ru/wp-content/uploads/2015/08/210-667x500.png)")
 							.description
 								.duration 15 уроков по 30 мин.
 								.price 2 000 грн / 80 usd
-						li.card
-							.image-holder
-								img(src="img/content/videocourse-card-1.svg", alt="course")
+								a.btn(href="#") подробнее о видеокурсе
+						li.card(data-name="FX+UX")
+							.image-holder.card-image
+								img.fake-img(src="http://lamcdn.net/lookatme.ru/post-cover/a3x1vLwP_j-CyVaqOiquLw-default.png", alt="article")
+								.img(style="background-image:url(http://lamcdn.net/lookatme.ru/post-cover/a3x1vLwP_j-CyVaqOiquLw-default.png)")
 							.description
 								.duration 15 уроков по 30 мин.
 								.price 2 000 грн / 80 usd
-						li.card
-							.image-holder
-								img(src="img/content/videocourse-card-1.svg", alt="course")
+								a.btn(href="#") подробнее о видеокурсе
+						li.card(data-name="2+2")
+							.image-holder.card-image
+								img.fake-img(src="https://t1.kn3.net/taringa/F/3/7/4/C/B/mavr009/DBB.jpg", alt="article")
+								.img(style="background-image:url(https://t1.kn3.net/taringa/F/3/7/4/C/B/mavr009/DBB.jpg)")
 							.description
 								.duration 15 уроков по 30 мин.
 								.price 2 000 грн / 80 usd
-					.controls
-						.arrow.left
+								a.btn(href="#") подробнее о видеокурсе
+					//- .controls-mobile
+						.arrow-left
 							img(src="img/icons/slider-arrow-left-1.svg", alt="arrow")
 						.name
 							| UI+UX
-						.arrow.right
+						.arrow-right
 							img(src="img/icons/slider-arrow-right-1.svg", alt="arrow")
-					a(href="video.html").more
-						| подробнее о видеокурсе
 
 
 		include ./partials/footer.jade

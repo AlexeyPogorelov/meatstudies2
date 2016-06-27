@@ -644,19 +644,22 @@ $.fn.cardsSlider = function (opt) {
 		'easing': 'swing',
 		'holderClass': 'slides-holder',
 		'interval': false,
+		'lablesSlider': true,
+		'lablesHolderClass': 'labels',
 		'loop': true,
 		'mouseDrug': true,
 		'mouseWheel': true,
-		'nextClass': 'next-slide',
-		'paginationHolderClass': 'pagination-holder',
+		'nextClass': 'arrow-right',
+		'pagination': true,
+		'paginationHolderClass': 'controls-mobile',
 		'paginationPageClass': 'page',
 		'preloaderClass': 'slide',
-		'prevClass': 'prev-slide',
+		'prevClass': 'arrow-left',
 		'scaleFactor': 0.8,
 		'sectionClass': 'section',
 		'slideClass': 'slide',
 		'slidesOnPage': 1,
-		'speed': 400,
+		'speed': 600,
 		'startSlide': 0,
 		'swing': 20,
 		'touch': true,
@@ -709,6 +712,7 @@ $.fn.cardsSlider = function (opt) {
 				state.current = state.current || 0;
 				state.slides = DOM.$slides.length;
 				state.pages = Math.ceil(DOM.$slides.length / opt.slidesOnPage);
+				this.createPagination();
 
 				// console.log(this)
 
@@ -1180,6 +1184,8 @@ $.fn.cardsSlider = function (opt) {
 			createPagination: function () {
 				// console.info( 'createPagination' );
 
+				var $lablesSlider;
+
 				if (DOM.$pagination) {
 
 					DOM.$pagination.empty();
@@ -1197,8 +1203,25 @@ $.fn.cardsSlider = function (opt) {
 				}
 
 				$('<div>')
-					.addClass( opt.prevSlide )
+					.addClass( opt.prevClass )
 					.appendTo( DOM.$pagination );
+
+
+				if (opt.lablesSlider) {
+
+					$lablesSlider = $('<ul>')
+						.addClass( opt.lablesHolderClass )
+						.appendTo( DOM.$pagination );
+
+					DOM.$slides.each(function (i) {
+
+						$('<li>')
+							.html( $(this).data('name') || "&nbsp" )
+							.appendTo( $lablesSlider );
+
+					});
+
+				}
 
 				for (var i = 0; i < state.pages / opt.slidesOnPage; i++) {
 					var page = $('<div>').data('page', i).addClass( opt.paginationPageClass );
