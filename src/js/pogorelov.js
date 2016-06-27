@@ -702,7 +702,7 @@ $.fn.cardsSlider = function (opt) {
 				DOM.$viewport = DOM.$slider.find('.' + opt.viewportClass);
 				DOM.$sliderHolder = DOM.$viewport.find('.' + opt.holderClass);
 				DOM.$slides = DOM.$slidesAndCloned = DOM.$sliderHolder.find('.' + opt.slideClass);
-				DOM.$slides.eq( state.current || 0 ).addClass('active');
+				// DOM.$slides.eq( state.current || 0 ).addClass('active');
 			},
 			init: function () {
 				console.info( 'init' );
@@ -718,8 +718,6 @@ $.fn.cardsSlider = function (opt) {
 				this.addIdsToSlides();
 
 				if (opt.loop) this.createClones();
-
-				if (opt.slidesClickable) this.addHandlersToSlides();
 
 				DOM.$preloader.fadeOut(150);
 
@@ -740,6 +738,7 @@ $.fn.cardsSlider = function (opt) {
 				DOM.$slides.each(function (i) {
 					$(this)
 						.clone()
+						.removeClass('active')
 						.addClass('cloned')
 						.insertBefore( DOM.$slides.eq(0) )
 						.clone()
@@ -748,10 +747,6 @@ $.fn.cardsSlider = function (opt) {
 
 				DOM.$slidesAndCloned = DOM.$slider.find( '.' + opt.slideClass);
 
-			},
-			addHandlersToSlides: function () {
-				console.info( 'addHandlersToSlides' );
-				console.warn( 'remove this methood!' );
 			},
 			calculateMaxHeight: function ($el) {
 				console.info( 'calculateMaxHeight' );
@@ -813,82 +808,38 @@ $.fn.cardsSlider = function (opt) {
 
 				DOM.$sliderHolder.width( state.holderWidth );
 
-				plg.toSlide(state.current, true);
+				plg.toSlide(state.current);
 
 			},
 			prevSlide: function () {
 				console.info( 'prevSlide' );
 
 				var id = state.current - 1;
-				if (id < 0 && false) {
 
-					plg.fakeAnimation( state.pages - 1 );
+				if (id < 0) {
 
-					return;
+					id = state.pages - 1;
 
 				}
 
-				plg.toSlide(id);
+				return id;
 
 			},
 			nextSlide: function () {
 				console.info( 'nextSlide' );
 
 				var id = state.current + 1;
-				if (id >= state.pages && false) {
 
-					plg.fakeAnimation( 0 );
+				if (id >= state.pages ) {
 
-					return;
+					id = 0;
 
 				}
 
-				plg.toSlide(id);
+				return id;
 
 			},
-			fakeAnimation: function (id) {
-				console.info( 'fakeAnimation' );
-
-				var direction = state.current > id ? true : false;
-
-				// console.log(state.animated);
-				if (state.animated) {
-					state.doAfterTransition = function () {
-						plg.fakeAnimation(id);
-					};
-					return;
-				}
-
-				DOM.$sliderHolder.addClass('touched');
-
-				if (direction) {
-
-					DOM.$slides.eq(id).addClass('unpressed');
-					DOM.$sliderHolder.css({
-						'transition': 'transform ' + opt.speed + 'ms'
-					});
-
-				} else {
-
-					DOM.$slides.eq(id).addClass('pressed');
-					DOM.$sliderHolder.css({
-						'transition': 'transform ' + opt.speed + 'ms'
-					});
-
-				}
-
-				setTimeout(function () {
-
-					DOM.$sliderHolder.removeClass('touched');
-					DOM.$slides.eq(id).removeClass('pressed unpressed');
-
-					plg.toSlide(id);
-
-				}, $.browser.mobile ? 100 : 40);
-
-			},
-			toSlide: function (id, resize) {
-
+			toSlide: function (id) {
 				console.info( 'toSlide' );
 
 				var $activeSlide;
@@ -900,29 +851,15 @@ $.fn.cardsSlider = function (opt) {
 
 				state.current = id;
 
-				if (opt.loop) {
-
-					// console.log( $('[data-id="' + id + '"]') );
-					// console.log( id );
-
-					DOM.$slidesAndCloned
-						.removeClass('active')
-						.filter('[data-id="' + id + '"]').each(function () {
-							$self = $(this);
-							if (!$self.hasClass('cloned')) {
-								$self.addClass('active');
-								$activeSlide = $self;
-							}
-						});
-
-				} else {
-
-					$activeSlide = DOM.$slides
-									.removeClass('active')
-									.eq(id)
-									.addClass('active');
-
-				}
+				DOM.$slidesAndCloned
+					.removeClass('active')
+					.filter('[data-id="' + id + '"]').each(function () {
+						$self = $(this);
+						if (!$self.hasClass('cloned')) {
+							$self.addClass('active');
+							$activeSlide = $self;
+						}
+					});
 
 				// TODO ...
 				// save active
@@ -943,7 +880,7 @@ $.fn.cardsSlider = function (opt) {
 				if (opt.pagination) {
 
 					DOM.$pagination
-						.find('.page')
+						.find('.' + opt.paginationPageClass)
 						.eq(id)
 						.addClass('active')
 						.siblings()
@@ -959,6 +896,7 @@ $.fn.cardsSlider = function (opt) {
 
 			},
 			renderFw: function ($activeSlide, $futureSlide, mult, step, stepChanged) {
+				console.info( 'renderFw' );
 
 				if (step === 1) {
 
@@ -1035,6 +973,7 @@ $.fn.cardsSlider = function (opt) {
 				}
 			},
 			renderBw: function ($activeSlide, $futureSlide, mult, step, stepChanged) {
+				console.info( 'renderBw' );
 
 				if (step === 1) {
 
@@ -1109,8 +1048,10 @@ $.fn.cardsSlider = function (opt) {
 						});
 
 				}
+
 			},
-			renderReset: function () {
+			renderReset: function ( id ) {
+				console.info( 'renderReset' );
 				// TODO refactor
 				var resetStyles = {
 						'z-index': '',
@@ -1119,11 +1060,18 @@ $.fn.cardsSlider = function (opt) {
 						'left': ''
 					}
 				state.$activeSlide
+					.removeClass('active')
 					.css(resetStyles);
 				state.$prevSlide
+					.removeClass('active')
 					.css(resetStyles);
 				state.$nextSlide
+					.removeClass('active')
 					.css(resetStyles);
+
+				console.warn(id)
+				plg.toSlide( id );
+
 			},
 			updateState: function (mult) {
 				var stepChanged = null,
@@ -1146,15 +1094,13 @@ $.fn.cardsSlider = function (opt) {
 						})();
 				$activeSlide = state.$activeSlide;
 				if (mult > 0) {
-					$futureSlide = state.$prevSlide
+					$futureSlide = state.$prevSlide;
 				} else {
-					$futureSlide = state.$nextSlide
+					$futureSlide = state.$nextSlide;
 				}
 
 				// move active card
-				if ( !( $activeSlide instanceof jQuery && $futureSlide instanceof jQuery ) ) return;
-
-				if ( isNaN(mult) ) return
+				if ( !( $activeSlide instanceof jQuery && $futureSlide instanceof jQuery ) || isNaN(mult) ) return;
 
 				if ( mult >= -0.7 && mult <= 0.7 ) {
 					stepChanged = step.set(1);
@@ -1165,8 +1111,13 @@ $.fn.cardsSlider = function (opt) {
 				}
 
 				console.log(mult);
-				if (mult === 0 || mult >= 1 || mult <= -1) {
-					plg.renderReset($activeSlide, $futureSlide)
+
+				if (mult === 0 ) {
+					plg.renderReset( state.current );
+				} else if (mult <= -1) {
+					plg.renderReset( plg.nextSlide() );
+				} else if (mult >= 1) {
+					plg.renderReset( plg.prevSlide() );
 				} else if (mult > 0) {
 					plg.renderFw($activeSlide, $futureSlide, mult, step.get(), stepChanged)
 				} else if (mult < 0) {
@@ -1174,7 +1125,7 @@ $.fn.cardsSlider = function (opt) {
 				}
 
 			},
-			animateSlideToFinish: function (status, speed, startTime, direction) {
+			animateSlideToFinish: function (status, speed, startTime) {
 				console.info( 'animateSlideToFinish' );
 				var animationTime, endTime, startAnimation;
 				animationTime = speed - speed * Math.abs(status);
@@ -1186,18 +1137,19 @@ $.fn.cardsSlider = function (opt) {
 						calculatedState = status * (time - startAnimationTime) / (startTime - startAnimationTime);
 
 					if (time > endTime) {
-						plg.updateState( 1 );
+						if (status > 0) {
+							plg.updateState( 1 );
+						} else {
+							plg.updateState( -1 );
+						}
 						return;
 					}
-
-					// startTime - startAnimationTime = status
-					// time - startAnimationTime = x
 
 					plg.updateState( calculatedState );
 					requestAnimFrame( loop );
 				});
 			},
-			animateSlideToStart: function (status, speed, startTime, direction) {
+			animateSlideToStart: function (status, speed, startTime) {
 				console.info( 'animateSlideToStart' );
 				var animationTime, endTime, startAnimation;
 				animationTime = speed * Math.abs(status);
@@ -1212,9 +1164,6 @@ $.fn.cardsSlider = function (opt) {
 						plg.updateState( 0 );
 						return;
 					}
-
-					// startTime - startAnimationTime = status
-					// endTime - time = x
 
 					plg.updateState( calculatedState );
 					requestAnimFrame( loop );
@@ -1231,7 +1180,7 @@ $.fn.cardsSlider = function (opt) {
 
 					DOM.$pagination = $('<div>').addClass( opt.paginationHolderClass );
 
-					if (opt.pagination || true) {
+					if (opt.pagination) {
 
 						DOM.$pagination.appendTo(DOM.$slider);
 
@@ -1295,7 +1244,6 @@ $.fn.cardsSlider = function (opt) {
 
 				// plg.nextSlide();
 
-
 				var $slideTrigger = $target.closest(opt.slideClass);
 				var targetId =  parseInt( $slideTrigger.attr('data-id') );
 				if (typeof targetId !== 'number') return
@@ -1318,6 +1266,8 @@ $.fn.cardsSlider = function (opt) {
 
 		if (opt.mouseWheel) {
 
+			state.lastScrollTime = new Date().getTime();
+
 			DOM.$slider.on('DOMMouseScroll wheel', function (e) {
 
 				e.preventDefault();
@@ -1328,11 +1278,11 @@ $.fn.cardsSlider = function (opt) {
 
 					if (delta > 0) {
 
-						plg.prevSlide();
+						plg.animateSlideToStart(0.1, opt.speed, new Date().getTime());
 
 					} else if (delta < 0) {
 
-						plg.nextSlide();
+						plg.animateSlideToFinish(0.1, opt.speed, new Date().getTime());
 
 					}
 
@@ -1348,11 +1298,11 @@ $.fn.cardsSlider = function (opt) {
 
 					if (delta > 0) {
 
-						plg.prevSlide();
+						plg.animateSlideToStart(0.1, opt.speed, new Date().getTime());
 
 					} else if (delta < 0) {
 
-						plg.nextSlide();
+						plg.animateSlideToFinish(0.1, opt.speed, new Date().getTime());
 
 					}
 
@@ -1368,6 +1318,7 @@ $.fn.cardsSlider = function (opt) {
 			DOM.$slider.on('touchstart', function (e) {
 				state.touchStart.timeStamp = e.timeStamp;
 			}).on('touchmove', function (e) {
+				var mult;
 
 				state.touchEnd.xPos = e.originalEvent.touches[0].clientX;
 				state.touchEnd.yPos = e.originalEvent.touches[0].clientY;
@@ -1382,7 +1333,12 @@ $.fn.cardsSlider = function (opt) {
 
 				state.deltaX = state.touchEnd.xPos - state.touchStart.xPos;
 
-				plg.updateState( state.deltaX / state.itemWidth );
+				mult = state.deltaX / state.itemWidth;
+
+				mult = Math.min(0.99, mult);
+				mult = Math.max(-0.99, mult);
+
+				plg.updateState( mult );
 
 			}).on('touchend touchcancel', function (e) {
 				// TODO reformat it
@@ -1394,6 +1350,9 @@ $.fn.cardsSlider = function (opt) {
 					plg.animateSlideToStart(currentStatus, opt.speed, new Date().getTime());
 				} else if (currentStatus < 1 || currentStatus > -1) {
 					plg.animateSlideToFinish(currentStatus, opt.speed, new Date().getTime());
+				} else {
+					// plg.animateSlideToFinish
+					// plg.updateState( 1 );
 				}
 
 				state.touchEnd.xPos = 0;
