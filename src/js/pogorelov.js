@@ -976,8 +976,177 @@ $.fn.cardsSlider = function (opt) {
 				// 	.removeClass('active');
 
 			},
-			renderState: function (mult) {
+			renderFw: function ($activeSlide, $futureSlide, mult, step, stepChanged) {
+
+				if (step === 1) {
+
+					$activeSlide
+						.css({
+							'z-index': 4,
+							'transform': 'scale(1)',
+							'left': state.itemWidth * mult / 0.7
+						});
+
+					$futureSlide
+						.css({
+							'z-index': 3,
+						});
+
+						if (stepChanged) {
+							$activeSlide.addClass('active');
+							$futureSlide.removeClass('active');
+						}
+
+				} else if (step === 2) {
+
+					$activeSlide
+						.css({
+							'z-index': 3,
+							'transform': 'scale(' + ( 1 - ( ( 1 - opt.scaleFactor ) * ( mult - 0.7 ) / 0.3 ) ) + ')',
+							'transform-origin': + (30 * mult + 70) + '% 50%',
+							'left': state.itemWidth - ( state.itemWidth * (mult - 0.7) / 0.3 ) + (opt.swing * (mult - 0.7) / 0.3 )
+						});
+
+					$futureSlide
+						.css({
+							'z-index': 4,
+						});
+
+						if (stepChanged) {
+							$activeSlide.removeClass('active');
+							$futureSlide.addClass('active');
+						}
+
+				}
+
+				// Prev Slide
+				if (step === 1 || step === 2) {
+					$futureSlide
+						.css({
+							'transform': 'scale(' + (0.2 * mult + opt.scaleFactor) + ')',
+							'transform-origin': + (50 * mult) + '% 50%',
+							'left':  -opt.swing + opt.swing * mult
+						});
+				}
+
+				// end
+				if (step === 3) {
+
+					if (!stepChanged) return;
+
+					$activeSlide
+						.css({
+							'z-index': 3,
+							'transform': 'scale(' + opt.scaleFactor + ')',
+							'transform-origin': '100% 50%',
+							'left': opt.swing
+						});
+
+					$futureSlide
+						.css({
+							'z-index': 4,
+							'transform': 'scale(1)',
+							'transform-origin': '50% 50%',
+							'left': 0
+						});
+
+				}
+			},
+			renderBw: function ($activeSlide, $futureSlide, mult, step, stepChanged) {
+
+				if (step === 1) {
+
+					$activeSlide
+						.css({
+							'z-index': 4,
+							'transform': 'scale(1)',
+							'left': state.itemWidth * mult / 0.7
+						});
+
+					$futureSlide
+						.css({
+							'z-index': 3,
+						});
+
+						if (stepChanged) {
+							$activeSlide.addClass('active');
+							$futureSlide.removeClass('active');
+						}
+
+				} else if (step === 2) {
+
+					$activeSlide
+						.css({
+							'z-index': 3,
+							'transform': 'scale(' + ( 1 - ( ( 1 - opt.scaleFactor ) * ( -mult - 0.7 ) / 0.3 ) ) + ')',
+							'transform-origin': + (30 * -mult + 70) + '% 50%',
+							'left': state.itemWidth - ( state.itemWidth * (mult + 0.7) / 0.3 ) + (-opt.swing * (mult + 0.7) / 0.3 )
+						});
+
+					$futureSlide
+						.css({
+							'z-index': 4,
+						});
+
+						if (stepChanged) {
+							$activeSlide.removeClass('active');
+							$futureSlide.addClass('active');
+						}
+
+				}
+
+				// Prev Slide
+				if (step === 1 || step === 2) {
+					$futureSlide
+						.css({
+							'transform': 'scale(' + (0.2 * -mult + opt.scaleFactor) + ')',
+							'transform-origin': + (100 - 50 * -mult) + '% 50%',
+							'left':  opt.swing + opt.swing * mult
+						});
+				}
+
+				// end
+				if (step === 3) {
+
+					if (!stepChanged) return;
+
+					$activeSlide
+						.css({
+							'z-index': 3,
+							'transform': 'scale(' + opt.scaleFactor + ')',
+							'transform-origin': '0% 50%',
+							'left': -opt.swing
+						});
+
+					$futureSlide
+						.css({
+							'z-index': 4,
+							'transform': 'scale(1)',
+							'transform-origin': '50% 50%',
+							'left': 0
+						});
+
+				}
+			},
+			renderReset: function () {
+				// TODO refactor
+				var resetStyles = {
+						'z-index': '',
+						'transform': '',
+						'transform-origin': '',
+						'left': ''
+					}
+				state.$activeSlide
+					.css(resetStyles);
+				state.$prevSlide
+					.css(resetStyles);
+				state.$nextSlide
+					.css(resetStyles);
+			},
+			updateState: function (mult) {
 				var stepChanged = null,
+					$activeSlide,
+					$futureSlide,
 					step = (function (s) {
 							var stp = null;
 							return {
@@ -993,102 +1162,36 @@ $.fn.cardsSlider = function (opt) {
 								}
 							}
 						})();
+				$activeSlide = state.$activeSlide;
+				if (mult > 0) {
+					$futureSlide = state.$prevSlide
+				} else {
+					$futureSlide = state.$nextSlide
+				}
 
 				// move active card
-				if ( !(state.$activeSlide instanceof jQuery && state.$prevSlide instanceof jQuery && state.$nextSlide instanceof jQuery) ) return;
+				if ( !( $activeSlide instanceof jQuery && $futureSlide instanceof jQuery ) ) return;
 
 				// if (mult < 0) mult = -mult
 				// if (mult < 0 || mult > 1 || isNaN(mult)) return
 				if ( isNaN(mult) ) return
 
-				if (mult <= 0.7) {
+				if ( mult >= -0.7 && mult <= 0.7 ) {
 					stepChanged = step.set(1);
-				} else if (mult > 0.7 && mult < 1) {
+				} else if (mult > 0.7 && mult < 1 || mult < -0.7 && mult > -1) {
 					stepChanged = step.set(2);
 				} else {
 					stepChanged = step.set(3);
 				}
 
-				console.log(mult);
-				// 0.3 = 1
-				// 0 = x
-				if (step.get() === 1) {
+				// console.log(mult);
 
-					state.$activeSlide
-						.css({
-							'z-index': 4,
-							'transform': 'scale(1)',
-							'left': state.itemWidth * mult / 0.7
-						});
-
-					state.$prevSlide
-						.css({
-							'z-index': 3,
-						});
-
-						if (stepChanged) {
-							state.$activeSlide.addClass('active');
-							state.$prevSlide.removeClass('active');
-						}
-
-				} else if (step.get() === 2) {
-
-					state.$activeSlide
-						.css({
-							'z-index': 3,
-							'transform': 'scale(' + ( 1 - ( ( 1 - opt.scaleFactor ) * ( mult - 0.7 ) / 0.3 ) ) + ')',
-							'transform-origin': + (30 * mult + 70) + '% 50%',
-							'left': state.itemWidth - ( state.itemWidth * (mult - 0.7) / 0.3 ) + (opt.swing * (mult - 0.7) / 0.3 )
-						});
-
-					state.$prevSlide
-						.css({
-							'z-index': 4,
-						});
-
-						if (stepChanged) {
-							state.$activeSlide.removeClass('active');
-							state.$prevSlide.addClass('active');
-						}
-
-				}
-
-				// Prev Slide
-				if (step.get() === 1 || step.get() === 2) {
-					state.$prevSlide
-						.css({
-							'transform': 'scale(' + (0.2 * mult + opt.scaleFactor) + ')',
-							'transform-origin': + (50 * mult) + '% 50%',
-							'left':  -opt.swing + opt.swing * mult
-						});
-				}
-
-				// state.$nextSlide
-				// 	.css({
-				// 		'left': opt.swing * mult
-				// 	});
-
-				// end
-				if (step.get() === 3) {
-
-					if (!stepChanged) return;
-
-					state.$activeSlide
-						.css({
-							'z-index': 3,
-							'transform': 'scale(' + opt.scaleFactor + ')',
-							'transform-origin': '100% 50%',
-							'left': opt.swing
-						});
-
-					state.$prevSlide
-						.css({
-							'z-index': 4,
-							'transform': 'scale(1)',
-							'transform-origin': '50% 50%',
-							'left': 0
-						});
-
+				if (mult > 0) {
+					plg.renderFw($activeSlide, $futureSlide, mult, step.get(), stepChanged)
+				} else if (mult < 0) {
+					plg.renderBw($activeSlide, $futureSlide, mult, step.get(), stepChanged)
+				} else {
+					plg.renderReset($activeSlide, $futureSlide)
 				}
 
 			},
@@ -1104,14 +1207,14 @@ $.fn.cardsSlider = function (opt) {
 						calculatedState = status * (time - startAnimationTime) / (startTime - startAnimationTime);
 
 					if (time > endTime) {
-						plg.renderState( 1 );
+						plg.updateState( 1 );
 						return;
 					}
 
 					// startTime - startAnimationTime = status
 					// time - startAnimationTime = x
 
-					plg.renderState( calculatedState );
+					plg.updateState( calculatedState );
 					requestAnimFrame( loop );
 				});
 			},
@@ -1127,14 +1230,14 @@ $.fn.cardsSlider = function (opt) {
 						calculatedState = status * (endTime - time) / (startTime - startAnimationTime);
 
 					if (time > endTime) {
-						plg.renderState( 0 );
+						plg.updateState( 0 );
 						return;
 					}
 
 					// startTime - startAnimationTime = status
 					// endTime - time = x
 
-					plg.renderState( calculatedState );
+					plg.updateState( calculatedState );
 					requestAnimFrame( loop );
 				});
 			},
@@ -1304,7 +1407,7 @@ $.fn.cardsSlider = function (opt) {
 
 				state.deltaX = state.touchEnd.xPos - state.touchStart.xPos;
 
-				plg.renderState( state.deltaX / state.itemWidth );
+				plg.updateState( state.deltaX / state.itemWidth );
 
 			}).on('touchend touchcancel', function (e) {
 				// TODO reformat it
@@ -1313,8 +1416,6 @@ $.fn.cardsSlider = function (opt) {
 					currentStatus = state.deltaX / state.itemWidth;
 
 				if (currentStatus < 0.3) {
-					// TODO complete animation
-					// plg.animateSlideToFinish(currentStatus, opt.speed, new Date().getTime());
 					plg.animateSlideToStart(currentStatus, opt.speed, new Date().getTime());
 				} else if (currentStatus < 1) {
 					plg.animateSlideToFinish(currentStatus, opt.speed, new Date().getTime());
@@ -1356,7 +1457,7 @@ $.fn.cardsSlider = function (opt) {
 					state.shiftD = state.touchStart.xPos - e.pageX;
 					state.shiftX = state.touchStart.trfX + state.shiftD;
 
-					plg.renderState( state.shiftX / state.itemWidth );
+					plg.updateState( state.shiftX / state.itemWidth );
 
 				}
 
