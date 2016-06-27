@@ -886,13 +886,6 @@ $.fn.cardsSlider = function (opt) {
 						.removeClass('active');
 
 				}
-
-				// DOM.$slides
-				// 	.eq(id)
-				// 	.addClass('active')
-				// 	.siblings()
-				// 	.removeClass('active');
-
 			},
 			renderFw: function ($activeSlide, $futureSlide, mult, step, stepChanged) {
 				// console.info( 'renderFw' );
@@ -999,9 +992,8 @@ $.fn.cardsSlider = function (opt) {
 						.css({
 							'z-index': 3,
 							'transform': 'scale(' + ( 1 - ( ( 1 - opt.scaleFactor ) * ( -mult - 0.7 ) / 0.3 ) ) + ')',
-							'transform-origin': + (30 * -mult + 70) + '% 50%',
-							// 'left': ( state.itemWidth * (mult + 0.7) / 0.3 ) + (-opt.swing * (mult + 0.7) / 0.3 )
-							'left': -state.itemWidth + (-state.itemWidth * (mult + 0.7) / 0.3 )
+							'transform-origin': + (50 - 50 * (-mult - 0.7) / 0.3) + '% 50%',
+							'left': (state.itemWidth * (-mult - 0.7) / 0.3 ) - state.itemWidth + (opt.swing * (mult + 0.7) / 0.3 )
 						});
 
 					$futureSlide
@@ -1112,22 +1104,32 @@ $.fn.cardsSlider = function (opt) {
 				// console.log(mult);
 
 				if (mult === 0 ) {
+
 					state.direction = 0;
 					plg.renderReset( state.current );
+
 				} else if (mult <= -1) {
+
 					state.direction = 0;
 					plg.renderReset( plg.nextSlide() );
+
 				} else if (mult >= 1) {
+
 					state.direction = 0;
 					plg.renderReset( plg.prevSlide() );
+
 				} else if (mult > 0) {
+
 					if (state.direction == -1) plg.renderReset( state.current );
 					state.direction = 1;
 					plg.renderFw($activeSlide, $futureSlide, mult, step.get(), stepChanged)
+
 				} else if (mult < 0) {
+
 					if (state.direction == 1) plg.renderReset( state.current );
 					state.direction = -1;
 					plg.renderBw($activeSlide, $futureSlide, mult, step.get(), stepChanged)
+
 				}
 
 			},
