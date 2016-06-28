@@ -1,0 +1,52 @@
+
+mixin course(price, date, image, content)
+	li.course
+		.image-container
+			.image-holder
+				img(src= image, alt='course')
+			.price= price
+			.date= date
+		.description-container
+			p= content
+
+mixin blog (image, name, date, text)
+	li.blog
+		.image-container
+			.image-holder
+				img(src= image, alt= name)
+		.comment-container
+			.head
+				.name= name
+				.date= date
+				input(type="number")
+			.text= text
+
+		//- .result-group
+
+.result-group
+	.section-label
+		span search
+		img(src="img/icons/side-labels/search.svg", alt="search")
+	.container
+		.content-holder
+			form(action="#").input-group
+				//- button(type="submit").search-icon-1
+				input(type="text")
+.result-group
+	.section-label
+		img(src="img/icons/side-labels/search.svg", alt="search")
+	.container
+		.content-holder
+			+course (
+				'3 600 грн/мес',
+				'4 МЕСЯЦА',
+				'img/content/course-1.svg',
+				'Направление «Дизайн» представляет учебные программы по графическому дизайну, визуальным коммуникациям и коммуникативному дизайну.'
+			)
+			+course (
+				'3 600 грн/мес',
+				'4 МЕСЯЦА',
+				'img/content/course-1.svg',
+				'Направление «Дизайн» представляет учебные программы по графическому дизайну, визуальным коммуникациям и коммуникативному дизайну.'
+			)
+

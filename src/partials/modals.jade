@@ -1,16 +1,7 @@
 
-.modal-holder#search-modal(data-cross="cross-top")
+.modal-holder.opened#search-modal(data-cross="cross-top")
 	.modal-content
-		.section-label
-			img(src="img/icons/side-labels/search.svg", alt="search")
-		.container
-			form(action="#").input-group
-				//- button(type="submit").search-icon-1
-				input(type="text")
-			.result-group
-				.articles-gallery-1
-					.container
-						//- include ./articles.jade
+		include ./search-results.jade
 
 .modal-holder#login-modal(data-cross="cross-top")
 	.modal-content
