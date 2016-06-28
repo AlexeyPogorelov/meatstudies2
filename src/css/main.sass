@@ -511,7 +511,9 @@ section.video
 section.video-mobile
 	margin-top: 180px
 	overflow: hidden
-	display: block
+	display: none
+	@media (max-width: $mobile-large)
+		display: block
 	.section-label
 		margin-bottom: 30px
 	.videos
@@ -526,6 +528,10 @@ section.video-mobile
 		font-size: 18px
 		padding: 25px 20px
 		// font-weight: 400
+		.duration, .price
+			overflow: hidden
+			white-space: nowrap
+			text-overflow: ellipsis
 		.duration
 			position: relative
 			padding-bottom: 13px
