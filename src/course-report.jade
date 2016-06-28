@@ -147,23 +147,24 @@ html(lang='en')
 						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs-12.jpg?w=646'
 						)
 
+		mixin work-case(name, image, description, autor)
+			li.work
+				a(href="#")
+					.image-container
+						.image-holder
+							img.fake-img(src= image, alt= name)
+							.img(style= 'background-image:url(' + image + ')')
+					.description-container
+						h3= name
+						p
+							b= description
+						hr
+						p= autor
+
 		section.works
 			.section-label
 				img(src="img/icons/side-labels/works.svg", alt="works")
 			.container
-				mixin work-case(name, image, description, autor)
-					li.work
-						a(href="#")
-							.image-container
-								.image-holder
-									img.fake-img(src= image, alt= name)
-									.img(style= 'background-image:url(' + image + ')')
-							.description-container
-								h3= name
-								p
-									b= description
-								hr
-								p= autor
 				h3.label SOLO
 				ul.work-case-holder
 					+work-case(
@@ -186,6 +187,88 @@ html(lang='en')
 					)
 
 				h3.label GROUP
+				ul.work-case-holder
+					+work-case(
+						'The Divan',
+						'http://ramilrama.com/img/portfolio/portfolio-bg-ulo-2.jpg',
+						'App/Web',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'Moldovia Watches (Beta)',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6-1.jpg',
+						'UI+UX/Product design',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'Mac Beth',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-40.jpg',
+						'App/Web',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'The Divan',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-3-1.jpg',
+						'App/Web',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'Moldovia Watches (Beta)',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-3.jpg',
+						'UI+UX/Product design',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'Mac Beth',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-1-1.jpg',
+						'App/Web',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'Moldovia Watches (Beta)',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-1.jpg',
+						'UI+UX/Product design',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+					+work-case(
+						'Mac Beth',
+						'http://ramilrama.com/img/portfolio/portfolio-bg-speakgeek2.png',
+						'App/Web',
+						'Кбиреская Ж. / Владлеснкий К. / Валисковский А.'
+					)
+
+		section.works.works-slider
+			.section-label
+				img(src="img/icons/side-labels/works.svg", alt="works")
+			.container
+				h3.label
+					span SOLO WORKS
+				ul.work-case-holder
+					+work-case(
+						'The Divan',
+						'http://ramilrama.com/img/portfolio/portfolio-bg-360-1.png',
+						'App/Web',
+						'Васильковская А.'
+					)
+					+work-case(
+						'Moldovia Watches (Beta)',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6-1.jpg',
+						'UI+UX/Product design',
+						'Мижнародна К.'
+					)
+					+work-case(
+						'Mac Beth',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6.jpg',
+						'App/Web',
+						'Мукачево А,'
+					)
+
+		section.works.works-slider
+			.section-label
+				img(src="img/icons/side-labels/works.svg", alt="works")
+			.container
+				h3.label.mobile-right
+					span GROUP WORKS
 				ul.work-case-holder
 					+work-case(
 						'The Divan',

@@ -527,7 +527,6 @@ section.video-mobile
 		color: black
 		font-size: 18px
 		padding: 25px 20px
-		// font-weight: 400
 		.duration, .price
 			overflow: hidden
 			white-space: nowrap
@@ -555,14 +554,13 @@ section.video-mobile
 			padding-right: 0
 			width: 100%
 	.card
-		// border: 1px solid #000
 		background: #fff
 		box-shadow: 0 0 5px rgba(0, 0, 0, 0.08)
 		left: -20px
 		position: absolute
 		transform-origin: 0 50%
 		transform: scale(0.8)
-		transition: none !important
+		transition: none
 		width: 100%
 		z-index: 1
 		&.active
@@ -575,11 +573,15 @@ section.video-mobile
 				left: 20px
 				transform-origin: 100% 50%
 				z-index: 2
+				& + .card
+					z-index: 1
+					& + .card
+						z-index: 0
 
 // TODO remove it
-.video-mobile
-	*
-		transition: none !important
+// .video-mobile
+	// *
+		// transition: box-shadow .3s !important
 
 // --------------------------------------------------
 // INPUT

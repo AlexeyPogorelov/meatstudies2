@@ -251,6 +251,7 @@ section.register-section
 	@media (max-width: $mobile-large)
 		margin-top: 94px
 		margin-bottom: 197px
+		overflow: hidden
 	.section-label
 		top: 2px
 		@media (max-width: $mobile-large)
@@ -357,10 +358,12 @@ section.students
 		letter-spacing: 0
 		@media (max-width: $mobile-large)
 			width: 400%
+			width: calc(400% - 240px)
 	.student
 		display: inline-block
 		margin-bottom: 42px
 		vertical-align: top
+		white-space: nowrap
 		width: 25%
 		@media (max-width: $mobile-large)
 			width: calc(25% - 20px)
@@ -395,6 +398,7 @@ section.students
 					line-height: 1em
 					margin-bottom: 5px
 		.socials-holder
+			white-space: normal
 			li
 				display: inline-block
 				margin-right: 24px
@@ -406,51 +410,106 @@ section.works
 	margin-top: 89px
 	margin-bottom: 46px
 	@media (max-width: $mobile-large)
+		margin-top: 93px
+		margin-bottom: 0px
 		display: none
 	.section-label
 		top: 5px
-	.container
-		.label
-			font-size: 30px
-			font-weight: 600
-			letter-spacing: 10px
-			line-height: 1em
-			margin-bottom: 33px
-		.work-case-holder
-			letter-spacing: 0
-			font-size: 0
-			margin: 0 -1.2666% 60px
-		.work
-			box-shadow: 0 0 5px rgba(0, 0, 0, 0.18)
-			display: inline-block
-			vertical-align: top
-			margin: 0 1.2666% 40px
-			width: 30.8%
-			a
+	// .container
+	.label
+		font-size: 30px
+		font-weight: 600
+		letter-spacing: 10px
+		line-height: 1em
+		margin-bottom: 33px
+		@media (max-width: $mobile-large)
+			margin-bottom: 27px
+	.work-case-holder
+		letter-spacing: 0
+		font-size: 0
+		margin: 0 -1.2666% 60px
+	.work
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.18)
+		display: inline-block
+		vertical-align: top
+		margin: 0 1.2666% 40px
+		width: 30.8%
+		a
+			display: block
+		.image-container
+			height: 170px
+			.image-holder
+		.description-container
+			padding: 20px 20px
+			h3
+				color: #000
+				font-size: 15px
+				font-weight: 600
+				line-height: 13px
+				margin-bottom: 14px
+			p
+				color: #bfbfbf
+				font-size: 13px
+				font-weight: 600
+				line-height: 20px
+				letter-spacing: 0
+			b
+				font-weight: 600
+			hr
+				background: #000
 				display: block
-			.image-container
-				height: 170px
-				.image-holder
-			.description-container
-				padding: 20px 20px
-				h3
-					color: #000
-					font-size: 15px
-					font-weight: 600
-					line-height: 13px
-					margin-bottom: 14px
-				p
-					color: #bfbfbf
-					font-size: 13px
-					font-weight: 600
-					line-height: 20px
-					letter-spacing: 0
-				b
-					font-weight: 600
-				hr
-					background: #000
-					display: block
-					width: 40px
-					height: 2px
-					padding: 0
-					margin: 12px 0
+				width: 40px
+				height: 2px
+				padding: 0
+				margin: 12px 0
+	&.works-slider
+		display: none
+		overflow: hidden
+		@media (max-width: $mobile-large)
+			display: block
+		.label
+			color: black
+			font-size: 15px
+			letter-spacing: 5.25px
+			font-weight: 400
+			&.mobile-right
+				margin-right: -7px
+				text-align: right
+		.container
+			// overflow: hidden
+			// width: 100%
+		.work-case-holder
+			height: 384px
+			margin: 0 auto
+			// padding: 0 20px
+			position: relative
+			width: 100%
+			// width: calc(100% - 40px)
+		.work
+			margin: 0
+			background: #fff
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.08)
+			left: -20px
+			position: absolute
+			transform-origin: 0 50%
+			transform: scale(0.8)
+			transition: none
+			width: 100%
+			z-index: 1
+			&.active
+				box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3)
+				left: 0
+				transform-origin: 50% 50%
+				transform: scale(1)
+				z-index: 3
+				& ~ .work
+					left: 20px
+					transform-origin: 100% 50%
+					z-index: 2
+					& + .work
+						z-index: 1
+						& + .work
+							z-index: 0
+		& + .article-share
+			@media (max-width: $mobile-large)
+				margin-top: 75px

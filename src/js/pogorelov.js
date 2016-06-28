@@ -694,7 +694,7 @@ $.fn.cardsSlider = function (opt) {
 			};
 
 		// TODO remove it
-		_pogorelov.state = state;
+		// _pogorelov.state = state;
 
 		// methods
 		var plg = {
@@ -783,7 +783,7 @@ $.fn.cardsSlider = function (opt) {
 
 					opt.slidesOnPage = Math.floor( opt.slidesOnPage / 2 );
 					// TODO is this needed?
-					plg.init();
+					// plg.init();
 
 				}
 
@@ -798,18 +798,6 @@ $.fn.cardsSlider = function (opt) {
 				}
 
 				state.slideWidth = DOM.$slides.eq(0).outerWidth();
-
-				if (opt.loop) {
-
-					state.holderWidth = 3 * state.slides * state.slideWidth;
-
-				} else {
-
-					state.holderWidth = state.slideWidth * state.slides;
-
-				}
-
-				DOM.$sliderHolder.width( state.holderWidth );
 
 				plg.toSlide(state.current);
 
@@ -1073,20 +1061,20 @@ $.fn.cardsSlider = function (opt) {
 					$activeSlide,
 					$futureSlide,
 					step = (function (s) {
-							var stp = null;
-							return {
-								get: function (s) {
-									return stp;
-								},
-								set: function (s) {
-									if (s !== stp) {
-										stp = s;
-										return true;
-									}
-									return false;
+						var stp = null;
+						return {
+							get: function (s) {
+								return stp;
+							},
+							set: function (s) {
+								if (s !== stp) {
+									stp = s;
+									return true;
 								}
+								return false;
 							}
-						})();
+						}
+					})();
 				$activeSlide = state.$activeSlide;
 				if (mult > 0) {
 					$futureSlide = state.$prevSlide;
@@ -1095,6 +1083,7 @@ $.fn.cardsSlider = function (opt) {
 				}
 
 				// move active card
+				// TODO test without it
 				if ( !( $activeSlide instanceof jQuery && $futureSlide instanceof jQuery ) || isNaN(mult) ) return;
 
 				if ( mult >= -0.7 && mult <= 0.7 ) {
@@ -1111,28 +1100,33 @@ $.fn.cardsSlider = function (opt) {
 
 					state.direction = 0;
 					plg.renderReset( state.current );
+					return;
 
 				} else if (mult <= -1) {
 
 					state.direction = 0;
 					plg.renderReset( plg.nextSlide() );
+					return;
 
 				} else if (mult >= 1) {
 
 					state.direction = 0;
 					plg.renderReset( plg.prevSlide() );
+					return;
 
 				} else if (mult > 0) {
 
 					if (state.direction == -1) plg.renderReset( state.current );
 					state.direction = 1;
 					plg.renderFw($activeSlide, $futureSlide, mult, step.get(), stepChanged)
+					return;
 
 				} else if (mult < 0) {
 
 					if (state.direction == 1) plg.renderReset( state.current );
 					state.direction = -1;
 					plg.renderBw($activeSlide, $futureSlide, mult, step.get(), stepChanged)
+					return;
 
 				}
 
@@ -1148,7 +1142,7 @@ $.fn.cardsSlider = function (opt) {
 					var time = new Date().getTime(),
 						calculatedState = status * (time - startAnimationTime) / (startTime - startAnimationTime);
 
-					if (time > endTime) {
+					if (time > endTime || state.touched) {
 						if (status > 0) {
 							plg.updateState( 1 );
 						} else {
@@ -1354,6 +1348,7 @@ $.fn.cardsSlider = function (opt) {
 				state.touchStart.timeStamp = e.timeStamp;
 			}).on('touchmove', function (e) {
 				var mult;
+				state.touched = true;
 
 				state.touchEnd.xPos = e.originalEvent.touches[0].clientX;
 				state.touchEnd.yPos = e.originalEvent.touches[0].clientY;
@@ -1377,6 +1372,7 @@ $.fn.cardsSlider = function (opt) {
 
 			}).on('touchend touchcancel', function (e) {
 				// TODO reformat it
+				state.touched = false;
 				var distance = 70,
 					speed = opt.speed || 200,
 					currentStatus = state.deltaX / state.itemWidth;

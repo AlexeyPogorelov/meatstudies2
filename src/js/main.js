@@ -166,12 +166,20 @@ $(document).on('ready', function () {
 		})();
 
 		// Initializing plugins
-		window.test = $('.video-mobile').cardsSlider({
+		$('.cards-slider').cardsSlider({
 			'holderClass': 'videos',
 			'pagination': false,
 			'mouseWheel': false,
 			'viewportClass': 'content-holder',
 			'slideClass': 'card'
+		});
+		$('.works-slider').cardsSlider({
+			'holderClass': 'work-case-holder',
+			// 'speed': 9600,
+			'pagination': false,
+			'mouseWheel': false,
+			'viewportClass': 'container',
+			'slideClass': 'work'
 		});
 
 		// article add comment fake textarea
