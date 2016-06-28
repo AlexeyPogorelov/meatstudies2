@@ -9,44 +9,93 @@ mixin course(price, date, image, content)
 		.description-container
 			p= content
 
-mixin blog (image, name, date, text)
+mixin blog (image, name, text)
 	li.blog
 		.image-container
 			.image-holder
-				img(src= image, alt= name)
-		.comment-container
-			.head
-				.name= name
-				.date= date
-				input(type="number")
-			.text= text
+				img.fake-img.temp(src= image, alt= name)
+				.img.temp(style="background-image:url(" + image + ")")
+		.content-container
+			h3= name
+			p.text= text
 
-		//- .result-group
+mixin video (image, name, text)
+	li.video
+		.image-container
+			.image-holder
+				img.fake-img.temp(src= image, alt= name)
+				.img.temp(style="background-image:url(" + image + ")")
+		.content-container
+			h3= name
+			p.text= text
 
-.result-group
+.result-group.search-input-section
 	.section-label
 		span search
 		img(src="img/icons/side-labels/search.svg", alt="search")
 	.container
 		.content-holder
 			form(action="#").input-group
-				//- button(type="submit").search-icon-1
 				input(type="text")
-.result-group
-	.section-label
-		img(src="img/icons/side-labels/search.svg", alt="search")
+				.button-holder.align-right
+					button.btn(type="submit") искать
+
+.result-group.search-results-border
 	.container
 		.content-holder
-			+course (
-				'3 600 грн/мес',
-				'4 МЕСЯЦА',
-				'img/content/course-1.svg',
+			span Найдено 24 по запросу «<strong>UI</strong>»
+
+.result-group.courses
+	.section-label
+		span course
+		img(src="img/icons/side-labels/courses.svg", alt="course")
+	.container
+		.content-holder
+			ul.courses-result
+				+course (
+					'3 600 грн/мес',
+					'4 МЕСЯЦА',
+					'img/content/course-1.svg',
+					'Направление «Дизайн» представляет учебные программы по графическому дизайну, визуальным коммуникациям и коммуникативному дизайну.'
+				)
+				+course (
+					'3 600 грн/мес',
+					'4 МЕСЯЦА',
+					'img/content/course-1.svg',
+					'Направление «Дизайн» представляет учебные программы по графическому дизайну, визуальным коммуникациям и коммуникативному дизайну.'
+				)
+
+.result-group.blogs
+	.section-label
+		span blog
+		img(src="img/icons/side-labels/blog.svg", alt="blog")
+	.container
+		.content-holder
+			+blog (
+				'http://ramilrama.com/img/portfolio/portfolio-bg-360-1.png',
+				'8 интернет компаний, которые преображают Индию',
 				'Направление «Дизайн» представляет учебные программы по графическому дизайну, визуальным коммуникациям и коммуникативному дизайну.'
 			)
-			+course (
-				'3 600 грн/мес',
+			+blog (
+				'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6-1.jpg',
+				'Lorem ipsum dolor sit!',
+				'представляет, чем занимаются UX-дизайнеры. Всё потому, что точного '
+			)
+
+.result-group.videos
+	.section-label
+		span video
+		img(src="img/icons/side-labels/video.svg", alt="video")
+	.container
+		.content-holder
+			+video (
+				'http://ramilrama.com/img/portfolio/portfolio-bg-360-1.png',
 				'4 МЕСЯЦА',
-				'img/content/course-1.svg',
+				'Направление «Дизайн» представляет учебные программы по графическому дизайну, визуальным коммуникациям и коммуникативному дизайну.'
+			)
+			+video (
+				'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6-1.jpg',
+				'4 МЕСЯЦА',
 				'Направление «Дизайн» представляет учебные программы по графическому дизайну, визуальным коммуникациям и коммуникативному дизайну.'
 			)
 

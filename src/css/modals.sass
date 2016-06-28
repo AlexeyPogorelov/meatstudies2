@@ -3,21 +3,81 @@
 // MODALS
 // --------------------------------------------------
 
+
+.modal-holder a.close-modal, .modal-holder .close-modal
+	background: url('../img/icons/cross-button-2.svg') no-repeat 50% 50%
+	cursor: pointer
+	display: block
+	opacity: .7
+	position: absolute
+	top: 0
+	right: 0
+	bottom: auto
+	left: auto
+	transition: opacity .1s, background .1s
+	background-size: 100%
+	margin-top: 30px
+	margin-right: 30px
+	height: 24px
+	width: 24px
+	&:after
+		display: none
+	&:hover
+		transition: opacity .3s, background .3s
+		opacity: 1
+
 .modal-holder
-	a.close-modal, .close-modal
-		background-size: 100%
-		right: 0
-		top: 0
-		margin-top: 30px
-		margin-right: 30px
-		height: 24px
-		width: 24px
-		transition: top .1s
-	&.cross-bottom
+	background: #fff
+	opacity: 0
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	visibility: hidden
+	// height: 100%
+	// width: 100%
+	z-index: 10
+	overflow: hidden
+	overflow-x: hidden
+	overflow-y: auto
+	transition: opacity .3s ease-out, transform .2s, visibility .4s
+	.modal-content
+		background: #fff
+		position: relative
+		transform: translateY(40px)
+		transition: opacity .3s ease-out, transform .5s, visibility .4s, outline .4s
+	&.opened
+		opacity: 1
+		visibility: visible
+		-webkit-overflow-scrolling: touch
+		.modal-content
+			transform: translateY(0)
+			transition: opacity .3s ease-out, transform .5s, visibility .4s, outline .4s
+	&::-webkit-scrollbar
+		height: 0
+		width: 0
+	@at-root
 		a.close-modal, .close-modal
-			top: auto
-			bottom: 18px
-			right: 18px
+			background-size: 100%
+			right: 0
+			top: 0
+			margin-top: 30px
+			margin-right: 30px
+			height: 24px
+			width: 24px
+			transition: top .1s
+			z-index: 1020
+			&:after
+				display: none
+			&:hover
+				opacity: 1
+				transition: opacity .3s
+			&.cross-bottom
+				a.close-modal, .close-modal
+					top: auto
+					bottom: 18px
+					right: 18px
 
 .modal-back
 	cursor: pointer
@@ -43,7 +103,7 @@
 		margin-left: auto
 		margin-right: auto
 		position: relative
-		padding-top: 64px
+		// padding-top: 64px
 		max-width: 1300px
 		.search-icon-1
 			background-position: 50% 50%
@@ -57,6 +117,7 @@
 			// float: left
 		input[type="text"], input[type="password"], input[type="email"]
 			outline: none
+			margin: 0
 			padding: 0 20px
 			height: 50px
 			width: 100%
@@ -87,6 +148,67 @@
 	.result-group
 		// padding-top: 200px
 		position: relative
+		&.search-input-section
+			margin-top: 180px
+			.section-label
+				top: 2px
+			.button-holder
+				margin-top: 40px
+				text-align: right
+				.btn, input[type="submit"], button
+					min-width: 33.3%
+		&.search-results-border
+			margin-top: 56px
+			.content-holder
+				border-bottom: 2px solid black
+				padding-bottom: 16px
+
+				font-size: 18px
+				letter-spacing: 1px
+				color: #9b9b9b
+				font-weight: 500
+				line-height: 1em
+
+				text-overflow: ellipsis
+				overflow: hidden
+				white-space: nowrap
+				strong
+					font-weight: 500
+					color: black
+		&.courses
+			min-height: 200px
+			.courses-result
+				white-space: nowrap
+				.image-container, .description-container
+					display: inline-block
+					vertical-align: top
+				.image-container
+					width: 33.3%
+				.description-container
+					white-space: normal
+					width: 100% - 33.3%
+					&, p
+						color: #8c8c8c
+						font-size: 15px
+						line-height: 20px
+				.price, .date
+					color: #141414
+					font-size: 15px
+					font-weight: 400
+					line-height: 20px
+				.price:after
+						content: ''
+						border: 1px solid #141414
+						position: absolute
+						height: 16px
+						display: inline-block
+						vertical-align: middle
+						top: 6px
+						right: -1px
+		&.videos
+			min-height: 200px
+		&.blogs
+			min-height: 200px
 
 .profile-messages-modal
 	position: absolute

@@ -1,22 +1,18 @@
 
 .modal-holder.opened#search-modal(data-cross="cross-top")
 	.modal-content
+		//- .grid
+			.container
+				.line-1
+				.line-2
+				.line-3
+				.line-4
+				.line-5
 		include ./search-results.jade
 
 .modal-holder#login-modal(data-cross="cross-top")
 	.modal-content
 		.modal-container
-			.login-methoods-container
-				.logotype-holder.button-group
-					img(src="img/icons/meatstudies-footer.png", alt="MEAT Studies")
-				.button-group.facebook-login-button
-					a(href="index.html") Login with
-						b  Facebook
-				.button-group.email-login-button
-					a(href="signup.html" data-modal="#login-modal-email") Login with
-						b  Email
-				.button-group
-					a(href="signup.html" data-modal="#signup-modal") Sign Up
 
 
 .modal-holder#login-modal-email(data-cross="cross-top")

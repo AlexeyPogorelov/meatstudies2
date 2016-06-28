@@ -412,7 +412,8 @@ section.download-materials
 		// .container
 			// overflow: auto
 		.downloads
-			width: 200%
+			@media (max-width: $mobile-large)
+				width: 200%
 		.down-item
 			width: 50%
 	& ~ .subscribe

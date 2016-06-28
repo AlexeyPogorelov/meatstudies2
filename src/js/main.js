@@ -214,256 +214,265 @@ $(document).on('ready', function () {
 		})();
 
 		// modals
-		var modals = {
-			opened: [],
-			openModal: function ( $modal ) {
+		var modals = (function () {
+		
+					$('[data-modal]').on('click', function (e) {
+		
+						e.preventDefault();
+		
+						var $self = $(this),
+							target = $self.attr('data-modal'),
+							$target = $(target);
+		
+						if ($target.length) {
+		
+							modals.openModal($target);
+		
+						} else {
+		
+							console.warn('Ошибка в элементе:');
+							console.log(this);
+							console.warn('Не найдены элементы с селектором ' + target);
+		
+						}
+						
+					});
+		
+					$('[data-close]').on('click', function (e) {
+		
+						e.preventDefault();
+		
+						var $self = $(this),
+							target = $self.attr('data-close'),
+							$target;
+		
+						if (target) {
+		
+							$target = $(target);
+		
+							if ($target.length) {
+		
+								modals.closeModal( $target );
+		
+							}
+		
+						} else {
+		
+							modals.closeModal( $self.closest('.opened') );
+		
+						}
+		
+					});
+		
+					$('.modal-holder').not('.fake').on('click', function (e) {
+		
+						if (e.target === this) {
+		
+							modals.closeModal( $(this) );
+		
+						}
+		
+					});
+		
+					$window.on('keyup', function (e) {
+		
+						// esc pressed
+						if (e.keyCode == '27') {
+		
+							modals.closeModal();
+		
+						}
+		
+					});
+					var plg = {
+						opened: [],
+						openModal: function ( $modal ) {
+		
+							if (!$modal.data('modal-ununique') && this.opened.length > 0) {
+								modals.closeModal( this.opened[this.opened.length - 1], true );
+							}
+							this.opened.push( $modal );
+							// $modal.addClass('opened').one( transitionPrefix, bodyOverflow.fixBody );
+		
+							$modal.off( transitionPrefix ).addClass('opened');
+							bodyOverflow.fixBody();
+		
+							if ( $modal.is('[data-cross]') ) {
+		
+								this.$cross = $('<div>').addClass('cross-top-fixed animated ' + $modal.attr('data-cross') ).one('click', function () {
+		
+									modals.closeModal();
+		
+								}).one(animationPrefix, function () {
+		
+									$(this).removeClass( 'animated' );
+		
+								}).appendTo('body');
+		
+							}
+		
+						},
+						closeModal: function ($modal, alt) {
+		
+							if ( this.opened.length > 0 && !$modal ) {
+		
+								for ( var y = 0; y < this.opened.length; y++ ) {
+		
+									this.closeModal( this.opened[y] );
+		
+								}
+		
+								return;
+		
+							} else if ( $modal && !($modal instanceof jQuery) ) {
+		
+								$modal = $( $modal );
+		
+							} else if ( $modal === undefined ) {
+		
+								throw 'something went wrong';
+		
+							}
+		
+							try {
+		
+								$modal.removeClass('opened');
+		
+							} catch (e) {
+		
+								console.error(e);
+		
+								this.closeModal();
+		
+								return;
+		
+							}
+		
+							this.opened.pop();
+		
+							if (!alt) {
+		
+								$modal.one( transitionPrefix, bodyOverflow.unfixBody );
+		
+								try {
+		
+									this.$cross.addClass('fadeOut').one(animationPrefix, function () {
+		
+										$(this).remove();
+		
+									});
+		
+								} catch (e) {
+		
+									console.error(e);
+		
+								}
+		
+							} else {
+		
+								this.$cross.remove();
+		
+							}
+		
+						}
+		
+					};
+		
+					return plg;
+				})();
 
-				if (!$modal.data('modal-ununique') && this.opened.length > 0) {
-					modals.closeModal( this.opened[this.opened.length - 1], true );
-				}
-				this.opened.push( $modal );
-				// $modal.addClass('opened').one( transitionPrefix, bodyOverflow.fixBody );
+		// tooltips
+		var tooltips = (function () {
 
-				$modal.off( transitionPrefix ).addClass('opened');
-				bodyOverflow.fixBody();
+			var plg = {
+				opened: [],
+				$body: $('body'),
+				bodyHandler: function (e) {
+					var $self = $(e.target),
+						hasOpenedParent = null;
+					if ( $self.hasClass('opened') ) {
+						hasOpenedParent = true;
+					} else {
+						for (var i = 0; i < $self.parents().length; i++) {
+							if ( $self.parents().eq(i).hasClass('opened') ) {
+								hasOpenedParent = true;
+								break;
+							}
+						}
+					}
 
-				if ( $modal.is('[data-cross]') ) {
+					if ( hasOpenedParent !== true ) {
+						e.preventDefault();
+						e.stopPropagation();
+						tooltips.closeTooltip();
+					}
 
-					this.$cross = $('<div>').addClass('cross-top-fixed animated ' + $modal.attr('data-cross') ).one('click', function () {
+				},
+				openTooltip: function ( $modal, $self ) {
 
-						modals.closeModal();
+					if ( this.opened.length > 0 ) {
+						tooltips.closeTooltip();
+					}
+					this.opened.push( $modal );
+					this.opened.push( $self );
 
-					}).one(animationPrefix, function () {
+					this.$body.addClass('tooltip').on('click', this.bodyHandler);
 
-						$(this).removeClass( 'animated' );
+					$modal.off( transitionPrefix ).addClass('opened');
+					$self.addClass('opened');
 
-					}).appendTo('body');
+				},
+				closeTooltip: function () {
 
-				}
-
-			},
-			closeModal: function ($modal, alt) {
-
-				if ( this.opened.length > 0 && !$modal ) {
+					this.$body.removeClass('tooltip').off('click', this.bodyHandler);
 
 					for ( var y = 0; y < this.opened.length; y++ ) {
 
-						this.closeModal( this.opened[y] );
+						this.opened[y].removeClass('opened');
 
 					}
 
-					return;
-
-				} else if ( $modal && !($modal instanceof jQuery) ) {
-
-					$modal = $( $modal );
-
-				} else if ( $modal === undefined ) {
-
-					throw 'something went wrong';
+					this.opened = [];
 
 				}
 
-				try {
+			};
 
-					$modal.removeClass('opened');
+			$('[data-tooltip]').on('click', function (e) {
 
-				} catch (e) {
+				e.preventDefault();
 
-					console.error(e);
-
-					this.closeModal();
-
-					return;
-
-				}
-
-				this.opened.pop();
-
-				if (!alt) {
-
-					$modal.one( transitionPrefix, bodyOverflow.unfixBody );
-
-					try {
-
-						this.$cross.addClass('fadeOut').one(animationPrefix, function () {
-
-							$(this).remove();
-
-						});
-
-					} catch (e) {
-
-						console.error(e);
-
-					}
-
-				} else {
-
-					this.$cross.remove();
-
-				}
-
-			}
-
-		};
-
-		$('[data-modal]').on('click', function (e) {
-
-			e.preventDefault();
-
-			var $self = $(this),
-				target = $self.attr('data-modal'),
-				$target = $(target);
-
-			if ($target.length) {
-
-				modals.openModal($target);
-
-			} else {
-
-				console.warn('Ошибка в элементе:');
-				console.log(this);
-				console.warn('Не найдены элементы с селектором ' + target);
-
-			}
-			
-		});
-
-		$('[data-close]').on('click', function (e) {
-
-			e.preventDefault();
-
-			var $self = $(this),
-				target = $self.attr('data-close'),
-				$target;
-
-			if (target) {
-
-				$target = $(target);
+				var $self = $(this),
+					target = $self.attr('data-tooltip'),
+					$target = $(target);
 
 				if ($target.length) {
 
-					modals.closeModal( $target );
+					tooltips.openTooltip($target, $self);
 
-				}
-
-			} else {
-
-				modals.closeModal( $self.closest('.opened') );
-
-			}
-
-		});
-
-		$('.modal-holder').not('.fake').on('click', function (e) {
-
-			if (e.target === this) {
-
-				modals.closeModal( $(this) );
-
-			}
-
-		});
-
-		$window.on('keyup', function (e) {
-
-			// esc pressed
-			if (e.keyCode == '27') {
-
-				modals.closeModal();
-
-			}
-
-		});
-
-		// tooltips
-		var tooltips = {
-			opened: [],
-			$body: $('body'),
-			bodyHandler: function (e) {
-				var $self = $(e.target),
-					hasOpenedParent = null;
-				if ( $self.hasClass('opened') ) {
-					hasOpenedParent = true;
 				} else {
-					for (var i = 0; i < $self.parents().length; i++) {
-						if ( $self.parents().eq(i).hasClass('opened') ) {
-							hasOpenedParent = true;
-							break;
-						}
-					}
-				}
 
-				if ( hasOpenedParent !== true ) {
-					e.preventDefault();
-					e.stopPropagation();
+					console.warn('Ошибка в элементе:');
+					console.log(this);
+					console.warn('Не найдены элементы с селектором ' + target);
+
+				}
+				
+			});
+
+			$window.on('keyup', function (e) {
+
+				// esc pressed
+				if (e.keyCode == '27') {
+
 					tooltips.closeTooltip();
-				}
-
-			},
-			openTooltip: function ( $modal, $self ) {
-
-				if ( this.opened.length > 0 ) {
-					tooltips.closeTooltip();
-				}
-				this.opened.push( $modal );
-				this.opened.push( $self );
-
-				this.$body.addClass('tooltip').on('click', this.bodyHandler);
-
-				$modal.off( transitionPrefix ).addClass('opened');
-				$self.addClass('opened');
-
-			},
-			closeTooltip: function () {
-
-				this.$body.removeClass('tooltip').off('click', this.bodyHandler);
-
-				for ( var y = 0; y < this.opened.length; y++ ) {
-
-					this.opened[y].removeClass('opened');
 
 				}
 
-				this.opened = [];
+			});
 
-			}
-
-		};
-
-		$('[data-tooltip]').on('click', function (e) {
-
-			e.preventDefault();
-
-			var $self = $(this),
-				target = $self.attr('data-tooltip'),
-				$target = $(target);
-
-			if ($target.length) {
-
-				tooltips.openTooltip($target, $self);
-
-			} else {
-
-				console.warn('Ошибка в элементе:');
-				console.log(this);
-				console.warn('Не найдены элементы с селектором ' + target);
-
-			}
-			
-		});
-
-		$window.on('keyup', function (e) {
-
-			// esc pressed
-			if (e.keyCode == '27') {
-
-				tooltips.closeTooltip();
-
-			}
-
-		});
+			return plg;
+		})();
 
 
 		// shuffle array
@@ -491,7 +500,7 @@ $(document).on('ready', function () {
 		})();
 
 
-		scroll
+		// scroll
 		$(document).on('scroll', function () {
 
 			var top = $(this).scrollTop();
