@@ -106,8 +106,7 @@
 		// padding-top: 64px
 		max-width: 1300px
 		.search-icon-1
-			background-position: 50% 50%
-			background: url(../img/icons/search-icon-1.svg) no-repeat
+			background: url(../img/icons/search-icon-1.svg) 50% 50% no-repeat
 			background-size: contain
 			display: block
 			height: 52px
@@ -146,12 +145,13 @@
 			height: 3px
 			width: 100%
 	.result-group
-		// padding-top: 200px
+		$result-margin-bottom: 35px
+		$result-content-padding-left: 20px
 		position: relative
+		.section-label
+			top: 2px
 		&.search-input-section
 			margin-top: 180px
-			.section-label
-				top: 2px
 			.button-holder
 				margin-top: 40px
 				text-align: right
@@ -177,14 +177,21 @@
 					color: black
 		&.courses
 			min-height: 200px
-			.courses-result
+			.course
+				margin-bottom: $result-margin-bottom
 				white-space: nowrap
 				.image-container, .description-container
 					display: inline-block
 					vertical-align: top
 				.image-container
 					width: 33.3%
+					// TODO remove it
+					.image-holder
+						text-align: left
+						img
+							height: 100px
 				.description-container
+					padding-left: $result-content-padding-left
 					white-space: normal
 					width: 100% - 33.3%
 					&, p
@@ -192,23 +199,100 @@
 						font-size: 15px
 						line-height: 20px
 				.price, .date
+					display: inline-block
+					vertical-align: middle
+
 					color: #141414
 					font-size: 15px
 					font-weight: 400
 					line-height: 20px
-				.price:after
-						content: ''
-						border: 1px solid #141414
-						position: absolute
+				.price
+					position: relative
+					&:after
+						content: '|'
+						// border: 1px solid #141414
+						position: relative
 						height: 16px
 						display: inline-block
-						vertical-align: middle
-						top: 6px
-						right: -1px
-		&.videos
-			min-height: 200px
+						vertical-align: top
+						top: 0px
+						right: -4px
 		&.blogs
 			min-height: 200px
+			.blog
+				margin-bottom: $result-margin-bottom
+				white-space: nowrap
+				.image-container, .content-container
+					display: inline-block
+					vertical-align: top
+				.image-container
+					width: 33.3%
+				.content-container
+					padding-left: $result-content-padding-left
+					white-space: normal
+					width: 100% - 33.3%
+					h3
+						color: black
+						font-size: 18px
+						line-height: 30px
+						letter-spacing: 1px
+						margin-top: -4px
+						margin-bottom: 18px
+					p, span, .text
+						color: #6e6e6e
+						font-size: 15px
+						line-height: 20px
+		&.videos
+			min-height: 200px
+			.video
+				margin-bottom: $result-margin-bottom
+				white-space: nowrap
+				.image-container, .content-container
+					display: inline-block
+					vertical-align: top
+				.image-container
+					position: relative
+					width: 33.3%
+					&:before
+						content: ''
+						background: #000
+						opacity: 0.5
+						position: absolute
+						left: 0
+						top: 0
+						height: 100%
+						width: 100%
+						z-index: 1
+					&:after
+						$icon-height: 74px
+						$icon-width: 74px
+						background: url("../img/icons/play-button-1.svg") 50% 50% no-repeat
+						background-size: contain
+						content: ''
+						position: absolute
+						left: 50%
+						top: 50%
+						margin-top: $icon-height / -2
+						margin-left: $icon-width / -2
+						height: $icon-height
+						width: $icon-width
+						z-index: 2
+					// .image-holder
+				.content-container
+					padding-left: $result-content-padding-left
+					white-space: normal
+					width: 100% - 33.3%
+					h3
+						color: black
+						font-size: 18px
+						line-height: 30px
+						letter-spacing: 1px
+						margin-top: -4px
+						margin-bottom: 18px
+					p, span, .text
+						color: #6e6e6e
+						font-size: 15px
+						line-height: 20px
 
 .profile-messages-modal
 	position: absolute

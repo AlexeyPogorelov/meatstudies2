@@ -1,31 +1,31 @@
 
 mixin course(price, date, image, content)
 	li.course
-		.image-container
+		a(href="#").image-container
 			.image-holder
 				img(src= image, alt='course')
 			.price= price
 			.date= date
-		.description-container
+		a(href="#").description-container
 			p= content
 
 mixin blog (image, name, text)
 	li.blog
-		.image-container
+		a(href="#").image-container
 			.image-holder
 				img.fake-img.temp(src= image, alt= name)
 				.img.temp(style="background-image:url(" + image + ")")
-		.content-container
+		a(href="#").content-container
 			h3= name
 			p.text= text
 
 mixin video (image, name, text)
 	li.video
-		.image-container
+		a(href="#").image-container
 			.image-holder
 				img.fake-img.temp(src= image, alt= name)
 				.img.temp(style="background-image:url(" + image + ")")
-		.content-container
+		a(href="#").content-container
 			h3= name
 			p.text= text
 
