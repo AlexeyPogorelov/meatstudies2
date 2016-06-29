@@ -95,15 +95,18 @@
 		transition: opacity .1s
 
 #search-modal
+	.modal-content
+		padding-top: 180px
 	.section-label
 		top: 96px
 	.content-holder
 		width: 75%
+		@media (max-width: $medium)
+			width: 100%
 	.input-group
 		margin-left: auto
 		margin-right: auto
 		position: relative
-		// padding-top: 64px
 		max-width: 1300px
 		.search-icon-1
 			background: url(../img/icons/search-icon-1.svg) 50% 50% no-repeat
@@ -147,18 +150,19 @@
 	.result-group
 		$result-margin-bottom: 35px
 		$result-content-padding-left: 20px
+		margin-top: 100px
 		position: relative
 		.section-label
 			top: 2px
 		&.search-input-section
-			margin-top: 180px
+			margin-top: 0
 			.button-holder
 				margin-top: 40px
 				text-align: right
 				.btn, input[type="submit"], button
 					min-width: 33.3%
 		&.search-results-border
-			margin-top: 56px
+			// margin-top: 56px
 			.content-holder
 				border-bottom: 2px solid black
 				padding-bottom: 16px
@@ -175,7 +179,7 @@
 				strong
 					font-weight: 500
 					color: black
-		&.courses
+		&.courses-results
 			min-height: 200px
 			.course
 				margin-bottom: $result-margin-bottom
@@ -184,16 +188,20 @@
 					display: inline-block
 					vertical-align: top
 				.image-container
+					white-space: normal
 					width: 33.3%
+					@media (max-width: $medium)
+						width: 25%
 					// TODO remove it
 					.image-holder
 						text-align: left
 						img
 							height: 100px
 				.description-container
-					padding-left: $result-content-padding-left
 					white-space: normal
 					width: 100% - 33.3%
+					@media (max-width: $medium)
+						width: 100% - 25%
 					&, p
 						color: #8c8c8c
 						font-size: 15px
@@ -217,7 +225,7 @@
 						vertical-align: top
 						top: 0px
 						right: -4px
-		&.blogs
+		&.blogs-results
 			min-height: 200px
 			.blog
 				margin-bottom: $result-margin-bottom
@@ -227,6 +235,9 @@
 					vertical-align: top
 				.image-container
 					width: 33.3%
+					.image-holder
+						.fake-img
+							height: auto
 				.content-container
 					padding-left: $result-content-padding-left
 					white-space: normal
@@ -242,7 +253,7 @@
 						color: #6e6e6e
 						font-size: 15px
 						line-height: 20px
-		&.videos
+		&.videos-results
 			min-height: 200px
 			.video
 				margin-bottom: $result-margin-bottom
@@ -277,7 +288,9 @@
 						height: $icon-height
 						width: $icon-width
 						z-index: 2
-					// .image-holder
+					.image-holder
+						.fake-img
+							height: auto
 				.content-container
 					padding-left: $result-content-padding-left
 					white-space: normal
