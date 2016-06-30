@@ -15,7 +15,7 @@ mixin blog (image, name, text)
 			.image-holder
 				img.fake-img.temp(src= image, alt= name)
 				.img.temp(style="background-image:url(" + image + ")")
-		a(href="#").content-container
+		a(href="#").content-container.html
 			h3= name
 			p.text= text
 
@@ -34,10 +34,33 @@ mixin video (image, name, text)
 		span search
 		img(src="img/icons/side-labels/search.svg", alt="search")
 	.container
-		.content-holder
-			form(action="#").input-group
+		form(action="#").content-holder
+			.input-group
 				input(type="text")
-				.button-holder.align-right
+			.input-group.controls-group
+				.tags-holder(role= "listbox")
+					mixin tag( tag )
+						li
+							.tags
+								input(
+									type='checkbox'
+									name= tag
+									id= tag
+								)
+								label(for= tag)= tag
+
+					+tag( 'Interview' )
+					+tag( 'Design' )
+					+tag( 'Education' )
+					+tag( 'Course' )
+					+tag( 'UI/UX' )
+					+tag( 'Front End' )
+					+tag( 'Teacher' )
+					+tag( 'Inspiration' )
+					+tag( 'Video' )
+					+tag( 'Identity' )
+					+tag( 'Logo' )
+				.button-holder
 					button.btn(type="submit") искать
 
 .result-group.search-results-border

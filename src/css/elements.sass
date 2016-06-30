@@ -498,3 +498,21 @@ section.event-head
 		.separator, .from
 			color: #141414
 	.labels
+
+
+// TAGS
+.tags input[type="checkbox"]
+	&:not(:checked), &:checked
+		left: -9999px
+		position: absolute
+	&:not(:checked) + label, &:checked + label
+		cursor: pointer
+		position: relative
+		user-select: none
+	&:not(:checked) + label
+		color: #9e9e9e
+	&:checked + label
+		color: $main-color
+	&:checked:focus + label, &:not(:checked):focus + label
+		// border: 1px solid #777
+// END TAGS

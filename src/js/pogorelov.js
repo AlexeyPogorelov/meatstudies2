@@ -86,24 +86,24 @@ $.fn.simpleSlider = function (opt) {
 		opt = {};
 	}
 	opt = $.extend({
-		'loop': true,
-		'interval': false,
+		'autoHeight': false,
+		'clickToNext': true,
 		'easing': 'swing',
-		'speed': 400,
-		'prevClass': 'arrow-left',
-		'nextClass': 'arrow-right',
 		'holderClass': 'slides-holder',
-		'viewportClass': 'viewport',
+		'interval': false,
+		'loop': true,
+		'mouseDrug': false,
+		'mouseWheel': false,
+		'nextClass': 'arrow-right',
+		'preloaderClass': 'slide',
+		'prevClass': 'arrow-left',
 		'sectionClass': 'section',
 		'slideClass': 'slide',
-		'preloaderClass': 'slide',
-		'clickToNext': true,
+		'slidesOnPage': 1,
+		'speed': 400,
 		'startSlide': 0,
-		'autoHeight': false,
-		'mouseWheel': false,
-		'mouseDrug': false,
 		'touch': true,
-		'slidesOnPage': 1
+		'viewportClass': 'viewport'
 	}, opt);
 
 	var plugin = function (i) {
@@ -653,7 +653,7 @@ $.fn.cardsSlider = function (opt) {
 		'pagination': true,
 		'paginationHolderClass': 'controls-mobile',
 		'paginationPageClass': 'page',
-		'preloaderClass': 'slide',
+		'preloaderClass': 'preloader',
 		'prevClass': 'arrow-left',
 		'scaleFactor': 0.8,
 		'sectionClass': 'section',
