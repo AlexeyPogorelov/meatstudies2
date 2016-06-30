@@ -247,7 +247,8 @@ section.programm
 				line-height: 20px
 				letter-spacing: 0
 
-section.register-section
+.register-section
+	$base-height: 49px
 	margin-top: 106px
 	@media (max-width: $mobile-large)
 		margin-top: 94px
@@ -260,18 +261,18 @@ section.register-section
 	.input-holder
 		letter-spacing: 0
 		font-size: 0
-		margin-bottom: 20px
+		margin-bottom: 40px
 		@media (max-width: $mobile-large)
 			margin-bottom: 0
-		label, input
+		label, input, .form-group
 			display: inline-block
-			vertical-align: middle
-			height: 49px
+			vertical-align: top
+			line-height: $base-height
+			height: $base-height
 		label
 			color: black
 			font-size: 18px
 			font-weight: 500
-			// line-height: 30px
 			letter-spacing: 1px
 			width: 25%
 			margin-left: -2px
@@ -279,7 +280,8 @@ section.register-section
 			padding-right: 20px
 			@media (max-width: $mobile-large)
 				display: none
-		input
+		input, .form-group
+			margin-bottom: 0
 			width: 50%
 			@media (max-width: $mobile-large)
 				width: 100%
@@ -288,7 +290,38 @@ section.register-section
 				@media (max-width: $mobile-large)
 					color: transparent
 					color: #6e6e6e
+		.show-password-button
+			$eye-font-size: 20px
+			top: ($base-height - $eye-font-size) / 2 - 2px
+			font-size: $eye-font-size
+			position: absolute
+			cursor: pointer
+			right: 14px
+			color: #9b9b9b
+			line-height: 1em
+	.form-group
+		input
+			width: 100%
+	.button-label
+		display: inline-block
+		text-align: left
+		width: 25%
+
+		&, a
+			font-size: 18px
+			line-height: 1em
+			letter-spacing: 1px
+			font-weight: 500
+			color: #4a4a4a
+		b
+			font-size: inherit
+			line-height: inherit
+			letter-spacing: inherit
+			font-weight: inherit
+			color: $main-color
 	.button-holder
+		font-size: 0
+		letter-spacing: 0
 		text-align: right
 		@media (max-width: $mobile-large)
 			margin-top: 19px

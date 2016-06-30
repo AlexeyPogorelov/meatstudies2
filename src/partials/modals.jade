@@ -10,55 +10,88 @@
 				.line-5
 		include ./search-results.jade
 
-.modal-holder#login-modal(data-cross="cross-top")
-	.modal-content
-		.modal-container
 
-
-.modal-holder#login-modal-email(data-cross="cross-top")
-	.modal-content
-		a(href="https://www.facebook.com/").socials-login-container Login with
-			b  facebook
-		.modal-back(data-modal="#login-modal")
-		.modal-container
-			form(action="#")
-				.form-group
-					.input-group
-						label(for="popup-login-email") Email
-						input(type="text")#popup-login-email
-				.form-group
-					.input-group
-						label(for="popup-login-password") Password
-						input(type="password")#popup-login-password
-						a(href="password-recovery.html" data-modal="#password-recovery").forgot-password Forgot?
-				.button-group
-					button(type="submit")
-						span Log In
-				.button-group
-					a(href="signup.html" data-modal="#signup-modal") Sign Up
 
 .modal-holder#signup-modal(data-cross="cross-top")
 	.modal-content
-		.modal-container
-			a(href="https://www.facebook.com/").socials-login-container Login with
-				b  facebook
-			.modal-back(data-modal="#login-modal")
-			form(action="#")
-				.form-group
-					.input-group
-						label(for="popup-login-name") Name
-						input(type="text")#popup-login-name
-				.form-group
-					.input-group
-						label(for="popup-login-email") Email
-						input(type="text")#popup-login-email
-				.form-group
-					.input-group
-						label(for="popup-login-password") Password
-						input(type="password")#popup-login-password
-				.button-group
-					button(type="submit")
-						span Sign Up
+		.container
+			.register-section
+				form(action="#")
+					.input-holder
+						label(for="name") Email
+						input(type="text" id="name" placeholder="Email")
+					.input-holder
+						label(for="name") Ваше имя
+						input(type="text" id="name" placeholder="Ваше имя")
+					.input-holder
+						label(for="name") Номер телефона
+						input(type="text" id="name" placeholder="Номер телефона")
+					.input-holder
+						label(for="name") Пароль
+						.form-group
+							input(type="password" id="name" placeholder="Пароль")
+							.show-password-button
+								i.fa.fa-eye
+					.button-holder
+						button.btn(type="submit") зарегистрироваться
+			.socials-login-container
+				mixin social (network, color)
+					button(style= "border-color: #" + color + "; background-color: #" + color)= network
+				.section-label-inline
+					span Или войдите через:
+				.socials-lobin-buttons
+					+social(
+						'FACEBOOK',
+						'a5acef'
+					)
+					+social(
+						'GOOGLE',
+						'ff8282'
+					)
+					+social(
+						'VK',
+						'8dc1e3'
+					)
+
+.modal-holder#login-modal(data-cross="cross-top")
+	.modal-content
+		.container
+			.register-section
+				form(action="#")
+					.input-holder
+						label(for="name") Email/Телефон
+						input(type="text" id="name" placeholder="Email")
+					.input-holder
+						label(for="name") Пароль
+						.form-group
+							input(type="password" id="name" placeholder="Пароль")
+							.show-password-button
+								i.fa.fa-eye
+					.button-holder
+						.button-label
+							a(href="#")
+								span Забыл
+								b  пароль
+								span ?
+						button.btn(type="submit") войти
+			.socials-login-container
+				mixin social (network, color)
+					button(style= "border-color: #" + color + "; background-color: #" + color)= network
+				.section-label-inline
+					span Или войдите через:
+				.socials-lobin-buttons
+					+social(
+						'FACEBOOK',
+						'a5acef'
+					)
+					+social(
+						'GOOGLE',
+						'ff8282'
+					)
+					+social(
+						'VK',
+						'8dc1e3'
+					)
 
 .profile-messages-modal#profile-messages-modal
 	.profile-messages-header

@@ -491,6 +491,18 @@ $(document).on('ready', function () {
 
 		};
 
+		// show password
+		$('.show-password-button').on('click', function (e) {
+			$(this).siblings('input').each(function () {
+				var $input = $(this);
+				if ( $input.attr('type') === "password" ) {
+					$input.attr('type', 'text');
+				} else if ( $input.attr('type') === "text" ) {
+					$input.attr('type', 'password');
+				}
+			});
+		});
+
 		// validation
 		(function () {
 

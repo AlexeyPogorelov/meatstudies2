@@ -342,6 +342,45 @@
 						font-size: 15px
 						line-height: 20px
 
+#login-modal,
+#signup-modal
+	.modal-content
+		padding-top: 180px
+		@media (max-width: $mobile-large)
+			padding-top: 35px
+	.content-holder
+		width: 75%
+		@media (max-width: $medium)
+			width: 100%
+	.register-section
+		margin-top: 0
+	.socials-login-container
+		margin-top: 80px
+		font-size: 0
+		letter-spacing: 0
+	.section-label-inline, .socials-lobin-buttons
+		display: inline-block
+		vertical-align: top
+	.section-label-inline
+		font-size: 18px
+		line-height: 49px
+		letter-spacing: 1px
+
+		width: 25%
+	.socials-lobin-buttons
+		width: 50%
+		button, .btn
+			display: inline-block
+			vertical-align: top
+			margin: 0 5% 40px 0
+			padding-left: 10px
+			padding-right: 10px
+			width: 30%
+			&:nth-child(3n)
+				margin-right: 0
+			&:not(:hover)
+				background-color: transparent !important
+
 .profile-messages-modal
 	position: absolute
 	display: block
