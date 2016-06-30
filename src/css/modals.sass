@@ -3,7 +3,6 @@
 // MODALS
 // --------------------------------------------------
 
-
 .modal-holder a.close-modal, .modal-holder .close-modal
 	background: url('../img/icons/cross-button-2.svg') no-repeat 50% 50%
 	cursor: pointer
@@ -93,6 +92,45 @@
 	&:hover
 		opacity: 1
 		transition: opacity .1s
+
+.modal-tabs
+	display: none
+	margin-left: -6px
+	z-index: 2
+	@media (max-width: $mobile-large)
+		display: block
+	li
+		color: #9e9e9e
+		display: inline-block
+		margin-bottom: 13px
+		margin-right: 5px
+		a
+			color: inherit
+			display: inline-block
+			padding-right: 6px
+			padding-left: 6px
+			font-weight: 500
+			font-size: 15px
+			position: relative
+			max-width: 100%
+			overflow: hidden
+			text-overflow: ellipsis
+			text-transform: uppercase
+			white-space: nowrap
+
+			font-size: 15px
+			letter-spacing: 5px
+		&.active
+			color: #000
+			a:after
+				content: ''
+				position: absolute
+				height: 8px
+				background: $main-color
+				width: 100%
+				top: 50%
+				left: -6px
+				z-index: -1
 
 #search-modal
 	.modal-content
@@ -347,7 +385,7 @@
 	.modal-content
 		padding-top: 180px
 		@media (max-width: $mobile-large)
-			padding-top: 35px
+			padding-top: 30px
 	.content-holder
 		width: 75%
 		@media (max-width: $medium)
@@ -358,6 +396,8 @@
 		margin-top: 80px
 		font-size: 0
 		letter-spacing: 0
+		@media (max-width: $mobile-large)
+			margin-top: 23px
 	.section-label-inline, .socials-lobin-buttons
 		display: inline-block
 		vertical-align: top
@@ -367,8 +407,15 @@
 		letter-spacing: 1px
 
 		width: 25%
+		@media (max-width: $mobile-large)
+			letter-spacing: 0
+			text-align: center
+			font-size: 15px
+			width: 100%
 	.socials-lobin-buttons
 		width: 50%
+		@media (max-width: $mobile-large)
+			width: 100%
 		button, .btn
 			display: inline-block
 			vertical-align: top

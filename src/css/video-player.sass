@@ -1,0 +1,80 @@
+.video-js
+	.vjs-big-play-button
+		&, &:focus
+			border: none
+			border-radius: 50%
+			border-radius: 0
+			background: $main-color
+			background: transparent url('../img/icons/play-button-1.svg') 50% 50% no-repeat
+			background-size: contain
+			opacity: .5
+			left: 50%
+			top: 50%
+			margin-top: -30px
+			margin-left: -30px
+			height: 60px
+			width: 60px
+			&:hover
+				opacity: 1
+			&:before
+				display: none
+	.vjs-control-text
+		display: none
+	.vjs-control-bar
+		background: transparent
+		background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
+	.vjs-load-progress
+		background-color: rgba(255, 255, 255, 0.2)
+	.vjs-mouse-display
+		// background-color: $main-color
+	.vjs-play-progress
+		background-color: $main-color
+	.vjs-slider
+		background-color: rgba(255, 255, 255, 0.1)
+
+	.vjs-volume-level
+		background-color: $main-color
+
+section.video-player
+	margin-top: 180px
+	font-size: 0
+	letter-spacing: 0
+	white-space: nowrap
+	.video-container, .sidebar-container
+		display: inline-block
+		vertical-align: top
+		white-space: normal
+	.video-container
+		height: 360px
+		width: 640px
+		.video-js
+			height: 100%
+			width: 100%
+	.sidebar-container
+		padding-left: 20px
+		width: calc(100% - 640px)
+	.chat-holder
+		&, p
+			color: #6e6e6e
+			font-size: 13px
+			line-height: 20px
+			letter-spacing: 0
+		.message
+			margin-bottom: 10px
+		.header
+			position: relative
+			margin-bottom: 6px
+		.name
+			font-size: 13px
+			font-weight: 700
+			line-height: 1em
+		.time
+			color: #bfbfbf
+			font-size: 13px
+			font-weight: 500
+			line-height: 1em
+
+			position: absolute
+			right: 0
+			top: 0
+	.playlist-holder

@@ -6,6 +6,9 @@
 	display: none !important
 	opacity: 0 !important
 
+.todo-remove-it-test-modal
+	margin-top: 180px
+
 body::-webkit-scrollbar
 	height: 0
 	width: 0
@@ -69,6 +72,12 @@ label
 	height: 24px
 	width: 24px
 	z-index: 20
+	@media (max-width: $mobile-large)
+		margin-top: 20px
+		margin-right: 10px
+		padding: 10px
+		height: 40px
+		width: 40px
 	&:after
 		background: url("../img/icons/cross-button-2.svg") no-repeat 50% 50%
 		background-size: 100%
@@ -84,13 +93,6 @@ label
 	&.animated
 		animation: crossIn 1s ease-in-out 1 forwards
 
-@media screen and (max-width: $mobile-large)
-	.cross-top-fixed, .cross-bottom-fixed
-		margin-top: 20px
-		margin-right: 20px
-		padding: 10px
-		height: 36px
-		width: 36px
 
 // --------------------------------------------------
 // LOGIC

@@ -1,0 +1,28 @@
+doctype html
+html(lang='en')
+	head
+		title MEAT ˢᵗᵘᵈⁱᵉˢ 2
+
+		include ./partials/head.jade
+
+	body
+		include ./partials/navigation.jade
+
+		.todo-remove-it-test-modal#mobile-menu
+			.modal-content
+				.modal-container
+					.popup-navigation
+						ul.navigation-pannel
+							li
+								a(href="search-modal.html" data-modal="#search-modal")
+									span Поиск
+							li
+								a(href="signup-modal.html" data-modal="#signup-modal")
+									span Регистрация
+							li
+								a(href="login-modal.html" data-modal="#login-modal")
+									span Вход
+
+		include ./partials/modals.jade
+
+	include ./partials/scripts.jade

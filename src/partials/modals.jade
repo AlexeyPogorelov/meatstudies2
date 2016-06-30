@@ -1,4 +1,11 @@
 
+mixin modal-tabs(href, text, active, modal)
+	li( class= active ? 'active' : '' )
+		a(
+			href= href,
+			data-modal= modal
+		)= text
+
 .modal-holder#search-modal(data-cross="cross-top")
 	.modal-content
 		//- .grid
@@ -11,10 +18,12 @@
 		include ./search-results.jade
 
 
-
 .modal-holder#signup-modal(data-cross="cross-top")
 	.modal-content
 		.container
+			ul.modal-tabs(role="tabs")
+				+modal-tabs('#', 'login', false, '#login-modal')
+				+modal-tabs('#', 'register', true, '#signup-modal')
 			.register-section
 				form(action="#")
 					.input-holder
@@ -56,6 +65,9 @@
 .modal-holder#login-modal(data-cross="cross-top")
 	.modal-content
 		.container
+			ul.modal-tabs(role="tabs")
+				+modal-tabs('#', 'login', true, '#login-modal')
+				+modal-tabs('#', 'register', false, '#signup-modal')
 			.register-section
 				form(action="#")
 					.input-holder
@@ -102,7 +114,7 @@
 	.profile-messages-content
 		ul.messages-list
 			mixin feed-item(src, name, happened, theme)
-				li.message
+				li
 					.image-container
 						a(href="#").image-holder
 							img(src= src, alt= theme)

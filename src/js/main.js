@@ -219,11 +219,14 @@ $(document).on('ready', function () {
 					$('[data-modal]').on('click', function (e) {
 		
 						e.preventDefault();
+
 		
 						var $self = $(this),
 							target = $self.attr('data-modal'),
 							$target = $(target);
 		
+						if ( $self.hasClass('active') ) return;
+
 						if ($target.length) {
 		
 							modals.openModal($target);

@@ -1,0 +1,64 @@
+doctype html
+html(lang='en')
+	head
+		title MEAT ˢᵗᵘᵈⁱᵉˢ 2
+
+		include ./partials/head.jade
+
+	body
+
+		include ./partials/navigation.jade
+
+		section.video-player
+			.container
+				.video-container
+					video.video-js.vjs-default-skin(
+							preload="auto",
+							poster="really-cool-video-poster.jpg",
+							data-setup='{}',
+							controls
+						)
+						source(
+							src="http://vjs.zencdn.net/v/oceans.mp4",
+							type="video/mp4"
+						)
+						source(
+							src="http://vjs.zencdn.net/v/oceans.webm",
+							type="video/webm"
+						)
+						p.vjs-no-js To view this video please enable JavaScript, and consider upgrading to a web browser that
+							a(href="http://videojs.com/html5-video-support/", target="_blank")  supports HTML5 video
+				.sidebar-container
+					.chat-holder
+						mixin chat(name, time, text)
+							li.message
+								.header
+									.name= name
+									.time= time
+								.content
+									p= text
+						+chat(
+							'Дылданедилдо Мария',
+							'12:00',
+							'Прошел курс, остался очень довлен, он помог мне найти работу моей мечты! Сейчас записался в школу, думаю это поможет мне в работе и жизни!'
+						)
+						+chat(
+							'Женя с твоей мамой',
+							'12:00',
+							'Прошел курс, остался очень довлен'
+						)
+						+chat(
+							'Хлеб с молоком',
+							'12:00',
+							'Клик клак пау о чем курс пацаны я не понял, где деньги, где рэпчик??'
+						)
+						+chat(
+							'Женя с твоей мамой',
+							'12:00',
+							'Прошел курс, остался очень довлен'
+						)
+
+		include ./partials/footer.jade
+		include ./partials/modals.jade
+
+	include ./partials/scripts.jade
