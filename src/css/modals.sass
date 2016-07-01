@@ -249,6 +249,8 @@
 				text-overflow: ellipsis
 				overflow: hidden
 				white-space: nowrap
+				@media (max-width: $mobile-large)
+					font-size: 15px
 				strong
 					font-weight: 500
 					color: black
@@ -257,6 +259,8 @@
 			.course
 				margin-bottom: $result-margin-bottom
 				white-space: nowrap
+				@media (max-width: $mobile-large)
+					white-space: normal
 				.image-container, .description-container
 					display: inline-block
 					vertical-align: top
@@ -265,6 +269,8 @@
 					width: 33.3%
 					@media (max-width: $medium)
 						width: 25%
+					@media (max-width: $mobile-large)
+						width: 100%
 					// TODO remove it
 					.image-holder
 						text-align: left
@@ -274,6 +280,8 @@
 					white-space: normal
 					width: 100% - 33.3%
 					@media (max-width: $medium)
+						width: 100% - 25%
+					@media (max-width: $mobile-large)
 						width: 100% - 25%
 					&, p
 						color: #8c8c8c
@@ -306,8 +314,13 @@
 				.image-container, .content-container
 					display: inline-block
 					vertical-align: top
+					@media (max-width: $mobile-large)
+						display: block
 				.image-container
 					width: 33.3%
+					@media (max-width: $mobile-large)
+						margin-bottom: 20px
+						width: 100%
 					.image-holder
 						.fake-img
 							height: auto
@@ -315,6 +328,9 @@
 					padding-left: $result-content-padding-left
 					white-space: normal
 					width: 100% - 33.3%
+					@media (max-width: $mobile-large)
+						padding-left: 0
+						width: 100%
 					h3
 						color: black
 						font-size: 18px
@@ -334,9 +350,14 @@
 				.image-container, .content-container
 					display: inline-block
 					vertical-align: top
+					@media (max-width: $mobile-large)
+						display: block
 				.image-container
 					position: relative
 					width: 33.3%
+					@media (max-width: $mobile-large)
+						margin-bottom: 20px
+						width: 100%
 					&:before
 						content: ''
 						background: #000
@@ -368,6 +389,8 @@
 					padding-left: $result-content-padding-left
 					white-space: normal
 					width: 100% - 33.3%
+					@media (max-width: $mobile-large)
+						padding-left: 0
 					h3
 						color: black
 						font-size: 18px

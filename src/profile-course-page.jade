@@ -85,10 +85,12 @@ html(lang='en')
 			.container
 				mixin celendar-item(date, month, day, heading, cls)
 					li.course-event-item(class= cls ? cls : '')
-						span= date
-						span= month
-						p= day
-						h1= heading
+						.date-holder
+							span= date
+							span= month
+							p= day
+						.title-holder
+							h1= heading
 						.dropdown
 							h3 Темы:
 							a.downmat(href="#") Скачать лекцию

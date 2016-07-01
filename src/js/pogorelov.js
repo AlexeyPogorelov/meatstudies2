@@ -661,7 +661,7 @@ $.fn.cardsSlider = function (opt) {
 		'slidesOnPage': 1,
 		'speed': 600,
 		'startSlide': 0,
-		'swing': 20,
+		'swing': 10,
 		'touch': true,
 		'viewportClass': 'viewport'
 	}, opt);
