@@ -1,0 +1,86 @@
+doctype html
+html(lang='en')
+	head
+		title MEAT ˢᵗᵘᵈⁱᵉˢ 2
+
+		include ./partials/head.jade
+
+	body
+
+		include ./partials/navigation.jade
+
+		section.video-player
+			.container
+				.mobile-label
+					h1 Front End для дизайнера
+				.video-container
+					video.video-js.vjs-default-skin(
+							preload="auto",
+							poster="http://wayup.in/assets/images/post/pietroschirano_header.jpg",
+							data-setup='{}',
+							controls
+						)
+						source(
+							src="http://vjs.zencdn.net/v/oceans.mp4",
+							type="video/mp4"
+						)
+						source(
+							src="http://vjs.zencdn.net/v/oceans.webm",
+							type="video/webm"
+						)
+						p.vjs-no-js To view this video please enable JavaScript, and consider upgrading to a web browser that
+							a(href="http://videojs.com/html5-video-support/", target="_blank")  supports HTML5 video
+				.sidebar-container
+					.playlist-holder
+
+						mixin video-item(image, description, state)
+							li.video(class= state ? state : '')
+								.image-container
+									.image-holder
+										img.fake-img(src= image, alt= description)
+										.img(style="background-image: url(" + image + ")")
+								.description-container
+									p= description
+
+						.playlist
+							+video-item(
+								'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-1.jpg',
+								'Intro'
+							)
+							+video-item(
+								'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-1.jpg',
+								'Menu ui/ux animation with principle',
+								'active'
+							)
+							+video-item(
+								'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-3.jpg',
+								'Введение в графические редакторы и практический урок',
+								'disabled'
+							)
+							+video-item(
+								'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-3-1.jpg',
+								'Дизайн как искуственный интелект поробащенния мира',
+								'disabled'
+							)
+							+video-item(
+								'http://i1.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_lavander_hair_couleur_cheveux-_rose_colorful-_pastel_hairs21.jpg?w=545',
+								'Дизайн как искуственный интелект поробащенния мира',
+								'disabled'
+							)
+							+video-item(
+								'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_blue_hair_couleur_cheveux-_rose_bleu_colorful-_pastel_hairs20.jpg?w=581',
+								'Введение в графические редакторы и практический урок',
+								'disabled'
+							)
+							+video-item(
+								'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs14.jpg?resize=198%2C300',
+								'Animation with principle',
+								'disabled'
+							)
+
+
+
+		include ./partials/footer.jade
+		include ./partials/modals.jade
+
+	include ./partials/scripts.jade

@@ -44,15 +44,20 @@ section.video-player
 	transition: opacity .3s
 	z-index: 999
 	@media (max-width: $mobile-large)
-		margin-top: 100px
+		margin-top: 82px
 		white-space: normal
 	@at-root
 		body.fixed
 			section.video-player
 				opacity: 0
 				pointer-events: none
+	.container
+		@media (max-width: $mobile-large)
+			width: 100%
 	.mobile-label
 		display: none
+		margin-bottom: 24px
+		padding: 0 20px
 		@media (max-width: $mobile-large)
 			display: block
 		&, h1, h2, h3, h4, h5, h6
@@ -88,6 +93,8 @@ section.video-player
 		background-color: #fafafa
 		padding: 20px 20px
 		height: 100%
+		@media (max-width: $mobile-large)
+			padding: 31px 20px
 		&, p
 			color: #6e6e6e
 			font-size: 13px
@@ -121,7 +128,7 @@ section.video-player
 		@media (max-width: $medium)
 			height: 143px
 		@media (max-width: $mobile-large)
-			height: 274px
+			height: 234px
 		&::-webkit-scrollbar-track
 			background-color: #eee
 		&::-webkit-scrollbar
@@ -132,6 +139,8 @@ section.video-player
 			// border: 2px solid #555555
 	.comment-form-holder
 		height: 67px
+		@media (max-width: $mobile-large)
+			height: 87px
 		.form-group
 			height: 100%
 		textarea
@@ -164,3 +173,26 @@ section.video-player
 			text-transform: uppercase
 			z-index: 1
 	.playlist-holder
+		.playlist
+			background-color: #f2f2f2
+			.video
+				height: 85px
+				font-size: 0
+				letter-spacing: 0
+				white-space: nowrap
+				&.active
+					background-color: #fafafa
+				.image-container, .description-container
+					display: inline-block
+					vertical-align: middle
+				.image-container
+					width: 20%
+				.description-container
+					padding-left: 20px
+					white-space: normal
+					width: 80%
+					&, p
+						color: #636363
+						font-size: 13px
+						font-weight: 500
+						line-height: 20px
