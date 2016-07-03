@@ -105,6 +105,52 @@ mixin modal-tabs(href, text, active, modal)
 						'8dc1e3'
 					)
 
+.modal-holder#categories-modal(data-cross="cross-top")
+	.section-label
+		span categories
+		img(src="img/icons/side-labels/categories.svg", alt="categories")
+	.modal-content
+		.container
+			form(action="#").categories-section
+				mixin category (name, active)
+					.category(class= active ? 'active' : '' )
+						a(href="#")
+							span= name
+				+category(
+					'Все категории',
+					true
+				)
+				+category(
+					'Logo'
+				)
+				+category(
+					'Identity'
+				)
+				+category(
+					'Back End'
+				)
+				+category(
+					'Interview'
+				)
+				+category(
+					'Front End'
+				)
+				+category(
+					'UI'
+				)
+				+category(
+					'Мероприятие'
+				)
+				+category(
+					'UX'
+				)
+				+category(
+					'Product Design'
+				)
+				+category(
+					'Отчет'
+				)
+
 .profile-messages-modal#profile-messages-modal
 	.profile-messages-header
 		a(href="#") ПЕРЕЙТИ В ЛИЧНЫЙ КАБИНЕТ

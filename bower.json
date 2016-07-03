@@ -29,6 +29,7 @@
     "animate.css": "animate-css#~3.5.1",
     "smoothscroll-for-websites": "~1.4.4",
     "jquery-ui": "^1.11.4",
-    "video.js": "videojs#^5.10.7"
+    "video.js": "videojs#^5.10.7",
+    "videojs-playlist": "^2.4.0"
   }
 }

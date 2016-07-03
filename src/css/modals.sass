@@ -41,6 +41,8 @@
 	overflow-x: hidden
 	overflow-y: auto
 	transition: opacity .3s ease-out, transform .2s, visibility .4s
+	.section-label
+		z-index: 1
 	.modal-content
 		background: #fff
 		position: relative
@@ -450,6 +452,61 @@
 				margin-right: 0
 			&:not(:hover)
 				background-color: transparent !important
+
+#categories-modal
+	.section-label
+		margin-top: 122px
+		@media (max-width: $mobile-large)
+			margin-top: 19px
+			margin-bottom: 27px
+	.categories-section
+		font-size: 0
+		letter-spacing: 0
+		margin: 178px auto 0
+		width: 50%
+		@media (max-width: $medium)
+			width: 100%
+		@media (max-width: $mobile-large)
+			margin-top: 10px
+		.category
+			display: inline-block
+			width: 50%
+			@media (max-width: $mobile-large)
+				width: 100%
+			a
+				color: #9b9b9b
+				display: inline-block
+				font-size: 18px
+				line-height: 1em
+				margin-bottom: 37px
+				// padding: 0 4px
+				position: relative
+				max-width: 100%
+				max-width: calc(100% - 20px)
+				@media (max-width: $mobile-large)
+					margin-bottom: 54px
+				span
+					display: inline-block
+					max-width: 100%
+					overflow: hidden
+					text-overflow: ellipsis
+					white-space: nowrap
+			&.active
+				a
+					color: black
+					font-weight: 600
+					@media (max-width: $mobile-large)
+						font-weight: 500
+					&:after
+						content: ''
+						background: $main-color
+						position: absolute
+						left: -4px
+						right: -4px
+						top: 54%
+						height: 2px
+						height: 0.5em
+						z-index: -1
 
 .profile-messages-modal
 	position: absolute
