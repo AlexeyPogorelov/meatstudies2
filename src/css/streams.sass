@@ -36,3 +36,380 @@ section.stream-about
 		margin-top: 134px
 		& + .subscribe
 			margin-top: 107px
+
+.student-work-section
+	font-size: 0
+	letter-spacing: 0
+	margin-top: 60px
+	& + .student-work-section
+		margin-top: 55px
+		.container
+			border-top: 2px solid #979797
+			padding-top: 80px
+			@media (max-width: $mobile-large)
+				padding-top: 55px
+	.header
+		margin-bottom: 34px
+		margin-top: -20px
+		h1, h2, h3, h4, h5, h6
+			font-size: 25px
+			line-height: 1em
+			letter-spacing: 1px
+			font-weight: 600
+			line-height: 1em
+	.user-info, .description, .button-holder
+		display: inline-block
+		vertical-align: top
+	.user-info
+		padding-top: 14px
+		width: 25%
+		@media (max-width: $mobile-large)
+			width: 100%
+		.user-image
+			border-radius: 50%
+			margin-bottom: 19px
+			height: 40px
+			width: 40px
+			overflow: hidden
+			display: inline-block
+			vertical-align: top
+			.image-holder
+				height: 100%
+				width: 100%
+			.type-marker
+				display: inline-block
+				vertical-align: top
+				.marker-text
+					font-size: 14px
+		.name-holder
+			padding-right: 18px
+			.name
+				font-size: 15px
+				font-weight: 700
+				line-height: 1em
+				letter-spacing: 0
+				margin-bottom: 6px
+
+				text-overflow: ellipsis
+				overflow: hidden
+				max-width: 100%
+				white-space: nowrap
+			.name-label
+				color: #b3b3b3
+				font-size: 15px
+				font-weight: 400
+				line-height: 1em
+				margin-bottom: 20px
+
+				text-overflow: ellipsis
+				overflow: hidden
+				max-width: 100%
+				white-space: nowrap
+	.description
+		padding-right: 18px
+		width: 50%
+		@media (max-width: $mobile-large)
+			width: 100%
+		.student-work
+			margin-bottom: 40px
+			height: 94px
+			white-space: nowrap
+			overflow: auto
+			overflow-y: hidden
+			overflow-x: auto
+			img
+				height: 100%
+				width: auto
+				max-width: 100%
+				margin-right: 20px
+				vertical-align: top
+		&, p
+			color: #6e6e6e
+			font-size: 15px
+			font-weight: 500
+			line-height: 20px
+			margin-bottom: 20px
+			letter-spacing: 0
+	.button-holder
+		text-align: left
+		width: 25%
+		@media (max-width: $mobile-large)
+			width: 100%
+		.btn, button
+			width: 100%
+		p
+			color: #bfbfbf
+			font-size: 15px
+			font-weight: 400
+			line-height: 20px
+			letter-spacing: 0
+
+.buy-video-section
+	font-size: 0
+	letter-spacing: 0
+	margin-top: 60px
+	& + .student-work-section
+		margin-top: 55px
+		.container
+			border-top: 2px solid #979797
+			padding-top: 80px
+			@media (max-width: $mobile-large)
+				padding-top: 55px
+	// TODO fix it
+	& + .programm
+		border-top: 2px solid #979797
+	.header
+		margin-bottom: 34px
+		margin-top: -20px
+		@media (max-width: $mobile-large)
+			margin-top: 0
+			margin-bottom: 0
+		h1, h2, h3, h4, h5, h6
+			font-size: 25px
+			line-height: 1em
+			letter-spacing: 1px
+			font-weight: 600
+			line-height: 1em
+	.user-info, .description, .button-holder
+		display: inline-block
+		vertical-align: top
+	.socials-holder
+		white-space: normal
+		li
+			display: inline-block
+			margin-right: 24px
+			a
+				font-size: 16px
+	.user-info
+		padding-right: 18px
+		width: 25%
+		font-size: 0
+		letter-spacing: 0
+		white-space: nowrap
+		@media (max-width: $mobile-large)
+			width: 100%
+		.user-image
+			border-radius: 50%
+			height: 50px
+			width: 50px
+			overflow: hidden
+			display: inline-block
+			vertical-align: top
+			margin-right: 9px
+			margin-top: 4px
+			.image-holder
+				height: 100%
+				width: 100%
+			.type-marker
+				display: inline-block
+				vertical-align: top
+				.marker-text
+					font-size: 14px
+		.name-holder
+			display: inline-block
+			vertical-align: top
+			width: 50%
+			width: calc(100% - 50px)
+			.name
+				font-size: 15px
+				font-weight: 700
+				line-height: 20px
+				letter-spacing: 0
+
+				text-overflow: ellipsis
+				overflow: hidden
+				max-width: 100%
+				white-space: nowrap
+			.name-label
+				color: black
+				font-size: 13px
+				line-height: 20px
+				white-space: normal
+				// font-weight: 400
+	.description
+		padding-right: 18px
+		width: 50%
+		@media (max-width: $mobile-large)
+			margin-top: 20px
+			width: 100%
+		.student-work
+			margin-bottom: 40px
+			height: 94px
+			white-space: nowrap
+			overflow: auto
+			overflow-y: hidden
+			overflow-x: auto
+			img
+				height: 100%
+				width: auto
+				max-width: 100%
+				margin-right: 20px
+				vertical-align: top
+		&, p
+			color: #6e6e6e
+			font-size: 15px
+			font-weight: 500
+			line-height: 20px
+			margin-bottom: 20px
+			letter-spacing: 0
+		.see-all
+			margin-top: 29px
+			a
+				letter-spacing: 0
+				&:after
+					content: ""
+					margin-left: 15px
+	.button-holder
+		text-align: left
+		width: 25%
+		@media (max-width: $mobile-large)
+			width: 100%
+		.btn, button
+			letter-spacing: 0
+			width: 100%
+		.price
+			color: black
+			font-size: 25px
+			font-weight: 600
+			line-height: 30px
+			text-align: center
+			line-height: 1em
+			margin-bottom: 14px
+			margin-top: -58px
+			@media (max-width: $mobile-large)
+				margin-top: 20px
+		p
+			color: #bfbfbf
+			font-size: 15px
+			font-weight: 400
+			line-height: 20px
+			letter-spacing: 0
+
+.student-work-teacher
+	font-size: 0
+	letter-spacing: 0
+	margin-top: 60px
+	& + .student-work-section
+		margin-top: 55px
+		.container
+			border-top: 2px solid #979797
+			padding-top: 80px
+			@media (max-width: $mobile-large)
+				padding-top: 55px
+	& + .programm
+		margin-top: 40px
+		margin-bottom: 0
+		&:before
+			content: ''
+			// border-top: 2px solid #979797
+			height: 2px
+			background: #979797
+			width: 100%
+			width: calc(100% - 60px)
+			margin-bottom: 80px
+			@media (max-width: $mobile-large)
+				width: calc(100% - 20px)
+				margin-bottom: 55px
+		.section-label
+			top: 90px
+		.controls-mobile
+			margin-bottom: 0
+	.header
+		margin-bottom: 34px
+		margin-top: -20px
+		h1, h2, h3, h4, h5, h6
+			font-size: 25px
+			line-height: 1em
+			letter-spacing: 1px
+			font-weight: 600
+			line-height: 1em
+	.user-info, .description, .button-holder
+		display: inline-block
+		vertical-align: top
+	.user-info
+		padding-top: 14px
+		width: 25%
+		@media (max-width: $mobile-large)
+			width: 100%
+		.user-image
+			border-radius: 50%
+			margin-bottom: 19px
+			height: 40px
+			width: 40px
+			overflow: hidden
+			display: inline-block
+			vertical-align: top
+			.image-holder
+				height: 100%
+				width: 100%
+			.type-marker
+				display: inline-block
+				vertical-align: top
+				.marker-text
+					font-size: 14px
+		.name-holder
+			padding-right: 18px
+			.name
+				font-size: 15px
+				font-weight: 700
+				line-height: 1em
+				letter-spacing: 0
+				margin-bottom: 6px
+
+				text-overflow: ellipsis
+				overflow: hidden
+				max-width: 100%
+				white-space: nowrap
+			.name-label
+				color: #b3b3b3
+				font-size: 15px
+				font-weight: 400
+				line-height: 1em
+				margin-bottom: 20px
+
+				text-overflow: ellipsis
+				overflow: hidden
+				max-width: 100%
+				white-space: nowrap
+	.description
+		padding-right: 18px
+		width: 50%
+		@media (max-width: $mobile-large)
+			width: 100%
+		.student-work
+			margin-bottom: 40px
+			height: 94px
+			white-space: nowrap
+			overflow: auto
+			overflow-y: hidden
+			overflow-x: auto
+			img
+				height: 100%
+				width: auto
+				max-width: 100%
+				margin-right: 20px
+				vertical-align: top
+		&, p
+			color: #6e6e6e
+			font-size: 15px
+			font-weight: 500
+			line-height: 20px
+			margin-bottom: 20px
+			letter-spacing: 0
+	.button-holder
+		text-align: left
+		width: 25%
+		@media (max-width: $mobile-large)
+			width: 100%
+		.btn, button
+			width: 100%
+		p
+			color: #bfbfbf
+			font-size: 15px
+			font-weight: 400
+			line-height: 20px
+			letter-spacing: 0
+
+section.teacher-answer-section
+	.container
+	.no-answer-yet
