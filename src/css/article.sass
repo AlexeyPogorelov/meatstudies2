@@ -305,9 +305,12 @@ section.article-recomend
 	.recomend-holder
 		font-size: 0
 		letter-spacing: 0
+		transition: transform .3s
 		@media (max-width: $mobile-large)
 			width: 300%
 			width: calc(300% - 60px)
+		&.touched
+			transition: none !important
 		a
 			display: block
 			color: #000
@@ -317,7 +320,7 @@ section.article-recomend
 			width: 33.3%
 			@media (max-width: $mobile-large)
 				padding-left: 20px
-				margin-right: -20px
+				// margin-right: -20px
 				&:last-child
 					margin-right: 0
 			p

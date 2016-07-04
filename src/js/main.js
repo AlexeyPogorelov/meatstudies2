@@ -190,42 +190,13 @@ $(document).on('ready', function () {
 			'slidesHolderClass': 'courses-row',
 			'viewportClass': 'container'
 		});
-		// window.test = $('.article-recomend').scrollSlider({
-		// 	'slideClass': 'item',
-		// 	'slidesHolderClass': 'recomend-holder',
-		// 	'viewportClass': 'container'
-		// });
+		$('.article-recomend').scrollSlider({
+			'slideClass': 'item',
+			'slidesHolderClass': 'recomend-holder',
+			'padding': 20,
+			'viewportClass': 'container'
+		});
 
-		// article add comment fake textarea
-		(function () {
-
-			$('[contenteditable="true"]').each(function () {
-
-				var $self = $(this),
-					$textarea,
-					fakePlaceholder = null;
-
-				if ($self.hasClass('comment-wysiwyg')) {
-
-					$textarea = $self.siblings('textarea');
-
-					$self.on('keyup', function () {
-						$textarea.html( $self.html() );
-					}).on('focus', function () {
-						if (fakePlaceholder === null) {
-							fakePlaceholder = $self.html();
-							$self.html('');
-						};
-						if (fakePlaceholder === $self.html()) $self.html('');
-					}).on('blur', function () {
-						if (!$self.text().replace(/\n\S/, '')) $self.html( fakePlaceholder );
-					});
-
-				}
-
-			});
-
-		})();
 
 		// modals
 		var modals = (function () {

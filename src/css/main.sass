@@ -371,7 +371,19 @@ label
 				white-space: nowrap
 				width: calc(100% - 100px)
 			.names-slider
-				transition: transform .3s
+				transition: transform .6s
+				white-space: nowrap
+				& > span
+					display: inline-block
+					vertical-align: middle
+					width: 100%
+					opacity: 0
+					color: black
+					transition: opacity .4s
+					&.active
+						color: black
+						opacity: 1
+						transition: opacity .6s
 			.arrow.left, .arrow.right
 				width: 50px
 				img
