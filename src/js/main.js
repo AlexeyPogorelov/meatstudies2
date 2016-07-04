@@ -182,12 +182,19 @@ $(document).on('ready', function () {
 			'slideClass': 'work'
 		});
 		$('.courses').scrollSlider({
-			'nextClass': 'arrow.right',
-			'prevClass': 'arrow.left',
+			'nextClass': 'right',
+			'prevClass': 'left',
+			'slideClass': 'course',
 			'slideNameClass': 'name',
+			'slideNameSpinner': true,
 			'slidesHolderClass': 'courses-row',
 			'viewportClass': 'container'
 		});
+		// window.test = $('.article-recomend').scrollSlider({
+		// 	'slideClass': 'item',
+		// 	'slidesHolderClass': 'recomend-holder',
+		// 	'viewportClass': 'container'
+		// });
 
 		// article add comment fake textarea
 		(function () {

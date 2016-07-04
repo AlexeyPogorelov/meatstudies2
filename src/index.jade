@@ -29,7 +29,7 @@ html(lang='en')
 				img(src="img/icons/side-labels/courses.svg", alt="courses")
 			.container
 				.courses-row
-					.course
+					.course(data-name="UX+UI")
 						.image-holder
 							//- TODO remove class "temp" on template
 							img.fake-img.temp(src="img/content/course-1.svg", alt="course")
@@ -37,7 +37,7 @@ html(lang='en')
 						.when 4 МЕСЯЦА
 						.price 3 600 грн / мec
 						a(href="course.html") Записаться на сентябрь
-					.course
+					.course(data-name="Frontend")
 						.image-holder
 							//- TODO remove class "temp" on template
 							img.fake-img.temp(src="img/content/course-2.svg", alt="course")
@@ -45,7 +45,7 @@ html(lang='en')
 						.when 2 МЕСЯЦА
 						.price 3 600 грн / мec
 						a(href="course.html") Записаться на Июль
-					.course
+					.course(data-name="Identify")
 						.image-holder
 							//- TODO remove class "temp" on template
 							img.fake-img.temp(src="img/content/course-3.svg", alt="course")
@@ -53,7 +53,7 @@ html(lang='en')
 						.when 4 МЕСЯЦА
 						.price 3 600 грн / мec
 						a(href="course.html") Записаться на январь
-					.course
+					.course(data-name="Backend")
 						.image-holder
 							//- TODO remove class "temp" on template
 							img.fake-img.temp(src="img/content/course-4.svg", alt="course")
@@ -68,8 +68,7 @@ html(lang='en')
 				.controls
 					.arrow.left
 						img(src="img/icons/slider-arrow-left-1.svg", alt="arrow")
-					.name
-						| UI+UX
+					.names-holder
 					.arrow.right
 						img(src="img/icons/slider-arrow-right-1.svg", alt="arrow")
 

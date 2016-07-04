@@ -635,39 +635,40 @@ $.fn.simpleSlider = function (opt) {
 $.fn.scrollSlider = function (opt) {
 
 	// options
-	if (!opt) {
-		opt = {};
-	}
+	if (typeof opt !== 'object') opt = {};
 	opt = $.extend({
+		'loop': false,
+		'mouseDrug': false,
+		'mouseWheel': false,
 		'nextClass': 'next-slide',
 		'padding': 20,
 		'pageClass': 'page',
 		'pagination': false,
 		'preloaderClass': 'preloader',
 		'prevClass': 'prev-slide',
+		'screenMaxWidth': 760,
 		'slideClass': 'slide',
+		'slideNameSpinner': false,
+		'slideNamesHolderClass': 'names-holder',
 		'slideNameClass': 'name',
 		'slidesHolderClass': 'slider-holder',
 		'slidesOnPage': 1,
+		'speed': 400,
+		'touch': true,
 		'viewportClass': 'viewport'
 	}, opt);
 
 	var plugin = function (i) {
 
 		var DOM = {},
+			// current - current page
+			// slides - count of slides
 			state = {
 				'touchStart': {},
 				'touchEnd': {}
 			},
 			self = this,
-			$window = $(window),
-			touchendCleaner = function () {
-				DOM.$sliderHolder.removeClass('touched');
-				state.touchStart.yPos = 0;
-				state.touchStart.xPos = 0;
-				state.shiftX = 0;
-				state.shiftD = 0;
-			};
+			$window = $(window);
 
 		// methods
 		var plg = {
@@ -677,34 +678,71 @@ $.fn.scrollSlider = function (opt) {
 				DOM.$viewport = DOM.$slider.find('.' + opt.viewportClass);
 				DOM.$slidesHolder = DOM.$slider.find('.' + opt.slidesHolderClass);
 				DOM.$slides = DOM.$slidesHolder.find('.' + opt.slideClass);
-				DOM.$slideName = DOM.$slider.find('.' + opt.slideNameClass);
+				if (opt.slideNameSpinner) {
+					DOM.$namesHolder = DOM.$slider.find('.' + opt.slideNamesHolderClass);
+					DOM.$namesSlider = $('<div class="names-slider">').appendTo( DOM.$namesHolder );
+				}
 			},
 			init: function () {
 
 				this.cacheDOM();
 
+				this.touchStatusCleaner();
 				state.current = state.current || 0;
-				state.pages = Math.ceil(DOM.$slides.length / opt.slidesOnPage);
+				state.slides = DOM.$slides.length || 0;
+				state.pages = Math.ceil(state.slides / opt.slidesOnPage);
 
-				this.resize();
 
-				if (this.initialized) return false;
+				if (this.initialized) {
+					this.resize();
+					return false;
+				}
 
-				this.applyBaseStyles( DOM.$viewport );
+				// name
+				if (opt.slideNameSpinner) {
+					DOM.$namesSlider
+						.empty();
+					DOM.$slides
+						.each(function () {
+							DOM.$namesSlider.append( '<div>' + $(this).attr('data-name') + '</div>' );
+						});
+				}
+
+				// click events
+				DOM.$slider.on('click', plg.globalClickHandler);
 
 				DOM.$preloader.fadeOut(150);
 
 				this.initialized = true;
 
+				this.resize();
+
+				// drag events
+				if (opt.touch) {
+					DOM.$slider
+						.on('touchstart', plg.touchstart)
+						.on('touchmove', plg.touchmove)
+						.on('touchend touchcancel', plg.touchend);
+				}
+
+				// console.log(state)
+
 			},
-			applyBaseStyles: function ( $viewport ) {
-				$viewport.css({
+			uninit: function () {
+				this.initialized = false;
+			},
+			applyBaseStyles: function () {
+				DOM.$viewport.css({
 					'overflow': 'hidden'
 				});
+				DOM.$slidesHolder.width( state.holderWidth );
 			},
-			removeBaseStyles: function ( $viewport ) {
-				$viewport.css({
+			removeBaseStyles: function () {
+				DOM.$viewport.css({
 					'overflow': ''
+				});
+				DOM.$slidesHolder.css({
+					'width': ''
 				});
 			},
 			resize: function () {
@@ -714,9 +752,17 @@ $.fn.scrollSlider = function (opt) {
 
 				state.holderWidth = state.slideWidth * state.slides;
 
-				DOM.$slidesHolder.width( state.holderWidth );
+				if (opt.slideNameSpinner) {
+					state.namesHolderHeight = DOM.$namesHolder.height();
+				}
 
 				plg.toSlide(state.current, true);
+
+				if ($window.width() > opt.screenMaxWidth) {
+					this.removeBaseStyles();
+				} else {
+					this.applyBaseStyles();
+				}
 
 			},
 			prevSlide: function () {
@@ -724,9 +770,11 @@ $.fn.scrollSlider = function (opt) {
 				var id = state.current - 1;
 				if (id < 0) {
 
-					plg.fakeAnimation( state.pages - 1 );
-
-					return;
+					if (opt.loop) {
+						id = state.pages - 1;
+					} else {
+						id = state.current;
+					}
 
 				}
 
@@ -738,9 +786,11 @@ $.fn.scrollSlider = function (opt) {
 				var id = state.current + 1;
 				if (id >= state.pages) {
 
-					plg.fakeAnimation( 0 );
-
-					return;
+					if (opt.loop) {
+						id = 0;
+					} else {
+						id = state.current;
+					}
 
 				}
 
@@ -756,17 +806,6 @@ $.fn.scrollSlider = function (opt) {
 
 				state.current = id;
 
-				if ( DOM.$slidesHolder.hasClass('touched') || resize ) {
-
-					state.animated = false;
-
-				} else {
-
-					state.animated = true;
-
-				}
-
-
 				if (opt.pagination) {
 
 					DOM.$pagination.find('.page').eq(id).addClass('active').siblings().removeClass('active');
@@ -776,22 +815,104 @@ $.fn.scrollSlider = function (opt) {
 				// TODO add class
 				// DOM.$slider.addClass('animated');
 
-				if (opt.loop) {
+				// DOM.$slidesHolder.animate({
+				// 	'scrollLeft': state.current * state.holderWidth
+				// })
 
-					DOM.$sliderHolder.css({
-						'transform': 'translateX( ' + -( state.sliderWidth * (id + state.slides) ) + 'px) translateZ(0)',
-						'transition': 'transform ' + opt.speed + 'ms'
-					});
+				DOM.$slidesHolder.css({
+					'transform': ' translateX(' + -state.current * state.slideWidth + 'px)'
+				})
 
-				} else {
-
-					DOM.$sliderHolder.css({
-						'transform': 'translateX( ' + -(state.sliderWidth * id) + 'px) translateZ(0)',
-						'transition': 'transform ' + opt.speed + 'ms'
-					});
-
+				if (opt.slideNameSpinner) {
+					DOM.$namesHolder.find('> div').css({
+						'transform': ' translateY(' + -state.current * state.namesHolderHeight + 'px)'
+					})
 				}
 
+			},
+			globalClickHandler: function (e) {
+
+				var $target = $(e.target);
+
+				if ($target.hasClass(opt.pageClass)) {
+
+					plg.toSlide($(e.target).data('page'));
+
+				} else if ($target.hasClass(opt.prevClass)) {
+
+					plg.prevSlide();
+
+				} else if ($target.hasClass(opt.nextClass)) {
+
+					plg.nextSlide();
+
+				}
+				// else if (opt.clickToNext && $target.parents(opt.slideClass).length) {
+				// 	plg.nextSlide();
+				// }
+
+			},
+			touchstart: function (e) {
+				state.touchStart.timeStamp = e.timeStamp;
+
+				state.touchStart.translateX = DOM.$slidesHolder.css('transform');
+				state.touchStart.translateX = state.touchStart.translateX.split(', ');
+				state.touchStart.translateX = state.touchStart.translateX[4];
+				state.touchStart.translateX = parseFloat(state.touchStart.translateX);
+
+			},
+			touchmove: function (e) {
+
+				var deltaX;
+
+				if (!state.touchStatus) {
+					DOM.$slidesHolder.addClass('touched');
+					state.touchStatus = true;
+				}
+
+				state.touchEnd.xPos = e.originalEvent.touches[0].clientX;
+				state.touchEnd.yPos = e.originalEvent.touches[0].clientY;
+
+				if (!state.touchStart.xPos) {
+					state.touchStart.xPos = e.originalEvent.touches[0].clientX;
+				}
+
+				if (!state.touchStart.yPos) {
+					state.touchStart.yPos = e.originalEvent.touches[0].clientY;
+				}
+
+				deltaX = state.touchEnd.xPos - state.touchStart.xPos;
+
+				// console.log( state.touchStart.translateX )
+				// console.log( deltaX )
+				DOM.$slidesHolder.css({
+					'transform': ' translateX(' + (deltaX + state.touchStart.translateX) + 'px)'
+				});
+
+			},
+			touchend: function (e) {
+				// TODO reformat it
+				var distance = state.slideWidth / 4,
+					deltaX = state.touchEnd.xPos - state.touchStart.xPos;
+
+				state.touchStatus = false;
+				DOM.$slidesHolder.removeClass('touched');
+
+				if (deltaX > distance || -deltaX > distance) {
+					if (deltaX < 0) {
+						plg.nextSlide();
+					} else {
+						plg.prevSlide();
+					}
+				} else {
+					plg.toSlide( state.current );
+				}
+
+				plg.touchStatusCleaner();
+			},
+			touchStatusCleaner: function () {
+				state.touchStart = {};
+				state.touchEnd = {};
 			}
 		};
 
@@ -799,31 +920,6 @@ $.fn.scrollSlider = function (opt) {
 
 		// resize
 		$window.on( 'resize', plg.resize.bind(plg) );
-
-		// click events
-		DOM.$slider.on('click', function (e) {
-
-			var $target = $(e.target);
-
-			if ($target.hasClass(opt.pageClass)) {
-
-				plg.toSlide($(e.target).data('page'));
-
-			} else if ($target.hasClass(opt.prevClass)) {
-
-				plg.prevSlide();
-
-			} else if ($target.hasClass(opt.nextClass)) {
-
-				plg.nextSlide();
-
-			} else if (opt.clickToNext && $target.parents(opt.slideClass).length) {
-
-				plg.nextSlide();
-
-			}
-
-		});
 
 		if (opt.mouseWheel) {
 
@@ -871,77 +967,9 @@ $.fn.scrollSlider = function (opt) {
 
 		}
 
-		if (opt.touch) {
+		if (opt.mouseDrug && false) {
 
-			// drag events
-			DOM.$slider.on('touchstart', function (e) {
-				state.touchStart.timeStamp = e.timeStamp;
-			}).on('touchmove', function (e) {
-
-				state.touchEnd.xPos = e.originalEvent.touches[0].clientX;
-				state.touchEnd.yPos = e.originalEvent.touches[0].clientY;
-
-				if (!state.touchStart.xPos) {
-
-					state.touchStart.xPos = e.originalEvent.touches[0].clientX;
-
-				}
-
-				if (!state.touchStart.yPos) {
-
-					state.touchStart.yPos = e.originalEvent.touches[0].clientY;
-
-				}
-
-			}).on('touchend touchcancel', function (e) {
-				// TODO reformat it
-				var distance = 70,
-					speed = opt.speed || 200,
-					deltaX = state.touchEnd.xPos - state.touchStart.xPos,
-					deltaY = Math.abs(state.touchEnd.yPos - state.touchStart.yPos);
-
-				state.touchEnd.xPos = 0;
-				state.touchEnd.yPos = 0;
-				if (deltaX > distance || -deltaX > distance) {
-					if (deltaX < 0) {
-
-						if (state.animated) {
-
-							state.doAfterTransition = plg.nextSlide;
-
-						} else {
-
-							plg.nextSlide();
-
-						}
-
-					} else {
-
-						if (state.animated) {
-
-							state.doAfterTransition = plg.prevSlide;
-
-						} else {
-
-							plg.prevSlide();
-
-						}
-
-					}
-				}
-				// TODO replace it by function
-				deltaX = null;
-				deltaY = null;
-				state.touchEnd.xPos = null;
-				state.touchEnd.yPos = null;
-				state.touchStart.xPos = null;
-				state.touchStart.yPos = null;
-			});
-		}
-
-		if (opt.mouseDrug) {
-
-			DOM.$section.on('mousedown', function (e) {
+			DOM.$slider.on('mousedown', function (e) {
 				DOM.$sliderHolder.addClass('touched');
 				state.touchStart.xPos = e.pageX;
 				state.touchStart.yPos = e.pageY;
@@ -1253,6 +1281,7 @@ $.fn.cardsSlider = function (opt) {
 
 					$activeSlide
 						.css({
+							'will-change': 'left, transform',
 							'z-index': 4,
 							'transform': 'scale(1)',
 							'left': state.itemWidth * mult / 0.7
@@ -1260,7 +1289,8 @@ $.fn.cardsSlider = function (opt) {
 
 					$futureSlide
 						.css({
-							'z-index': 3,
+							'will-change': 'left, transform',
+							'z-index': 3
 						});
 
 						if (stepChanged) {
@@ -1280,7 +1310,7 @@ $.fn.cardsSlider = function (opt) {
 
 					$futureSlide
 						.css({
-							'z-index': 4,
+							'z-index': 4
 						});
 
 						if (stepChanged) {
@@ -1330,6 +1360,7 @@ $.fn.cardsSlider = function (opt) {
 
 					$activeSlide
 						.css({
+							'will-change': 'left, transform',
 							'z-index': 4,
 							'transform': 'scale(1)',
 							'left': state.itemWidth * mult / 0.7
@@ -1337,7 +1368,8 @@ $.fn.cardsSlider = function (opt) {
 
 					$futureSlide
 						.css({
-							'z-index': 3,
+							'will-change': 'left, transform',
+							'z-index': 3
 						});
 
 						if (stepChanged) {
@@ -1404,6 +1436,7 @@ $.fn.cardsSlider = function (opt) {
 				// console.info( 'renderReset' );
 				// TODO refactor
 				var resetStyles = {
+						'will-change': '',
 						'z-index': '',
 						'transform': '',
 						'transform-origin': '',

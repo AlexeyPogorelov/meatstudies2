@@ -231,6 +231,7 @@ label
 
 .courses
 	margin-top: 103px
+	overflow: hidden
 	@media (max-width: $mobile-large)
 		margin-top: 113px
 	.section-label
@@ -248,95 +249,101 @@ label
 	.courses-row
 		letter-spacing: 0
 		font-size: 0
+		transition: transform .6s
 		@media (max-width: $mobile-large)
 			width: 400%
-		.course
-			letter-spacing: 1px
-			display: inline-block
-			vertical-align: top
-			padding-right: 20px
-			width: 25%
+		@media (min-width: $mobile-large + 1)
+			transform: none !important
+		&.touched
+			transition: none
+			will-change: transform
+	.course
+		letter-spacing: 1px
+		display: inline-block
+		vertical-align: top
+		padding-right: 20px
+		width: 25%
+		@media (max-width: $mobile-large)
+			padding-left: 20px
+		.image-holder
+			// TODO remove align left before production
+			text-align: left
+			// height: 200px
 			@media (max-width: $mobile-large)
-				padding-left: 20px
-			.image-holder
-				// TODO remove align left before production
-				text-align: left
-				// height: 200px
-				@media (max-width: $mobile-large)
-					height: 120px
-				.img
-					background-size: contain
-					background-position: 0 0
-				.temp
-					width: 73%
-			.when, .price
-				color: #141414
-				font-family: 'Gotham Pro'
-				font-size: 18px
-				font-weight: 400
-				line-height: 1em
-			.when
-				padding-bottom: 19px
-				margin-top: 18px
-				position: relative
-				&:after
-					content: ''
-					position: absolute
-					bottom: 0
-					left: 0
-					display: block
-					background: #000
-					height: 2px
-					width: 16px
-			.price
-				margin-top: 18px
+				height: 120px
+			.img
+				background-size: contain
+				background-position: 0 0
+			.temp
+				width: 73%
+		.when, .price
+			color: #141414
+			font-family: 'Gotham Pro'
+			font-size: 18px
+			font-weight: 400
+			line-height: 1em
+		.when
+			padding-bottom: 19px
+			margin-top: 18px
+			position: relative
+			&:after
+				content: ''
+				position: absolute
+				bottom: 0
+				left: 0
+				display: block
+				background: #000
+				height: 2px
+				width: 16px
+		.price
+			margin-top: 18px
+		a
+			border: 3px solid $main-color
+			display: inline-block
+			color: black
+			font-size: 15px
+			font-weight: 600
+			line-height: 1em
+			margin-top: 16px
+			padding: 15px 15px
+			letter-spacing: 0
+			transition: background .3s
+			white-space: nowrap
+			text-overflow: ellipsis
+			overflow: hidden
+			// TODO discuss it
+			// fix width or stable padding
+			width: 224px
+			text-align: center
+			padding: 15px 0
+			&:hover
+				// background-color: #ffc962
+				background-color: $main-color
+				transition: background .1s
+		&:nth-child(2)
+			margin-top: 307px
+			@media (max-width: $mobile-large)
+				margin-top: 0
 			a
-				border: 3px solid $main-color
-				display: inline-block
-				color: black
-				font-size: 15px
-				font-weight: 600
-				line-height: 1em
-				margin-top: 16px
-				padding: 15px 15px
-				letter-spacing: 0
-				transition: background .3s
-				white-space: nowrap
-				text-overflow: ellipsis
-				overflow: hidden
-				// TODO discuss it
-				// fix width or stable padding
-				width: 224px
-				text-align: center
-				padding: 15px 0
+				border-color: #ffc962
 				&:hover
-					// background-color: #ffc962
-					background-color: $main-color
-					transition: background .1s
-			&:nth-child(2)
-				margin-top: 307px
-				@media (max-width: $mobile-large)
-					margin-top: 0
-				a
-					border-color: #ffc962
-					&:hover
-						background-color: #ffc962
-			&:nth-child(3)
-				margin-top: 117px
-				@media (max-width: $mobile-large)
-					margin-top: 0
-				a
-					border-color: #fff8bb
-					&:hover
-						background-color: #fff8bb
-			&:nth-child(4)
-				margin-top: 423px
-				@media (max-width: $mobile-large)
-					margin-top: 0
-				a
-					border-color: #fff2a4
-					&:hover
-						background-color: #fff2a4
+					background-color: #ffc962
+		&:nth-child(3)
+			margin-top: 117px
+			@media (max-width: $mobile-large)
+				margin-top: 0
+			a
+				border-color: #fff8bb
+				&:hover
+					background-color: #fff8bb
+		&:nth-child(4)
+			margin-top: 423px
+			@media (max-width: $mobile-large)
+				margin-top: 0
+			a
+				border-color: #fff2a4
+				&:hover
+					background-color: #fff2a4
 	.see-all
 		margin-top: -20px
 		@media (max-width: $mobile-large)
@@ -347,23 +354,28 @@ label
 		letter-spacing: 0
 		@media (max-width: $mobile-large)
 			display: block
-			.arrow.left, .name, .arrow.right
+			.arrow.left, .names-holder, .arrow.right
 				display: inline-block
 				vertical-align: middle
-			.name
+			.names-holder
 				color: black
 				font-size: 18px
 				font-weight: 600
 				letter-spacing: 1px
-				line-height: 1em
+				line-height: 1.5em
 				overflow: hidden
+				height: 27px
 				padding: 0 20px
 				text-align: center
 				text-overflow: ellipsis
 				white-space: nowrap
 				width: calc(100% - 100px)
+			.names-slider
+				transition: transform .3s
 			.arrow.left, .arrow.right
 				width: 50px
+				img
+					pointer-events: none
 		.controls
 			margin-top: 13px
 			padding: 0 20px
