@@ -232,7 +232,10 @@ section.course-events
 			&.active
 				.dropdown
 					max-height: 999px
-					transition: max-height .2s
+					max-height: 100vh
+					transition: max-height .6s
+					@media (max-width: $mobile-large)
+						max-height: 200vh
 			&.disabled
 				span
 					color: #b3b3b3
@@ -290,6 +293,12 @@ section.course-events
 					right: 5px
 					top: 0
 					z-index: 1
+					transition: transform .3s
+			&.active
+				h1
+					&:before
+						transform: rotate(180deg)
+
 
 section.feedback-block
 	margin-top: 69px

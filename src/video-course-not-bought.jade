@@ -153,6 +153,155 @@ html(lang='en')
 					a.btn(href="#") редактировать
 					p.label Редактирование доступно 5 часов после загрузки
 
+
+		mixin work-case(name, image, description, autor)
+			li.work
+				a(href="#")
+					.image-container
+						.image-holder
+							img.fake-img(src= image, alt= name)
+							.img(style= 'background-image:url(' + image + ')')
+					.description-container
+						h3= name
+						p
+							b= description
+						hr
+						p= autor
+
+		section.works
+			.section-label
+				img(src="img/icons/side-labels/student-works.svg", alt="student-works")
+			.container
+				ul.work-case-holder
+					+work-case(
+						'The Divan',
+						'http://ramilrama.com/img/portfolio/portfolio-bg-360-1.png',
+						'App/Web',
+						'Васильковская А.'
+					)
+					+work-case(
+						'Moldovia Watches (Beta)',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6-1.jpg',
+						'UI+UX/Product design',
+						'Мижнародна К.'
+					)
+					+work-case(
+						'Mac Beth',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6.jpg',
+						'App/Web',
+						'Мукачево А,'
+					)
+
+		section.works.works-slider
+			.section-label
+				img(src="img/icons/side-labels/student-works.svg", alt="student-works")
+			.container
+				h3.label
+					span student works
+				ul.work-case-holder
+					+work-case(
+						'The Divan',
+						'http://ramilrama.com/img/portfolio/portfolio-bg-360-1.png',
+						'App/Web',
+						'Васильковская А.'
+					)
+					+work-case(
+						'Moldovia Watches (Beta)',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6-1.jpg',
+						'UI+UX/Product design',
+						'Мижнародна К.'
+					)
+					+work-case(
+						'Mac Beth',
+						'http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/05/Mobile-Apps-UIUX-Design-6.jpg',
+						'App/Web',
+						'Мукачево А,'
+					)
+
+		section.response-section
+			mixin response(name, date, image, description)
+				li.response
+					.head-container
+						.image-holder
+							img.fake-img(src= image, alt= name)
+							.img(style= 'background-image:url(' + image + ')')
+						.info-holder
+							h3= name
+							.date= date
+					.description-container
+						p= description
+			.section-label
+				span response
+				img(src="img/icons/side-labels/response.svg", alt="response")
+			.container
+				ul.response-holder
+					+response(
+						'Тройноепроникновение Татьяна',
+						'13 марта 2007',
+						'http://i2.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs11.jpg?resize=200%2C300',
+						'Прошел курс, остался очень довлен, он помог мне найти работу моей мечты! Сейчас записался в школу, думаю это поможет мне в работе и жизни! Курс отличный, огромное спасибо!'
+					)
+					+response(
+						'Дылданедилдо Мария',
+						'13 марта 2007',
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs14.jpg?resize=198%2C300',
+						'Прошел курс, остался очень довлен, он помог мне найти работу моей мечты! Сейчас записался в школу, думаю это поможет мне в работе и жизни! Курс отличный, огромное спасибо!'
+					)
+					+response(
+						'Тройноепроникновение Татьяна',
+						'13 марта 2007',
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_hair_couleur_cheveux-_rose_colorful-_pastel_hairs-12.jpg?w=646',
+						'Прошел курс, остался очень довлен, он помог мне найти работу моей мечты! Сейчас записался в школу, думаю это поможет мне в работе и жизни! Курс отличный, огромное спасибо!'
+					)
+					+response(
+						'Дылданедилдо Мария',
+						'13 марта 2007',
+						'http://i0.wp.com/blog.happy-chantilly.com/wp-content/uploads/2014/10/pink_blue_hair_couleur_cheveux-_rose_bleu_colorful-_pastel_hairs20.jpg?w=581',
+						'Прошел курс, остался очень довлен, он помог мне найти работу моей мечты! Сейчас записался в школу, думаю это поможет мне в работе и жизни! Курс отличный, огромное спасибо!'
+					)
+
+				.button-holder
+					a.btn(href="#") показать больше
+
+		section.faq-section
+			mixin faq(name, description)
+				li.faq
+					h3= name
+					p= description
+			.section-label
+				span questions
+				img(src="img/icons/side-labels/questions.svg", alt="questions")
+			.container
+				ul.faq-holder
+					+faq(
+						'Останеться ли у меня доступ к курсу, после его завершения?',
+						'После завершения курса, вы получаете фидбэк по курсовой работе, и доступ закрывается.'
+					)
+					+faq(
+						'Получу ли я какое-то сведенье о прохождении курса?',
+						'Да! После окончания курса, вы получаете электронный сертефикат, об их окончании. '
+					)
+					+faq(
+						'Есть ли жизнь на марсе? И как она выглядит?',
+						'Определенно ЕСТЬ! Выглядит она лучше чем вы!'
+					)
+					+faq(
+						'Через какую реку ехал грека, в которой его еще рак за руку цапнул?',
+						'Ехал Грека, через реку, видет грека в реке рак, сунул Грека руку в реку, рак за руку Греку СХВАТИЛ ОТПИЗДИЛ УТОПИЛ СЪЕЛ УБИЛ ИЗНАСИЛОВАЛ НАШЕЛ ВСЮ СЕМЬЮ ЗАРЕЗАЛ ИХ ВСЕХ И УТОЛПИЛ в реке Малютка'
+					)
+
+		section.addition-question-section
+			.container
+				.description
+					h2 Остались какие-то вопросы? <br /> Смело спрашивай!
+				form.content-holder(action="#")
+					.input-holder
+						input(type="text" id="name" placeholder="Email")
+					.input-holder
+						textarea(type="text" id="name" placeholder="Вопрос или предложение")
+					.button-holder
+						button.btn(type="submit") узнать
+
 		section.teacher-answer-section
 			.container
 				.no-answer-yet

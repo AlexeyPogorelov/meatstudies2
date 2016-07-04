@@ -506,6 +506,49 @@ $(document).on('ready', function () {
 			});
 		});
 
+		// course event submenu
+		$('.course-event-item').on('click', function (e) {
+			$(this).toggleClass('active');
+		});
+
+		// profilemenu mobile
+		$('.profilemenu-mobile').on('click', function (e) {
+			var $self = $(this),
+				$modal = $('#profilemenu-mobile-modal');
+
+			if ( $modal.length === 0 ) {
+
+				$modal = $('<div>')
+					.attr('id', 'profilemenu-mobile-modal')
+					.addClass('modal-holder')
+					.append( $(this).find('ul') )
+					.appendTo( 'body' );
+
+				$modal
+					.find('a')
+					.on('click', function (e) {
+						e.preventDefault();
+
+						$self
+							.find('.active-element')
+							.empty()
+							.append( $(this).clone() );
+
+						modals.closeModal( $modal );
+					});
+
+				setTimeout(function () {
+					modals.openModal( $modal );
+				}, 10);
+
+			} else {
+
+				modals.openModal( $modal );
+
+			}
+
+		});
+
 		// validation
 		(function () {
 
