@@ -943,65 +943,69 @@ input[type="text"], input[type="password"], input[type="email"]
 			.badge
 
 .cross-top-fixed.cross-navigation
-	margin-top: 55px
-	margin-right: 55px
+	margin-top: 20px
+	margin-right: 10px
 
 
 // --------------------------------------------------
 // MOBILE MENU
 // --------------------------------------------------
 
+
 #mobile-menu
 	.modal-content
-		text-align: center
-		height: auto
-		width: auto
-		.popup-navigation
-			li
-				padding: 0 20px
+		padding: 20px
+	.search-form
+		.input-group
+			margin-bottom: 30px
+			position: relative
+			input[type="text"]
+				padding-left: 40px
+				width: 100%
+			input[type="submit"]
+				background: none
+				border: none
+				height: 27px
+				left: 11px
+				margin: 0
+				position: absolute
+				top: 9px
+				width: 27px
+	.label
+		color: black
+		font-size: 15px
+		font-weight: 400
+		letter-spacing: 5px
+		line-height: 1em
+		text-transform: uppercase
+		margin-top: 13px
+		margin-bottom: 27px
+	li
+		color: #9e9e9e
+		font-size: 18px
+		font-weight: 500
+		letter-spacing: 1px
+		line-height: 75px
+		text-transform: uppercase
+		&.active
+			a
+				color: #000
 				position: relative
-				&.active
-					a
-						color: transparent
-						cursor: auto
-						// pointer-events: none
-						font-weight: 600
-						svg
-							display: block
-				&.active:after
-					background: url('http://img-fotki.yandex.ru/get/5607/5091629.6b/0_612e6_b9039c0d_M.jpg')
-					background-position: 50%
-					border-radius: 50%
-					bottom: 7px
-					content: ''
-					height: 6px
-					left: 50%
-					margin-left: -3px
+				&:after
+					content: ""
+					background: $main-color
 					position: absolute
-					width: 6px
-				a
-					// padding: 4px 10px
-					color: #35363c
-					line-height: 1em
-					// padding: 0 20px
-					width: 73px
-					height: 22px
-					color: #35363c
-					font-size: 18px
-					font-weight: 500
-					line-height: 68px
-					span
-						display: inline-block
-					svg
-						display: none
-						left: 50%
-						pointer-events: none
-						position: absolute
-						top: 22px
-						transform: translateX(-50%)
-						width: 52px
-						text
-							fill: url(#pattern)
+					top: 50%
+					left: -4px
+					right: -4px
+					bottom: 0
+					z-index: -1
+		span
+			text-overflow: ellipsis
+			overflow: hidden
+			white-space: nowrap
+			max-width: 100%
+			display: inline-block
 
 section.response-section
 	.section-label

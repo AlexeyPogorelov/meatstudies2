@@ -97,7 +97,14 @@
 .modal-holder#mobile-menu(data-cross="cross-navigation")
 	.modal-content
 		.modal-container
+			.label
+				span menu
 			.popup-navigation
+				form(action="#").search-form
+					.input-group
+						input(type="text")
+						input(type="submit")
+
 				ul.navigation-pannel
 					li
 						a(href="index.html")

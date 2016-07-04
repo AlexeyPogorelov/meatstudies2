@@ -181,6 +181,13 @@ $(document).on('ready', function () {
 			'viewportClass': 'container',
 			'slideClass': 'work'
 		});
+		$('.courses').scrollSlider({
+			'nextClass': 'arrow.right',
+			'prevClass': 'arrow.left',
+			'slideNameClass': 'name',
+			'slidesHolderClass': 'courses-row',
+			'viewportClass': 'container'
+		});
 
 		// article add comment fake textarea
 		(function () {
@@ -520,6 +527,7 @@ $(document).on('ready', function () {
 
 				$modal = $('<div>')
 					.attr('id', 'profilemenu-mobile-modal')
+					.attr('data-cross', 'cross-top')
 					.addClass('modal-holder')
 					.append( $(this).find('ul') )
 					.appendTo( 'body' );
@@ -527,14 +535,24 @@ $(document).on('ready', function () {
 				$modal
 					.find('a')
 					.on('click', function (e) {
+
 						e.preventDefault();
+
+						var $target = $(this);
+
+						$target
+							.closest('li')
+							.addClass('active')
+							.siblings()
+							.removeClass('active');
 
 						$self
 							.find('.active-element')
 							.empty()
-							.append( $(this).clone() );
+							.append( $target.clone() );
 
 						modals.closeModal( $modal );
+
 					});
 
 				setTimeout(function () {

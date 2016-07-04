@@ -135,6 +135,9 @@ $.fn.simpleSlider = function (opt) {
 				DOM.$slides.eq( state.current || 0 ).addClass('active');
 			},
 			init: function () {
+
+				plg.cacheDOM();
+
 				state.current = state.current || 0;
 				state.slides = DOM.$slides.length;
 				state.pages = Math.ceil(DOM.$slides.length / opt.slidesOnPage);
@@ -165,6 +168,8 @@ $.fn.simpleSlider = function (opt) {
 				DOM.$preloader.fadeOut(150);
 
 				this.initialized = true;
+
+				plg.resize();
 
 			},
 			addIdsToSlides: function () {
@@ -419,9 +424,7 @@ $.fn.simpleSlider = function (opt) {
 			}
 		};
 
-		plg.cacheDOM();
 		plg.init();
-		plg.resize();
 
 		// resize
 		$window.on('resize', function () {
@@ -614,8 +617,372 @@ $.fn.simpleSlider = function (opt) {
 
 		DOM.$sliderHolder.on(transitionPrefix, plg.transitionEnded);
 
-		$window.on( 'resize', plg.resize.bind(plg) );
+		return plg;
+	};
+
+	if (this.length > 1) {
+
+		return this.each(plugin);
+
+	} else if (this.length === 1) {
+
+		return plugin.call(this[0]);
+
+	}
+
+};
+
+$.fn.scrollSlider = function (opt) {
+
+	// options
+	if (!opt) {
+		opt = {};
+	}
+	opt = $.extend({
+		'nextClass': 'next-slide',
+		'padding': 20,
+		'pageClass': 'page',
+		'pagination': false,
+		'preloaderClass': 'preloader',
+		'prevClass': 'prev-slide',
+		'slideClass': 'slide',
+		'slideNameClass': 'name',
+		'slidesHolderClass': 'slider-holder',
+		'slidesOnPage': 1,
+		'viewportClass': 'viewport'
+	}, opt);
+
+	var plugin = function (i) {
+
+		var DOM = {},
+			state = {
+				'touchStart': {},
+				'touchEnd': {}
+			},
+			self = this,
+			$window = $(window),
+			touchendCleaner = function () {
+				DOM.$sliderHolder.removeClass('touched');
+				state.touchStart.yPos = 0;
+				state.touchStart.xPos = 0;
+				state.shiftX = 0;
+				state.shiftD = 0;
+			};
+
+		// methods
+		var plg = {
+			cacheDOM: function () {
+				DOM.$slider = $(self);
+				DOM.$preloader = DOM.$slider.find('.' + opt.preloaderClass);
+				DOM.$viewport = DOM.$slider.find('.' + opt.viewportClass);
+				DOM.$slidesHolder = DOM.$slider.find('.' + opt.slidesHolderClass);
+				DOM.$slides = DOM.$slidesHolder.find('.' + opt.slideClass);
+				DOM.$slideName = DOM.$slider.find('.' + opt.slideNameClass);
+			},
+			init: function () {
+
+				this.cacheDOM();
+
+				state.current = state.current || 0;
+				state.pages = Math.ceil(DOM.$slides.length / opt.slidesOnPage);
+
+				this.resize();
+
+				if (this.initialized) return false;
+
+				this.applyBaseStyles( DOM.$viewport );
+
+				DOM.$preloader.fadeOut(150);
+
+				this.initialized = true;
+
+			},
+			applyBaseStyles: function ( $viewport ) {
+				$viewport.css({
+					'overflow': 'hidden'
+				});
+			},
+			removeBaseStyles: function ( $viewport ) {
+				$viewport.css({
+					'overflow': ''
+				});
+			},
+			resize: function () {
+
+				state.slideWidth = DOM.$viewport.width();
+				state.itemWidth = DOM.$viewport.width() / opt.slidesOnPage;
+
+				state.holderWidth = state.slideWidth * state.slides;
+
+				DOM.$slidesHolder.width( state.holderWidth );
+
+				plg.toSlide(state.current, true);
+
+			},
+			prevSlide: function () {
+
+				var id = state.current - 1;
+				if (id < 0) {
+
+					plg.fakeAnimation( state.pages - 1 );
+
+					return;
+
+				}
+
+				plg.toSlide(id);
+
+			},
+			nextSlide: function () {
+
+				var id = state.current + 1;
+				if (id >= state.pages) {
+
+					plg.fakeAnimation( 0 );
+
+					return;
+
+				}
+
+				plg.toSlide(id);
+
+			},
+			toSlide: function (id, resize) {
+
+				if ( id < 0 || id >= state.pages ) {
+					console.warn('id is ' + id);
+					return;
+				}
+
+				state.current = id;
+
+				if ( DOM.$slidesHolder.hasClass('touched') || resize ) {
+
+					state.animated = false;
+
+				} else {
+
+					state.animated = true;
+
+				}
+
+
+				if (opt.pagination) {
+
+					DOM.$pagination.find('.page').eq(id).addClass('active').siblings().removeClass('active');
+
+				}
+
+				// TODO add class
+				// DOM.$slider.addClass('animated');
+
+				if (opt.loop) {
+
+					DOM.$sliderHolder.css({
+						'transform': 'translateX( ' + -( state.sliderWidth * (id + state.slides) ) + 'px) translateZ(0)',
+						'transition': 'transform ' + opt.speed + 'ms'
+					});
+
+				} else {
+
+					DOM.$sliderHolder.css({
+						'transform': 'translateX( ' + -(state.sliderWidth * id) + 'px) translateZ(0)',
+						'transition': 'transform ' + opt.speed + 'ms'
+					});
+
+				}
+
+			}
+		};
+
 		plg.init();
+
+		// resize
+		$window.on( 'resize', plg.resize.bind(plg) );
+
+		// click events
+		DOM.$slider.on('click', function (e) {
+
+			var $target = $(e.target);
+
+			if ($target.hasClass(opt.pageClass)) {
+
+				plg.toSlide($(e.target).data('page'));
+
+			} else if ($target.hasClass(opt.prevClass)) {
+
+				plg.prevSlide();
+
+			} else if ($target.hasClass(opt.nextClass)) {
+
+				plg.nextSlide();
+
+			} else if (opt.clickToNext && $target.parents(opt.slideClass).length) {
+
+				plg.nextSlide();
+
+			}
+
+		});
+
+		if (opt.mouseWheel) {
+
+			DOM.$slider.on('DOMMouseScroll wheel', function (e) {
+
+				e.preventDefault();
+				e.stopPropagation();
+
+				var delta = e.originalEvent.wheelDelta || -e.originalEvent.detail || -e.originalEvent.deltaY;
+				if ( pagesState.lastScrollTime + opt.speed < new Date().getTime() ) {
+
+					if (delta > 0) {
+
+						plg.prevSlide();
+
+					} else if (delta < 0) {
+
+						plg.nextSlide();
+
+					}
+
+				}
+
+			}).on('mousewheel', function (e) {
+
+				e.preventDefault();
+				e.stopPropagation();
+
+				var delta = e.originalEvent.wheelDelta || -e.originalEvent.detail || -e.originalEvent.deltaY;
+				if ( pagesState.lastScrollTime + opt.speed < new Date().getTime() ) {
+
+					if (delta > 0) {
+
+						plg.prevSlide();
+
+					} else if (delta < 0) {
+
+						plg.nextSlide();
+
+					}
+
+				}
+
+			});
+
+		}
+
+		if (opt.touch) {
+
+			// drag events
+			DOM.$slider.on('touchstart', function (e) {
+				state.touchStart.timeStamp = e.timeStamp;
+			}).on('touchmove', function (e) {
+
+				state.touchEnd.xPos = e.originalEvent.touches[0].clientX;
+				state.touchEnd.yPos = e.originalEvent.touches[0].clientY;
+
+				if (!state.touchStart.xPos) {
+
+					state.touchStart.xPos = e.originalEvent.touches[0].clientX;
+
+				}
+
+				if (!state.touchStart.yPos) {
+
+					state.touchStart.yPos = e.originalEvent.touches[0].clientY;
+
+				}
+
+			}).on('touchend touchcancel', function (e) {
+				// TODO reformat it
+				var distance = 70,
+					speed = opt.speed || 200,
+					deltaX = state.touchEnd.xPos - state.touchStart.xPos,
+					deltaY = Math.abs(state.touchEnd.yPos - state.touchStart.yPos);
+
+				state.touchEnd.xPos = 0;
+				state.touchEnd.yPos = 0;
+				if (deltaX > distance || -deltaX > distance) {
+					if (deltaX < 0) {
+
+						if (state.animated) {
+
+							state.doAfterTransition = plg.nextSlide;
+
+						} else {
+
+							plg.nextSlide();
+
+						}
+
+					} else {
+
+						if (state.animated) {
+
+							state.doAfterTransition = plg.prevSlide;
+
+						} else {
+
+							plg.prevSlide();
+
+						}
+
+					}
+				}
+				// TODO replace it by function
+				deltaX = null;
+				deltaY = null;
+				state.touchEnd.xPos = null;
+				state.touchEnd.yPos = null;
+				state.touchStart.xPos = null;
+				state.touchStart.yPos = null;
+			});
+		}
+
+		if (opt.mouseDrug) {
+
+			DOM.$section.on('mousedown', function (e) {
+				DOM.$sliderHolder.addClass('touched');
+				state.touchStart.xPos = e.pageX;
+				state.touchStart.yPos = e.pageY;
+				try {
+
+					state.touchStart.trfX = -parseInt( DOM.$sliderHolder.css('transform').split(',')[4] );
+
+				} catch (error) {
+
+					console.warn('transform is undefined');
+					console.log(error);
+
+				}
+
+			}).on('mousemove', function (e) {
+				if (e.buttons < 1) {
+					touchendCleaner ();
+				} else if (state.touchStart.xPos) {
+
+					state.shiftD = state.touchStart.xPos - e.pageX;
+					state.shiftX = state.touchStart.trfX + state.shiftD;
+
+					DOM.$sliderHolder.css({
+						'transform': 'translateX( ' + -state.shiftX + 'px) translateZ(0)'
+					});
+
+				}
+			}).on('mouseup mouseleave', function (e) {
+				if ( Math.abs(state.shiftD) > 40 ) {
+					if (state.shiftD > 0) {
+						plg.nextSlide();
+					} else {
+						plg.prevSlide();
+					}
+				} else {
+					plg.toSlide(state.current);
+				}
+				touchendCleaner ();
+			});
+
+		}
 
 		return plg;
 	};
