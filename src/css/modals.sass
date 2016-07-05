@@ -46,14 +46,14 @@
 	.modal-content
 		background: #fff
 		position: relative
-		transform: translateY(40px)
+		transform: translateY(40px) translateZ(0)
 		transition: opacity .3s ease-out, transform .5s, visibility .4s, outline .4s
 	&.opened
 		opacity: 1
 		visibility: visible
 		-webkit-overflow-scrolling: touch
 		.modal-content
-			transform: translateY(0)
+			transform: translateY(0) translateZ(2px)
 			transition: opacity .3s ease-out, transform .5s, visibility .4s, outline .4s
 	&::-webkit-scrollbar
 		height: 0

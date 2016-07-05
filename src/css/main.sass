@@ -178,11 +178,17 @@ label
 		img
 			width: 100%
 	.content-holder
-		max-width: 768px
-		margin: 166px auto 300px
+		// max-width: 768px
+		// margin: 166px auto 300px
+		margin-top: 166px
+		margin-bottom: 300px
+		padding-right: 5%
 		@media (max-width: $mobile-large)
 			margin: 98px auto 80px
 			padding: 0 20px
+		.container
+			// margin-top: 166px
+			// margin-bottom: 300px
 	h2
 		line-height: 1.3em
 		font-size: 50px
@@ -782,29 +788,29 @@ input[type="text"], input[type="password"], input[type="email"]
 					opacity: 0
 					pointer-events: none
 					transition: opacity .3s, height .3s .3s
-				&:hover, &.opened
-					.label
-						.icon
-							transform: rotate(-180deg)
-					li:nth-child(1n+2)
-						height: 1em
-						opacity: 1
-						pointer-events: all
-						transition: opacity .3s
-						&:hover
-							span
-								color: $main-color
-								transition: color .1s
-					li:nth-child(1n+3)
-						transition-delay: .1s
-					li:nth-child(1n+4)
-						transition-delay: .2s
-					li:nth-child(1n+5)
-						transition-delay: .3s
-					li:nth-child(1n+6)
-						transition-delay: .4s
-					li:nth-child(1n+7)
-						transition-delay: .5s
+				// &:hover, &.opened
+				// 	.label
+				// 		.icon
+				// 			transform: rotate(-180deg)
+				// 	li:nth-child(1n+2)
+				// 		height: 1em
+				// 		opacity: 1
+				// 		pointer-events: all
+				// 		transition: opacity .3s
+				// 		&:hover
+				// 			span
+				// 				color: $main-color
+				// 				transition: color .1s
+				// 	li:nth-child(1n+3)
+				// 		transition-delay: .1s
+				// 	li:nth-child(1n+4)
+				// 		transition-delay: .2s
+				// 	li:nth-child(1n+5)
+				// 		transition-delay: .3s
+				// 	li:nth-child(1n+6)
+				// 		transition-delay: .4s
+				// 	li:nth-child(1n+7)
+				// 		transition-delay: .5s
 		.navigation-pannel
 			// padding: 23px 0 19px
 			display: flex
