@@ -406,6 +406,20 @@ section.video
 		margin-top: 58px
 		margin-left: 260px
 		height: 537px
+		white-space: nowrap
+		font-size: 0
+		letter-spacing: 0
+		& > ul
+			transition: transform .3s
+			white-space: nowrap
+			&.touched
+				transition: none !important
+				will-change: transform
+				li
+					display: inline-block
+					vertical-align: top
+					width: 100%
+					letter-spacing: 0
 		a.more
 			border: 3px solid $main-color
 			color: white
@@ -469,27 +483,53 @@ section.video
 		// float: right
 		margin-top: 29px
 		text-align: right
-		.arrow, .name
+		white-space: nowrap
+		font-size: 0
+		letter-spacing: 0
+		.arrow, .names-holder
 			display: inline-block
 			vertical-align: middle
 		.arrow
 			cursor: pointer
-		.name
-			color: black
-			font-size: 15px
-			font-weight: 600
-			line-height: 1em
-			margin: 0 46px
+			.left
+				margin-right: 46px
+			.right
+				margin-left: 46px
+		.names-holder
+			transition: none
+			font-size: 0
+			letter-spacing: 0
+			overflow: hidden
+		.names-slider
+			white-space: nowrap
+			transition: transform .6s
+			font-size: 0
+			letter-spacing: 0
+			width: 100%
+			.name, span
+				display: inline-block
+				vertical-align: middle
+				font-size: 15px
+				color: black
+				font-weight: 600
+				line-height: 1em
+				width: 100%
+				transition: opacity .2s
+				opacity: 0
+				text-align: center
+				&.active
+					opacity: 1
 	&.video-course
 		margin-top: 19px
 		.videos
 			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3)
 			height: 376px
 			margin-left: 0
-			ul
-				li
-					font-size: 0
-					letter-spacing: 0
+			li
+				display: inline-block
+				vertical-align: top
+				width: 100%
+				letter-spacing: 0
 			.card, .image-holder
 				display: inline-block
 			.card
@@ -1001,6 +1041,9 @@ input[type="text"], input[type="password"], input[type="email"]
 				position: absolute
 				top: 9px
 				width: 27px
+				color: transparent
+				background-image: url("../img/icons/search-icon-1.svg")
+				background-size: contain
 	.label
 		color: black
 		font-size: 15px

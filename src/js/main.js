@@ -196,6 +196,21 @@ $(document).on('ready', function () {
 			'padding': 20,
 			'viewportClass': 'container'
 		});
+		$('section.video').scrollSlider({
+			'nextClass': 'right',
+			'padding': 0,
+			'pageClass': 'page',
+			'pagination': false,
+			'prevClass': 'left',
+			'screenMaxWidth': 5000,
+			'slideClass': 'slide',
+			'slideNameSpinner': true,
+			'slideNamesHolderClass': 'names-holder',
+			'slideNameClass': 'name',
+			'slidesHolderClass': 'slider-holder',
+			'touch': true,
+			'viewportClass': 'content-holder'
+		});
 
 
 		// modals

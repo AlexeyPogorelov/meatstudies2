@@ -874,6 +874,7 @@ $.fn.scrollSlider = function (opt) {
 				state.touchStart.timeStamp = e.timeStamp;
 
 				state.touchStart.translateX = DOM.$slidesHolder.css('transform');
+				if (!state.touchStart.translateX) return;
 				state.touchStart.translateX = state.touchStart.translateX.split(', ');
 				state.touchStart.translateX = state.touchStart.translateX[4];
 				state.touchStart.translateX = parseFloat(state.touchStart.translateX);

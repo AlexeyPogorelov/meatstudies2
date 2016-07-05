@@ -54,8 +54,8 @@ html(lang='en')
 			.container
 				.content-holder
 					.videos
-						ul
-							li
+						ul.slider-holder
+							li.slide(data-name="UI+UX")
 								.card
 									.image-holder
 										img(src="img/content/videocourse-card-1.svg", alt="course")
@@ -67,13 +67,36 @@ html(lang='en')
 								.image-holder
 									img.fake-img(src="http://meatstudies.com/storage/app/uploads/public/56b/1c1/ef5/56b1c1ef5a179472959108.jpg", alt="article")
 									.img(style="background-image:url(http://meatstudies.com/storage/app/uploads/public/56b/1c1/ef5/56b1c1ef5a179472959108.jpg)")
-						.controls
-							.arrow.left
-								img(src="img/icons/slider-arrow-left-1.svg", alt="arrow")
-							.name
-								| UI+UX
-							.arrow.right
-								img(src="img/icons/slider-arrow-right-1.svg", alt="arrow")
+							li.slide(data-name="UX+UI")
+								.card
+									.image-holder
+										img(src="img/content/videocourse-card-1.svg", alt="course")
+									.description
+										.duration 15 уроков по 30 мин.
+										.price 2 000 грн / 80 usd
+								a(href="video.html").more
+									| подробнее о видеокурсе
+								.image-holder
+									img.fake-img(src="http://meatstudies.com/storage/app/uploads/public/56b/1c1/ef5/56b1c1ef5a179472959108.jpg", alt="article")
+									.img(style="background-image:url(http://meatstudies.com/storage/app/uploads/public/56b/1c1/ef5/56b1c1ef5a179472959108.jpg)")
+							li.slide(data-name="Frontend")
+								.card
+									.image-holder
+										img(src="img/content/videocourse-card-1.svg", alt="course")
+									.description
+										.duration 15 уроков по 30 мин.
+										.price 2 000 грн / 80 usd
+								a(href="video.html").more
+									| подробнее о видеокурсе
+								.image-holder
+									img.fake-img(src="http://meatstudies.com/storage/app/uploads/public/56b/1c1/ef5/56b1c1ef5a179472959108.jpg", alt="article")
+									.img(style="background-image:url(http://meatstudies.com/storage/app/uploads/public/56b/1c1/ef5/56b1c1ef5a179472959108.jpg)")
+					.controls
+						.arrow.left
+							img(src="img/icons/slider-arrow-left-1.svg", alt="arrow")
+						.names-holder
+						.arrow.right
+							img(src="img/icons/slider-arrow-right-1.svg", alt="arrow")
 
 		include ./partials/footer.jade
 		include ./partials/modals.jade
