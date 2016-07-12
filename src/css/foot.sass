@@ -20,6 +20,8 @@
 		@media (max-width: $mobile-large)
 			margin-bottom: 35px
 			width: 100%
+		@media (min-width: $fullHD)
+			width: 40%
 		input[type="text"], input.text
 			background-color: #f7f7f7
 			border: 1px solid #e6e6e6
@@ -58,6 +60,8 @@
 		justify-content: space-between
 		@media (max-width: $mobile-large)
 			display: none
+		@media (min-width: $fullHD)
+			padding-left: 40%
 		li
 			display: inline-block
 			&:hover
@@ -88,6 +92,9 @@
 			@media (max-width: $mobile-large)
 				text-align: center
 				width: 100%
+			@media (min-width: $fullHD)
+				display: inline-block
+				width: 40%
 			.phone, .address
 				font-weight: 400
 				@media (max-width: $mobile-large)
@@ -108,8 +115,9 @@
 					line-height: 1.4em
 					@media (max-width: $mobile-large)
 						letter-spacing: 0
-		.left
-			display: block
+		// .left
+			// @media (max-width: $fullHD - 1px)
+				// display: block
 		.right, .address
 			@media (max-width: $mobile-large)
 				display: none

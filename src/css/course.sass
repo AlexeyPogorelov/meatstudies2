@@ -11,6 +11,8 @@ section.courses-list
 		width: 75%
 		@media (max-width: $mobile-large)
 			width: 100%
+		@media (min-width: $fullHD)
+			width: 60%
 		p
 			color: black
 			font-size: 18px
@@ -32,6 +34,15 @@ section.courses-list
 			@media (max-width: $mobile-large)
 				margin-bottom: 82px
 				width: 100%
+			@media (min-width: $fullHD)
+				width: 40%
+				&:nth-child(3n+0)
+					width: 20%
+					p
+						width: 100%
+						width: calc(100% + 40px)
+					.btn
+						min-width: 100%
 			img
 				display: block
 				margin-bottom: -9px
@@ -119,11 +130,15 @@ section.hottest
 		@media (max-width: $mobile-large)
 			left: 20px
 			right: 20px
+		@media (min-width: $fullHD)
+			right: 20%
 	.container
 		position: relative
 		@media (max-width: $mobile-large)
 			padding: 0 40px
 			width: 100%
+		@media (min-width: $fullHD)
+			padding-right: 14%
 		&:before
 			display: block
 			position: absolute
@@ -137,6 +152,8 @@ section.hottest
 			@media (max-width: $mobile-large)
 				left: 20px
 				right: 20px
+			@media (min-width: $fullHD)
+				right: 20%
 	.content-holder
 		position: relative
 		padding: 54px 0 45px

@@ -78,6 +78,8 @@ label
 		padding: 10px
 		height: 40px
 		width: 40px
+	@media (min-width: $fullHD)
+		right: 39px
 	&:after
 		background: url("../img/icons/cross-button-2.svg") no-repeat 50% 50%
 		background-size: 100%
@@ -291,6 +293,8 @@ label
 		width: 25%
 		@media (max-width: $mobile-large)
 			padding-left: 20px
+		@media (min-width: $fullHD)
+			width: 20%
 		.image-holder
 			// TODO remove align left before production
 			text-align: left
@@ -370,6 +374,10 @@ label
 				border-color: #fff2a4
 				&:hover
 					background-color: #fff2a4
+		&:nth-child(1n+5)
+			margin-top: 224px
+			@media (min-width: $mobile-large + 1px) and (max-width: $fullHD - 1px)
+				display: none
 	.see-all
 		margin-top: -20px
 		@media (max-width: $mobile-large)
@@ -541,6 +549,9 @@ section.video
 					opacity: 1
 	&.video-course
 		margin-top: 19px
+		.content-holder
+			@media (min-width: $fullHD)
+				width: 80%
 		.videos
 			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3)
 			height: 376px

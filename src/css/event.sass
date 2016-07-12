@@ -97,6 +97,9 @@ section.all-events
 		margin-top: 161px
 	.section-label
 		top: 0
+	.events-list
+		@media (min-width: $fullHD)
+			padding-right: 20%
 	.event
 		margin-bottom: 78px
 		@media (max-width: $mobile-large)
@@ -182,6 +185,8 @@ section.all-events
 					height: 191px
 					min-height: 1px
 					width: 100%
+				@media (min-width: $fullHD)
+					min-height: auto
 		.description-container
 			width: 100% - 28.9%
 			@media (max-width: $mobile-large)
@@ -265,6 +270,9 @@ section.old-events
 		@media (max-width: $mobile-large)
 			margin: 0
 			width: 100%
+	.events-list
+		@media (min-width: $fullHD)
+			padding-right: 20%
 	.event
 		background-color: #fafafa
 		border: 1px solid #efefef
@@ -432,6 +440,8 @@ section.old-events
 			min-width: 25%
 			@media (max-width: $mobile-large)
 				width: 100%
+			@media (min-width: $fullHD)
+				min-width: 20%
 
 section.programm-graph
 	.section-label
