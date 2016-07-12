@@ -114,28 +114,48 @@ label
 	.container
 		position: relative
 		height: 100%
-	.line-1, .line-2, .line-3, .line-4, .line-5
+	%lines
 		position: absolute
 		// width: 1px
 		height: 100%
 		opacity: 0.2
 		border-left: 1px solid #979797
 	.line-1
+		@extend %lines
 		left: -1px
 	.line-2
+		@extend %lines
 		left: 25%
 		@media (max-width: $mobile-large)
 			display: none
+		@media (min-width: $fullHD)
+			left: 20%
 	.line-3
+		@extend %lines
 		left: 50%
 		@media (max-width: $mobile-large)
 			display: none
+		@media (min-width: $fullHD)
+			left: 40%
 	.line-4
+		@extend %lines
 		left: 75%
 		@media (max-width: $mobile-large)
 			display: none
+		@media (min-width: $fullHD)
+			left: 60%
 	.line-5
+		@extend %lines
 		right: -1px
+		@media (min-width: $fullHD)
+			right: auto
+			left: 80%
+	.line-6
+		@extend %lines
+		display: none
+		@media (min-width: $fullHD)
+			display: block
+			right: -1px
 
 
 // --------------------------------------------------

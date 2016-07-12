@@ -2,9 +2,12 @@
 .container
 	margin: 0 60px 0 auto
 	width: 72.4%
+	@media (min-width: $fullHD)
+		margin: 0 70px 0 auto
+		width: 70.3%
 
 //	SMALL
-@media screen and (max-width: $mobile-large)
+@media (max-width: $mobile-large)
 	body::-webkit-scrollbar
 		width: 0
 		height: 0
