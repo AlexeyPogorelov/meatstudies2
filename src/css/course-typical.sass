@@ -64,10 +64,17 @@ section.course-header
 		padding: 57px 59px
 		max-height: 100%
 		max-width: 23%
+		min-width: 180px
+		width: calc(27.6% - 160px)
+		@media (min-width: $fullHD)
+			padding: 57px 69px
+			//width: calc(27.6% - 160px)
 		@media (max-width: $mobile-large)
 			position: relative
 			padding: 20px 20px
 			max-width: 100%
+			min-width: 100%
+			width: auto
 			height: auto
 			display: flex
 			justify-content: space-between
@@ -115,12 +122,18 @@ section.course-page
 		@media (max-width: $mobile-large)
 			padding: 25px 0 12px
 			width: 100%
+		@media (min-width: $fullHD)
+			padding-right: 40px
+			width: 80%
+			width: calc(80% + 40px)
 	.article-like
 		top: 186px
-		left: 16.7%
+		left: calc(27.6% - 160px)
 		@media (max-width: $mobile-large)
 			left: 0
 			top: 0
+		//@media (min-width: $fullHD)
+		//	left: calc(27.6% - 160px)
 	.wysiwyg
 		p
 			color: black
@@ -162,6 +175,9 @@ section.for
 			@media (max-width: $mobile-large)
 				left: -20px
 				display: none
+			@media (min-width: $fullHD)
+				right: 0
+				width: auto
 	.content-holder
 		position: relative
 		padding: 52px 60px 19px
@@ -219,6 +235,8 @@ section.programm
 			@media (max-width: $mobile-large)
 				padding: 0 20px
 				width: calc(100vw - 40px)
+			@media (min-width: $fullHD)
+				width: 20%
 			h2
 				color: black
 				font-size: 30px

@@ -550,11 +550,15 @@ section.event-head
 			padding-right: 20px
 			@media (max-width: $mobile-large)
 				display: none
+			@media (min-width: $fullHD)
+				width: 20%
 		input, .form-group
 			margin-bottom: 0
 			width: 50%
 			@media (max-width: $mobile-large)
 				width: 100%
+			@media (min-width: $fullHD)
+				width: 40%
 			&::placeholder
 				color: transparent
 				@media (max-width: $mobile-large)
@@ -603,6 +607,8 @@ section.event-head
 			padding: 14px 14px
 			@media (max-width: $mobile-large)
 				width: 100%
+			@media (min-width: $fullHD)
+				margin-right: 40%
 	.mobile-description
 		display: none
 		margin-bottom: 20px
