@@ -7,6 +7,8 @@ section.profile-top
 		vertical-align: top
 		font-size: 0
 		letter-spacing: 0
+		@media (min-width: $fullHD)
+			padding-right: 14%
 	.user-info
 		width: 50%
 		display: inline-block
@@ -25,10 +27,15 @@ section.profile-top
 			padding: 15px 57px
 			@media (max-width: $mobile-large)
 				width: 100%
+			@media (min-width: $fullHD)
+				width: 50%
 
 section.homeworks
 	margin-top: 62px
 	overflow: hidden
+	.container
+		@media (min-width: $fullHD)
+			padding-right: 14%
 	.homeworks-list
 		$width: 22.3%
 		$gap: (100% / 3 - $width) / 2

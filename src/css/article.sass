@@ -55,7 +55,7 @@ section.article
 			line-height: 30px
 	.article-like
 		// margin: 0 20px
-		position: static
+		// position: static
 		margin-bottom: 37px
 	.article-header
 		margin-left: auto
@@ -65,6 +65,9 @@ section.article
 			padding-left: 20px
 			padding-right: 20px
 			width: 100%
+		@media (min-width: $fullHD)
+			margin-right: calc(14% + 70px)
+			width: 56.3%
 		h1
 			margin: 0
 			@media (max-width: $mobile-large)
@@ -100,6 +103,9 @@ section.article
 				margin-left: 0
 				margin-right: 0
 				width: 100%
+			@media (min-width: $fullHD)
+				margin-right: calc(14% + 70px)
+				width: 56.3%
 		& > .full
 			margin-bottom: 60px
 			width: 100%
@@ -115,6 +121,9 @@ section.article
 				margin-left: 0
 				margin-right: 0
 				width: 100%
+			@media (min-width: $fullHD)
+				margin-right: 70px
+				width: 70.3%
 
 section.article-share
 	position: relative
@@ -210,11 +219,15 @@ section.article-comments
 		@media (max-width: $mobile-large)
 			margin-top: 73px
 			width: 100%
+		@media (min-width: $fullHD)
+			width: 100%
 	textarea
 		min-height: 200px
 		width: 100%
 		@media (max-width: $mobile-large)
 			min-height: 189px
+		@media (min-width: $fullHD)
+			width: 80%
 	.comments-holder
 		width: 75%
 		@media (max-width: $mobile-large)
@@ -312,6 +325,8 @@ section.article-recomend
 		@media (max-width: $mobile-large)
 			width: 300%
 			width: calc(300% - 60px)
+		@media (min-width: $fullHD)
+			padding-right: 20%
 		&.touched
 			transition: none !important
 		a

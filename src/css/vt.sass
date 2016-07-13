@@ -56,6 +56,8 @@ section.yellow-board
 				width: 100%
 				&:last-child
 					margin-bottom: 18px
+			@media (min-width: $fullHD)
+				width: 40%
 			span.month
 				font-size: 13px
 				font-weight: 400
@@ -154,6 +156,8 @@ section.course-events
 				// margin-top: 81px
 				padding-right: 0
 				width: 100%
+			@media (min-width: $fullHD)
+				width: 40%
 			p
 				@media (max-width: $mobile-large)
 					display: inline-block
@@ -375,12 +379,14 @@ section.download-materials
 		letter-spacing: 0
 		margin-top: 97px
 		.down-item
-			width: 50%
 			display: inline-block
 			font-size: 0
 			letter-spacing: 0
+			width: 50%
 			@media (max-width: $mobile-large)
 				width: 100%
+			@media (min-width: $fullHD)
+				width: 40%
 			.image-container, .description
 				display: inline-block
 				vertical-align: top
@@ -425,6 +431,8 @@ section.download-materials
 				width: 200%
 		.down-item
 			width: 50%
+			@media (min-width: $fullHD)
+				width: 40%
 	& ~ .subscribe
 		@media (max-width: $mobile-large)
 			margin-top: 100px

@@ -26,6 +26,9 @@ section.register-block
 		padding-right: 40px
 		@media (max-width: $mobile-large)
 			padding-right: 0
+		@media (min-width: $fullHD)
+			padding-right: 130px
+			width: 60%
 		p
 			color: black
 			font-size: 18px
@@ -41,6 +44,8 @@ section.register-block
 			box-shadow: none
 			padding: 0
 			width: 100%
+		@media (min-width: $fullHD)
+			width: 40%
 		h2
 			color: #1a1a1a
 			font-size: 30px
@@ -535,6 +540,9 @@ section.programm-graph
 
 section.video-stream
 	margin-top: 49px
+	.container
+		@media (min-width: $fullHD)
+			padding-right: 14%
 	.section-label
 		top: 0
 	.video-stream-holder

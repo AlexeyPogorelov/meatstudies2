@@ -26,6 +26,8 @@
 	.content-holder
 		@media (max-width: $mobile-large)
 			margin: 0 -20px
+		@media (min-width: $fullHD)
+			padding-right: 20%
 	.item
 		display: inline-block
 		vertical-align: top
@@ -36,6 +38,8 @@
 			height: 247px
 			height: 77.2vw
 			width: 50%
+		@media (min-width: $fullHD)
+			height: 13.2vw
 		.image-holder
 			position: relative
 			// background: #00ff00
@@ -147,6 +151,8 @@
 			padding: 11px 35px
 			@media (max-width: $mobile-large)
 				width: 100%
+			@media (min-width: $fullHD)
+				min-width: 20%
 
 // TAGS
 .tags input[type="checkbox"]
@@ -253,6 +259,8 @@ section.event-head
 			width: 50%
 			@media (max-width: $mobile-large)
 				width: 100%
+			@media (min-width: $fullHD)
+				width: 40%
 		.address
 			color: white
 			display: inline-block
@@ -262,6 +270,8 @@ section.event-head
 			width: 50%
 			@media (max-width: $mobile-large)
 				width: 100%
+			@media (min-width: $fullHD)
+				width: 40%
 			&:before
 				background: url(../img/icons/pin-1.svg) no-repeat
 				background-size: contain
