@@ -834,7 +834,7 @@ $.fn.scrollSlider = function (opt) {
 
 				DOM.$slidesHolder.css({
 					'transform': ' translateX(' + -state.current * state.slideWidth + 'px)'
-				})
+				});
 
 				if (opt.slideNameSpinner) {
 					DOM.$namesSlider.css({
@@ -1250,7 +1250,7 @@ $.fn.contentSlider = function (opt) {
 
 				DOM.$slidesHolder.css({
 					'transform': ' translateX(' + -state.current * state.slideWidth + 'px)'
-				})
+				});
 
 				if (opt.slideNameSpinner) {
 					DOM.$namesSlider.css({
@@ -1877,7 +1877,7 @@ $.fn.cardsSlider = function (opt) {
 						'transform': '',
 						'transform-origin': '',
 						'left': ''
-					}
+					};
 				state.$activeSlide
 					.removeClass('active')
 					.css(resetStyles);
@@ -1936,33 +1936,33 @@ $.fn.cardsSlider = function (opt) {
 
 					state.direction = 0;
 					plg.renderReset( state.current );
-					return;
+
 
 				} else if (mult <= -1) {
 
 					state.direction = 0;
 					plg.renderReset( plg.nextSlide() );
-					return;
+
 
 				} else if (mult >= 1) {
 
 					state.direction = 0;
 					plg.renderReset( plg.prevSlide() );
-					return;
+
 
 				} else if (mult > 0) {
 
 					if (state.direction == -1) plg.renderReset( state.current );
 					state.direction = 1;
-					plg.renderFw($activeSlide, $futureSlide, mult, step.get(), stepChanged)
-					return;
+					plg.renderFw($activeSlide, $futureSlide, mult, step.get(), stepChanged);
+
 
 				} else if (mult < 0) {
 
 					if (state.direction == 1) plg.renderReset( state.current );
 					state.direction = -1;
-					plg.renderBw($activeSlide, $futureSlide, mult, step.get(), stepChanged)
-					return;
+					plg.renderBw($activeSlide, $futureSlide, mult, step.get(), stepChanged);
+
 
 				}
 
@@ -2107,7 +2107,7 @@ $.fn.cardsSlider = function (opt) {
 
 				var $slideTrigger = $target.closest(opt.slideClass);
 				var targetId =  parseInt( $slideTrigger.attr('data-id') );
-				if (typeof targetId !== 'number') return
+				if (typeof targetId !== 'number') return;
 
 				// TODO not .not('.cloned')
 

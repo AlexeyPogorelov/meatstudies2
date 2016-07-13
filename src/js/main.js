@@ -5,9 +5,9 @@ if ($.browser.safari) $('body').addClass('safari');
 var meatstudies = {};
 
 // WOW classes
-(function () {
-	if ($.browser.mobile) return;
-})();
+// (function () {
+// 	if ($.browser.mobile);
+// })();
 
 var loading = {
 	avgTime: 3000,
@@ -215,174 +215,170 @@ $(document).on('ready', function () {
 
 		// modals
 		var modals = (function () {
-		
-					$('[data-modal]').on('click', function (e) {
-		
-						e.preventDefault();
 
-		
-						var $self = $(this),
-							target = $self.attr('data-modal'),
-							$target = $(target);
-		
-						if ( $self.hasClass('active') ) return;
+			var plg;
+			$('[data-modal]').on('click', function (e) {
+				e.preventDefault();
 
-						if ($target.length) {
-		
-							modals.openModal($target);
-		
-						} else {
-		
-							console.warn('Ошибка в элементе:');
-							console.log(this);
-							console.warn('Не найдены элементы с селектором ' + target);
-		
-						}
-						
-					});
-		
-					$('[data-close]').on('click', function (e) {
-		
-						e.preventDefault();
-		
-						var $self = $(this),
-							target = $self.attr('data-close'),
-							$target;
-		
-						if (target) {
-		
-							$target = $(target);
-		
-							if ($target.length) {
-		
-								modals.closeModal( $target );
-		
-							}
-		
-						} else {
-		
-							modals.closeModal( $self.closest('.opened') );
-		
-						}
-		
-					});
-		
-					$('.modal-holder').not('.fake').on('click', function (e) {
-		
-						if (e.target === this) {
-		
-							modals.closeModal( $(this) );
-		
-						}
-		
-					});
-		
-					$window.on('keyup', function (e) {
-		
-						// esc pressed
-						if (e.keyCode == '27') {
-		
+
+				var $self = $(this),
+					target = $self.attr('data-modal'),
+					$target = $(target);
+
+				if ( $self.hasClass('active') ) return;
+
+				if ($target.length) {
+					modals.openModal($target);
+				} else {
+					console.warn('Ошибка в элементе:');
+					console.log(this);
+					console.warn('Не найдены элементы с селектором ' + target);
+				}
+
+			});
+
+			$('[data-close]').on('click', function (e) {
+
+				e.preventDefault();
+
+				var $self = $(this),
+					target = $self.attr('data-close'),
+					$target;
+
+				if (target) {
+
+					$target = $(target);
+
+					if ($target.length) {
+
+						modals.closeModal( $target );
+
+					}
+
+				} else {
+
+					modals.closeModal( $self.closest('.opened') );
+
+				}
+
+			});
+
+			$('.modal-holder').not('.fake').on('click', function (e) {
+
+				if (e.target === this) {
+
+					modals.closeModal( $(this) );
+
+				}
+
+			});
+
+			$window.on('keyup', function (e) {
+
+				// esc pressed
+				if (e.keyCode == '27') {
+
+					modals.closeModal();
+
+				}
+
+			});
+			plg = {
+				opened: [],
+				openModal: function ( $modal ) {
+
+					if (!$modal.data('modal-ununique') && this.opened.length > 0) {
+						modals.closeModal( this.opened[this.opened.length - 1], true );
+					}
+					this.opened.push( $modal );
+					// $modal.addClass('opened').one( transitionPrefix, bodyOverflow.fixBody );
+
+					$modal.off( transitionPrefix ).addClass('opened');
+					bodyOverflow.fixBody();
+
+					if ( $modal.is('[data-cross]') ) {
+
+						this.$cross = $('<div>').addClass('cross-top-fixed animated ' + $modal.attr('data-cross') ).one('click', function () {
+
 							modals.closeModal();
-		
+
+						}).one(animationPrefix, function () {
+
+							$(this).removeClass( 'animated' );
+
+						}).appendTo('body');
+
+					}
+
+				},
+				closeModal: function ($modal, alt) {
+
+					if ( this.opened.length > 0 && !$modal ) {
+
+						for ( var y = 0; y < this.opened.length; y++ ) {
+
+							this.closeModal( this.opened[y] );
+
 						}
-		
-					});
-					var plg = {
-						opened: [],
-						openModal: function ( $modal ) {
-		
-							if (!$modal.data('modal-ununique') && this.opened.length > 0) {
-								modals.closeModal( this.opened[this.opened.length - 1], true );
-							}
-							this.opened.push( $modal );
-							// $modal.addClass('opened').one( transitionPrefix, bodyOverflow.fixBody );
-		
-							$modal.off( transitionPrefix ).addClass('opened');
-							bodyOverflow.fixBody();
-		
-							if ( $modal.is('[data-cross]') ) {
-		
-								this.$cross = $('<div>').addClass('cross-top-fixed animated ' + $modal.attr('data-cross') ).one('click', function () {
-		
-									modals.closeModal();
-		
-								}).one(animationPrefix, function () {
-		
-									$(this).removeClass( 'animated' );
-		
-								}).appendTo('body');
-		
-							}
-		
-						},
-						closeModal: function ($modal, alt) {
-		
-							if ( this.opened.length > 0 && !$modal ) {
-		
-								for ( var y = 0; y < this.opened.length; y++ ) {
-		
-									this.closeModal( this.opened[y] );
-		
-								}
-		
-								return;
-		
-							} else if ( $modal && !($modal instanceof jQuery) ) {
-		
-								$modal = $( $modal );
-		
-							} else if ( $modal === undefined ) {
-		
-								throw 'something went wrong';
-		
-							}
-		
-							try {
-		
-								$modal.removeClass('opened');
-		
-							} catch (e) {
-		
-								console.error(e);
-		
-								this.closeModal();
-		
-								return;
-		
-							}
-		
-							this.opened.pop();
-		
-							if (!alt) {
-		
-								$modal.one( transitionPrefix, bodyOverflow.unfixBody );
-		
-								try {
-		
-									this.$cross.addClass('fadeOut').one(animationPrefix, function () {
-		
-										$(this).remove();
-		
-									});
-		
-								} catch (e) {
-		
-									console.error(e);
-		
-								}
-		
-							} else {
-		
-								this.$cross.remove();
-		
-							}
-		
+
+						return;
+
+					} else if ( $modal && !($modal instanceof jQuery) ) {
+
+						$modal = $( $modal );
+
+					} else if ( $modal === undefined ) {
+
+						throw 'something went wrong';
+
+					}
+
+					try {
+
+						$modal.removeClass('opened');
+
+					} catch (e) {
+
+						console.error(e);
+
+						this.closeModal();
+
+						return;
+
+					}
+
+					this.opened.pop();
+
+					if (!alt) {
+
+						$modal.one( transitionPrefix, bodyOverflow.unfixBody );
+
+						try {
+
+							this.$cross.addClass('fadeOut').one(animationPrefix, function () {
+
+								$(this).remove();
+
+							});
+
+						} catch (e) {
+
+							console.error(e);
+
 						}
-		
-					};
-		
-					return plg;
-				})();
+
+					} else {
+
+						this.$cross.remove();
+
+					}
+
+				}
+
+			};
+
+			return plg;
+		})();
 
 		// tooltips
 		var tooltips = (function () {
@@ -495,7 +491,7 @@ $(document).on('ready', function () {
 		};
 
 		// show password
-		$('.show-password-button').on('click', function (e) {
+		$('.show-password-button').on('click', function () {
 			$(this).siblings('input').each(function () {
 				var $input = $(this);
 				if ( $input.attr('type') === "password" ) {
@@ -507,12 +503,12 @@ $(document).on('ready', function () {
 		});
 
 		// course event submenu
-		$('.course-event-item').on('click', function (e) {
+		$('.course-event-item').on('click', function () {
 			$(this).toggleClass('active');
 		});
 
 		// profilemenu mobile
-		$('.profilemenu-mobile').on('click', function (e) {
+		$('.profilemenu-mobile').on('click', function () {
 			var $self = $(this),
 				$modal = $('#profilemenu-mobile-modal');
 
@@ -571,9 +567,8 @@ $(document).on('ready', function () {
 
 		// scroll
 		$(document).on('scroll', function () {
-
-			var top = $(this).scrollTop();
-
+			var top;
+			top = $(this).scrollTop();
 		});
 
 		// resize

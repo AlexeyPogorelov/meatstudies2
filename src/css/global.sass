@@ -94,14 +94,13 @@ h6
 	font-size: 20px
 	font-weight: 500
 	line-height: 19px
-h1, h2, h3, h4, h5, h6
+//h1, h2, h3, h4, h5, h6
 hr
 	border: 0
 	display: block
 	// border-top: 1px solid $main-color
-	background: url("../img/bg/bg-line-1.jpg")
 	background-size: cover
-	background-position: 50% 50%
+	background: url('../img/bg/bg-line-1.jpg') 50% 50%
 	height: 2px
 	margin-top: 60px
 	margin-bottom: 60px
@@ -147,6 +146,7 @@ textarea
 		padding-top: 7px
 		padding-left: 8px
 		padding-right: 8px
+	//noinspection CssInvalidPseudoSelector
 	&::placeholder
 		font-size: 15px
 		font-weight: 600
@@ -279,9 +279,9 @@ input
 				color: #999
 		+ label
 			color: #aaa
-	&:checked:focus + label:before, &:not(:checked):focus + label:before
+	//&:checked:focus + label:before, &:not(:checked):focus + label:before
 		//border: 2px solid #777
-	&:checked:focus + label:after, &:not(:checked):focus + label:after
+	//&:checked:focus + label:after, &:not(:checked):focus + label:after
 // END RADIO
 
 //	INPUT FILE
@@ -301,7 +301,7 @@ input
 		pointer-events: none
 		position: absolute
 		top: 0
-		&:hover + label, &:focus + label
+		//&:hover + label, &:focus + label
 //	END INPUT FILE
 
 //	INPUT NUMBER
@@ -454,7 +454,7 @@ input
 		margin-top: -2px
 		position: fixed
 		top: 50%
-		width: 100%
+		//width: 100%
 		width: 10px
 		transition: width .6s
 		animation: fadeIn 1.6s
